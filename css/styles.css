@@ -11050,3 +11050,7 @@ header.masthead h1, header.masthead .h1 {
 #mainNav .navbar-nav .nav-link:hover {
   color: #d63384 !important;
 }
+
+#mainNav {
+  background: transparent;
+}
