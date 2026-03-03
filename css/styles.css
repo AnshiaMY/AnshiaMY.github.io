@@ -11064,7 +11064,7 @@ header.masthead h1, header.masthead .h1 {
   font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1rem;
 }
 
@@ -11073,7 +11073,7 @@ header.masthead h1, header.masthead .h1 {
 .masthead-description {
   font-size: 1.3rem;
   font-weight: 400;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.6;
   margin-top: 1rem;
 }
@@ -11083,7 +11083,7 @@ header.masthead h1, header.masthead .h1 {
 .masthead-subtitle {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #ffffff !important;
   opacity: 0.95;
   margin-top: 0.5rem;
 }
