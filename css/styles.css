@@ -11048,9 +11048,27 @@ header.masthead h1, header.masthead .h1 {
 }
 
 #mainNav .navbar-nav .nav-link:hover {
-  color: #d63384 !important;
+  color: #ffd6e7 !important;
 }
 
 #mainNav {
   background: transparent;
+}
+
+/* --- Masthead typography improvements --- */
+
+header.masthead h1 {
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+header.masthead p {
+  font-size: 1.25rem;
+}
+
+header.masthead .masthead-subtitle {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 500;
 }
