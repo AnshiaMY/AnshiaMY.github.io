@@ -11055,35 +11055,12 @@ header.masthead h1, header.masthead .h1 {
   background: transparent;
 }
 
-/* --- Masthead typography improvements --- */
+/* Masthead text fixes */
 
-/* Name */
-
-.masthead-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.6rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+header.masthead p.text-white-75 {
   color: #ffffff !important;
-  margin-bottom: 1rem;
 }
 
-/* Description */
-
-.masthead-description {
-  font-size: 1.3rem;
-  font-weight: 400;
+header.masthead p.text-white-50 {
   color: #ffffff !important;
-  line-height: 1.6;
-  margin-top: 1rem;
-}
-
-/* Location / Co-op Line */
-
-.masthead-subtitle {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #ffffff !important;
-  opacity: 0.95;
-  margin-top: 0.5rem;
 }
