@@ -11039,16 +11039,26 @@ header.masthead h1, header.masthead .h1 {
 
 /* --- Masthead navbar readability fix --- */
 
-#mainNav .navbar-brand {
-  color: #ffffff !important;
+/* Navbar color behavior */
+
+/* When at the top (over masthead) */
+
+#mainNav:not(.navbar-shrink) .navbar-brand {
+  color: #ffffff;
 }
 
-#mainNav .navbar-nav .nav-link {
-  color: #ffffff !important;
+#mainNav:not(.navbar-shrink) .nav-link {
+  color: #ffffff;
 }
 
-#mainNav .navbar-nav .nav-link:hover {
-  color: #ffd6e7 !important;
+/* When user scrolls */
+
+#mainNav.navbar-shrink .navbar-brand {
+  color: #212529;
+}
+
+#mainNav.navbar-shrink .nav-link {
+  color: #212529;
 }
 
 #mainNav {
