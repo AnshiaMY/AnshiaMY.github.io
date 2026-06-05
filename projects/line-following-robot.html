@@ -3,18 +3,274 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+
+  <!-- Main CSS -->
+  <link href="../css/styles.css" rel="stylesheet" />
 </head>
+
 <body>
 
-  <h1>Autonomous Line-Following Robot</h1>
+  <!-- Simple Project Navigation -->
+  <nav class="project-nav">
+    <a href="../index.html" class="back-link">
+      ← Back to Home
+    </a>
 
-  <p>
-    This page will include a detailed project write-up with photos, videos,
-    design process, challenges, testing, and final results.
-  </p>
+    <div class="project-nav-links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
 
-  <a href="../index.html">Back to Home</a>
+  <!-- Project Hero -->
+  <header class="project-hero">
+    <div class="project-hero-text">
+      <p class="project-label">Robotics • Embedded Systems • Testing</p>
+
+      <h1>Autonomous Line-Following Robot</h1>
+
+      <p class="project-intro">
+        A sensor-based robot designed to follow black paths using Arduino control logic,
+        motor response, and repeated testing across different track conditions.
+      </p>
+
+      <div class="project-tags">
+        <span>Arduino</span>
+        <span>C++</span>
+        <span>Sensors</span>
+        <span>Motor Control</span>
+        <span>Robotics</span>
+      </div>
+    </div>
+
+    <div class="project-hero-media">
+      <!-- Replace this with your best video later -->
+      <video controls>
+        <source src="../assets/projects/line-robot/racetrack-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- The Build -->
+    <section class="project-section">
+      <div class="section-heading">
+        <h2>The Build</h2>
+        <p>
+          This project combined mechanical assembly, wiring, programming, sensor testing,
+          and debugging to create a robot that could respond to different path conditions.
+        </p>
+      </div>
+
+      <div class="info-card-grid">
+
+        <div class="info-card">
+          <h3>What I Built</h3>
+          <p>
+            An autonomous robot that detects black paths and adjusts its movement to stay
+            aligned with the track.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>My Role</h3>
+          <p>
+            I worked on programming, wiring, sensor calibration, testing, debugging,
+            and observing how the robot responded during different trials.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Tools Used</h3>
+          <p>
+            Arduino, C++, IR sensors, DC motors, motor driver, chassis components,
+            wiring, and physical test tracks.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Demos -->
+    <section class="project-section demo-section">
+      <div class="section-heading">
+        <h2>The Demos</h2>
+        <p>
+          I tested the robot in three different conditions to understand its tracking,
+          turning, and boundary-response behaviour.
+        </p>
+      </div>
+
+      <div class="demo-grid">
+
+        <!-- Demo 1 -->
+        <article class="demo-card">
+          <video controls>
+            <source src="../assets/projects/line-robot/straight-line-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <div class="demo-card-body">
+            <h3>Straight Line Test</h3>
+            <p>
+              This test showed whether the robot could maintain stable movement on a simple
+              path before trying more difficult track shapes.
+            </p>
+          </div>
+        </article>
+
+        <!-- Demo 2 -->
+        <article class="demo-card">
+          <video controls>
+            <source src="../assets/projects/line-robot/racetrack-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <div class="demo-card-body">
+            <h3>Racetrack Path Test</h3>
+            <p>
+              This test challenged the robot’s ability to handle curves and direction changes
+              while staying aligned with the path.
+            </p>
+          </div>
+        </article>
+
+        <!-- Demo 3 -->
+        <article class="demo-card">
+          <video controls>
+            <source src="../assets/projects/line-robot/black-circle-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <div class="demo-card-body">
+            <h3>Black Circle Test</h3>
+            <p>
+              This test showed how the robot behaved when placed inside a dark circular boundary
+              and whether the control logic kept it contained.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Behind the System -->
+    <section class="project-section">
+      <div class="section-heading">
+        <h2>Behind the System</h2>
+        <p>
+          The robot’s behaviour came from the interaction between sensor readings,
+          Arduino logic, and motor response.
+        </p>
+      </div>
+
+      <div class="system-flow">
+        <div class="flow-step">
+          <span>1</span>
+          <h3>Sensors Detect Path</h3>
+          <p>The sensors read contrast between the black path and the surrounding surface.</p>
+        </div>
+
+        <div class="flow-step">
+          <span>2</span>
+          <h3>Arduino Reads Input</h3>
+          <p>The Arduino processes the sensor readings and determines how the robot should respond.</p>
+        </div>
+
+        <div class="flow-step">
+          <span>3</span>
+          <h3>Motors Adjust</h3>
+          <p>The motors change speed or direction to help the robot correct its position.</p>
+        </div>
+
+        <div class="flow-step">
+          <span>4</span>
+          <h3>Robot Corrects</h3>
+          <p>The robot moves back toward the path and continues following the track.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Improved -->
+    <section class="project-section">
+      <div class="section-heading">
+        <h2>What I Improved</h2>
+        <p>
+          Testing helped reveal how small physical and software changes affected the robot’s movement.
+        </p>
+      </div>
+
+      <div class="improvement-list">
+
+        <div class="improvement-item">
+          <h3>Turning was inconsistent</h3>
+          <p>
+            I tested the robot on simpler paths first, then used curved tracks to observe where
+            it overcorrected or lost alignment.
+          </p>
+        </div>
+
+        <div class="improvement-item">
+          <h3>Sensor readings were sensitive</h3>
+          <p>
+            I learned that lighting, surface colour, and sensor placement could affect the robot’s
+            behaviour, so testing on the actual track surface was important.
+          </p>
+        </div>
+
+        <div class="improvement-item">
+          <h3>Physical movement affected the code</h3>
+          <p>
+            I observed that wiring, motor speed, chassis alignment, and sensor position all affected
+            how the robot responded to the same control logic.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final Reflection -->
+    <section class="project-section reflection-section">
+      <div class="section-heading">
+        <h2>Final Reflection</h2>
+      </div>
+
+      <div class="reflection-box">
+        <p>
+          This project helped me understand how software, electrical components, and mechanical
+          design interact in a real robotic system. The most valuable part was testing the robot
+          in different conditions and seeing how small physical changes affected the control behaviour.
+        </p>
+
+        <h3>Future Improvements</h3>
+
+        <ul>
+          <li>Cleaner wiring and cable management</li>
+          <li>More secure sensor mounting</li>
+          <li>Smoother turning control</li>
+          <li>More consistent testing data across different track layouts</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <section class="project-section project-bottom-nav">
+      <a class="btn btn-primary" href="../index.html#projects">Back to Projects</a>
+      <a class="btn btn-outline-primary" href="../index.html#contact">Contact Me</a>
+    </section>
+
+  </main>
 
 </body>
 </html>
