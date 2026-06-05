@@ -11074,3 +11074,82 @@ header.masthead p.text-white-75 {
 header.masthead p.text-white-50 {
   color: #ffffff !important;
 }
+
+.project-scroll-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  scroll-snap-type: x mandatory;
+}
+
+.featured-project-card {
+  min-width: 320px;
+  max-width: 360px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.project-image-placeholder {
+  height: 200px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.project-card-body {
+  padding: 1.5rem;
+}
+
+.project-type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.project-card-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.project-tags span {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid #dee2e6;
+  border-radius: 999px;
+  background: #f8f9fa;
+}
+
+.experience-card {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.experience-date {
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.experience-company {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
