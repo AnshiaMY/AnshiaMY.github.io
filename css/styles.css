@@ -11839,3 +11839,114 @@ body {
     padding: 4.5rem 6%;
   }
 }
+/* ================================
+   Extra Effects
+================================ */
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--portfolio-pink), #ff8ac4);
+  z-index: 9999;
+  box-shadow: 0 0 18px rgba(214, 51, 132, 0.55);
+}
+
+/* Reveal on Scroll */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Video Hover Effect */
+.demo-video-frame {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.demo-video-frame:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 34px 90px rgba(214, 51, 132, 0.22);
+}
+
+/* Better Button Shine */
+.hero-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.hero-btn:hover::before {
+  left: 120%;
+}
+
+/* Floating Tech Tags */
+.project-tech-stack span {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+.project-tech-stack span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.project-tech-stack span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.project-tech-stack span:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.project-tech-stack span:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+.project-tech-stack span:nth-child(6) {
+  animation-delay: 2s;
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden,
+  .reveal-visible,
+  .demo-video-frame,
+  .hero-btn::before,
+  .project-tech-stack span {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
