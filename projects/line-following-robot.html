@@ -322,5 +322,44 @@
 
   </main>
 
+  <!-- Scroll Progress Bar -->
+<div class="scroll-progress"></div>
+
+<!-- Project Page Effects -->
+<script>
+  // Scroll progress bar
+  window.addEventListener("scroll", () => {
+    const scrollProgress = document.querySelector(".scroll-progress");
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    scrollProgress.style.width = scrollPercent + "%";
+  });
+
+  // Reveal elements on scroll
+  const revealElements = document.querySelectorAll(
+    ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
+  );
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealElements.forEach(element => {
+    element.classList.add("reveal-hidden");
+    revealObserver.observe(element);
+  });
+</script>
+
 </body>
 </html>
