@@ -29,8 +29,8 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto my-2 my-lg-0">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Co-ops</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -102,99 +102,170 @@
   </div>
 </section>
 
-<!-- Skills -->
-        <section class="page-section bg-light" id="skills">
-  <div class="container px-4 px-lg-5">
-    <h2 class="text-center mt-0">Skills</h2>
-    <hr class="divider" />
-
-    <div class="row gx-4 gx-lg-5">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="skill-card h-100 p-4">
-          <div class="mb-2"><i class="bi-cpu fs-1 text-primary"></i></div>
-          <h3 class="h5 mb-2">Embedded & Hardware</h3>
-          <p class="text-muted mb-0">Microcontrollers, sensors/actuators, wiring, breadboarding, debugging.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="skill-card h-100 p-4">
-          <div class="mb-2"><i class="bi-code-slash fs-1 text-primary"></i></div>
-          <h3 class="h5 mb-2">Programming</h3>
-          <p class="text-muted mb-0">C/C++, Python (if applicable), structured problem-solving, clean code.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="skill-card h-100 p-4">
-          <div class="mb-2"><i class="bi-tools fs-1 text-primary"></i></div>
-          <h3 class="h5 mb-2">Design & Build</h3>
-          <p class="text-muted mb-0">CAD, prototyping, iteration, documentation, testing mindset.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
         <!-- Portfolio-->
         <section class="page-section" id="projects">
+  <!-- Featured Projects -->
+<section class="page-section bg-light" id="projects">
   <div class="container px-4 px-lg-5">
-    <h2 class="text-center mt-0">Projects</h2>
-    <hr class="divider" />
 
-    <div class="row gx-4 gx-lg-5">
+    <div class="text-center mb-5">
+      <h2 class="mt-0">Featured Projects</h2>
+      <hr class="divider" />
+      <p class="text-muted mb-0">
+        A collection of hands-on engineering projects involving robotics, embedded systems,
+        circuits, CAD, testing, and design iteration.
+      </p>
+    </div>
+
+    <div class="project-scroll-wrapper">
 
       <!-- Project 1 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="project-card h-100 p-4">
-          <h3 class="h5">Autonomous Line-Following Robot</h3>
-          <p class="text-muted mb-3">
-            Built an Arduino-based robot with sensor calibration and PID tuning to improve tracking stability.
-          </p>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="tag">Arduino</span><span class="tag">PID</span><span class="tag">Sensors</span><span class="tag">3D Print</span>
-          </div>
-          <div class="d-flex gap-2">
-            <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-outline-primary btn-sm" href="#" target="_blank" rel="noopener">Write-up</a>
-          </div>
+      <article class="featured-project-card">
+        <div class="project-image-placeholder">
+          <span>Project Image / Video</span>
         </div>
-      </div>
+
+        <div class="project-card-body">
+          <p class="project-type">Robotics • Embedded Systems</p>
+          <h3>Autonomous Line-Following Robot</h3>
+
+          <p>
+            Designed and tuned an Arduino-based robot using sensor calibration,
+            motor control, and PID logic to improve line-tracking stability.
+          </p>
+
+          <div class="project-tags">
+            <span>Arduino</span>
+            <span>C++</span>
+            <span>PID Control</span>
+            <span>Sensors</span>
+          </div>
+
+          <a class="btn btn-primary btn-sm" href="projects/line-following-robot.html">
+            View Project
+          </a>
+        </div>
+      </article>
 
       <!-- Project 2 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="project-card h-100 p-4">
-          <h3 class="h5">Custom PCB Fabrication</h3>
-          <p class="text-muted mb-3">
-            Designed and assembled circuits, validated with multimeter testing, and debugged wiring/layout issues.
-          </p>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="tag">Circuits</span><span class="tag">Soldering</span><span class="tag">Testing</span>
-          </div>
-          <div class="d-flex gap-2">
-            <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-outline-primary btn-sm" href="#" target="_blank" rel="noopener">Write-up</a>
-          </div>
+      <article class="featured-project-card">
+        <div class="project-image-placeholder">
+          <span>Project Image / Video</span>
         </div>
-      </div>
+
+        <div class="project-card-body">
+          <p class="project-type">Circuits • Hardware Testing</p>
+          <h3>Custom PCB Fabrication</h3>
+
+          <p>
+            Designed, assembled, and tested custom circuits while debugging wiring,
+            layout, and electrical connection issues.
+          </p>
+
+          <div class="project-tags">
+            <span>PCB Design</span>
+            <span>Soldering</span>
+            <span>Multimeter Testing</span>
+            <span>Circuits</span>
+          </div>
+
+          <a class="btn btn-primary btn-sm" href="projects/pcb-fabrication.html">
+            View Project
+          </a>
+        </div>
+      </article>
 
       <!-- Project 3 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="project-card h-100 p-4">
-          <h3 class="h5">Claw Sorting Machine</h3>
-          <p class="text-muted mb-3">
-            Built a mechanical sorting system with control logic and iterative design improvements.
-          </p>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="tag">Mechanisms</span><span class="tag">Controls</span><span class="tag">CAD</span>
-          </div>
-          <div class="d-flex gap-2">
-            <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener">Repo</a>
-            <a class="btn btn-outline-primary btn-sm" href="#" target="_blank" rel="noopener">Write-up</a>
-          </div>
+      <article class="featured-project-card">
+        <div class="project-image-placeholder">
+          <span>Project Image / Video</span>
         </div>
-      </div>
+
+        <div class="project-card-body">
+          <p class="project-type">Mechanical Design • Controls</p>
+          <h3>Claw Sorting Machine</h3>
+
+          <p>
+            Built a mechanical sorting system using CAD, control logic, and iterative
+            design improvements to improve reliability.
+          </p>
+
+          <div class="project-tags">
+            <span>CAD</span>
+            <span>Mechanisms</span>
+            <span>Controls</span>
+            <span>Prototyping</span>
+          </div>
+
+          <a class="btn btn-primary btn-sm" href="projects/claw-sorting-machine.html">
+            View Project
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="featured-project-card">
+        <div class="project-image-placeholder">
+          <span>Coming Soon</span>
+        </div>
+
+        <div class="project-card-body">
+          <p class="project-type">Future Project</p>
+          <h3>More Projects Coming Soon</h3>
+
+          <p>
+            Additional projects will be added as I continue documenting my engineering
+            work through second year and future co-op terms.
+          </p>
+
+          <div class="project-tags">
+            <span>In Progress</span>
+            <span>Documentation</span>
+            <span>Engineering Portfolio</span>
+          </div>
+
+          <a class="btn btn-outline-primary btn-sm" href="#contact">
+            Check Back Later
+          </a>
+        </div>
+      </article>
 
     </div>
+
+  </div>
+</section>
+
+<!-- Co-op Experience -->
+<section class="page-section" id="experience">
+  <div class="container px-4 px-lg-5">
+
+    <div class="text-center mb-5">
+      <h2 class="mt-0">Co-op Experience</h2>
+      <hr class="divider" />
+      <p class="text-muted mb-0">
+        Professional engineering experience gained through co-op placements.
+      </p>
+    </div>
+
+    <div class="experience-card">
+      <p class="experience-date">May 2026 – August 2026</p>
+      <h3>Technical Specialist Co-op</h3>
+      <p class="experience-company">Phoenix Contact • Automation & Power Reliability</p>
+
+      <p>
+        Supporting hands-on automation and technical projects involving demo kits,
+        lab equipment, showroom systems, electrical documentation, testing, and debugging.
+      </p>
+
+      <div class="project-tags">
+        <span>Automation</span>
+        <span>Electrical Systems</span>
+        <span>Testing</span>
+        <span>Documentation</span>
+        <span>Industrial Technology</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
