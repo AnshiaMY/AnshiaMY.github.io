@@ -21,9 +21,7 @@
 
   <!-- Simple Project Navigation -->
   <nav class="project-nav">
-    <a href="../index.html" class="back-link">
-      ← Back to Home
-    </a>
+    <a href="../index.html" class="back-link">← Back to Home</a>
 
     <div class="project-nav-links">
       <a href="../index.html#projects">Projects</a>
@@ -32,7 +30,7 @@
   </nav>
 
   <!-- Project Hero -->
-  <header class="project-hero">
+  <header class="project-hero project-hero-simple">
     <div class="project-hero-text">
       <p class="project-label">Robotics • Embedded Systems • Testing</p>
 
@@ -49,15 +47,13 @@
         <span>Sensors</span>
         <span>Motor Control</span>
         <span>Robotics</span>
+        <span>Testing</span>
       </div>
-    </div>
 
-    <div class="project-hero-media">
-      <!-- Replace this with your best video later -->
-      <video controls>
-        <source src="../assets/assets/projects/line-robot/racetrack-demo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div class="project-hero-buttons">
+        <a class="btn btn-primary" href="#demos">View Demos</a>
+        <a class="btn btn-outline-primary" href="../index.html#projects">Back to Projects</a>
+      </div>
     </div>
   </header>
 
@@ -103,7 +99,7 @@
     </section>
 
     <!-- The Demos -->
-    <section class="project-section demo-section">
+    <section class="project-section demo-section" id="demos">
       <div class="section-heading">
         <h2>The Demos</h2>
         <p>
@@ -116,7 +112,7 @@
 
         <!-- Demo 1 -->
         <article class="demo-card">
-          <video controls>
+          <video controls preload="metadata">
             <source src="../assets/assets/projects/line-robot/straight-line-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -132,7 +128,7 @@
 
         <!-- Demo 2 -->
         <article class="demo-card">
-          <video controls>
+          <video controls preload="metadata">
             <source src="../assets/assets/projects/line-robot/racetrack-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -148,7 +144,7 @@
 
         <!-- Demo 3 -->
         <article class="demo-card">
-          <video controls>
+          <video controls preload="metadata">
             <source src="../assets/assets/projects/line-robot/black-circle-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -176,29 +172,39 @@
       </div>
 
       <div class="system-flow">
+
         <div class="flow-step">
           <span>1</span>
           <h3>Sensors Detect Path</h3>
-          <p>The sensors read contrast between the black path and the surrounding surface.</p>
+          <p>
+            The sensors read contrast between the black path and the surrounding surface.
+          </p>
         </div>
 
         <div class="flow-step">
           <span>2</span>
           <h3>Arduino Reads Input</h3>
-          <p>The Arduino processes the sensor readings and determines how the robot should respond.</p>
+          <p>
+            The Arduino processes the sensor readings and determines how the robot should respond.
+          </p>
         </div>
 
         <div class="flow-step">
           <span>3</span>
           <h3>Motors Adjust</h3>
-          <p>The motors change speed or direction to help the robot correct its position.</p>
+          <p>
+            The motors change speed or direction to help the robot correct its position.
+          </p>
         </div>
 
         <div class="flow-step">
           <span>4</span>
           <h3>Robot Corrects</h3>
-          <p>The robot moves back toward the path and continues following the track.</p>
+          <p>
+            The robot moves back toward the path and continues following the track.
+          </p>
         </div>
+
       </div>
     </section>
 
