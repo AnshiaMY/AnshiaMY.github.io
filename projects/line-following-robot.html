@@ -7,18 +7,33 @@
   <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
 
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" 
+    rel="stylesheet" 
+  />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+  <link 
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
+    rel="stylesheet" 
+  />
+  <link 
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" 
+    rel="stylesheet" 
+    type="text/css" 
+  />
 
-  <!-- Main CSS -->
+  <!-- Main Theme CSS -->
   <link href="../css/styles.css" rel="stylesheet" />
+
+  <!-- Custom Portfolio CSS -->
   <link href="../css/custom.css" rel="stylesheet" />
 </head>
 
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
 
   <!-- Project Header -->
   <header class="project-page-header">
@@ -65,9 +80,12 @@
 
     <!-- Project Overview / Build -->
     <section class="case-section" id="build">
+
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
+
         <h2>The Build</h2>
+
         <p>
           This project combined mechanical assembly, wiring, programming, sensor testing,
           and debugging to create a robot that could respond to different path conditions.
@@ -108,7 +126,9 @@
 
       <div class="case-section-heading center">
         <p class="section-kicker">Testing the Robot</p>
+
         <h2>The Demos</h2>
+
         <p>
           I tested the robot in three different track conditions to observe how it handled
           basic tracking, curved paths, and boundary-style movement.
@@ -126,7 +146,9 @@
 
         <div class="demo-feature-text">
           <span class="demo-number">01</span>
+
           <h3>Straight Line Test</h3>
+
           <p>
             This was the baseline test. I used it to check whether the robot could maintain
             stable movement on a simple black path before testing more complex track shapes.
@@ -151,7 +173,9 @@
 
         <div class="demo-feature-text">
           <span class="demo-number">02</span>
+
           <h3>Racetrack Path Test</h3>
+
           <p>
             This test challenged the robot’s ability to handle curves and direction changes.
             It helped show how well the control logic responded when the robot needed to turn.
@@ -176,7 +200,9 @@
 
         <div class="demo-feature-text">
           <span class="demo-number">03</span>
+
           <h3>Black Circle Test</h3>
+
           <p>
             This test showed how the robot behaved inside a dark circular boundary. It helped
             demonstrate how the sensor-based logic responded when surrounded by a black region.
@@ -194,9 +220,12 @@
 
     <!-- Behind the System -->
     <section class="case-section" id="system">
+
       <div class="case-section-heading center">
         <p class="section-kicker">System Logic</p>
+
         <h2>Behind the System</h2>
+
         <p>
           The robot’s behaviour came from the interaction between sensor readings,
           Arduino logic, and motor response.
@@ -242,9 +271,12 @@
 
     <!-- Improvements -->
     <section class="case-section" id="improvements">
+
       <div class="case-section-heading center">
         <p class="section-kicker">Testing & Debugging</p>
+
         <h2>What I Improved</h2>
+
         <p>
           Testing helped reveal how small physical and software changes affected the robot’s movement.
         </p>
@@ -281,8 +313,10 @@
 
     <!-- Final Reflection -->
     <section class="project-section reflection-section" id="reflection">
+
       <div class="section-heading center">
         <p class="section-kicker">Final Takeaway</p>
+
         <h2>Final Reflection</h2>
       </div>
 
@@ -302,10 +336,12 @@
           <li>More consistent testing data across different track layouts</li>
         </ul>
       </div>
+
     </section>
 
     <!-- Contact CTA -->
     <section class="project-contact-cta">
+
       <p class="section-kicker">Like this project?</p>
 
       <h2>Let’s connect.</h2>
@@ -319,48 +355,46 @@
         <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
         <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
       </div>
+
     </section>
 
   </main>
 
-  <!-- Scroll Progress Bar -->
-<div class="scroll-progress"></div>
+  <!-- Project Page Effects -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener("scroll", () => {
+      const scrollProgress = document.querySelector(".scroll-progress");
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
-<!-- Project Page Effects -->
-<script>
-  // Scroll progress bar
-  window.addEventListener("scroll", () => {
-    const scrollProgress = document.querySelector(".scroll-progress");
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + "%";
+    });
 
-    scrollProgress.style.width = scrollPercent + "%";
-  });
+    // Reveal elements on scroll
+    const revealElements = document.querySelectorAll(
+      ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
+    );
 
-  // Reveal elements on scroll
-  const revealElements = document.querySelectorAll(
-    ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
-  );
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
 
-  const revealObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-visible");
-        }
-      });
-    },
-    {
-      threshold: 0.15
-    }
-  );
-
-  revealElements.forEach(element => {
-    element.classList.add("reveal-hidden");
-    revealObserver.observe(element);
-  });
-</script>
+    revealElements.forEach(element => {
+      element.classList.add("reveal-hidden");
+      revealObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
