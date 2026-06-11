@@ -1310,3 +1310,178 @@ body {
     transform: none;
   }
 }
+
+/* =========================================================
+   DARK / LIGHT MODE TOGGLE
+========================================================= */
+
+.theme-toggle {
+  width: 43px;
+  height: 43px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--portfolio-pink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(31, 41, 51, 0.08);
+  transition: 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Base */
+body.dark-mode {
+  --portfolio-light: #101016;
+  --portfolio-dark: #f7f2f5;
+  --portfolio-muted: #c9bfc6;
+  --portfolio-border: rgba(255, 255, 255, 0.13);
+  --portfolio-card: #181820;
+  --portfolio-blush: #1b1118;
+
+  background: var(--portfolio-light);
+  color: var(--portfolio-dark);
+}
+
+/* Dark Mode Header Backgrounds */
+body.dark-mode .home-header,
+body.dark-mode .project-page-header {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(214, 51, 132, 0.26), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(255, 138, 196, 0.12), transparent 30%),
+    linear-gradient(135deg, #101016 0%, #1b1118 48%, #15151d 100%);
+}
+
+body.dark-mode .home-header::before,
+body.dark-mode .project-page-header::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+}
+
+/* Dark Mode Nav */
+body.dark-mode .home-nav-tabs,
+body.dark-mode .project-nav-tabs {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .home-nav-tabs a,
+body.dark-mode .project-nav-tabs a,
+body.dark-mode .theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7f2f5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .home-nav-tabs a:hover,
+body.dark-mode .project-nav-tabs a:hover,
+body.dark-mode .theme-toggle:hover {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+}
+
+/* Dark Mode Text */
+body.dark-mode .home-logo,
+body.dark-mode .project-logo,
+body.dark-mode .home-hero h1,
+body.dark-mode .project-hero-content h1,
+body.dark-mode .home-section-heading h2,
+body.dark-mode .case-section-heading h2,
+body.dark-mode .section-heading h2,
+body.dark-mode .home-contact-section h2,
+body.dark-mode .project-contact-cta h2,
+body.dark-mode .featured-project-large h3,
+body.dark-mode .featured-project-small h3,
+body.dark-mode .experience-card h3,
+body.dark-mode .info-card h3,
+body.dark-mode .flow-step h3,
+body.dark-mode .improvement-item h3,
+body.dark-mode .reflection-box h3,
+body.dark-mode .demo-feature-text h3 {
+  color: #f7f2f5;
+}
+
+body.dark-mode .home-hero-description,
+body.dark-mode .project-hero-description,
+body.dark-mode .home-section-heading p,
+body.dark-mode .case-section-heading p,
+body.dark-mode .section-heading p,
+body.dark-mode .home-contact-section p,
+body.dark-mode .project-contact-cta p,
+body.dark-mode .featured-project-large p,
+body.dark-mode .featured-project-small p,
+body.dark-mode .experience-card p,
+body.dark-mode .info-card p,
+body.dark-mode .flow-step p,
+body.dark-mode .improvement-item p,
+body.dark-mode .reflection-box p,
+body.dark-mode .demo-feature-text p,
+body.dark-mode .demo-feature-text ul,
+body.dark-mode .about-content > p {
+  color: #c9bfc6;
+}
+
+/* Dark Mode Cards */
+body.dark-mode .floating-card,
+body.dark-mode .about-photo-card,
+body.dark-mode .about-highlight-grid article,
+body.dark-mode .featured-project-large,
+body.dark-mode .featured-project-small,
+body.dark-mode .experience-card,
+body.dark-mode .info-card,
+body.dark-mode .flow-step,
+body.dark-mode .improvement-item,
+body.dark-mode .reflection-box,
+body.dark-mode .demo-video-frame {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+/* Dark Mode White Sections */
+body.dark-mode .projects-section,
+body.dark-mode .demo-showcase,
+body.dark-mode .home-footer {
+  background: #15151d;
+}
+
+/* Dark Mode Contact / Reflection Sections */
+body.dark-mode .home-contact-section,
+body.dark-mode .project-contact-cta,
+body.dark-mode .reflection-section {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(214, 51, 132, 0.18), transparent 30%),
+    linear-gradient(135deg, #1b1118, #101016);
+}
+
+/* Dark Mode Tags */
+body.dark-mode .home-kicker,
+body.dark-mode .section-kicker,
+body.dark-mode .project-kicker,
+body.dark-mode .home-hero-tags span,
+body.dark-mode .project-mini-tags span,
+body.dark-mode .project-tech-stack span {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffb3d8;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Dark Mode Contact Links */
+body.dark-mode .contact-link-grid a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7f2f5;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .contact-link-grid a:hover {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+}
