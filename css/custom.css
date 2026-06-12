@@ -70,7 +70,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Button shine effect */
 .home-btn::before,
 .hero-btn::before {
   content: "";
@@ -97,7 +96,6 @@ body {
    HOMEPAGE DESIGN
 ========================================================= */
 
-/* Scroll Progress */
 .home-scroll-progress {
   position: fixed;
   top: 0;
@@ -109,7 +107,6 @@ body {
   box-shadow: 0 0 18px rgba(214, 51, 132, 0.5);
 }
 
-/* Header */
 .home-header {
   min-height: 100vh;
   background:
@@ -128,11 +125,10 @@ body {
     linear-gradient(rgba(214, 51, 132, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(214, 51, 132, 0.05) 1px, transparent 1px);
   background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
   pointer-events: none;
 }
 
-/* Homepage Nav */
 .home-navbar {
   width: min(1180px, 88%);
   margin: 0 auto;
@@ -160,7 +156,7 @@ body {
   display: flex;
   gap: 0.6rem;
   padding: 0.45rem;
-  background: rgba(214, 51, 132, 0.10);
+  background: rgba(214, 51, 132, 0.1);
   border: 1px solid rgba(214, 51, 132, 0.15);
   border-radius: 999px;
   backdrop-filter: blur(10px);
@@ -185,7 +181,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Hero */
 .home-hero {
   width: min(1180px, 88%);
   min-height: calc(100vh - 90px);
@@ -332,7 +327,6 @@ body {
   justify-content: center;
 }
 
-/* Soft glow behind character */
 .hero-illustration-frame::before {
   content: "";
   position: absolute;
@@ -344,7 +338,6 @@ body {
   z-index: 0;
 }
 
-/* Character image - shifted slightly left */
 .hero-character {
   position: absolute;
   z-index: 3;
@@ -358,7 +351,6 @@ body {
   filter: drop-shadow(0 22px 35px rgba(31, 41, 51, 0.16));
 }
 
-/* Shared overlay style */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -369,17 +361,14 @@ body {
   pointer-events: none;
 }
 
-/* Engineering overlay appears first */
 .hero-overlay-engineering {
   animation: engineeringLayer 10s ease-in-out infinite;
 }
 
-/* Personal overlay fades in after */
 .hero-overlay-personal {
   animation: personalLayer 10s ease-in-out infinite;
 }
 
-/* Gentle character floating while staying shifted left */
 @keyframes characterFloat {
   0%, 100% {
     transform: translate(-50%, -50%);
@@ -390,7 +379,6 @@ body {
   }
 }
 
-/* Engineering icons fade in/out */
 @keyframes engineeringLayer {
   0%, 42% {
     opacity: 1;
@@ -408,7 +396,6 @@ body {
   }
 }
 
-/* Personal icons fade in/out opposite engineering */
 @keyframes personalLayer {
   0%, 42% {
     opacity: 0;
@@ -462,6 +449,7 @@ body {
 }
 
 /* About */
+
 .about-layout {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -532,6 +520,7 @@ body {
 }
 
 /* Homepage Projects */
+
 .projects-section {
   width: 100%;
   max-width: none;
@@ -656,6 +645,7 @@ body {
 }
 
 /* Experience */
+
 .experience-section {
   padding-bottom: 6.5rem;
 }
@@ -697,6 +687,7 @@ body {
 }
 
 /* Homepage Contact */
+
 .home-contact-section {
   text-align: center;
   padding: 6rem 8%;
@@ -783,7 +774,6 @@ body {
   box-shadow: 0 0 18px rgba(214, 51, 132, 0.55);
 }
 
-/* Project Header */
 .project-page-header {
   min-height: 100vh;
   background:
@@ -802,7 +792,7 @@ body {
     linear-gradient(rgba(214, 51, 132, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(214, 51, 132, 0.05) 1px, transparent 1px);
   background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
   pointer-events: none;
 }
 
@@ -845,7 +835,7 @@ body {
   display: flex;
   gap: 0.6rem;
   padding: 0.45rem;
-  background: rgba(214, 51, 132, 0.10);
+  background: rgba(214, 51, 132, 0.1);
   border: 1px solid rgba(214, 51, 132, 0.15);
   border-radius: 999px;
   backdrop-filter: blur(10px);
@@ -870,7 +860,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Project Hero */
 .project-hero-content {
   width: min(1050px, 88%);
   min-height: calc(100vh - 90px);
@@ -908,7 +897,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Project Sections */
 .case-section,
 .project-section {
   width: min(1180px, 88%);
@@ -946,6 +934,7 @@ body {
 }
 
 /* Build Cards */
+
 .info-card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -980,6 +969,7 @@ body {
 }
 
 /* Demo Rows */
+
 .demo-showcase {
   width: 100%;
   max-width: none;
@@ -1013,32 +1003,6 @@ body {
 
 .demo-feature-row.reverse .demo-feature-text {
   order: 1;
-}
-
-/* Claw project horizontal demo layout */
-.claw-demo-row {
-  grid-template-columns: 1fr 0.85fr;
-  align-items: center;
-}
-
-.claw-demo-row .horizontal-video {
-  max-width: 660px;
-}
-
-.claw-demo-row .horizontal-video video {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-@media (max-width: 992px) {
-  .claw-demo-row {
-    grid-template-columns: 1fr;
-  }
-
-  .claw-demo-row .demo-feature-text {
-    text-align: center;
-    margin: 0 auto;
-  }
 }
 
 .demo-video-frame {
@@ -1119,16 +1083,8 @@ body {
   color: var(--portfolio-pink);
 }
 
-.horizontal-video {
-  max-width: 620px;
-}
-
-.horizontal-video video {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
 /* System Flow */
+
 .system-flow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1171,6 +1127,7 @@ body {
 }
 
 /* Improvements */
+
 .improvement-list {
   display: grid;
   gap: 1rem;
@@ -1200,6 +1157,7 @@ body {
 }
 
 /* Reflection */
+
 .reflection-section {
   background:
     radial-gradient(circle at bottom right, rgba(214, 51, 132, 0.14), transparent 35%),
@@ -1243,6 +1201,7 @@ body {
 }
 
 /* Project Contact CTA */
+
 .project-contact-cta {
   text-align: center;
   padding: 6rem 8%;
@@ -1290,7 +1249,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Dark Mode Base */
 body.dark-mode {
   --portfolio-light: #101016;
   --portfolio-dark: #f7f2f5;
@@ -1303,7 +1261,6 @@ body.dark-mode {
   color: var(--portfolio-dark);
 }
 
-/* Dark Mode Header Backgrounds */
 body.dark-mode .home-header,
 body.dark-mode .project-page-header {
   background:
@@ -1319,7 +1276,6 @@ body.dark-mode .project-page-header::before {
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
 }
 
-/* Dark Mode Nav */
 body.dark-mode .home-nav-tabs,
 body.dark-mode .project-nav-tabs {
   background: rgba(255, 255, 255, 0.07);
@@ -1341,7 +1297,6 @@ body.dark-mode .theme-toggle:hover {
   color: #ffffff;
 }
 
-/* Dark Mode Text */
 body.dark-mode .home-logo,
 body.dark-mode .project-logo,
 body.dark-mode .home-hero h1,
@@ -1382,7 +1337,6 @@ body.dark-mode .about-content > p {
   color: #c9bfc6;
 }
 
-/* Dark Mode Cards */
 body.dark-mode .about-photo-card,
 body.dark-mode .about-highlight-grid article,
 body.dark-mode .featured-project-large,
@@ -1398,14 +1352,12 @@ body.dark-mode .demo-video-frame {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
-/* Dark Mode White Sections */
 body.dark-mode .projects-section,
 body.dark-mode .demo-showcase,
 body.dark-mode .home-footer {
   background: #15151d;
 }
 
-/* Dark Mode Contact / Reflection Sections */
 body.dark-mode .home-contact-section,
 body.dark-mode .project-contact-cta,
 body.dark-mode .reflection-section {
@@ -1414,7 +1366,6 @@ body.dark-mode .reflection-section {
     linear-gradient(135deg, #1b1118, #101016);
 }
 
-/* Dark Mode Tags */
 body.dark-mode .home-kicker,
 body.dark-mode .section-kicker,
 body.dark-mode .project-kicker,
@@ -1426,7 +1377,6 @@ body.dark-mode .project-tech-stack span {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Dark Mode Contact Links */
 body.dark-mode .contact-link-grid a {
   background: rgba(255, 255, 255, 0.08);
   color: #f7f2f5;
@@ -1438,7 +1388,6 @@ body.dark-mode .contact-link-grid a:hover {
   color: #ffffff;
 }
 
-/* Dark Mode Hero Illustration */
 body.dark-mode .hero-illustration-frame::before {
   background: rgba(214, 51, 132, 0.28);
 }
@@ -1594,7 +1543,50 @@ body.dark-mode .hero-character {
   }
 }
 
-/* Accessibility: reduce movement for users who prefer it */
+/* =========================================================
+   CLAW SORTING MACHINE HORIZONTAL VIDEO FIX
+   This only affects the claw page if your HTML has:
+   <article class="demo-feature-row claw-demo-row">
+   <div class="demo-video-frame horizontal-video">
+========================================================= */
+
+.demo-feature-row.claw-demo-row {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.15fr) minmax(300px, 0.85fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.demo-feature-row.claw-demo-row .horizontal-video {
+  max-width: 680px;
+  width: 100%;
+  justify-self: center;
+}
+
+.demo-feature-row.claw-demo-row .horizontal-video video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .demo-feature-row.claw-demo-row {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-feature-row.claw-demo-row .horizontal-video {
+    max-width: 680px;
+  }
+
+  .demo-feature-row.claw-demo-row .demo-feature-text {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
   .home-reveal-hidden,
   .home-reveal-visible,
