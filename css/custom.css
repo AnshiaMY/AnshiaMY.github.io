@@ -344,13 +344,16 @@ body {
   z-index: 0;
 }
 
-/* Character image */
+/* Character image - shifted slightly left */
 .hero-character {
   position: absolute;
   z-index: 3;
   width: 80%;
   max-height: 96%;
   object-fit: contain;
+  left: 44%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   animation: characterFloat 6s ease-in-out infinite;
   filter: drop-shadow(0 22px 35px rgba(31, 41, 51, 0.16));
 }
@@ -376,14 +379,14 @@ body {
   animation: personalLayer 10s ease-in-out infinite;
 }
 
-/* Gentle character floating */
+/* Gentle character floating while staying shifted left */
 @keyframes characterFloat {
   0%, 100% {
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translate(-50%, calc(-50% - 10px));
   }
 }
 
@@ -1573,6 +1576,10 @@ body.dark-mode .hero-character {
     animation: none;
     transition: none;
     transform: none;
+  }
+
+  .hero-character {
+    transform: translate(-50%, -50%);
   }
 
   .hero-overlay-engineering {
