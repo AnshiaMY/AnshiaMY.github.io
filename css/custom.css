@@ -1015,6 +1015,32 @@ body {
   order: 1;
 }
 
+/* Claw project horizontal demo layout */
+.claw-demo-row {
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+}
+
+.claw-demo-row .horizontal-video {
+  max-width: 660px;
+}
+
+.claw-demo-row .horizontal-video video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .claw-demo-row {
+    grid-template-columns: 1fr;
+  }
+
+  .claw-demo-row .demo-feature-text {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
 .demo-video-frame {
   max-width: 440px;
   width: 100%;
