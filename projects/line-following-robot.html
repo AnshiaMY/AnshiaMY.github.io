@@ -107,13 +107,16 @@
       <div class="process-marker">01</div>
 
       <div class="process-content">
-        <h3>Chassis Design</h3>
+        <h3>CAD & Chassis Design</h3>
         <p>
-          The robot started with the physical layout. I designed the chassis
-          in SolidWorks to hold the Raspberry Pi, infrared sensors, DC motors,
-          wiring, and control hardware in a compact mobile structure. The
-          chassis was then fabricated so the sensors could sit close to the
-          surface while the motors and electronics stayed securely mounted.
+          The chassis was designed in SolidWorks and 3D printed as 
+          the mechanical foundation of the robot. The design had to 
+          account for component placement, sensor height, motor alignment, 
+          wiring space, and overall stability, while keeping the structure 
+          compact enough for smooth movement. The final layout positioned 
+          the infrared sensors close to the surface for reliable contrast 
+          detection and provided secure mounting points for the Raspberry Pi, 
+          motors, and supporting electronics.
         </p>
       </div>
     </article>
@@ -124,11 +127,12 @@
       <div class="process-content">
         <h3>Circuit Board Fabrication</h3>
         <p>
-          The electronics were built from a plain copper board using a custom
-          schematic and board layout. After designing the circuit digitally,
-          the layout was transferred onto the copper board using heat, then
-          etched so the remaining copper formed the circuit traces needed for
-          the robot’s electrical connections.
+          The circuit board was fabricated from a plain 
+          copper board using a custom digital schematic and 
+          board layout. After the design was heat-transferred 
+          onto the copper surface, the board was etched to form 
+          the electrical traces used to connect the robot’s sensors, 
+          motor driver, power connections, and control electronics.
         </p>
       </div>
     </article>
@@ -154,10 +158,13 @@
       <div class="process-content">
         <h3>Control Logic & Testing</h3>
         <p>
-          The Raspberry Pi ran Python code that read the two bottom-mounted
-          infrared sensors and adjusted motor response based on black-and-white
-          contrast. PID control was tuned through repeated trials to improve
-          line tracking, turning response, and boundary-detection behaviour.
+          The Raspberry Pi ran Python code that continuously read the two bottom-mounted 
+          infrared sensors and compared their black-and-white contrast readings to 
+          determine the robot’s position relative to the line. Based on the left and 
+          right sensor states, the program adjusted the DC motor outputs to correct the robot’s 
+          path in real time. A PID controller was tuned through repeated trials to smooth the 
+          motor response, reduce oscillation, and improve stability during straight-line tracking, 
+          racetrack turns, and boundary-detection testing.
         </p>
       </div>
     </article>
@@ -171,11 +178,14 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Testing the Robot</p>
 
-        <h2>The Demos</h2>
+        <h2>On The Track.</h2>
 
         <p>
-          I tested the robot in three different track conditions to observe how it handled
-          basic tracking, curved paths, and boundary-style movement.
+          The robot was tested across three track conditions, 
+          each focused on a different behaviour: straight-line tracking, 
+          curved-path correction, and boundary detection.
+
+          Below is the final robot and its three test variations.
         </p>
       </div>
 
@@ -194,14 +204,18 @@
           <h3>Straight Line Test</h3>
 
           <p>
-            This was the baseline test. I used it to check whether the robot could maintain
-            stable movement on a simple black path before testing more complex track shapes.
+            This test used a mostly straight black path with a small deviation 
+            to establish a baseline for the robot’s tracking behaviour. 
+            By starting with a simple path before moving to more complex 
+            layouts, I could observe whether the infrared sensors were detecting 
+            contrast consistently and whether the motor corrections were 
+            steady enough to keep the robot aligned.
           </p>
 
           <ul>
-            <li>Checked basic sensor response</li>
-            <li>Observed motor correction behaviour</li>
-            <li>Used as a starting point before curved-path testing</li>
+            <li>Verified black-and-white contrast detection</li>
+            <li>Observed real-time motor correction</li>
+            <li>Established a baseline before curved and boundary-based testing</li>
           </ul>
         </div>
       </article>
@@ -221,14 +235,18 @@
           <h3>Racetrack Path Test</h3>
 
           <p>
-            This test challenged the robot’s ability to handle curves and direction changes.
-            It helped show how well the control logic responded when the robot needed to turn.
+            The racetrack path introduced a more complex line-following 
+            condition by requiring the robot to respond to continuous 
+            curves and direction changes. This test helped evaluate how 
+            smoothly the control logic adjusted the motor outputs during turns, 
+            while also revealing moments of overcorrection as the sensors reacted 
+            to changes in the path.
           </p>
 
           <ul>
             <li>Tested curved-path tracking</li>
-            <li>Observed overcorrection during turns</li>
-            <li>Helped evaluate movement stability</li>
+            <li>Evaluated turning response</li>
+            <li>Identified overcorrection during direction changes</li>
           </ul>
         </div>
       </article>
@@ -248,112 +266,115 @@
           <h3>Black Circle Test</h3>
 
           <p>
-            This test showed how the robot behaved inside a dark circular boundary. It helped
-            demonstrate how the sensor-based logic responded when surrounded by a black region.
+            The black circle test was inspired by sumo robot competitions, 
+            where an autonomous robot must stay inside a circular ring 
+            while responding to its surroundings. For this test, the 
+            robot was placed inside a dark circular boundary to explore whether 
+            the same infrared sensor logic used for line tracking could also 
+            support boundary detection. Instead of following a single path, 
+            the robot had to recognize when it approached the edge of the marked area 
+            and adjust its movement to remain within the boundary.
           </p>
 
           <ul>
-            <li>Tested boundary-style behaviour</li>
-            <li>Observed how the robot reacted to dark surroundings</li>
-            <li>Showed a different use of the same sensor logic</li>
+            <li>Tested boundary detection</li>
+            <li>Connected line-sensing logic to a sumo-style arena challenge</li>
+            <li>Showed how the same sensors could support a different robot behaviour</li>
           </ul>
         </div>
       </article>
 
     </section>
 
-    <!-- Behind the System -->
-    <section class="case-section" id="system">
+    <!-- Troubleshooting -->
+<section class="case-section" id="improvements">
 
-      <div class="case-section-heading center">
-        <p class="section-kicker">System Logic</p>
+  <div class="case-section-heading center">
+    <p class="section-kicker">Troubleshooting</p>
 
-        <h2>Behind the System</h2>
+    <h2>Debugging the build.</h2>
 
-        <p>
-          The robot’s behaviour came from the interaction between sensor readings,
-          Arduino logic, and motor response.
-        </p>
-      </div>
+    <p>
+      Testing revealed that the robot’s behaviour depended on how well the mechanical design,
+      sensors, wiring, and control logic worked together. Each issue had to be observed,
+      diagnosed, and adjusted before the system became more reliable.
+    </p>
+  </div>
 
-      <div class="system-flow">
+  <div class="improvement-list">
 
-        <article class="flow-step">
-          <span>1</span>
-          <h3>Sensors Detect Path</h3>
-          <p>
-            The sensors read contrast between the black path and the surrounding surface.
-          </p>
-        </article>
+    <article class="improvement-item">
+      <h3>Sensor Height vs. Tracking Accuracy</h3>
 
-        <article class="flow-step">
-          <span>2</span>
-          <h3>Arduino Reads Input</h3>
-          <p>
-            The Arduino processes the sensor readings and determines how the robot should respond.
-          </p>
-        </article>
+      <p>
+        <strong class="debug-label">Symptom:</strong>
+        The robot’s tracking behaviour changed when the sensor position shifted slightly
+        or when the robot moved over uneven parts of the track.
+      </p>
 
-        <article class="flow-step">
-          <span>3</span>
-          <h3>Motors Adjust</h3>
-          <p>
-            The motors change speed or direction to help the robot correct its position.
-          </p>
-        </article>
+      <p>
+        <strong class="debug-label">Diagnosis:</strong>
+        The issue was not only in the code. The infrared sensors depended on their height
+        and angle relative to the surface, so small mechanical placement changes affected
+        the sensor readings and the control response.
+      </p>
 
-        <article class="flow-step">
-          <span>4</span>
-          <h3>Robot Corrects</h3>
-          <p>
-            The robot moves back toward the path and continues following the track.
-          </p>
-        </article>
+      <p>
+        <strong class="debug-label">Adjustment:</strong>
+        I treated the problem as both a mechanical and software issue by checking sensor
+        placement, testing the robot across different track conditions, and adjusting the
+        control logic so the motor response matched the sensor behaviour more reliably.
+      </p>
+    </article>
 
-      </div>
-    </section>
+    <article class="improvement-item">
+      <h3>Motor Overcorrection During Turns</h3>
 
-    <!-- Improvements -->
-    <section class="case-section" id="improvements">
+      <p>
+        <strong class="debug-label">Symptom:</strong>
+        During curved-path testing, the robot sometimes corrected too sharply when entering
+        or leaving a turn.
+      </p>
 
-      <div class="case-section-heading center">
-        <p class="section-kicker">Testing & Debugging</p>
+      <p>
+        <strong class="debug-label">Diagnosis:</strong>
+        The motor response was too aggressive when one infrared sensor detected the line
+        before the other, causing the robot to oversteer instead of smoothly correcting
+        back toward the path.
+      </p>
 
-        <h2>What I Improved</h2>
+      <p>
+        <strong class="debug-label">Adjustment:</strong>
+        PID values were tuned through repeated trials to smooth the correction, reduce
+        oscillation, and improve the robot’s stability during curved-path tracking.
+      </p>
+    </article>
 
-        <p>
-          Testing helped reveal how small physical and software changes affected the robot’s movement.
-        </p>
-      </div>
+    <article class="improvement-item">
+      <h3>Wiring & System Integration</h3>
 
-      <div class="improvement-list">
+      <p>
+        <strong class="debug-label">Symptom:</strong>
+        Small connection issues affected the robot’s overall behaviour, especially when
+        testing the sensors, motors, and control hardware together.
+      </p>
 
-        <article class="improvement-item">
-          <h3>Turning was inconsistent</h3>
-          <p>
-            I tested the robot on simpler paths first, then used curved tracks to observe where
-            it overcorrected or lost alignment.
-          </p>
-        </article>
+      <p>
+        <strong class="debug-label">Diagnosis:</strong>
+        The robot combined a custom-fabricated circuit board, soldered components, power
+        connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
+        connection could affect multiple parts of the system.
+      </p>
 
-        <article class="improvement-item">
-          <h3>Sensor readings were sensitive</h3>
-          <p>
-            I learned that lighting, surface colour, and sensor placement could affect the robot’s
-            behaviour, so testing on the actual track surface was important.
-          </p>
-        </article>
+      <p>
+        <strong class="debug-label">Adjustment:</strong>
+        I tested the system step by step, checked wiring and soldered joints, verified
+        power connections, and confirmed each subsystem before running the full robot.
+      </p>
+    </article>
 
-        <article class="improvement-item">
-          <h3>Physical movement affected the code</h3>
-          <p>
-            I observed that wiring, motor speed, chassis alignment, and sensor position all affected
-            how the robot responded to the same control logic.
-          </p>
-        </article>
-
-      </div>
-    </section>
+  </div>
+</section>
 
     <!-- Final Reflection -->
     <section class="project-section reflection-section" id="reflection">
