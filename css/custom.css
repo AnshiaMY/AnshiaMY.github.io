@@ -1617,3 +1617,117 @@ body.dark-mode .hero-character {
     opacity: 0;
   }
 }
+/* =========================================================
+   LINE ROBOT: FROM CONCEPT TO CONTROL TIMELINE
+   Scoped only to the System Design section.
+========================================================= */
+
+#build .process-timeline {
+  max-width: 950px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  gap: 1.4rem;
+}
+
+#build .process-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.65rem;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(214, 51, 132, 0.2),
+    rgba(214, 51, 132, 0.75),
+    rgba(214, 51, 132, 0.2)
+  );
+  box-shadow: 0 0 18px rgba(214, 51, 132, 0.2);
+}
+
+#build .process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+#build .process-marker {
+  position: relative;
+  z-index: 2;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background: var(--portfolio-pink);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 900;
+  box-shadow: 0 0 0 8px rgba(214, 51, 132, 0.12);
+}
+
+#build .process-content {
+  background: #ffffff;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1.4rem;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 18px 46px rgba(31, 41, 51, 0.06);
+  transition: 0.22s ease;
+}
+
+#build .process-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(214, 51, 132, 0.13);
+}
+
+#build .process-content h3 {
+  color: var(--portfolio-dark);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+#build .process-content p {
+  color: var(--portfolio-muted);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* Dark mode support */
+body.dark-mode #build .process-content {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+body.dark-mode #build .process-content h3 {
+  color: #f7f2f5;
+}
+
+body.dark-mode #build .process-content p {
+  color: #c9bfc6;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #build .process-step {
+    grid-template-columns: 1fr;
+  }
+
+  #build .process-timeline::before {
+    display: none;
+  }
+
+  #build .process-marker {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  #build .process-content {
+    padding: 1.35rem;
+  }
+}
