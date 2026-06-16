@@ -61,16 +61,18 @@
       <h1>Autonomous Line-Following Robot</h1>
 
       <p class="project-hero-description">
-        A sensor-based robot designed to follow black paths using Arduino control logic,
-        motor response, and repeated testing across different track conditions.
+        A Raspberry Pi–based mobile robot designed to follow a 
+        black line using sensor feedback, PID control, and 
+        iterative testing, with additional boundary-detection 
+        testing using a black-circle condition.
       </p>
 
       <div class="project-tech-stack">
-        <span>Arduino</span>
-        <span>C++</span>
-        <span>Sensors</span>
+        <span>Raspberry Pi</span>
+        <span>Python</span>
+        <span>PID Control</span>
         <span>Motor Control</span>
-        <span>Robotics</span>
+        <span>Sensors</span>
         <span>Testing</span>
       </div>
 
@@ -90,37 +92,58 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
 
-        <h2>The Build</h2>
+        <h2>System Design</h2>
 
         <p>
-          This project combined mechanical assembly, wiring, programming, sensor testing,
-          and debugging to create a robot that could respond to different path conditions.
+          This project began as an exploration of feedback-based movement. 
+          Instead of programming the robot to follow a fixed route, the 
+          goal was to use sensor data to guide its decisions: tracking a 
+          black line during path-following tests and detecting the edge of 
+          a black-circle boundary during containment testing.
         </p>
       </div>
 
       <div class="info-card-grid">
 
         <article class="info-card">
-          <h3>What I Built</h3>
+          <h3>Core Components</h3>
           <p>
-            An autonomous robot that detects black paths and adjusts its movement to stay
-            aligned with the track.
+            The robot was built as a small electromechanical system, 
+            combining a Raspberry Pi for control, two bottom-mounted 
+            infrared sensors for black-and-white contrast detection, 
+            two DC motors for movement, and a motor driver to control motor 
+            output. A regulated 5V/3.3V power setup supported the 
+            electronics, while the SolidWorks-designed chassis provided 
+            mounting for the sensors, motors, wiring, and control hardware.
           </p>
         </article>
 
         <article class="info-card">
-          <h3>My Role</h3>
+          <h3>Feedback Control</h3>
           <p>
-            I worked on programming, wiring, sensor calibration, testing, debugging,
-            and observing how the robot responded during different trials.
+            The robot used two infrared reflectance sensors to distinguish between 
+            the black line and the surrounding white surface by measuring differences 
+            in reflected infrared light. Each sensor module included onboard indicator 
+            LEDs that provided visual feedback during testing, illuminating green 
+            when the sensor detected the black line and red when it detected 
+            the white surface. Sensor data was continuously read and processed 
+            in Python on the Raspberry Pi, where threshold-based logic determined 
+            the robot’s position relative to the line. Motor speed commands were then adjusted 
+            in real time to steer the robot back toward the path whenever one sensor detected a deviation. 
+            A PID speed controller was also implemented and tuned in Python to provide smoother corrective actions, 
+            reduce oscillations, and improve trajectory stability and tracking accuracy over repeated trials.
           </p>
         </article>
 
         <article class="info-card">
-          <h3>Tools Used</h3>
+          <h3>Testing Conditions</h3>
           <p>
-            Arduino, C++, IR sensors, DC motors, motor driver, chassis components,
-            wiring, and physical test tracks.
+            The robot was tested across multiple path conditions to 
+            evaluate its performance under different navigation scenarios. 
+            Straight-line and racetrack tests were used to assess line-following accuracy, 
+            stability, and turning response, while the black-circle condition evaluated 
+            the robot’s ability to detect a boundary and react appropriately when reaching 
+            the edge of the marked area.
           </p>
         </article>
 
