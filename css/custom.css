@@ -1731,3 +1731,8 @@ body.dark-mode #build .process-content p {
     padding: 1.35rem;
   }
 }
+/* Troubleshooting labels */
+#improvements .debug-label {
+  color: var(--portfolio-pink);
+  font-weight: 900;
+}
