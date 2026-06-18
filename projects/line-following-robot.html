@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
 
@@ -84,8 +85,8 @@
 
   <main>
 
-    <!-- Project Overview / Build Path -->
-    <section class="case-section build-path-section" id="build">
+    <!-- Project Overview / Build Stages -->
+    <section class="case-section build-stages-section" id="build">
 
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
@@ -101,36 +102,35 @@
         </p>
       </div>
 
-      <div class="build-path-wrapper" data-active="1">
+      <div class="build-stage-interface">
 
-        <svg class="build-path-line" viewBox="0 0 1000 820" aria-hidden="true">
-          <path
-            class="build-path-track-shadow"
-            d="M 170 95
-               C 450 25, 830 105, 815 290
-               C 800 470, 520 500, 350 420
-               C 140 325, 125 600, 420 700
-               C 650 780, 845 690, 830 535"
-          />
-          <path
-            class="build-path-track"
-            d="M 170 95
-               C 450 25, 830 105, 815 290
-               C 800 470, 520 500, 350 420
-               C 140 325, 125 600, 420 700
-               C 650 780, 845 690, 830 535"
-          />
-        </svg>
+        <div class="build-stage-tabs" role="tablist" aria-label="Build stages">
 
-        <span class="build-path-runner" aria-hidden="true"></span>
-
-        <div class="build-checkpoint checkpoint-one">
-          <button class="checkpoint-button" type="button" aria-expanded="true">
-            <span class="checkpoint-number">01</span>
-            <span class="checkpoint-title">CAD & Chassis Design</span>
+          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
+            <span class="stage-tab-number">01</span>
+            <span class="stage-tab-title">CAD & Chassis Design</span>
           </button>
 
-          <article class="checkpoint-panel is-open">
+          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
+            <span class="stage-tab-number">02</span>
+            <span class="stage-tab-title">Circuit Board Fabrication</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
+            <span class="stage-tab-number">03</span>
+            <span class="stage-tab-title">Wiring & Assembly</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
+            <span class="stage-tab-number">04</span>
+            <span class="stage-tab-title">Control Logic & Testing</span>
+          </button>
+
+        </div>
+
+        <div class="build-stage-panel-wrap">
+
+          <article class="build-stage-panel is-active" data-stage-panel="1">
             <p class="notebook-label">Design Note 01</p>
 
             <h3>CAD & Chassis Design</h3>
@@ -145,15 +145,8 @@
               and supporting electronics.
             </p>
           </article>
-        </div>
 
-        <div class="build-checkpoint checkpoint-two">
-          <button class="checkpoint-button" type="button" aria-expanded="false">
-            <span class="checkpoint-number">02</span>
-            <span class="checkpoint-title">Circuit Board Fabrication</span>
-          </button>
-
-          <article class="checkpoint-panel">
+          <article class="build-stage-panel" data-stage-panel="2">
             <p class="notebook-label">Fabrication Note 02</p>
 
             <h3>Circuit Board Fabrication</h3>
@@ -166,15 +159,8 @@
               control electronics.
             </p>
           </article>
-        </div>
 
-        <div class="build-checkpoint checkpoint-three">
-          <button class="checkpoint-button" type="button" aria-expanded="false">
-            <span class="checkpoint-number">03</span>
-            <span class="checkpoint-title">Wiring & Assembly</span>
-          </button>
-
-          <article class="checkpoint-panel">
+          <article class="build-stage-panel" data-stage-panel="3">
             <p class="notebook-label">Assembly Note 03</p>
 
             <h3>Wiring & Assembly</h3>
@@ -187,15 +173,8 @@
               testing.
             </p>
           </article>
-        </div>
 
-        <div class="build-checkpoint checkpoint-four">
-          <button class="checkpoint-button" type="button" aria-expanded="false">
-            <span class="checkpoint-number">04</span>
-            <span class="checkpoint-title">Control Logic & Testing</span>
-          </button>
-
-          <article class="checkpoint-panel">
+          <article class="build-stage-panel" data-stage-panel="4">
             <p class="notebook-label">Control Note 04</p>
 
             <h3>Control Logic & Testing</h3>
@@ -210,6 +189,7 @@
               during straight-line tracking, racetrack turns, and boundary-detection testing.
             </p>
           </article>
+
         </div>
 
       </div>
