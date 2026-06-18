@@ -2298,3 +2298,17 @@ body.dark-mode #reflection .reflection-notebook::before {
     padding-left: 1.5rem;
   }
 }
+
+/* Align notebook checklist text more closely with the ruled lines */
+#reflection .reflection-checklist {
+  margin-top: -0.25rem;
+}
+
+#reflection .reflection-checklist li {
+  margin-bottom: 0.9rem;
+  line-height: 1.65;
+}
+
+#reflection .reflection-checklist li::before {
+  top: 0.05rem;
+}
