@@ -124,12 +124,20 @@
           <span class="notebook-label">Build Stage 01</span>
           <h3>Mechanical Frame &amp; Drive Base</h3>
           <p>
-            The robot’s structure was built around a mobile VEX chassis that supported
-            the drive base, claw mechanism, lift system, sensors, and control hardware.
-            The mechanical layout had to keep the robot stable while leaving enough
-            space for the object-handling mechanism to move reliably. As a group, we
-            tested different physical arrangements to balance mobility, support, and
-            access to the sorting area.
+            The robot’s frame and drive base were designed from the VEX IQ kit components provided
+            for the project, rather than from a prebuilt chassis. After the claw and vertical lift
+            concepts were developed, the base was designed around those mechanisms so the robot
+            could support the VEX Brain, drive motors, lift motor, claw motor, sensors, and
+            object-handling system within one stable structure.
+          </p>
+          
+          <p>
+            Because the robot needed to carry an object above the drive platform, the frame had to
+            be wide enough to improve stability and reduce tipping during movement. At the same time,
+            the wheel placement and motor positioning had to support straight-line driving, controlled
+            turning, and alignment with the sorting area. The final frame also needed enough mounting
+            space for the lift mechanism and sensors while remaining compact enough to navigate the
+            sorting path reliably.
           </p>
         </article>
 
@@ -137,12 +145,30 @@
           <span class="notebook-label">Build Stage 02</span>
           <h3>Claw &amp; Lift Mechanism</h3>
           <p>
-            The object-handling system used a motorized claw and vertical lift to pick
-            up, hold, raise, and release objects during the sorting sequence. This part
-            of the design focused on making the mechanism reliable enough to grip the
-            object without dropping it while still allowing the robot to release it into
-            the correct category box. The claw and lift had to work together mechanically
-            before the autonomous sequence could run consistently.
+            The object-handling system combined a two-pronged overhead claw with a vertical lift
+            mechanism. During the design process, our group considered several options for securing
+            the object, including a front-facing claw, a pronged lift, and an overhead hook. After
+            testing an early front-facing claw concept, the design was changed because the object grip
+            was not consistent enough. The overhead claw was selected instead because it allowed the
+            user to place the object more directly into the mechanism, which improved reliability
+            during the sorting sequence.
+          </p>
+          
+          <p>
+            To raise and lower the claw, our group developed a chain-based vertical lift inspired by
+            forklift-style lifting systems. Since the VEX kit did not use hydraulics, the lift was
+            adapted using a motor-driven sprocket, a second sprocket, and a closed-loop chain. The lift
+            motor turned the top sprocket, which moved the chain and allowed the claw assembly to travel
+            vertically. This gave the robot a controlled way to raise the object for transport and lower
+            or release it near the selected category box.
+          </p>
+          
+          <p>
+            Integrating the claw with the lift also required mechanical trade-offs. Because the chain
+            carried the weight of both the claw and the object, the claw assembly had to be kept as light
+            as possible, and additional supports were added to reduce stress on the plastic VEX components.
+            This made the final mechanism more reliable while still allowing the claw and lift to work
+            together as one object-handling subsystem.
           </p>
         </article>
 
@@ -150,12 +176,20 @@
           <span class="notebook-label">Build Stage 03</span>
           <h3>Sensor-Based Navigation</h3>
           <p>
-            The robot used sensor feedback to move through the sorting path and identify
-            where it needed to go. User input from the touch sensor selected the target
-            category, while colour/optical sensing helped the robot detect marked floor
-            stripes along the path. Additional sensing, including distance and orientation
-            feedback, supported more controlled movement as the robot approached the
-            drop-off area.
+            The robot used multiple sensors to connect user input with autonomous movement. At the
+            beginning of the sequence, the touch sensor counted one, two, or three taps and converted
+            that input into a selected sorting category. Once the category was chosen, the robot used
+            its colour sensor to scan the floor for the matching coloured stripe, which acted as a
+            path marker for the correct drop-off area.
+          </p>
+          
+          <p>
+            Additional sensors helped make the movement more controlled after the correct stripe was
+            detected. The gyro sensor supported the 90-degree turn toward the category box, while the
+            distance sensor helped the robot stop at a consistent distance from the box wall before
+            releasing the object. Motor encoder feedback was also used to track movement so the robot
+            could return more reliably toward its starting position. Together, these sensors allowed
+            the robot to make decisions based on feedback rather than relying only on fixed timing.
           </p>
         </article>
 
@@ -163,12 +197,32 @@
           <span class="notebook-label">Build Stage 04</span>
           <h3>Autonomous Sorting Sequence</h3>
           <p>
-            The final system connected the mechanical design and sensor feedback through
-            C++ control logic. The program handled category input, movement, stripe
-            detection, turning, box approach, claw release, and return movement as part
-            of one autonomous sequence. Testing focused on whether the robot could
-            complete the full process from object pickup to drop-off while coordinating
-            the drive motors, claw, lift, and sensors.
+            The robot’s autonomous behaviour was programmed in C++ using VEXcode and was structured
+            around the full sorting cycle rather than a single timed routine. The code was divided
+            into separate functions for each major action, including reading the touch sensor input,
+            opening and closing the claw, raising and lowering the lift, driving forward, scanning
+            for the selected colour stripe, turning toward the box, approaching the drop-off area,
+            releasing the object, and returning to the start.
+          </p>
+          
+          <p>
+            This modular structure made the program easier to test because each subsystem could be
+            debugged before being connected into the full sequence. For example, the touch-sensor
+            function converted one, two, or three taps into a category selection, while the colour
+            sensor routine continuously checked the floor until the matching stripe was detected.
+            Once the stripe was found, a turning function used gyro feedback to rotate the robot
+            toward the box, and a distance-sensor routine helped stop the robot at a controlled
+            distance before releasing the object.
+          </p>
+          
+          <p>
+            The code also had to account for real-world movement errors. Gyro-based turns were not
+            always exactly 90 degrees, and sensor readings could vary depending on alignment, surface
+            reflection, or distance from the target. To improve consistency, the program used
+            calibrated thresholds, encoder-based movement tracking, and repeated testing to tune how
+            the robot moved between each stage. The main coding challenge was coordinating sensor
+            readings, motor commands, and mechanical timing so the physical robot could complete the
+            same sorting sequence reliably across multiple trials.
           </p>
         </article>
       </div>
