@@ -1483,7 +1483,7 @@ body {
   line-height: 1.78;
 }
 
-/* Right checklist panel */
+/* Right notebook panel */
 #reflection .reflection-notebook {
   position: relative;
   border-radius: 1.5rem;
@@ -1562,40 +1562,26 @@ body {
    PROJECT CONTACT CTA
 ========================================================= */
 
-.project-cta,
 .project-contact-cta {
   text-align: center;
-  width: 100%;
-  max-width: none;
   padding: 6rem 8%;
   background:
     linear-gradient(135deg, rgba(255, 240, 247, 0.95), rgba(255, 255, 255, 1));
 }
 
-.project-cta h2,
 .project-contact-cta h2 {
   font-size: clamp(2.3rem, 4vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.05em;
   margin-bottom: 1rem;
-  color: var(--portfolio-dark);
 }
 
-.project-cta p,
 .project-contact-cta p {
   max-width: 680px;
   margin: 0 auto 2rem;
   color: var(--portfolio-muted);
   line-height: 1.8;
 }
-
-.project-cta-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-}
-
 /* =========================================================
    PROJECT PAGE DARK MODE SUPPORT
 ========================================================= */
