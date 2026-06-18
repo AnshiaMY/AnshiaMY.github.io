@@ -309,95 +309,148 @@
 
     </section>
 
-    <!-- Troubleshooting -->
-    <section class="case-section" id="improvements">
+    <!-- Troubleshooting / Debug Folder -->
+<section class="case-section debug-folder-section" id="improvements">
 
-      <div class="case-section-heading center">
-        <p class="section-kicker">Troubleshooting</p>
+  <div class="case-section-heading center">
+    <p class="section-kicker">Troubleshooting</p>
 
-        <h2>Debugging The Build.</h2>
+    <h2>Debugging the build.</h2>
 
-        <p>
-          Testing revealed that the robot’s behaviour depended on how well the mechanical design,
-          sensors, wiring, and control logic worked together. Each issue had to be observed,
-          diagnosed, and adjusted before the system became more reliable.
-        </p>
-      </div>
+    <p>
+      Testing revealed that the robot’s behaviour depended on how well the mechanical design,
+      sensors, wiring, and control logic worked together. Each issue had to be observed,
+      diagnosed, and adjusted before the system became more reliable.
+    </p>
+  </div>
 
-      <div class="improvement-list">
+  <div class="debug-folder">
 
-        <article class="improvement-item">
-          <h3>Sensor Height vs. Tracking Accuracy</h3>
+    <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
 
-          <p>
-            <strong class="debug-label">Symptom:</strong>
-            The robot’s tracking behaviour changed when the sensor position shifted slightly
-            or when the robot moved over uneven parts of the track.
-          </p>
+      <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
+        <span>Debug File 01</span>
+        Sensor Height
+      </button>
 
-          <p>
-            <strong class="debug-label">Diagnosis:</strong>
-            The issue was not only in the code. The infrared sensors depended on their height
-            and angle relative to the surface, so small mechanical placement changes affected
-            the sensor readings and the control response.
-          </p>
+      <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
+        <span>Debug File 02</span>
+        Motor Response
+      </button>
 
-          <p>
-            <strong class="debug-label">Adjustment:</strong>
-            I treated the problem as both a mechanical and software issue by checking sensor
-            placement, testing the robot across different track conditions, and adjusting the
-            control logic so the motor response matched the sensor behaviour more reliably.
-          </p>
-        </article>
+      <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
+        <span>Debug File 03</span>
+        Wiring Integration
+      </button>
 
-        <article class="improvement-item">
-          <h3>Motor Overcorrection During Turns</h3>
+    </div>
 
-          <p>
-            <strong class="debug-label">Symptom:</strong>
-            During curved-path testing, the robot sometimes corrected too sharply when entering
-            or leaving a turn.
-          </p>
+    <div class="debug-folder-body">
 
-          <p>
-            <strong class="debug-label">Diagnosis:</strong>
-            The motor response was too aggressive when one infrared sensor detected the line
-            before the other, causing the robot to oversteer instead of smoothly correcting
-            back toward the path.
-          </p>
+      <article class="debug-file is-active" data-debug-file="1">
+        <p class="debug-file-label">Debug File 01</p>
 
-          <p>
-            <strong class="debug-label">Adjustment:</strong>
-            PID values were tuned through repeated trials to smooth the correction, reduce
-            oscillation, and improve the robot’s stability during curved-path tracking.
-          </p>
-        </article>
+        <h3>Sensor Height vs. Tracking Accuracy</h3>
 
-        <article class="improvement-item">
-          <h3>Wiring & System Integration</h3>
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              The robot’s tracking behaviour changed when the sensor position shifted slightly
+              or when the robot moved over uneven parts of the track.
+            </p>
+          </div>
 
-          <p>
-            <strong class="debug-label">Symptom:</strong>
-            Small connection issues affected the robot’s overall behaviour, especially when
-            testing the sensors, motors, and control hardware together.
-          </p>
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              The issue was not only in the code. The infrared sensors depended on their height
+              and angle relative to the surface, so small mechanical placement changes affected
+              the sensor readings and the control response.
+            </p>
+          </div>
 
-          <p>
-            <strong class="debug-label">Diagnosis:</strong>
-            The robot combined a custom-fabricated circuit board, soldered components, power
-            connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
-            connection could affect multiple parts of the system.
-          </p>
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              I treated the problem as both a mechanical and software issue by checking sensor
+              placement, testing the robot across different track conditions, and adjusting the
+              control logic so the motor response matched the sensor behaviour more reliably.
+            </p>
+          </div>
+        </div>
+      </article>
 
-          <p>
-            <strong class="debug-label">Adjustment:</strong>
-            I tested the system step by step, checked wiring and soldered joints, verified
-            power connections, and confirmed each subsystem before running the full robot.
-          </p>
-        </article>
+      <article class="debug-file" data-debug-file="2">
+        <p class="debug-file-label">Debug File 02</p>
 
-      </div>
-    </section>
+        <h3>Motor Overcorrection During Turns</h3>
+
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              During curved-path testing, the robot sometimes corrected too sharply when entering
+              or leaving a turn.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              The motor response was too aggressive when one infrared sensor detected the line
+              before the other, causing the robot to oversteer instead of smoothly correcting
+              back toward the path.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              PID values were tuned through repeated trials to smooth the correction, reduce
+              oscillation, and improve the robot’s stability during curved-path tracking.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="debug-file" data-debug-file="3">
+        <p class="debug-file-label">Debug File 03</p>
+
+        <h3>Wiring & System Integration</h3>
+
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              Small connection issues affected the robot’s overall behaviour, especially when
+              testing the sensors, motors, and control hardware together.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              The robot combined a custom-fabricated circuit board, soldered components, power
+              connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
+              connection could affect multiple parts of the system.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              I tested the system step by step, checked wiring and soldered joints, verified
+              power connections, and confirmed each subsystem before running the full robot.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- Final Reflection -->
     <section class="project-section reflection-section" id="reflection">
