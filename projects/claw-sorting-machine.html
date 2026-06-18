@@ -413,49 +413,43 @@
 
   </main>
 
-  <!-- Bootstrap core JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Main JS -->
-  <script src="../js/scripts.js"></script>
-
-  <!-- Page-specific JS -->
+  <!-- Project Page Effects -->
   <script>
     // Scroll progress bar
-    const scrollProgress = document.querySelector(".scroll-progress");
-
     window.addEventListener("scroll", () => {
+      const scrollProgress = document.querySelector(".scroll-progress");
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
-      if (scrollProgress) {
-        scrollProgress.style.width = scrollPercent + "%";
-      }
+      scrollProgress.style.width = scrollPercent + "%";
     });
 
-    // Reveal on scroll
-    const revealElements = document.querySelectorAll(".reveal");
+    // Reveal elements on scroll
+    const revealElements = document.querySelectorAll(
+      ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
+    );
 
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("active");
+            entry.target.classList.add("reveal-visible");
           }
         });
       },
       {
-        threshold: 0.12
+        threshold: 0.15
       }
     );
 
     revealElements.forEach(element => {
+      element.classList.add("reveal-hidden");
       revealObserver.observe(element);
     });
 
-    // Dark / light mode toggle
-    const themeToggle = document.querySelector("#themeToggle");
+    // Dark/light mode toggle
+    const themeToggle = document.querySelector("#theme-toggle");
     const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
 
     const savedTheme = localStorage.getItem("portfolio-theme");
@@ -473,17 +467,21 @@
       themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
 
-        const isDarkMode = document.body.classList.contains("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
 
-        localStorage.setItem("portfolio-theme", isDarkMode ? "dark" : "light");
+        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
 
         if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDarkMode);
-          themeIcon.classList.toggle("bi-sun", isDarkMode);
+          themeIcon.classList.toggle("bi-moon-stars", !isDark);
+          themeIcon.classList.toggle("bi-sun", isDark);
         }
       });
     }
   </script>
 
+  <!-- Main JavaScript -->
+  <script src="../js/scripts.js"></script>
+
 </body>
+</html>
 </html>
