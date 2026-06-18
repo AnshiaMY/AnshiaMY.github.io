@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
 
@@ -102,9 +101,28 @@
         </p>
       </div>
 
-      <div class="build-path-wrapper">
+      <div class="build-path-wrapper" data-active="1">
 
-        <div class="build-path-line" aria-hidden="true"></div>
+        <svg class="build-path-line" viewBox="0 0 1000 820" aria-hidden="true">
+          <path
+            class="build-path-track-shadow"
+            d="M 170 95
+               C 450 25, 830 105, 815 290
+               C 800 470, 520 500, 350 420
+               C 140 325, 125 600, 420 700
+               C 650 780, 845 690, 830 535"
+          />
+          <path
+            class="build-path-track"
+            d="M 170 95
+               C 450 25, 830 105, 815 290
+               C 800 470, 520 500, 350 420
+               C 140 325, 125 600, 420 700
+               C 650 780, 845 690, 830 535"
+          />
+        </svg>
+
+        <span class="build-path-runner" aria-hidden="true"></span>
 
         <div class="build-checkpoint checkpoint-one">
           <button class="checkpoint-button" type="button" aria-expanded="true">
@@ -203,7 +221,7 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Testing the Robot</p>
 
-        <h2>On the track.</h2>
+        <h2>On The Track.</h2>
 
         <p>
           The robot was tested across three track conditions, 
@@ -317,7 +335,7 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Troubleshooting</p>
 
-        <h2>Debugging the build.</h2>
+        <h2>Debugging The Build.</h2>
 
         <p>
           Testing revealed that the robot’s behaviour depended on how well the mechanical design,
@@ -416,9 +434,7 @@
           are connected in a real robotic system. The robot’s performance did not depend 
           on one part working in isolation; it depended on the chassis design, sensor 
           placement, wiring, power connections, and control logic all working together.
-        </p>
 
-        <p>
           The most valuable part of the project was testing the robot under different 
           track conditions and seeing how small physical changes affected its behaviour. 
           A slight change in sensor height, motor response, or wiring reliability could 
