@@ -84,8 +84,8 @@
 
   <main>
 
-    <!-- Project Overview / System Design Timeline -->
-<section class="case-section" id="build">
+    <!-- Project Overview / Build Path -->
+<section class="case-section build-path-section" id="build">
 
   <div class="case-section-heading center">
     <p class="section-kicker">Project Overview</p>
@@ -101,73 +101,97 @@
     </p>
   </div>
 
-  <div class="process-timeline">
+  <div class="build-path-wrapper">
 
-    <article class="process-step">
-      <div class="process-marker">01</div>
+    <div class="build-path-line" aria-hidden="true"></div>
 
-      <div class="process-content">
+    <div class="build-checkpoint checkpoint-one">
+      <button class="checkpoint-button" type="button" aria-expanded="true">
+        <span class="checkpoint-number">01</span>
+        <span class="checkpoint-title">CAD & Chassis Design</span>
+      </button>
+
+      <article class="checkpoint-panel is-open">
+        <p class="notebook-label">Design Note 01</p>
+
         <h3>CAD & Chassis Design</h3>
+
         <p>
-          The chassis was designed in SolidWorks and 3D printed as 
-          the mechanical foundation of the robot. The design had to 
-          account for component placement, sensor height, motor alignment, 
-          wiring space, and overall stability, while keeping the structure 
-          compact enough for smooth movement. The final layout positioned 
-          the infrared sensors close to the surface for reliable contrast 
-          detection and provided secure mounting points for the Raspberry Pi, 
-          motors, and supporting electronics.
+          The chassis was designed in SolidWorks and 3D printed as the mechanical
+          foundation of the robot. The design had to account for component placement,
+          sensor height, motor alignment, wiring space, and overall stability, while
+          keeping the structure compact enough for smooth movement. The final layout
+          positioned the infrared sensors close to the surface for reliable contrast
+          detection and provided secure mounting points for the Raspberry Pi, motors,
+          and supporting electronics.
         </p>
-      </div>
-    </article>
+      </article>
+    </div>
 
-    <article class="process-step">
-      <div class="process-marker">02</div>
+    <div class="build-checkpoint checkpoint-two">
+      <button class="checkpoint-button" type="button" aria-expanded="false">
+        <span class="checkpoint-number">02</span>
+        <span class="checkpoint-title">Circuit Board Fabrication</span>
+      </button>
 
-      <div class="process-content">
+      <article class="checkpoint-panel">
+        <p class="notebook-label">Fabrication Note 02</p>
+
         <h3>Circuit Board Fabrication</h3>
+
         <p>
-          The circuit board was fabricated from a plain 
-          copper board using a custom digital schematic and 
-          board layout. After the design was heat-transferred 
-          onto the copper surface, the board was etched to form 
-          the electrical traces used to connect the robot’s sensors, 
-          motor driver, power connections, and control electronics.
+          The circuit board was fabricated from a plain copper board using a custom
+          digital schematic and board layout. After the design was heat-transferred
+          onto the copper surface, the board was etched to form the electrical traces
+          used to connect the robot’s sensors, motor driver, power connections, and
+          control electronics.
         </p>
-      </div>
-    </article>
+      </article>
+    </div>
 
-    <article class="process-step">
-      <div class="process-marker">03</div>
+    <div class="build-checkpoint checkpoint-three">
+      <button class="checkpoint-button" type="button" aria-expanded="false">
+        <span class="checkpoint-number">03</span>
+        <span class="checkpoint-title">Wiring & Assembly</span>
+      </button>
 
-      <div class="process-content">
+      <article class="checkpoint-panel">
+        <p class="notebook-label">Assembly Note 03</p>
+
         <h3>Wiring & Assembly</h3>
+
         <p>
-          Once the board was prepared, the components were soldered and wired
-          into the robot. The infrared sensors, motor driver, DC motors, and
-          regulated 5V/3.3V power connections had to work together reliably,
-          so wiring checks and multimeter-based debugging were used before
-          moving into full system testing.
+          Once the board was prepared, the components were soldered and wired into
+          the robot. The infrared sensors, motor driver, DC motors, and regulated
+          5V/3.3V power connections had to work together reliably, so wiring checks
+          and multimeter-based debugging were used before moving into full system
+          testing.
         </p>
-      </div>
-    </article>
+      </article>
+    </div>
 
-    <article class="process-step">
-      <div class="process-marker">04</div>
+    <div class="build-checkpoint checkpoint-four">
+      <button class="checkpoint-button" type="button" aria-expanded="false">
+        <span class="checkpoint-number">04</span>
+        <span class="checkpoint-title">Control Logic & Testing</span>
+      </button>
 
-      <div class="process-content">
+      <article class="checkpoint-panel">
+        <p class="notebook-label">Control Note 04</p>
+
         <h3>Control Logic & Testing</h3>
+
         <p>
-          The Raspberry Pi ran Python code that continuously read the two bottom-mounted 
-          infrared sensors and compared their black-and-white contrast readings to 
-          determine the robot’s position relative to the line. Based on the left and 
-          right sensor states, the program adjusted the DC motor outputs to correct the robot’s 
-          path in real time. A PID controller was tuned through repeated trials to smooth the 
-          motor response, reduce oscillation, and improve stability during straight-line tracking, 
-          racetrack turns, and boundary-detection testing.
+          The Raspberry Pi ran Python code that continuously read the two bottom-mounted
+          infrared sensors and compared their black-and-white contrast readings to
+          determine the robot’s position relative to the line. Based on the left and
+          right sensor states, the program adjusted the DC motor outputs to correct
+          the robot’s path in real time. A PID controller was tuned through repeated
+          trials to smooth the motor response, reduce oscillation, and improve stability
+          during straight-line tracking, racetrack turns, and boundary-detection testing.
         </p>
-      </div>
-    </article>
+      </article>
+    </div>
 
   </div>
 </section>
