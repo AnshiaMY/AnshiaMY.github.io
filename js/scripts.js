@@ -62,39 +62,36 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    // Build path checkpoint panels
-    const checkpointButtons = document.querySelectorAll("#build .checkpoint-button");
-    const buildPathWrapper = document.querySelector("#build .build-path-wrapper");
+    // Build stage tabs
+    const buildStageTabs = document.querySelectorAll("#build .build-stage-tab");
+    const buildStagePanels = document.querySelectorAll("#build .build-stage-panel");
 
-    checkpointButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const currentCheckpoint = button.closest(".build-checkpoint");
-            const currentPanel = currentCheckpoint ? currentCheckpoint.querySelector(".checkpoint-panel") : null;
-            const checkpointNumber = button.querySelector(".checkpoint-number");
+    buildStageTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const selectedStage = tab.getAttribute("data-stage");
 
-            if (!currentPanel || !checkpointNumber) {
-                return;
-            }
-
-            // Close all checkpoint panels
-            document.querySelectorAll("#build .checkpoint-button").forEach((btn) => {
-                btn.setAttribute("aria-expanded", "false");
+            // Deactivate all tabs
+            buildStageTabs.forEach((stageTab) => {
+                stageTab.classList.remove("is-active");
+                stageTab.setAttribute("aria-selected", "false");
             });
 
-            document.querySelectorAll("#build .checkpoint-panel").forEach((panel) => {
-                panel.classList.remove("is-open");
+            // Hide all panels
+            buildStagePanels.forEach((panel) => {
+                panel.classList.remove("is-active");
             });
 
-            // Open the selected checkpoint panel
-            button.setAttribute("aria-expanded", "true");
-            currentPanel.classList.add("is-open");
+            // Activate selected tab
+            tab.classList.add("is-active");
+            tab.setAttribute("aria-selected", "true");
 
-            // Move the glowing runner to the selected checkpoint
-            if (buildPathWrapper) {
-                buildPathWrapper.setAttribute(
-                    "data-active",
-                    checkpointNumber.textContent.trim()
-                );
+            // Show matching panel
+            const activePanel = document.querySelector(
+                `#build .build-stage-panel[data-stage-panel="${selectedStage}"]`
+            );
+
+            if (activePanel) {
+                activePanel.classList.add("is-active");
             }
         });
     });
