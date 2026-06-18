@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
 
@@ -85,116 +86,116 @@
   <main>
 
     <!-- Project Overview / Build Path -->
-<section class="case-section build-path-section" id="build">
+    <section class="case-section build-path-section" id="build">
 
-  <div class="case-section-heading center">
-    <p class="section-kicker">Project Overview</p>
+      <div class="case-section-heading center">
+        <p class="section-kicker">Project Overview</p>
 
-    <h2>From concept to control.</h2>
-
-    <p>
-      This project began as an exploration of feedback-based movement.
-      Instead of programming the robot to follow a fixed route, the goal
-      was to use sensor data to guide its decisions: tracking a black line
-      during path-following tests and detecting the edge of a black-circle
-      boundary during containment testing.
-    </p>
-  </div>
-
-  <div class="build-path-wrapper">
-
-    <div class="build-path-line" aria-hidden="true"></div>
-
-    <div class="build-checkpoint checkpoint-one">
-      <button class="checkpoint-button" type="button" aria-expanded="true">
-        <span class="checkpoint-number">01</span>
-        <span class="checkpoint-title">CAD & Chassis Design</span>
-      </button>
-
-      <article class="checkpoint-panel is-open">
-        <p class="notebook-label">Design Note 01</p>
-
-        <h3>CAD & Chassis Design</h3>
+        <h2>From concept to control.</h2>
 
         <p>
-          The chassis was designed in SolidWorks and 3D printed as the mechanical
-          foundation of the robot. The design had to account for component placement,
-          sensor height, motor alignment, wiring space, and overall stability, while
-          keeping the structure compact enough for smooth movement. The final layout
-          positioned the infrared sensors close to the surface for reliable contrast
-          detection and provided secure mounting points for the Raspberry Pi, motors,
-          and supporting electronics.
+          This project began as an exploration of feedback-based movement.
+          Instead of programming the robot to follow a fixed route, the goal
+          was to use sensor data to guide its decisions: tracking a black line
+          during path-following tests and detecting the edge of a black-circle
+          boundary during containment testing.
         </p>
-      </article>
-    </div>
+      </div>
 
-    <div class="build-checkpoint checkpoint-two">
-      <button class="checkpoint-button" type="button" aria-expanded="false">
-        <span class="checkpoint-number">02</span>
-        <span class="checkpoint-title">Circuit Board Fabrication</span>
-      </button>
+      <div class="build-path-wrapper">
 
-      <article class="checkpoint-panel">
-        <p class="notebook-label">Fabrication Note 02</p>
+        <div class="build-path-line" aria-hidden="true"></div>
 
-        <h3>Circuit Board Fabrication</h3>
+        <div class="build-checkpoint checkpoint-one">
+          <button class="checkpoint-button" type="button" aria-expanded="true">
+            <span class="checkpoint-number">01</span>
+            <span class="checkpoint-title">CAD & Chassis Design</span>
+          </button>
 
-        <p>
-          The circuit board was fabricated from a plain copper board using a custom
-          digital schematic and board layout. After the design was heat-transferred
-          onto the copper surface, the board was etched to form the electrical traces
-          used to connect the robot’s sensors, motor driver, power connections, and
-          control electronics.
-        </p>
-      </article>
-    </div>
+          <article class="checkpoint-panel is-open">
+            <p class="notebook-label">Design Note 01</p>
 
-    <div class="build-checkpoint checkpoint-three">
-      <button class="checkpoint-button" type="button" aria-expanded="false">
-        <span class="checkpoint-number">03</span>
-        <span class="checkpoint-title">Wiring & Assembly</span>
-      </button>
+            <h3>CAD & Chassis Design</h3>
 
-      <article class="checkpoint-panel">
-        <p class="notebook-label">Assembly Note 03</p>
+            <p>
+              The chassis was designed in SolidWorks and 3D printed as the mechanical
+              foundation of the robot. The design had to account for component placement,
+              sensor height, motor alignment, wiring space, and overall stability, while
+              keeping the structure compact enough for smooth movement. The final layout
+              positioned the infrared sensors close to the surface for reliable contrast
+              detection and provided secure mounting points for the Raspberry Pi, motors,
+              and supporting electronics.
+            </p>
+          </article>
+        </div>
 
-        <h3>Wiring & Assembly</h3>
+        <div class="build-checkpoint checkpoint-two">
+          <button class="checkpoint-button" type="button" aria-expanded="false">
+            <span class="checkpoint-number">02</span>
+            <span class="checkpoint-title">Circuit Board Fabrication</span>
+          </button>
 
-        <p>
-          Once the board was prepared, the components were soldered and wired into
-          the robot. The infrared sensors, motor driver, DC motors, and regulated
-          5V/3.3V power connections had to work together reliably, so wiring checks
-          and multimeter-based debugging were used before moving into full system
-          testing.
-        </p>
-      </article>
-    </div>
+          <article class="checkpoint-panel">
+            <p class="notebook-label">Fabrication Note 02</p>
 
-    <div class="build-checkpoint checkpoint-four">
-      <button class="checkpoint-button" type="button" aria-expanded="false">
-        <span class="checkpoint-number">04</span>
-        <span class="checkpoint-title">Control Logic & Testing</span>
-      </button>
+            <h3>Circuit Board Fabrication</h3>
 
-      <article class="checkpoint-panel">
-        <p class="notebook-label">Control Note 04</p>
+            <p>
+              The circuit board was fabricated from a plain copper board using a custom
+              digital schematic and board layout. After the design was heat-transferred
+              onto the copper surface, the board was etched to form the electrical traces
+              used to connect the robot’s sensors, motor driver, power connections, and
+              control electronics.
+            </p>
+          </article>
+        </div>
 
-        <h3>Control Logic & Testing</h3>
+        <div class="build-checkpoint checkpoint-three">
+          <button class="checkpoint-button" type="button" aria-expanded="false">
+            <span class="checkpoint-number">03</span>
+            <span class="checkpoint-title">Wiring & Assembly</span>
+          </button>
 
-        <p>
-          The Raspberry Pi ran Python code that continuously read the two bottom-mounted
-          infrared sensors and compared their black-and-white contrast readings to
-          determine the robot’s position relative to the line. Based on the left and
-          right sensor states, the program adjusted the DC motor outputs to correct
-          the robot’s path in real time. A PID controller was tuned through repeated
-          trials to smooth the motor response, reduce oscillation, and improve stability
-          during straight-line tracking, racetrack turns, and boundary-detection testing.
-        </p>
-      </article>
-    </div>
+          <article class="checkpoint-panel">
+            <p class="notebook-label">Assembly Note 03</p>
 
-  </div>
-</section>
+            <h3>Wiring & Assembly</h3>
+
+            <p>
+              Once the board was prepared, the components were soldered and wired into
+              the robot. The infrared sensors, motor driver, DC motors, and regulated
+              5V/3.3V power connections had to work together reliably, so wiring checks
+              and multimeter-based debugging were used before moving into full system
+              testing.
+            </p>
+          </article>
+        </div>
+
+        <div class="build-checkpoint checkpoint-four">
+          <button class="checkpoint-button" type="button" aria-expanded="false">
+            <span class="checkpoint-number">04</span>
+            <span class="checkpoint-title">Control Logic & Testing</span>
+          </button>
+
+          <article class="checkpoint-panel">
+            <p class="notebook-label">Control Note 04</p>
+
+            <h3>Control Logic & Testing</h3>
+
+            <p>
+              The Raspberry Pi ran Python code that continuously read the two bottom-mounted
+              infrared sensors and compared their black-and-white contrast readings to
+              determine the robot’s position relative to the line. Based on the left and
+              right sensor states, the program adjusted the DC motor outputs to correct
+              the robot’s path in real time. A PID controller was tuned through repeated
+              trials to smooth the motor response, reduce oscillation, and improve stability
+              during straight-line tracking, racetrack turns, and boundary-detection testing.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Demo Showcase -->
     <section class="case-section demo-showcase" id="demos">
@@ -202,7 +203,7 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Testing the Robot</p>
 
-        <h2>On The Track.</h2>
+        <h2>On the track.</h2>
 
         <p>
           The robot was tested across three track conditions, 
@@ -311,94 +312,94 @@
     </section>
 
     <!-- Troubleshooting -->
-<section class="case-section" id="improvements">
+    <section class="case-section" id="improvements">
 
-  <div class="case-section-heading center">
-    <p class="section-kicker">Troubleshooting</p>
+      <div class="case-section-heading center">
+        <p class="section-kicker">Troubleshooting</p>
 
-    <h2>Debugging The Build.</h2>
+        <h2>Debugging the build.</h2>
 
-    <p>
-      Testing revealed that the robot’s behaviour depended on how well the mechanical design,
-      sensors, wiring, and control logic worked together. Each issue had to be observed,
-      diagnosed, and adjusted before the system became more reliable.
-    </p>
-  </div>
+        <p>
+          Testing revealed that the robot’s behaviour depended on how well the mechanical design,
+          sensors, wiring, and control logic worked together. Each issue had to be observed,
+          diagnosed, and adjusted before the system became more reliable.
+        </p>
+      </div>
 
-  <div class="improvement-list">
+      <div class="improvement-list">
 
-    <article class="improvement-item">
-      <h3>Sensor Height vs. Tracking Accuracy</h3>
+        <article class="improvement-item">
+          <h3>Sensor Height vs. Tracking Accuracy</h3>
 
-      <p>
-        <strong class="debug-label">Symptom:</strong>
-        The robot’s tracking behaviour changed when the sensor position shifted slightly
-        or when the robot moved over uneven parts of the track.
-      </p>
+          <p>
+            <strong class="debug-label">Symptom:</strong>
+            The robot’s tracking behaviour changed when the sensor position shifted slightly
+            or when the robot moved over uneven parts of the track.
+          </p>
 
-      <p>
-        <strong class="debug-label">Diagnosis:</strong>
-        The issue was not only in the code. The infrared sensors depended on their height
-        and angle relative to the surface, so small mechanical placement changes affected
-        the sensor readings and the control response.
-      </p>
+          <p>
+            <strong class="debug-label">Diagnosis:</strong>
+            The issue was not only in the code. The infrared sensors depended on their height
+            and angle relative to the surface, so small mechanical placement changes affected
+            the sensor readings and the control response.
+          </p>
 
-      <p>
-        <strong class="debug-label">Adjustment:</strong>
-        I treated the problem as both a mechanical and software issue by checking sensor
-        placement, testing the robot across different track conditions, and adjusting the
-        control logic so the motor response matched the sensor behaviour more reliably.
-      </p>
-    </article>
+          <p>
+            <strong class="debug-label">Adjustment:</strong>
+            I treated the problem as both a mechanical and software issue by checking sensor
+            placement, testing the robot across different track conditions, and adjusting the
+            control logic so the motor response matched the sensor behaviour more reliably.
+          </p>
+        </article>
 
-    <article class="improvement-item">
-      <h3>Motor Overcorrection During Turns</h3>
+        <article class="improvement-item">
+          <h3>Motor Overcorrection During Turns</h3>
 
-      <p>
-        <strong class="debug-label">Symptom:</strong>
-        During curved-path testing, the robot sometimes corrected too sharply when entering
-        or leaving a turn.
-      </p>
+          <p>
+            <strong class="debug-label">Symptom:</strong>
+            During curved-path testing, the robot sometimes corrected too sharply when entering
+            or leaving a turn.
+          </p>
 
-      <p>
-        <strong class="debug-label">Diagnosis:</strong>
-        The motor response was too aggressive when one infrared sensor detected the line
-        before the other, causing the robot to oversteer instead of smoothly correcting
-        back toward the path.
-      </p>
+          <p>
+            <strong class="debug-label">Diagnosis:</strong>
+            The motor response was too aggressive when one infrared sensor detected the line
+            before the other, causing the robot to oversteer instead of smoothly correcting
+            back toward the path.
+          </p>
 
-      <p>
-        <strong class="debug-label">Adjustment:</strong>
-        PID values were tuned through repeated trials to smooth the correction, reduce
-        oscillation, and improve the robot’s stability during curved-path tracking.
-      </p>
-    </article>
+          <p>
+            <strong class="debug-label">Adjustment:</strong>
+            PID values were tuned through repeated trials to smooth the correction, reduce
+            oscillation, and improve the robot’s stability during curved-path tracking.
+          </p>
+        </article>
 
-    <article class="improvement-item">
-      <h3>Wiring & System Integration</h3>
+        <article class="improvement-item">
+          <h3>Wiring & System Integration</h3>
 
-      <p>
-        <strong class="debug-label">Symptom:</strong>
-        Small connection issues affected the robot’s overall behaviour, especially when
-        testing the sensors, motors, and control hardware together.
-      </p>
+          <p>
+            <strong class="debug-label">Symptom:</strong>
+            Small connection issues affected the robot’s overall behaviour, especially when
+            testing the sensors, motors, and control hardware together.
+          </p>
 
-      <p>
-        <strong class="debug-label">Diagnosis:</strong>
-        The robot combined a custom-fabricated circuit board, soldered components, power
-        connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
-        connection could affect multiple parts of the system.
-      </p>
+          <p>
+            <strong class="debug-label">Diagnosis:</strong>
+            The robot combined a custom-fabricated circuit board, soldered components, power
+            connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
+            connection could affect multiple parts of the system.
+          </p>
 
-      <p>
-        <strong class="debug-label">Adjustment:</strong>
-        I tested the system step by step, checked wiring and soldered joints, verified
-        power connections, and confirmed each subsystem before running the full robot.
-      </p>
-    </article>
+          <p>
+            <strong class="debug-label">Adjustment:</strong>
+            I tested the system step by step, checked wiring and soldered joints, verified
+            power connections, and confirmed each subsystem before running the full robot.
+          </p>
+        </article>
 
-  </div>
-</section>
+      </div>
+    </section>
 
     <!-- Final Reflection -->
     <section class="project-section reflection-section" id="reflection">
@@ -415,7 +416,9 @@
           are connected in a real robotic system. The robot’s performance did not depend 
           on one part working in isolation; it depended on the chassis design, sensor 
           placement, wiring, power connections, and control logic all working together.
+        </p>
 
+        <p>
           The most valuable part of the project was testing the robot under different 
           track conditions and seeing how small physical changes affected its behaviour. 
           A slight change in sensor height, motor response, or wiring reliability could 
@@ -523,6 +526,9 @@
       });
     }
   </script>
+
+  <!-- Main JavaScript -->
+  <script src="../js/scripts.js"></script>
 
 </body>
 </html>
