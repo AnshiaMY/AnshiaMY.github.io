@@ -167,44 +167,48 @@
     </div>
   </section>
 
-  <!-- Demo / Testing -->
-  <section class="case-section demo-section" id="testing">
-    <div class="case-section-heading center reveal">
-      <p class="section-kicker">Testing the Robot</p>
-      <h2>Sorting in motion.</h2>
-      <p>
-        The robot was tested through its full sorting sequence, from user input and object
-        pickup to navigation, drop-off, and return movement. This helped evaluate whether
-        the mechanical system, sensors, and code worked together as one autonomous machine.
-      </p>
-    </div>
+ <!-- Demo Showcase -->
+    <section class="case-section demo-showcase" id="demo">
 
-    <article class="demo-feature-row reveal">
-  <div class="demo-video-frame horizontal-video">
-    <video controls muted playsinline>
-      <source src="../assets/claw_demo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
+      <div class="case-section-heading center">
+        <p class="section-kicker">Robot in Action</p>
 
-      <div class="demo-feature-text">
-        <span class="notebook-label">Final Demo</span>
-        <h3>Autonomous sorting sequence</h3>
+        <h2>Working Demo</h2>
+
         <p>
-          In the final test, the user selected a category using the touch sensor before
-          the robot moved through the sorting path. The robot used sensor feedback to
-          detect the correct marked area, approach the category box, release the object,
-          and return to its starting position.
+          This video shows the claw sorting machine operating and demonstrates how the mechanism
+          moves, grips, and interacts with objects during testing.
         </p>
-
-        <ul>
-          <li>Used touch input to select the target category.</li>
-          <li>Detected coloured floor markers during navigation.</li>
-          <li>Coordinated the drive base, claw, lift, and sensors in one sequence.</li>
-        </ul>
       </div>
-    </article>
-  </section>
+
+      <article class="demo-feature-row claw-demo-row">
+        <div class="demo-video-frame horizontal-video">
+          <video controls preload="metadata">
+            <source src="../assets/claw_demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">01</span>
+
+          <h3>Claw Sorting Test</h3>
+
+          <p>
+            This demo shows the machine using its claw mechanism to complete the sorting task.
+            The main focus was testing whether the claw could move reliably, grip objects, and
+            complete the task consistently.
+          </p>
+
+          <ul>
+            <li>Tested claw movement and grip reliability</li>
+            <li>Observed object pickup and placement behaviour</li>
+            <li>Identified areas where alignment and timing affected performance</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
 
   <!-- Troubleshooting / Debug Folder -->
   <section class="case-section debug-folder-section" id="improvements">
