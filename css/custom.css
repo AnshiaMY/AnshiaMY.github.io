@@ -1618,193 +1618,132 @@ body.dark-mode .hero-character {
   }
 }
 /* =========================================================
-   LINE ROBOT: BUILD PATH / PROJECT OVERVIEW
-   Stable glass checkpoints + SVG racetrack + glowing runner
+   LINE ROBOT: BUILD STAGES / PROJECT OVERVIEW
+   Clean stage tabs + one glass notebook panel
 ========================================================= */
 
-#build.build-path-section {
+#build.build-stages-section {
   position: relative;
   overflow: hidden;
 }
 
-/* Overall section layout */
-#build .build-path-wrapper {
-  position: relative;
-  max-width: 1120px;
+#build .build-stage-interface {
+  max-width: 1050px;
   margin: 3rem auto 0;
-  padding: 2.25rem 1rem;
-  display: grid;
-  gap: 1.5rem;
-  isolation: isolate;
 }
 
-/* SVG racetrack background */
-#build .build-path-line {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 820px;
-  z-index: 0;
-  pointer-events: none;
-  overflow: visible;
-}
-
-/* Soft pink glow behind the track */
-#build .build-path-track-shadow {
-  fill: none;
-  stroke: rgba(214, 51, 132, 0.28);
-  stroke-width: 18;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: blur(10px);
-  opacity: 0.85;
-}
-
-/* Main track line */
-#build .build-path-track {
-  fill: none;
-  stroke: rgba(22, 23, 29, 0.78);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 0 12px rgba(214, 51, 132, 0.22));
-}
-
-/* Glowing dot that moves along the track */
-#build .build-path-runner {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  width: 1.15rem;
-  height: 1.15rem;
-  border-radius: 50%;
-  background: var(--portfolio-pink);
-  box-shadow:
-    0 0 0 7px rgba(214, 51, 132, 0.16),
-    0 0 22px rgba(214, 51, 132, 0.75),
-    0 0 44px rgba(214, 51, 132, 0.38);
-  offset-path: path("M 170 95 C 450 25, 830 105, 815 290 C 800 470, 520 500, 350 420 C 140 325, 125 600, 420 700 C 650 780, 845 690, 830 535");
-  offset-rotate: 0deg;
-  offset-distance: 0%;
-  transform: translate(-50%, -50%);
-  transition: offset-distance 0.65s ease;
-}
-
-/* Runner positions */
-#build .build-path-wrapper[data-active="01"] .build-path-runner,
-#build .build-path-wrapper[data-active="1"] .build-path-runner {
-  offset-distance: 0%;
-}
-
-#build .build-path-wrapper[data-active="02"] .build-path-runner,
-#build .build-path-wrapper[data-active="2"] .build-path-runner {
-  offset-distance: 32%;
-}
-
-#build .build-path-wrapper[data-active="03"] .build-path-runner,
-#build .build-path-wrapper[data-active="3"] .build-path-runner {
-  offset-distance: 63%;
-}
-
-#build .build-path-wrapper[data-active="04"] .build-path-runner,
-#build .build-path-wrapper[data-active="4"] .build-path-runner {
-  offset-distance: 100%;
-}
-
-/* Checkpoints flow naturally so opened panels do not overlap */
-#build .build-checkpoint {
+/* Stage buttons */
+#build .build-stage-tabs {
   position: relative;
-  z-index: 2;
-  width: min(540px, 100%);
-}
-
-/* Alternating left/right layout */
-#build .checkpoint-one,
-#build .checkpoint-three {
-  justify-self: start;
-}
-
-#build .checkpoint-two,
-#build .checkpoint-four {
-  justify-self: end;
-}
-
-/* Checkpoint button */
-#build .checkpoint-button {
-  width: 100%;
-  border: 1px solid rgba(214, 51, 132, 0.26);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
-  padding: 0.95rem 1.05rem;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.9rem;
-  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+#build .build-stage-tabs::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(214, 51, 132, 0.12),
+    rgba(214, 51, 132, 0.55),
+    rgba(214, 51, 132, 0.12)
+  );
+  z-index: 0;
+}
+
+#build .build-stage-tab {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(214, 51, 132, 0.22);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 42px rgba(31, 41, 51, 0.07);
+  padding: 1rem 0.9rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
   cursor: pointer;
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
-    border-color 0.22s ease;
+    border-color 0.22s ease,
+    background 0.22s ease;
 }
 
-#build .checkpoint-button:hover,
-#build .checkpoint-button[aria-expanded="true"] {
-  transform: translateY(-3px);
-  border-color: rgba(214, 51, 132, 0.5);
-  box-shadow: 0 24px 62px rgba(214, 51, 132, 0.16);
+#build .build-stage-tab:hover,
+#build .build-stage-tab.is-active {
+  transform: translateY(-4px);
+  border-color: rgba(214, 51, 132, 0.55);
+  box-shadow: 0 24px 60px rgba(214, 51, 132, 0.16);
 }
 
-#build .checkpoint-number {
-  width: 2.7rem;
-  height: 2.7rem;
+#build .stage-tab-number {
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
-  background: var(--portfolio-pink);
-  color: #ffffff;
+  background: rgba(214, 51, 132, 0.12);
+  color: var(--portfolio-pink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: "Merriweather Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 900;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 7px rgba(214, 51, 132, 0.11);
+  transition: 0.22s ease;
 }
 
-#build .checkpoint-title {
+#build .build-stage-tab.is-active .stage-tab-number {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+  box-shadow:
+    0 0 0 8px rgba(214, 51, 132, 0.12),
+    0 0 28px rgba(214, 51, 132, 0.28);
+}
+
+#build .stage-tab-title {
   color: var(--portfolio-dark);
   font-family: "Merriweather Sans", sans-serif;
+  font-size: 0.88rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.25;
+  text-align: center;
 }
 
-/* Glass notebook panel */
-#build .checkpoint-panel {
+/* Glass panel area */
+#build .build-stage-panel-wrap {
+  position: relative;
+  min-height: 330px;
+}
+
+#build .build-stage-panel {
   display: none;
-  margin-top: 0.95rem;
-  border-radius: 1.35rem;
-  padding: 1.5rem 1.6rem;
+  border-radius: 1.6rem;
+  padding: 2rem 2.15rem;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.68);
-  box-shadow: 0 24px 70px rgba(31, 41, 51, 0.12);
-  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 26px 75px rgba(31, 41, 51, 0.11);
 }
 
-#build .checkpoint-panel.is-open {
+#build .build-stage-panel.is-active {
   display: block;
-  animation: checkpointPanelIn 0.25s ease both;
+  animation: buildStagePanelIn 0.28s ease both;
 }
 
-@keyframes checkpointPanelIn {
+@keyframes buildStagePanelIn {
   from {
     opacity: 0;
-    transform: translateY(8px) scale(0.98);
+    transform: translateY(10px) scale(0.985);
   }
 
   to {
@@ -1815,8 +1754,8 @@ body.dark-mode .hero-character {
 
 #build .notebook-label {
   display: inline-flex;
-  margin-bottom: 0.75rem;
-  padding: 0.35rem 0.72rem;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 999px;
   background: rgba(214, 51, 132, 0.1);
   color: var(--portfolio-pink);
@@ -1826,65 +1765,78 @@ body.dark-mode .hero-character {
   text-transform: uppercase;
 }
 
-#build .checkpoint-panel h3 {
-  margin-bottom: 0.7rem;
+#build .build-stage-panel h3 {
+  margin-bottom: 0.8rem;
   color: var(--portfolio-dark);
   font-weight: 900;
 }
 
-#build .checkpoint-panel p:last-child {
-  margin-bottom: 0;
+#build .build-stage-panel p:last-child {
+  max-width: 850px;
   color: var(--portfolio-muted);
-  line-height: 1.75;
+  line-height: 1.78;
+  margin-bottom: 0;
 }
 
 /* Dark mode */
-body.dark-mode #build .build-path-track-shadow {
-  stroke: rgba(214, 51, 132, 0.34);
+body.dark-mode #build .build-stage-tabs::before {
+  background: linear-gradient(
+    90deg,
+    rgba(214, 51, 132, 0.18),
+    rgba(214, 51, 132, 0.5),
+    rgba(214, 51, 132, 0.18)
+  );
 }
 
-body.dark-mode #build .build-path-track {
-  stroke: rgba(255, 255, 255, 0.42);
-}
-
-body.dark-mode #build .checkpoint-button,
-body.dark-mode #build .checkpoint-panel {
+body.dark-mode #build .build-stage-tab,
+body.dark-mode #build .build-stage-panel {
   background: rgba(26, 27, 34, 0.82);
   border-color: rgba(255, 255, 255, 0.14);
 }
 
-body.dark-mode #build .checkpoint-title,
-body.dark-mode #build .checkpoint-panel h3 {
+body.dark-mode #build .stage-tab-title,
+body.dark-mode #build .build-stage-panel h3 {
   color: #f7f2f5;
 }
 
-body.dark-mode #build .checkpoint-panel p:last-child {
+body.dark-mode #build .build-stage-panel p:last-child {
   color: #c9bfc6;
 }
 
-/* Mobile: remove decorative track and stack cleanly */
-@media (max-width: 768px) {
-  #build .build-path-wrapper {
-    padding: 1rem 0;
-    gap: 1.2rem;
+/* Tablet */
+@media (max-width: 900px) {
+  #build .build-stage-tabs {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  #build .build-path-line,
-  #build .build-path-runner {
+  #build .build-stage-tabs::before {
     display: none;
   }
 
-  #build .build-checkpoint {
-    width: 100%;
-    justify-self: stretch;
+  #build .build-stage-panel-wrap {
+    min-height: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #build .build-stage-tabs {
+    grid-template-columns: 1fr;
   }
 
-  #build .checkpoint-button {
-    border-radius: 1.2rem;
+  #build .build-stage-tab {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0.95rem 1rem;
   }
 
-  #build .checkpoint-panel {
-    padding: 1.35rem;
+  #build .stage-tab-title {
+    text-align: left;
+  }
+
+  #build .build-stage-panel {
+    padding: 1.4rem;
   }
 }
 /* Troubleshooting labels */
