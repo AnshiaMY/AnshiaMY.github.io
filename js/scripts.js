@@ -70,13 +70,13 @@ window.addEventListener('DOMContentLoaded', event => {
         tab.addEventListener("click", () => {
             const selectedStage = tab.getAttribute("data-stage");
 
-            // Deactivate all tabs
+            // Deactivate all build stage tabs
             buildStageTabs.forEach((stageTab) => {
                 stageTab.classList.remove("is-active");
                 stageTab.setAttribute("aria-selected", "false");
             });
 
-            // Hide all panels
+            // Hide all build stage panels
             buildStagePanels.forEach((panel) => {
                 panel.classList.remove("is-active");
             });
@@ -92,6 +92,40 @@ window.addEventListener('DOMContentLoaded', event => {
 
             if (activePanel) {
                 activePanel.classList.add("is-active");
+            }
+        });
+    });
+
+    // Debug folder tabs
+    const debugFolderTabs = document.querySelectorAll("#improvements .debug-folder-tab");
+    const debugFiles = document.querySelectorAll("#improvements .debug-file");
+
+    debugFolderTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const selectedDebug = tab.getAttribute("data-debug");
+
+            // Deactivate all debug folder tabs
+            debugFolderTabs.forEach((folderTab) => {
+                folderTab.classList.remove("is-active");
+                folderTab.setAttribute("aria-selected", "false");
+            });
+
+            // Hide all debug files
+            debugFiles.forEach((file) => {
+                file.classList.remove("is-active");
+            });
+
+            // Activate selected folder tab
+            tab.classList.add("is-active");
+            tab.setAttribute("aria-selected", "true");
+
+            // Show matching debug file
+            const activeFile = document.querySelector(
+                `#improvements .debug-file[data-debug-file="${selectedDebug}"]`
+            );
+
+            if (activeFile) {
+                activeFile.classList.add("is-active");
             }
         });
     });
