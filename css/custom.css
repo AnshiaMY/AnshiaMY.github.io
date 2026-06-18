@@ -2161,27 +2161,10 @@ body.dark-mode #improvements .debug-report-row p:last-child {
   position: relative;
   border-radius: 1.5rem;
   padding: 1.4rem 1.5rem 1.5rem 1.8rem;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.96) 0px,
-      rgba(255, 255, 255, 0.96) 31px,
-      rgba(214, 51, 132, 0.10) 32px
-    );
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(214, 51, 132, 0.18);
   box-shadow: 0 24px 70px rgba(31, 41, 51, 0.08);
   overflow: hidden;
-}
-
-/* pink notebook margin line */
-#reflection .reflection-notebook::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 1.15rem;
-  width: 2px;
-  background: rgba(214, 51, 132, 0.22);
 }
 
 #reflection .reflection-notebook-header {
@@ -2265,19 +2248,9 @@ body.dark-mode #reflection .reflection-checklist li {
 }
 
 body.dark-mode #reflection .reflection-notebook {
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(31, 32, 40, 0.95) 0px,
-      rgba(31, 32, 40, 0.95) 31px,
-      rgba(214, 51, 132, 0.10) 32px
-    );
+  background: rgba(31, 32, 40, 0.95);
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
-}
-
-body.dark-mode #reflection .reflection-notebook::before {
-  background: rgba(214, 51, 132, 0.22);
 }
 
 /* Tablet */
@@ -2299,16 +2272,3 @@ body.dark-mode #reflection .reflection-notebook::before {
   }
 }
 
-/* Align notebook checklist text more closely with the ruled lines */
-#reflection .reflection-checklist {
-  margin-top: -0.25rem;
-}
-
-#reflection .reflection-checklist li {
-  margin-bottom: 0.9rem;
-  line-height: 1.65;
-}
-
-#reflection .reflection-checklist li::before {
-  top: 0.05rem;
-}
