@@ -129,9 +129,7 @@
             concepts were developed, the base was designed around those mechanisms so the robot
             could support the VEX Brain, drive motors, lift motor, claw motor, sensors, and
             object-handling system within one stable structure.
-          </p>
-          
-          <p>
+
             Because the robot needed to carry an object above the drive platform, the frame had to
             be wide enough to improve stability and reduce tipping during movement. At the same time,
             the wheel placement and motor positioning had to support straight-line driving, controlled
@@ -152,17 +150,14 @@
             was not consistent enough. The overhead claw was selected instead because it allowed the
             user to place the object more directly into the mechanism, which improved reliability
             during the sorting sequence.
-          </p>
-          
-          <p>
+
             To raise and lower the claw, our group developed a chain-based vertical lift inspired by
             forklift-style lifting systems. Since the VEX kit did not use hydraulics, the lift was
             adapted using a motor-driven sprocket, a second sprocket, and a closed-loop chain. The lift
             motor turned the top sprocket, which moved the chain and allowed the claw assembly to travel
             vertically. This gave the robot a controlled way to raise the object for transport and lower
             or release it near the selected category box.
-          </p>
-          
+
           <p>
             Integrating the claw with the lift also required mechanical trade-offs. Because the chain
             carried the weight of both the claw and the object, the claw assembly had to be kept as light
@@ -181,9 +176,7 @@
             that input into a selected sorting category. Once the category was chosen, the robot used
             its colour sensor to scan the floor for the matching coloured stripe, which acted as a
             path marker for the correct drop-off area.
-          </p>
-          
-          <p>
+
             Additional sensors helped make the movement more controlled after the correct stripe was
             detected. The gyro sensor supported the 90-degree turn toward the category box, while the
             distance sensor helped the robot stop at a consistent distance from the box wall before
@@ -203,9 +196,7 @@
             opening and closing the claw, raising and lowering the lift, driving forward, scanning
             for the selected colour stripe, turning toward the box, approaching the drop-off area,
             releasing the object, and returning to the start.
-          </p>
-          
-          <p>
+
             This modular structure made the program easier to test because each subsystem could be
             debugged before being connected into the full sequence. For example, the touch-sensor
             function converted one, two, or three taps into a category selection, while the colour
@@ -213,9 +204,7 @@
             Once the stripe was found, a turning function used gyro feedback to rotate the robot
             toward the box, and a distance-sensor routine helped stop the robot at a controlled
             distance before releasing the object.
-          </p>
-          
-          <p>
+
             The code also had to account for real-world movement errors. Gyro-based turns were not
             always exactly 90 degrees, and sensor readings could vary depending on alignment, surface
             reflection, or distance from the target. To improve consistency, the program used
