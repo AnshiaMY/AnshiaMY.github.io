@@ -64,11 +64,17 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // Build path checkpoint panels
     const checkpointButtons = document.querySelectorAll("#build .checkpoint-button");
+    const buildPathWrapper = document.querySelector("#build .build-path-wrapper");
 
     checkpointButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const currentCheckpoint = button.closest(".build-checkpoint");
-            const currentPanel = currentCheckpoint.querySelector(".checkpoint-panel");
+            const currentPanel = currentCheckpoint ? currentCheckpoint.querySelector(".checkpoint-panel") : null;
+            const checkpointNumber = button.querySelector(".checkpoint-number");
+
+            if (!currentPanel || !checkpointNumber) {
+                return;
+            }
 
             // Close all checkpoint panels
             document.querySelectorAll("#build .checkpoint-button").forEach((btn) => {
@@ -82,6 +88,14 @@ window.addEventListener('DOMContentLoaded', event => {
             // Open the selected checkpoint panel
             button.setAttribute("aria-expanded", "true");
             currentPanel.classList.add("is-open");
+
+            // Move the glowing runner to the selected checkpoint
+            if (buildPathWrapper) {
+                buildPathWrapper.setAttribute(
+                    "data-active",
+                    checkpointNumber.textContent.trim()
+                );
+            }
         });
     });
 
