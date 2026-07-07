@@ -444,150 +444,160 @@
     </section>
 
     <!-- Troubleshooting / Debug Folder -->
-    <section class="case-section debug-folder-section" id="improvements">
+<section class="case-section debug-folder-section" id="improvements">
 
-      <div class="case-section-heading center">
-        <p class="section-kicker">Troubleshooting</p>
+  <div class="case-section-heading center">
+    <p class="section-kicker">Troubleshooting</p>
 
-        <h2>Debugging the game systems.</h2>
+    <h2>Debugging the game systems.</h2>
 
-        <p>
-          The biggest challenge was not making one feature work once; it was making many systems
-          work together reliably. Each stage of the project introduced integration issues that had
-          to be tested, isolated, and adjusted.
-        </p>
-      </div>
+    <p>
+      The most challenging bugs came from the systems that connected the entire game together:
+      state transitions, fox AI behaviour, and procedural maze reliability. Debugging these areas
+      required testing how the game responded across different layouts, player actions, mini-game
+      outcomes, and win/loss conditions.
+    </p>
+  </div>
 
-      <div class="debug-folder">
+  <div class="debug-folder">
 
-        <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
+    <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
 
-          <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
-            <span>Debug File 01</span>
-            State Management
-          </button>
+      <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
+        <span>Debug File 01</span>
+        State Transitions
+      </button>
+      
+      <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
+        <span>Debug File 02</span>
+        Fox AI Behaviour
+      </button>
+      
+      <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
+        <span>Debug File 03</span>
+        Maze Reliability
+      </button>
 
-          <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
-            <span>Debug File 02</span>
-            AI Behaviour
-          </button>
+    </div>
 
-          <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
-            <span>Debug File 03</span>
-            Polish &amp; Assets
-          </button>
+    <div class="debug-folder-body">
 
+      <article class="debug-file is-active" data-debug-file="1">
+        <p class="debug-file-label">Debug File 01</p>
+
+        <h3>Managing state transitions across the game loop</h3>
+
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              As the game expanded, transitions between the start menu, instructions, maze gameplay,
+              mini-games, reward screens, and win/loss states became harder to manage. Bugs appeared
+              when screens did not reset correctly, temporary variables carried over, or the game
+              returned to the wrong state after a mini-game ended.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              The issue came from the number of systems sharing the same main game loop. Each mode
+              needed its own input handling, update logic, draw logic, entry conditions, and exit
+              conditions. Without clear state boundaries, one part of the game could interfere with
+              another.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              I organized the flow around clearer state management and tested each transition path
+              separately. This helped ensure that the maze, mini-games, rewards, and end screens
+              entered, updated, exited, and reset in the correct order.
+            </p>
+          </div>
         </div>
+      </article>
 
-        <div class="debug-folder-body">
+      <article class="debug-file" data-debug-file="2">
+        <p class="debug-file-label">Debug File 02</p>
 
-          <article class="debug-file is-active" data-debug-file="1">
-            <p class="debug-file-label">Debug File 01</p>
+        <h3>Debugging fox AI, pathfinding, and gameplay behaviour</h3>
 
-            <h3>Managing transitions between game states</h3>
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              The fox needed to chase the player intelligently without feeling random, unfair, or
+              broken. During testing, the AI sometimes behaved strangely around obstacles, important
+              gameplay zones, or the portal, and its aggression level had to be balanced so the game
+              stayed challenging but playable.
+            </p>
+          </div>
 
-            <div class="debug-report-grid">
-              <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
-                <p>
-                  As more screens and mini-games were added, it became easier for the game to enter
-                  the wrong state, skip a transition, or return to the maze incorrectly.
-                </p>
-              </div>
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              The fox was not just a moving enemy sprite. Its behaviour depended on BFS pathfinding,
+              the generated maze layout, collision boundaries, player progress, objective locations,
+              and the current match state. This meant AI bugs could come from path selection,
+              grid-cell conversion, wall detection, target choice, or aggression tuning.
+            </p>
+          </div>
 
-              <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
-                <p>
-                  The issue came from the growing complexity of the game loop. The start menu,
-                  instructions, maze, mini-games, rewards, and endings each needed clear rules for
-                  when they became active and when they handed control back to another system.
-                </p>
-              </div>
-
-              <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
-                <p>
-                  I organized the game around clearer state transitions and tested each path through
-                  the game separately. This made it easier to confirm that each screen entered,
-                  updated, and exited in the correct order.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="debug-file" data-debug-file="2">
-            <p class="debug-file-label">Debug File 02</p>
-
-            <h3>Balancing fox AI behaviour</h3>
-
-            <div class="debug-report-grid">
-              <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
-                <p>
-                  The fox AI needed to feel challenging without making the game frustrating. If the
-                  AI behaved too passively, the maze felt empty; if it was too aggressive, the player
-                  had less room to explore.
-                </p>
-              </div>
-
-              <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
-                <p>
-                  The fox was not just an enemy sprite. It affected pacing, pressure, mini-game
-                  triggers, and the overall feel of the game, so its behaviour had to be tuned within
-                  the full gameplay context.
-                </p>
-              </div>
-
-              <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
-                <p>
-                  I tested the fox behaviour repeatedly and adjusted how it interacted with the maze
-                  and mini-games. This helped make the AI feel more intentional while still leaving
-                  the player enough time to make progress.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="debug-file" data-debug-file="3">
-            <p class="debug-file-label">Debug File 03</p>
-
-            <h3>Integrating assets, UI, and polish</h3>
-
-            <div class="debug-report-grid">
-              <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
-                <p>
-                  Even after the core mechanics worked, the game did not feel complete until the
-                  UI, transitions, backgrounds, reward screens, and asset placement were consistent.
-                </p>
-              </div>
-
-              <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
-                <p>
-                  A playable game can still feel unfinished if its visual feedback and screen flow
-                  are not clear. Small issues such as spacing, timing, fonts, image sizing, and
-                  transition wording affected how polished the project felt.
-                </p>
-              </div>
-
-              <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
-                <p>
-                  I revised the game through repeated polish passes, improving transitions, screen
-                  layouts, reward timing, image integration, and UI consistency. This helped the
-                  project feel more like a complete portfolio piece rather than only a coding demo.
-                </p>
-              </div>
-            </div>
-          </article>
-
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              I tested the fox across different maze layouts and game situations, then adjusted how
+              it selected paths, reacted to the player, and increased pressure when it was falling
+              behind. This made the AI feel more intentional while still keeping the gameplay fair.
+            </p>
+          </div>
         </div>
+      </article>
 
-      </div>
-    </section>
+      <article class="debug-file" data-debug-file="3">
+        <p class="debug-file-label">Debug File 03</p>
+
+        <h3>Validating procedural maze generation and route reliability</h3>
+
+        <div class="debug-report-grid">
+          <div class="debug-report-row">
+            <p class="debug-report-label">Symptom</p>
+            <p>
+              The maze could not simply look random; it had to be playable every round. Early testing
+              required checking that the player, fox, shards, mini-game triggers, and portal were all
+              reachable, and that the maze did not force both characters into one overly predictable
+              route.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Diagnosis</p>
+            <p>
+              Procedural generation created variety, but it also introduced reliability concerns.
+              The maze needed valid connected paths, usable spawn areas, accessible objectives, and
+              enough route diversity for both the player and fox. If the generated layout was too
+              constrained, the game could become unfair or repetitive.
+            </p>
+          </div>
+
+          <div class="debug-report-row">
+            <p class="debug-report-label">Adjustment</p>
+            <p>
+              I tested the maze-generation logic across repeated runs to confirm that important
+              gameplay areas stayed connected and winnable. I also adjusted the layout logic to
+              support multiple navigation choices, which made the maze feel more replayable and gave
+              both the player and fox more strategic movement options.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- Final Reflection -->
     <section class="project-section reflection-section" id="reflection">
