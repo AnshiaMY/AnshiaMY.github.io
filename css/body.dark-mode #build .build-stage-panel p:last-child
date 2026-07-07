@@ -1771,10 +1771,14 @@ body.dark-mode .hero-character {
   font-weight: 900;
 }
 
-#build .build-stage-panel p:last-child {
+#build .build-stage-panel p {
   max-width: 850px;
   color: var(--portfolio-muted);
   line-height: 1.78;
+  margin-bottom: 1rem;
+}
+
+#build .build-stage-panel p:last-child {
   margin-bottom: 0;
 }
 
@@ -1799,7 +1803,7 @@ body.dark-mode #build .build-stage-panel h3 {
   color: #f7f2f5;
 }
 
-body.dark-mode #build .build-stage-panel p:last-child {
+body.dark-mode #build .build-stage-panel p {
   color: #c9bfc6;
 }
 
