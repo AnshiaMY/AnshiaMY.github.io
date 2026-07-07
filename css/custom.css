@@ -1772,7 +1772,8 @@ body.dark-mode .hero-character {
 }
 
 #build .build-stage-panel p {
-  max-width: 850px;
+  width: 100%;
+  max-width: none;
   color: var(--portfolio-muted);
   line-height: 1.78;
   margin-bottom: 1rem;
