@@ -198,101 +198,164 @@
     </section>
 
     <!-- Featured Projects Section -->
-    <section class="home-section projects-section" id="projects">
+<section class="home-section projects-section featured-work-section" id="projects">
 
-      <div class="home-section-heading center home-reveal">
-        <p class="section-kicker">Featured Work</p>
+  <div class="home-section-heading center home-reveal">
+    <p class="section-kicker">Featured Work</p>
 
-        <h2>Ideas To Iteration.</h2>
+    <h2>Projects I’m Proud Of.</h2>
 
-        <p>
-          Each project is presented as a case study, 
-          following the process from initial idea to 
-          final build and highlighting the decisions, 
-          challenges, and improvements along the way.
-        </p>
+    <p>
+      A selection of robotics, embedded systems, and software projects that show how I
+      approach design, programming, testing, and hands-on problem solving.
+    </p>
+  </div>
+
+  <!-- Main Featured Project -->
+  <article class="featured-project-showcase home-reveal">
+
+    <div class="featured-project-media">
+      <div class="featured-project-image image-placeholder line-robot-preview">
+        <i class="bi bi-cpu"></i>
       </div>
+    </div>
 
-      <div class="featured-project-layout">
+    <div class="featured-project-content">
+      <p class="project-type">Robotics • Embedded Systems</p>
 
-        <!-- Main Featured Project -->
-        <article class="featured-project-large home-reveal">
-          <div class="project-card-glow"></div>
+      <h3>Autonomous Line-Following Robot</h3>
 
-          <p class="project-type">Robotics • Embedded Systems</p>
+      <p>
+        A Raspberry Pi–based mobile robot that uses infrared sensor feedback and PID
+        control for line tracking, with additional testing for turning response and
+        boundary detection.
+      </p>
 
-          <h3>Autonomous Line-Following Robot</h3>
-
-          <p>
-            A Raspberry Pi–based mobile robot that 
-            uses sensor feedback and PID control 
-            for line tracking, with additional 
-            testing for turning response and 
-            boundary detection.
-          </p>
-
-          <div class="project-mini-tags">
-            <span>Raspberry Pi</span>
-            <span>Python</span>
-            <span>PID Control</span>
-            <span>Sensors</span>
-            <span>Motor Control</span>
-          </div>
-
-          <a class="home-btn primary" href="projects/line-following-robot.html">
-            View Case Study
-          </a>
-        </article>
-
-        <!-- Smaller Project Cards -->
-        <div class="project-card-stack">
-
-          <article class="featured-project-small home-reveal">
-            <p class="project-type">Circuits • Hardware Testing</p>
-
-            <h3>Custom PCB Fabrication</h3>
-
-            <p>
-              Designed, assembled, and tested custom circuits while debugging wiring,
-              layout, and electrical connection issues.
-            </p>
-
-            <div class="project-mini-tags">
-              <span>PCB</span>
-              <span>Soldering</span>
-              <span>Testing</span>
-            </div>
-
-            <a class="project-text-link" href="#">Coming Soon</a>
-          </article>
-
-          <article class="featured-project-small home-reveal">
-            <p class="project-type">Robotics • Mechanical Design</p>
-
-            <h3>VEX Toy-Sorting Claw Machine</h3>
-
-            <p>
-              A VEX-based sorting robot that combines touch input, 
-              colour detection, distance sensing, and a motorized 
-              claw-lift mechanism to sort objects through an 
-              autonomous navigation sequence.
-          </p>
-        
-          <div class="project-mini-tags">
-            <span>VEX Robotics</span>
-            <span>C++</span>
-            <span>Sensor Integration</span>
-            <span>Control Logic</span>
-          </div>
-        
-          <a class="project-text-link" href="projects/claw-sorting-machine.html">
-            View Case Study
-          </a>
-        </article>
+      <div class="featured-project-highlights">
+        <div>
+          <i class="bi bi-code-slash"></i>
+          <span>Built with Python</span>
         </div>
 
+        <div>
+          <i class="bi bi-graph-up"></i>
+          <span>PID control tuning</span>
+        </div>
+
+        <div>
+          <i class="bi bi-bug"></i>
+          <span>Tested and debugged</span>
+        </div>
       </div>
-    </section>
+
+      <div class="project-mini-tags">
+        <span>Raspberry Pi</span>
+        <span>Python</span>
+        <span>PID Control</span>
+        <span>Sensors</span>
+        <span>Motor Control</span>
+      </div>
+
+      <a class="home-btn primary" href="projects/line-following-robot.html">
+        View Case Study <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
+  </article>
+
+  <!-- Other Projects -->
+  <div class="other-projects-header home-reveal">
+    <h3>Other Projects</h3>
+    <p>More hands-on builds, software projects, and technical explorations.</p>
+  </div>
+
+  <div class="other-project-grid home-reveal">
+
+    <article class="other-project-card">
+      <div class="other-project-image image-placeholder claw-preview">
+        <i class="bi bi-robot"></i>
+      </div>
+
+      <div class="other-project-content">
+        <p class="project-type">Robotics • Mechanical Design</p>
+
+        <h3>VEX Toy-Sorting Claw Machine</h3>
+
+        <p>
+          A VEX-based sorting robot that combines touch input, colour detection,
+          distance sensing, and a motorized claw-lift mechanism.
+        </p>
+
+        <div class="project-mini-tags">
+          <span>VEX Robotics</span>
+          <span>C++</span>
+          <span>Sensors</span>
+          <span>Control Logic</span>
+        </div>
+
+        <a class="project-text-link" href="projects/claw-sorting-machine.html">
+          View Case Study <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <article class="other-project-card">
+      <div class="other-project-image image-placeholder grove-preview">
+        <i class="bi bi-controller"></i>
+      </div>
+
+      <div class="other-project-content">
+        <p class="project-type">Software • Game Development</p>
+
+        <h3>The Shifting Grove</h3>
+
+        <p>
+          A Python/Pygame fantasy maze game featuring procedural generation,
+          fox AI, mini-games, reward states, and polished UI transitions.
+        </p>
+
+        <div class="project-mini-tags">
+          <span>Python</span>
+          <span>Pygame</span>
+          <span>OOP</span>
+          <span>AI Logic</span>
+        </div>
+
+        <a class="project-text-link" href="https://github.com/AnshiaMY/The-Shifting-Grove" target="_blank" rel="noopener">
+          View GitHub <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <article class="other-project-card">
+      <div class="other-project-image image-placeholder pcb-preview">
+        <i class="bi bi-motherboard"></i>
+      </div>
+
+      <div class="other-project-content">
+        <p class="project-type">Circuits • Hardware Testing</p>
+
+        <h3>Custom PCB Fabrication</h3>
+
+        <p>
+          Designed, assembled, and tested custom circuits while debugging wiring,
+          layout, soldering, and electrical connection issues.
+        </p>
+
+        <div class="project-mini-tags">
+          <span>PCB</span>
+          <span>Soldering</span>
+          <span>Testing</span>
+          <span>Hardware</span>
+        </div>
+
+        <span class="project-text-link muted-link">Coming Soon</span>
+      </div>
+    </article>
+
+  </div>
+
+</section>
 
     <!-- Co-op Experience Section -->
     <section class="home-section experience-section" id="experience">
