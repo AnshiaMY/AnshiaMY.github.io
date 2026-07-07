@@ -1861,6 +1861,7 @@ body.dark-mode #build .build-stage-panel p:last-child {
   align-items: flex-end;
   gap: 0.35rem;
   padding-left: 1.2rem;
+  margin-bottom: -1px;
   position: relative;
   z-index: 2;
 }
@@ -1903,9 +1904,12 @@ body.dark-mode #build .build-stage-panel p:last-child {
 }
 
 #improvements .debug-folder-tab.is-active {
-  background: rgba(255, 255, 255, 0.94);
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.96);
   border-color: rgba(214, 51, 132, 0.35);
-  transform: translateY(0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.96);
+  transform: translateY(1px);
   box-shadow: 0 -12px 35px rgba(214, 51, 132, 0.08);
 }
 
@@ -1929,18 +1933,8 @@ body.dark-mode #build .build-stage-panel p:last-child {
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* Small folder notch illusion */
 #improvements .debug-folder-body::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -1.05rem;
-  width: 9rem;
-  height: 1.1rem;
-  border-radius: 1rem 1rem 0 0;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(214, 51, 132, 0.2);
-  border-bottom: none;
+  display: none;
 }
 
 /* Individual debug file */
@@ -2031,6 +2025,7 @@ body.dark-mode #improvements .debug-folder-tab {
 body.dark-mode #improvements .debug-folder-tab.is-active {
   background: rgba(26, 27, 34, 0.95);
   border-color: rgba(214, 51, 132, 0.35);
+  border-bottom: 1px solid rgba(26, 27, 34, 0.95);
 }
 
 body.dark-mode #improvements .debug-folder-body {
@@ -2047,8 +2042,7 @@ body.dark-mode #improvements .debug-folder-body {
 }
 
 body.dark-mode #improvements .debug-folder-body::before {
-  background: rgba(26, 27, 34, 0.95);
-  border-color: rgba(255, 255, 255, 0.12);
+  display: none;
 }
 
 body.dark-mode #improvements .debug-file h3 {
