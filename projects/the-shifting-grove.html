@@ -1,1 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta 
+    name="description" 
+    content="The Shifting Grove project by Anshia Muhammad Yaqoob, a Python/Pygame fantasy maze game featuring procedural maze generation, fox AI, mini-games, reward systems, and custom UI transitions." 
+  />
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
 
+  <title>The Shifting Grove | Anshia Muhammad Yaqoob</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+
+  <!-- Bootstrap Icons -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
+    rel="stylesheet" 
+  />
+
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
+    rel="stylesheet" 
+  />
+  <link 
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" 
+    rel="stylesheet" 
+    type="text/css" 
+  />
+
+  <!-- Main Theme CSS -->
+  <link href="../css/styles.css" rel="stylesheet" />
+
+  <!-- Custom Portfolio CSS -->
+  <link href="../css/custom.css" rel="stylesheet" />
+
+  <!-- Small page-specific fixes for landscape gameplay videos + disabled GitHub button -->
+  <style>
+    .grove-demo-row {
+      display: grid;
+      grid-template-columns: minmax(420px, 1.15fr) minmax(300px, 0.85fr);
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .grove-demo-row.reverse {
+      grid-template-columns: minmax(300px, 0.85fr) minmax(420px, 1.15fr);
+    }
+
+    .grove-demo-row .horizontal-video {
+      max-width: 720px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    .grove-demo-row .horizontal-video video {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .disabled-link {
+      pointer-events: none;
+      opacity: 0.65;
+      cursor: default;
+    }
+
+    .repository-callout {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--portfolio-border);
+      border-radius: 1.35rem;
+      padding: 1.5rem;
+      box-shadow: 0 14px 36px rgba(31, 41, 51, 0.05);
+    }
+
+    .repository-callout h3 {
+      color: var(--portfolio-dark);
+      font-weight: 900;
+      margin-bottom: 0.55rem;
+    }
+
+    .repository-callout p {
+      color: var(--portfolio-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    body.dark-mode .repository-callout {
+      background: rgba(26, 27, 34, 0.88);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    body.dark-mode .repository-callout h3 {
+      color: #fff7fb;
+    }
+
+    body.dark-mode .repository-callout p {
+      color: #c9bfc6;
+    }
+
+    @media (max-width: 992px) {
+      .grove-demo-row,
+      .grove-demo-row.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .grove-demo-row.reverse .demo-video-frame {
+        order: 1;
+      }
+
+      .grove-demo-row.reverse .demo-feature-text {
+        order: 2;
+      }
+
+      .grove-demo-row .horizontal-video {
+        max-width: 720px;
+      }
+
+      .grove-demo-row .demo-feature-text {
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Project Header -->
+  <header class="project-page-header">
+
+    <!-- Navigation -->
+    <nav class="project-navbar">
+      <a href="../index.html" class="project-logo">← Back to Home</a>
+
+      <div class="project-nav-tabs">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="bi bi-moon-stars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <section class="project-hero-content">
+      <p class="project-kicker">Software • Python • Game Development</p>
+
+      <h1>The Shifting Grove</h1>
+
+      <p class="project-hero-description">
+        A Python/Pygame fantasy maze game built with procedural generation, AI-driven fox
+        behaviour, interactive mini-games, reward-based progression, and custom UI transitions.
+      </p>
+
+      <div class="project-tech-stack">
+        <span>Python</span>
+        <span>Pygame</span>
+        <span>Procedural Mazes</span>
+        <span>Fox AI</span>
+        <span>State Management</span>
+      </div>
+
+      <div class="project-hero-actions">
+        <a href="#demos" class="hero-btn primary">View Gameplay</a>
+        <a href="#" class="hero-btn secondary disabled-link" aria-disabled="true">
+          GitHub Coming Soon
+        </a>
+        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+      </div>
+    </section>
+
+  </header>
+
+  <main>
+
+    <!-- Project Overview / Build Stages -->
+    <section class="case-section build-stages-section" id="build">
+
+      <div class="case-section-heading center">
+        <p class="section-kicker">Project Overview</p>
+
+        <h2>From maze idea to playable game.</h2>
+
+        <p>
+          The Shifting Grove began as a software portfolio project designed to show more than
+          basic programming syntax. I wanted to build a complete game system with movement,
+          collision, procedural level generation, AI behaviour, mini-games, transitions, and
+          a polished user interface.
+        </p>
+
+        <p>
+          The final concept became a fantasy maze game where the player explores an enchanted
+          grove, collects Grove Shards, triggers mini-games, and tries to escape before the
+          grove shifts. The game combines a main maze experience with three smaller game modes,
+          creating a larger project that required planning, debugging, and careful state management.
+        </p>
+      </div>
+
+      <div class="build-stage-interface">
+
+        <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
+
+          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
+            <span class="stage-tab-number">01</span>
+            <span class="stage-tab-title">Game Architecture</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
+            <span class="stage-tab-number">02</span>
+            <span class="stage-tab-title">Maze &amp; Player Systems</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
+            <span class="stage-tab-number">03</span>
+            <span class="stage-tab-title">Fox AI &amp; Game Logic</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
+            <span class="stage-tab-number">04</span>
+            <span class="stage-tab-title">Mini-Games &amp; Polish</span>
+          </button>
+
+        </div>
+
+        <div class="build-stage-panel-wrap">
+
+          <article class="build-stage-panel is-active" data-stage-panel="1">
+            <p class="notebook-label">Development Stage 01</p>
+
+            <h3>Game Architecture</h3>
+
+            <p>
+              The game was structured around a clear state-based flow so that the start screen,
+              instructions, maze gameplay, mini-games, reward screens, and end states could each
+              behave separately while still connecting into one complete experience. This helped
+              prevent the project from becoming one long file of unrelated logic.
+            </p>
+
+            <p>
+              Separate files and classes were used for major systems such as the player, fox,
+              maze, shards, UI, mini-games, settings, and asset loading. This made the project
+              easier to debug because I could isolate problems by system instead of searching
+              through the entire game at once.
+            </p>
+          </article>
+
+          <article class="build-stage-panel" data-stage-panel="2">
+            <p class="notebook-label">Development Stage 02</p>
+
+            <h3>Maze &amp; Player Systems</h3>
+
+            <p>
+              The main game is built around a procedurally generated maze, giving each round a
+              different layout instead of relying on one fixed map. The player moves through the
+              maze, collects Grove Shards, avoids the fox guardian, and activates the portal after
+              meeting the required conditions.
+            </p>
+
+            <p>
+              Collision detection, wall placement, player movement, shard collection, and portal
+              logic all had to work together so the maze felt playable rather than just visually
+              generated. This part of the project helped me understand how game systems depend on
+              both visual layout and behind-the-scenes rules.
+            </p>
+          </article>
+
+          <article class="build-stage-panel" data-stage-panel="3">
+            <p class="notebook-label">Development Stage 03</p>
+
+            <h3>Fox AI &amp; Game Logic</h3>
+
+            <p>
+              The fox guardian was designed as an opposing force in the game rather than just a
+              decorative character. In single-player mode, the fox uses AI behaviour to move through
+              the maze, pressure the player, interact with the game state, and create a sense of
+              challenge.
+            </p>
+
+            <p>
+              The game also supports local multiplayer, where a second player can control the fox
+              instead of the AI. This meant the logic had to support both AI-controlled and
+              player-controlled behaviour while keeping the rest of the game systems consistent.
+            </p>
+          </article>
+
+          <article class="build-stage-panel" data-stage-panel="4">
+            <p class="notebook-label">Development Stage 04</p>
+
+            <h3>Mini-Games &amp; Polish</h3>
+
+            <p>
+              The game includes three integrated mini-games: The Sigil’s Echo, Starlight Crossing,
+              and Canopy Cascade. Each mini-game has its own rules, controls, visuals, countdowns,
+              win conditions, and reward states, while still connecting back into the larger maze
+              experience.
+            </p>
+
+            <p>
+              A major part of the polish involved improving transitions, reward screens, UI spacing,
+              font consistency, visual feedback, and asset loading. These details made the game feel
+              more complete and helped turn it from a working prototype into a stronger software
+              portfolio project.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Demo Showcase -->
+    <section class="case-section demo-showcase" id="demos">
+
+      <div class="case-section-heading center">
+        <p class="section-kicker">Gameplay Preview</p>
+
+        <h2>Inside the grove.</h2>
+
+        <p>
+          The demo videos below focus on the single-player version, where the fox is controlled
+          by AI. The game also includes a local multiplayer mode, allowing a second player to
+          control the fox during the maze and mini-game sequences.
+        </p>
+      </div>
+
+      <!-- Demo 1 -->
+      <article class="demo-feature-row grove-demo-row">
+        <div class="demo-video-frame horizontal-video">
+          <video controls preload="metadata">
+            <source src="../assets/projects/shifting-grove/maze-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">01</span>
+
+          <h3>Main Maze Gameplay</h3>
+
+          <p>
+            The main maze sequence shows the player navigating the enchanted grove, collecting
+            Grove Shards, avoiding the fox guardian, and working toward the portal objective.
+            This is the core gameplay loop that connects the larger project together.
+          </p>
+
+          <ul>
+            <li>Procedurally generated maze layout</li>
+            <li>Player movement, collision, shard collection, and portal logic</li>
+            <li>Single-player fox AI shown in the demo</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Demo 2 -->
+      <article class="demo-feature-row grove-demo-row reverse">
+        <div class="demo-video-frame horizontal-video">
+          <video controls preload="metadata">
+            <source src="../assets/projects/shifting-grove/sigils-echo-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">02</span>
+
+          <h3>The Sigil’s Echo</h3>
+
+          <p>
+            The Sigil’s Echo is a memory-based mini-game where the player responds to a sequence
+            challenge. It adds variety to the maze experience while testing timing, pattern
+            recognition, and UI feedback.
+          </p>
+
+          <ul>
+            <li>Sequence-based mini-game logic</li>
+            <li>Countdown and reward screen flow</li>
+            <li>AI version shown in the gameplay demo</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Demo 3 -->
+      <article class="demo-feature-row grove-demo-row">
+        <div class="demo-video-frame horizontal-video">
+          <video controls preload="metadata">
+            <source src="../assets/projects/shifting-grove/starlight-crossing-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">03</span>
+
+          <h3>Starlight Crossing</h3>
+
+          <p>
+            Starlight Crossing is a split-board path puzzle where tiles must be rotated to form a
+            valid route. The mini-game required solvable board generation, input handling, timer
+            logic, win conditions, and AI solving behaviour.
+          </p>
+
+          <ul>
+            <li>Tile-rotation puzzle system</li>
+            <li>Solvable board generation and path validation</li>
+            <li>Single-player AI solver behaviour shown in the demo</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Demo 4 -->
+      <article class="demo-feature-row grove-demo-row reverse">
+        <div class="demo-video-frame horizontal-video">
+          <video controls preload="metadata">
+            <source src="../assets/projects/shifting-grove/canopy-cascade-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">04</span>
+
+          <h3>Canopy Cascade</h3>
+
+          <p>
+            Canopy Cascade adds an arcade-style duel to the game through paddle movement,
+            collision response, scoring, and visual effects. It expanded the project beyond
+            maze logic and helped bring more variety to the final game.
+          </p>
+
+          <ul>
+            <li>Arcade-style paddle and collision mechanics</li>
+            <li>Score tracking and end-state logic</li>
+            <li>Integrated transition and reward flow</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Troubleshooting / Debug Folder -->
+    <section class="case-section debug-folder-section" id="improvements">
+
+      <div class="case-section-heading center">
+        <p class="section-kicker">Troubleshooting</p>
+
+        <h2>Debugging the game systems.</h2>
+
+        <p>
+          The biggest challenge was not making one feature work once; it was making many systems
+          work together reliably. Each stage of the project introduced integration issues that had
+          to be tested, isolated, and adjusted.
+        </p>
+      </div>
+
+      <div class="debug-folder">
+
+        <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
+
+          <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
+            <span>Debug File 01</span>
+            State Management
+          </button>
+
+          <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
+            <span>Debug File 02</span>
+            AI Behaviour
+          </button>
+
+          <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
+            <span>Debug File 03</span>
+            Polish &amp; Assets
+          </button>
+
+        </div>
+
+        <div class="debug-folder-body">
+
+          <article class="debug-file is-active" data-debug-file="1">
+            <p class="debug-file-label">Debug File 01</p>
+
+            <h3>Managing transitions between game states</h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">Symptom</p>
+                <p>
+                  As more screens and mini-games were added, it became easier for the game to enter
+                  the wrong state, skip a transition, or return to the maze incorrectly.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Diagnosis</p>
+                <p>
+                  The issue came from the growing complexity of the game loop. The start menu,
+                  instructions, maze, mini-games, rewards, and endings each needed clear rules for
+                  when they became active and when they handed control back to another system.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Adjustment</p>
+                <p>
+                  I organized the game around clearer state transitions and tested each path through
+                  the game separately. This made it easier to confirm that each screen entered,
+                  updated, and exited in the correct order.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="debug-file" data-debug-file="2">
+            <p class="debug-file-label">Debug File 02</p>
+
+            <h3>Balancing fox AI behaviour</h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">Symptom</p>
+                <p>
+                  The fox AI needed to feel challenging without making the game frustrating. If the
+                  AI behaved too passively, the maze felt empty; if it was too aggressive, the player
+                  had less room to explore.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Diagnosis</p>
+                <p>
+                  The fox was not just an enemy sprite. It affected pacing, pressure, mini-game
+                  triggers, and the overall feel of the game, so its behaviour had to be tuned within
+                  the full gameplay context.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Adjustment</p>
+                <p>
+                  I tested the fox behaviour repeatedly and adjusted how it interacted with the maze
+                  and mini-games. This helped make the AI feel more intentional while still leaving
+                  the player enough time to make progress.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="debug-file" data-debug-file="3">
+            <p class="debug-file-label">Debug File 03</p>
+
+            <h3>Integrating assets, UI, and polish</h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">Symptom</p>
+                <p>
+                  Even after the core mechanics worked, the game did not feel complete until the
+                  UI, transitions, backgrounds, reward screens, and asset placement were consistent.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Diagnosis</p>
+                <p>
+                  A playable game can still feel unfinished if its visual feedback and screen flow
+                  are not clear. Small issues such as spacing, timing, fonts, image sizing, and
+                  transition wording affected how polished the project felt.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">Adjustment</p>
+                <p>
+                  I revised the game through repeated polish passes, improving transitions, screen
+                  layouts, reward timing, image integration, and UI consistency. This helped the
+                  project feel more like a complete portfolio piece rather than only a coding demo.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final Reflection -->
+    <section class="project-section reflection-section" id="reflection">
+
+      <div class="section-heading center">
+        <p class="section-kicker">Final Takeaway</p>
+        <h2>Final Reflection.</h2>
+      </div>
+
+      <div class="reflection-layout">
+
+        <article class="reflection-main">
+          <h3>What this project taught me.</h3>
+
+          <p>
+            This project taught me how important organization becomes as a software project grows.
+            At the beginning, individual features felt manageable on their own, but as I added maze
+            generation, player movement, fox behaviour, mini-games, reward screens, and transitions,
+            I had to think more carefully about how each system connected to the rest of the game.
+          </p>
+
+          <p>
+            The biggest lesson I took from The Shifting Grove was that polish is part of the
+            engineering process, not something separate from it. Debugging the game meant more than
+            fixing errors; it meant improving flow, feedback, timing, and consistency so the project
+            felt complete. This made me more confident working through a larger software build and
+            showed me the value of iteration, testing, and finishing details.
+          </p>
+
+          <div class="repository-callout">
+            <h3>Project Repository</h3>
+
+            <p>
+              This project is being prepared for GitHub with organized source files, assets, and
+              documentation. The repository button will be added once the public version is ready.
+            </p>
+
+            <a href="#" class="hero-btn secondary disabled-link" aria-disabled="true">
+              GitHub Repository Coming Soon
+            </a>
+          </div>
+        </article>
+
+        <aside class="reflection-notebook">
+          <div class="reflection-notebook-header">
+            <p class="reflection-notebook-label">Future Improvements</p>
+            <h3>Next iteration notes</h3>
+          </div>
+
+          <ul class="reflection-checklist">
+            <li>Improve the fox AI with stronger pathfinding and more strategic maze decisions.</li>
+            <li>Add more structured difficulty scaling across the maze and mini-games.</li>
+            <li>Expand the game with additional levels, rewards, or environmental events.</li>
+            <li>Explore a web-playable version so the game can be played directly from the portfolio.</li>
+          </ul>
+        </aside>
+
+      </div>
+
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="project-contact-cta">
+
+      <p class="section-kicker">Like this project?</p>
+
+      <h2>Let’s connect.</h2>
+
+      <p>
+        Thanks for visiting this project. Whether you have a question, 
+        an opportunity, or just want to start a conversation, 
+        I’d be happy to hear from you.
+      </p>
+
+      <div class="project-cta-buttons">
+        <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
+        <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Project Page Effects -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener("scroll", () => {
+      const scrollProgress = document.querySelector(".scroll-progress");
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+      if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + "%";
+      }
+    });
+
+    // Reveal elements on scroll
+    const revealElements = document.querySelectorAll(
+      ".case-section-heading, .section-heading, .build-stage-interface, .demo-feature-row, .debug-folder, .reflection-layout, .project-contact-cta"
+    );
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    revealElements.forEach(element => {
+      element.classList.add("reveal-hidden");
+      revealObserver.observe(element);
+    });
+
+    // Dark/light mode toggle
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
+
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+
+      if (themeIcon) {
+        themeIcon.classList.remove("bi-moon-stars");
+        themeIcon.classList.add("bi-sun");
+      }
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+
+        if (themeIcon) {
+          themeIcon.classList.toggle("bi-moon-stars", !isDark);
+          themeIcon.classList.toggle("bi-sun", isDark);
+        }
+      });
+    }
+  </script>
+
+  <!-- Main JavaScript -->
+  <script src="../js/scripts.js"></script>
+
+</body>
+</html>
