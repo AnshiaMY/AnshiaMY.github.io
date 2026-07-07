@@ -2531,6 +2531,13 @@ body.dark-mode #reflection .reflection-notebook {
   cursor: default;
 }
 
+.project-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Dark mode */
 body.dark-mode .featured-work-section {
   background:
