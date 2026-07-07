@@ -193,7 +193,7 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
 
-        <h2>Building A World Through Code</h2>
+        <h2>Building A World Through Code.</h2>
 
         <p>
           The Shifting Grove began as a passion project inspired by my interest 
@@ -277,26 +277,22 @@
           </article>
 
           <article class="build-stage-panel" data-stage-panel="3">
-          <p class="notebook-label">Development Stage 03</p>
-        
-          <h3>Fox AI &amp; Game Logic</h3>
-        
-          <p>
-            The fox AI was the core technical challenge of the project. Instead of moving randomly or following a simple scripted path, the fox uses game AI logic and BFS pathfinding to navigate the procedurally generated maze. Because the maze changes each round, the fox cannot rely on a fixed route; it has to reason through the current grid layout and find valid paths based on the live game state.
-          </p>
-        
-          <p>
-            Breadth-first search was used because it works well for grid-based navigation and can find the shortest path through an unweighted maze. The fox AI uses the maze structure to evaluate neighbouring cells, avoid walls, and move toward relevant targets. This made the fox feel more intentional and allowed it to pressure the player in a way that was connected to the actual maze layout instead of just moving visually across the screen.
-          </p>
-        
-          <p>
-            The AI also had to interact with more than just movement. The fox behaviour connects to collision logic, player progress, mini-game triggers, reward effects, win conditions, and the Grove Shift system. This made the fox one of the most important integration points in the project because its decisions affected pacing, difficulty, and how the player experienced the game.
-          </p>
-        
-          <p>
-            The same fox system also supports local multiplayer, where a second player can control the fox instead of the AI. This meant the code had to support both AI-driven and player-driven behaviour without breaking the rest of the game loop. Building this system helped me understand how AI logic, input handling, pathfinding, and state management can be designed to work together inside one flexible game system.
-          </p>
-        </article>
+            <p class="notebook-label">Development Stage 03</p>
+          
+            <h3>Fox AI &amp; Game Logic</h3>
+          
+            <p>
+              The fox AI was the main technical focus of the game. Instead of using random movement or a fixed chase pattern, the fox uses BFS pathfinding to navigate the procedurally generated maze. Each round, it evaluates the current grid, avoids wall cells, and selects valid routes toward the player or key objective areas.
+            </p>
+          
+            <p>
+              I also added adaptive behaviour so the fox could respond to the match state. When the fox is falling behind or losing momentum, its behaviour becomes more aggressive, increasing pressure on the player and making the AI feel less predictable. This connected the pathfinding system to higher-level game logic rather than treating movement as a separate feature.
+            </p>
+          
+            <p>
+              The fox system also interacts with collision detection, player progress, mini-game triggers, reward effects, win conditions, and local multiplayer. Since the same fox character can be controlled by either AI or a second player, the code had to support both modes while keeping the maze, mini-game, and state-transition logic consistent.
+            </p>
+          </article>
 
           <article class="build-stage-panel" data-stage-panel="4">
           <p class="notebook-label">Development Stage 04</p>
@@ -334,9 +330,10 @@
         <h2>Inside the grove.</h2>
 
         <p>
-          The demo videos below focus on the single-player version, where the fox is controlled
-          by AI. The game also includes a local multiplayer mode, allowing a second player to
-          control the fox during the maze and mini-game sequences.
+          The demo videos show the single-player mode, where the fox guardian uses 
+          AI behaviour to navigate and challenge the player. The game also includes 
+          a local multiplayer mode, where a second player can control the fox across the 
+          maze and mini-game sequences.
         </p>
       </div>
 
@@ -350,22 +347,20 @@
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">01</span>
-
-          <h3>Main Maze Gameplay</h3>
-
-          <p>
-            The main maze sequence shows the player navigating the enchanted grove, collecting
-            Grove Shards, avoiding the fox guardian, and working toward the portal objective.
-            This is the core gameplay loop that connects the larger project together.
-          </p>
-
-          <ul>
-            <li>Procedurally generated maze layout</li>
-            <li>Player movement, collision, shard collection, and portal logic</li>
-            <li>Single-player fox AI shown in the demo</li>
-          </ul>
-        </div>
+        <span class="demo-number">01</span>
+      
+        <h3>Main Maze Gameplay</h3>
+      
+        <p>
+          This demo shows the core gameplay loop: the player navigates a procedurally generated maze, collects Grove Shards, avoids the AI-controlled fox guardian, and works toward activating the escape portal. The maze is generated dynamically, so the player and fox must interact with a layout that is not manually fixed.
+        </p>
+      
+        <ul>
+          <li>Procedural maze generation using a randomized depth-first search approach</li>
+          <li>Grid-based collision detection for walls, paths, shards, triggers, and portal areas</li>
+          <li>AI fox navigation integrated into the main maze and objective system</li>
+        </ul>
+      </div>
       </article>
 
       <!-- Demo 2 -->
@@ -378,22 +373,20 @@
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">02</span>
-
-          <h3>The Sigil’s Echo</h3>
-
-          <p>
-            The Sigil’s Echo is a memory-based mini-game where the player responds to a sequence
-            challenge. It adds variety to the maze experience while testing timing, pattern
-            recognition, and UI feedback.
-          </p>
-
-          <ul>
-            <li>Sequence-based mini-game logic</li>
-            <li>Countdown and reward screen flow</li>
-            <li>AI version shown in the gameplay demo</li>
-          </ul>
-        </div>
+        <span class="demo-number">02</span>
+      
+        <h3>The Sigil’s Echo</h3>
+      
+        <p>
+          The Sigil’s Echo is a sequence-based memory mini-game that tests pattern recognition and timed input. The player must observe a generated symbol sequence, repeat it correctly, and progress through increasing rounds while the game tracks accuracy, timing, and win conditions.
+        </p>
+      
+        <ul>
+          <li>Generated symbol sequences with round-based difficulty progression</li>
+          <li>Input validation, timer logic, feedback states, and result tracking</li>
+          <li>Reward-screen integration that returns cleanly to the main maze state</li>
+        </ul>
+      </div>
       </article>
 
       <!-- Demo 3 -->
@@ -407,19 +400,17 @@
 
         <div class="demo-feature-text">
           <span class="demo-number">03</span>
-
+        
           <h3>Starlight Crossing</h3>
-
+        
           <p>
-            Starlight Crossing is a split-board path puzzle where tiles must be rotated to form a
-            valid route. The mini-game required solvable board generation, input handling, timer
-            logic, win conditions, and AI solving behaviour.
+            Starlight Crossing is a tile-rotation puzzle built around path validation. The player rotates tiles to form a connected route across the board, while the game checks whether the current layout creates a valid path before the timer runs out.
           </p>
-
+        
           <ul>
-            <li>Tile-rotation puzzle system</li>
-            <li>Solvable board generation and path validation</li>
-            <li>Single-player AI solver behaviour shown in the demo</li>
+            <li>Tile-based puzzle grid with rotation controls and path-checking logic</li>
+            <li>Solvable board generation, countdown timing, and win/loss state handling</li>
+            <li>AI solving behaviour used in the single-player version of the mini-game</li>
           </ul>
         </div>
       </article>
@@ -435,19 +426,17 @@
 
         <div class="demo-feature-text">
           <span class="demo-number">04</span>
-
+        
           <h3>Canopy Cascade</h3>
-
+        
           <p>
-            Canopy Cascade adds an arcade-style duel to the game through paddle movement,
-            collision response, scoring, and visual effects. It expanded the project beyond
-            maze logic and helped bring more variety to the final game.
+            Canopy Cascade adds a fast-paced arcade challenge to the project through paddle control, object movement, collision response, and score tracking. Unlike the maze and puzzle systems, this mini-game focuses on real-time reaction logic and continuous movement updates.
           </p>
-
+        
           <ul>
-            <li>Arcade-style paddle and collision mechanics</li>
-            <li>Score tracking and end-state logic</li>
-            <li>Integrated transition and reward flow</li>
+            <li>Real-time paddle movement, object physics, and collision detection</li>
+            <li>Score tracking, round logic, timer control, and end-state conditions</li>
+            <li>Integrated transition flow that connects the mini-game back to the larger game loop</li>
           </ul>
         </div>
       </article>
