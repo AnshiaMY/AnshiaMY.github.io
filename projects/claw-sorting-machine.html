@@ -194,23 +194,23 @@
         <article class="build-stage-panel" data-stage-panel="4">
           <span class="notebook-label">Build Stage 04</span>
           <h3>Autonomous Sorting Sequence</h3>
+
           <p>
-            The robot’s autonomous behaviour was programmed in C++ using VEXcode and was structured
-            around the full sorting cycle rather than a single timed routine. The code was divided
-            into separate functions for each major action, including reading the touch sensor input,
-            opening and closing the claw, raising and lowering the lift, driving forward, scanning
-            for the selected colour stripe, turning toward the box, approaching the drop-off area,
-            releasing the object, and returning to the start.
+            The robot’s autonomous behaviour was programmed in C++ using VEXcode and structured around the 
+            full sorting cycle rather than a single timed routine. I divided the code into separate functions 
+            for the main stages of the sequence: reading the touch sensor input, controlling the claw and lift, 
+            navigating toward the selected stripe, aligning with the drop-off box, releasing the object, and returning 
+            to the start. This modular structure made the program easier to test because each subsystem could be debugged 
+            individually before being connected into the full autonomous routine.
           </p>
           
           <p>
-            This modular structure made the program easier to test because each subsystem could be
-            debugged before being connected into the full sequence. For example, the touch-sensor
-            function converted one, two, or three taps into a category selection, while the colour
-            sensor routine continuously checked the floor until the matching stripe was detected.
-            Once the stripe was found, a turning function used gyro feedback to rotate the robot
-            toward the box, and a distance-sensor routine helped stop the robot at a controlled
-            distance before releasing the object.
+            The code also included recovery logic for two common issues that could happen during testing. 
+            If the robot missed the expected colour stripe, encoder-based movement limits prevented it from continuing 
+            forward indefinitely and gave the program a backup condition for ending the search step. If the robot approached 
+            the box at a slightly different position than expected, the distance sensor helped correct the stopping point before 
+            the drop-off sequence began. These safeguards made the routine more reliable because the program did not depend only on 
+            perfect sensor readings or perfectly repeatable physical movement.
           </p>
           
           <p>
