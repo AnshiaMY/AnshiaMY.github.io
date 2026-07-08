@@ -274,149 +274,158 @@
 
   <!-- Troubleshooting / Debug Folder -->
 <section class="case-section debug-folder-section" id="improvements">
-  <div class="case-section-heading center reveal">
+
+  <div class="case-section-heading center">
     <p class="section-kicker">Troubleshooting</p>
-    <h2>Debugging the sorting sequence.</h2>
+
+    <h2>Debugging the game systems.</h2>
+
     <p>
-      Testing showed that the robot’s reliability depended on how well the mechanical design,
-      sensors, and C++ control logic worked together. Several parts of the design had to be
-      revised as the team moved from early concepts to a working demo-day robot.
+      The most difficult bugs came from the systems that shaped the entire player experience:
+      game-state flow, fox AI behaviour, and procedural maze reliability. Debugging the game
+      required more than fixing isolated errors; I had to test how algorithms, player input,
+      AI decisions, collision logic, and screen transitions interacted across repeated playthroughs.
     </p>
   </div>
 
-  <div class="debug-folder reveal">
+  <div class="debug-folder">
+
     <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
+
       <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
         <span>Debug File 01</span>
-        Claw Redesign
+        State Flow
       </button>
-
+      
       <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
         <span>Debug File 02</span>
-        Lift &amp; Positioning
+        Fox AI
       </button>
-
+      
       <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
         <span>Debug File 03</span>
-        Sensor Calibration
+        Maze Generation
       </button>
+
     </div>
 
     <div class="debug-folder-body">
 
       <article class="debug-file is-active" data-debug-file="1">
-        <span class="debug-file-label">Debug File 01</span>
-        <h3>Claw redesign and grip reliability</h3>
+        <p class="debug-file-label">Debug File 01</p>
+
+        <h3>Controlling state flow across the full game loop</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
+            <p class="debug-report-label">Symptom</p>
             <p>
-              The early object-handling concepts were not reliable enough for a repeatable
-              sorting sequence. A front-facing claw was tested, but its ability to grasp the
-              toys consistently depended too much on object placement and alignment.
+              As the game expanded beyond the main maze, bugs started appearing during transitions
+              between the menu, instructions, gameplay, mini-games, reward screens, and win/loss
+              states. A feature could work on its own but behave incorrectly when connected back
+              into the full game loop.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
+            <p class="debug-report-label">Diagnosis</p>
             <p>
-              The issue was mechanical rather than only software-related. If the object did
-              not sit properly in the claw, the robot could not carry it securely through
-              the drive, turn, and drop-off stages. This made the full autonomous routine
-              less dependable, even if the code sequence was correct.
+              The issue was caused by overlapping state responsibilities. Each screen and mini-game
+              needed its own input handling, update logic, drawing logic, temporary variables, and
+              reset conditions. If one state did not fully clean up before the next one started,
+              old values could affect the next round.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
+            <p class="debug-report-label">Adjustment</p>
             <p>
-              The group moved away from the front-facing claw and redesigned the mechanism
-              as a two-pronged overhead claw. This made it easier for the user to place the
-              object directly into the mechanism and improved the robot’s ability to hold
-              the object during transport and release it during the final drop-off.
+              I refined the state-management flow so each mode had clearer entry, update, exit,
+              and reset behaviour. I tested transitions individually, then tested full playthroughs
+              to make sure mini-games returned to the maze correctly and that rewards, timers, and
+              end conditions did not carry over unintentionally.
             </p>
           </div>
         </div>
       </article>
 
       <article class="debug-file" data-debug-file="2">
-        <span class="debug-file-label">Debug File 02</span>
-        <h3>Lift positioning and mechanical constraints</h3>
+        <p class="debug-file-label">Debug File 02</p>
+
+        <h3>Tuning fox AI, BFS pathfinding, and adaptive behaviour</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
+            <p class="debug-report-label">Symptom</p>
             <p>
-              The lift mechanism needed to raise the claw high enough to transport and
-              release the object, but the robot also had to stay stable and avoid putting
-              too much stress on the plastic VEX components.
+              The fox needed to feel intelligent without becoming unfair. During testing, I had to
+              debug cases where the fox stalled near important gameplay zones, chose awkward paths,
+              became too passive, or applied too much pressure when the player was trying to reach
+              the portal.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
+            <p class="debug-report-label">Diagnosis</p>
             <p>
-              The chain-based vertical lift introduced several design constraints. The
-              claw and object added weight to the chain, while the redesigned chassis
-              created a central gap for the lift mechanism. This made it difficult to use
-              a bumper sensor to detect the lowest claw position, and the lift height also
-              limited how easily objects could be dropped over taller box walls.
+              The fox behaviour depended on several connected systems: BFS pathfinding, the current
+              maze grid, wall collisions, player position, objective areas, portal state, and the
+              fox’s aggression level. Because the maze changed each round, the AI had to respond to
+              the live layout rather than relying on fixed routes.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
+            <p class="debug-report-label">Adjustment</p>
             <p>
-              Additional supports were added to reduce stress on the chain system, and the
-              claw assembly was simplified so it only used the necessary parts. Since the
-              bumper sensor was no longer practical, the software relied on motor encoder
-              thresholds to estimate lift position and control the mechanism more reliably.
+              I tested the fox across different maze layouts and adjusted how it selected targets,
+              followed valid paths, and reacted to the match state. I also tuned its adaptive
+              aggression so it could become more threatening when falling behind while still leaving
+              the player enough room to make strategic choices.
             </p>
           </div>
         </div>
       </article>
 
       <article class="debug-file" data-debug-file="3">
-        <span class="debug-file-label">Debug File 03</span>
-        <h3>Sensor calibration and navigation accuracy</h3>
+        <p class="debug-file-label">Debug File 03</p>
+
+        <h3>Validating procedural maze generation and route variety</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
+            <p class="debug-report-label">Symptom</p>
             <p>
-              The robot did not always move with perfect accuracy during navigation.
-              Distance readings sometimes varied, the colour sensor could be affected by
-              lighting or surface reflections, and gyro-based turns did not always stop at
-              exactly 90 degrees.
+              The maze could not just generate random-looking walls. It needed to create layouts
+              that were playable, winnable, and varied enough that the player and fox were not
+              forced into one predictable route every round.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
+            <p class="debug-report-label">Diagnosis</p>
             <p>
-              The autonomous routine depended on multiple sensors working together. The
-              colour sensor had to detect the correct floor stripe, the gyro had to support
-              the turn toward the box, the distance sensor had to stop the robot near the
-              wall, and motor encoders had to support return movement. When one reading was
-              slightly inconsistent, the robot’s final alignment could shift.
+              The base maze was generated using randomized depth-first search, which creates a
+              connected maze but can still feel too linear. To improve gameplay, I added extra
+              loop openings, checked far reachable portal locations, and verified that the portal
+              had multiple possible paths from the starting area.
             </p>
           </div>
 
           <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
+            <p class="debug-report-label">Adjustment</p>
             <p>
-              The group improved reliability through repeated calibration and software
-              tuning. Controlled stripe colours and distances were used for colour detection,
-              tolerance margins were added for distance sensing, and gyro-based turns were
-              adjusted through multiple trials. Demo-day travel distances were also shortened
-              so the robot could complete a more consistent and repeatable sorting run.
+              I tested repeated maze generations and refined the generation logic so the game could
+              carve a connected base maze, add alternate routes, clear space around the portal, and
+              fall back to a far reachable tile if an ideal portal location was not found. This made
+              the maze more reliable, replayable, and fair for both the player and fox AI.
             </p>
           </div>
         </div>
       </article>
 
     </div>
+
   </div>
 </section>
 
