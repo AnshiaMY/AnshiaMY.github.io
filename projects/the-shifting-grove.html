@@ -449,13 +449,13 @@
   <div class="case-section-heading center">
     <p class="section-kicker">Troubleshooting</p>
 
-    <h2>Debugging the game systems.</h2>
+    <h2>Debugging The Game Systems.</h2>
 
     <p>
-      The most challenging bugs came from the systems that connected the entire game together:
-      state transitions, fox AI behaviour, and procedural maze reliability. Debugging these areas
-      required testing how the game responded across different layouts, player actions, mini-game
-      outcomes, and win/loss conditions.
+      The most difficult bugs came from the systems that shaped the entire player experience:
+      game-state flow, fox AI behaviour, and procedural maze reliability. Debugging the game
+      required more than fixing isolated errors; I had to test how algorithms, player input,
+      AI decisions, collision logic, and screen transitions interacted across repeated playthroughs.
     </p>
   </div>
 
@@ -465,17 +465,17 @@
 
       <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
         <span>Debug File 01</span>
-        State Transitions
+        State Flow
       </button>
       
       <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
         <span>Debug File 02</span>
-        Fox AI Behaviour
+        Fox AI
       </button>
       
       <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
         <span>Debug File 03</span>
-        Maze Reliability
+        Maze Generation
       </button>
 
     </div>
@@ -485,35 +485,36 @@
       <article class="debug-file is-active" data-debug-file="1">
         <p class="debug-file-label">Debug File 01</p>
 
-        <h3>Managing state transitions across the game loop</h3>
+        <h3>Controlling state flow across the full game loop</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
             <p class="debug-report-label">Symptom</p>
             <p>
-              As the game expanded, transitions between the start menu, instructions, maze gameplay,
-              mini-games, reward screens, and win/loss states became harder to manage. Bugs appeared
-              when screens did not reset correctly, temporary variables carried over, or the game
-              returned to the wrong state after a mini-game ended.
+              As the game expanded beyond the main maze, bugs started appearing during transitions
+              between the menu, instructions, gameplay, mini-games, reward screens, and win/loss
+              states. A feature could work on its own but behave incorrectly when connected back
+              into the full game loop.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Diagnosis</p>
             <p>
-              The issue came from the number of systems sharing the same main game loop. Each mode
-              needed its own input handling, update logic, draw logic, entry conditions, and exit
-              conditions. Without clear state boundaries, one part of the game could interfere with
-              another.
+              The issue was caused by overlapping state responsibilities. Each screen and mini-game
+              needed its own input handling, update logic, drawing logic, temporary variables, and
+              reset conditions. If one state did not fully clean up before the next one started,
+              old values could affect the next round.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Adjustment</p>
             <p>
-              I organized the flow around clearer state management and tested each transition path
-              separately. This helped ensure that the maze, mini-games, rewards, and end screens
-              entered, updated, exited, and reset in the correct order.
+              I refined the state-management flow so each mode had clearer entry, update, exit,
+              and reset behaviour. I tested transitions individually, then tested full playthroughs
+              to make sure mini-games returned to the maze correctly and that rewards, timers, and
+              end conditions did not carry over unintentionally.
             </p>
           </div>
         </div>
@@ -522,35 +523,36 @@
       <article class="debug-file" data-debug-file="2">
         <p class="debug-file-label">Debug File 02</p>
 
-        <h3>Debugging fox AI, pathfinding, and gameplay behaviour</h3>
+        <h3>Tuning fox AI, BFS pathfinding, and adaptive behaviour</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
             <p class="debug-report-label">Symptom</p>
             <p>
-              The fox needed to chase the player intelligently without feeling random, unfair, or
-              broken. During testing, the AI sometimes behaved strangely around obstacles, important
-              gameplay zones, or the portal, and its aggression level had to be balanced so the game
-              stayed challenging but playable.
+              The fox needed to feel intelligent without becoming unfair. During testing, I had to
+              debug cases where the fox stalled near important gameplay zones, chose awkward paths,
+              became too passive, or applied too much pressure when the player was trying to reach
+              the portal.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Diagnosis</p>
             <p>
-              The fox was not just a moving enemy sprite. Its behaviour depended on BFS pathfinding,
-              the generated maze layout, collision boundaries, player progress, objective locations,
-              and the current match state. This meant AI bugs could come from path selection,
-              grid-cell conversion, wall detection, target choice, or aggression tuning.
+              The fox behaviour depended on several connected systems: BFS pathfinding, the current
+              maze grid, wall collisions, player position, objective areas, portal state, and the
+              fox’s aggression level. Because the maze changed each round, the AI had to respond to
+              the live layout rather than relying on fixed routes.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Adjustment</p>
             <p>
-              I tested the fox across different maze layouts and game situations, then adjusted how
-              it selected paths, reacted to the player, and increased pressure when it was falling
-              behind. This made the AI feel more intentional while still keeping the gameplay fair.
+              I tested the fox across different maze layouts and adjusted how it selected targets,
+              followed valid paths, and reacted to the match state. I also tuned its adaptive
+              aggression so it could become more threatening when falling behind while still leaving
+              the player enough room to make strategic choices.
             </p>
           </div>
         </div>
@@ -559,36 +561,35 @@
       <article class="debug-file" data-debug-file="3">
         <p class="debug-file-label">Debug File 03</p>
 
-        <h3>Validating procedural maze generation and route reliability</h3>
+        <h3>Validating procedural maze generation and route variety</h3>
 
         <div class="debug-report-grid">
           <div class="debug-report-row">
             <p class="debug-report-label">Symptom</p>
             <p>
-              The maze could not simply look random; it had to be playable every round. Early testing
-              required checking that the player, fox, shards, mini-game triggers, and portal were all
-              reachable, and that the maze did not force both characters into one overly predictable
-              route.
+              The maze could not just generate random-looking walls. It needed to create layouts
+              that were playable, winnable, and varied enough that the player and fox were not
+              forced into one predictable route every round.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Diagnosis</p>
             <p>
-              Procedural generation created variety, but it also introduced reliability concerns.
-              The maze needed valid connected paths, usable spawn areas, accessible objectives, and
-              enough route diversity for both the player and fox. If the generated layout was too
-              constrained, the game could become unfair or repetitive.
+              The base maze was generated using randomized depth-first search, which creates a
+              connected maze but can still feel too linear. To improve gameplay, I added extra
+              loop openings, checked far reachable portal locations, and verified that the portal
+              had multiple possible paths from the starting area.
             </p>
           </div>
 
           <div class="debug-report-row">
             <p class="debug-report-label">Adjustment</p>
             <p>
-              I tested the maze-generation logic across repeated runs to confirm that important
-              gameplay areas stayed connected and winnable. I also adjusted the layout logic to
-              support multiple navigation choices, which made the maze feel more replayable and gave
-              both the player and fox more strategic movement options.
+              I tested repeated maze generations and refined the generation logic so the game could
+              carve a connected base maze, add alternate routes, clear space around the portal, and
+              fall back to a far reachable tile if an ideal portal location was not found. This made
+              the maze more reliable, replayable, and fair for both the player and fox AI.
             </p>
           </div>
         </div>
@@ -644,33 +645,33 @@
     </article>
 
     <aside class="reflection-notebook">
-      <div class="reflection-notebook-header">
-        <p class="reflection-notebook-label">Future Improvements</p>
-        <h3>Next iteration notes</h3>
-      </div>
+  <div class="reflection-notebook-header">
+    <p class="reflection-notebook-label">Future Improvements</p>
+    <h3>Next iteration notes</h3>
+  </div>
 
-      <ul class="reflection-checklist">
-        <li>
-          Improve the fox AI with more advanced decision-making, such as choosing when to chase the player, guard the portal, target mini-game triggers, or block high-value routes.
-        </li>
+  <ul class="reflection-checklist">
+    <li>
+      Expand the fox AI with stronger decision-making so it can switch between chasing the player, guarding the portal, blocking key routes, and responding to mini-game opportunities.
+    </li>
 
-        <li>
-          Refine the maze-generation system by adding stronger layout rules, difficulty scaling, and path variety so each generated maze feels intentionally designed.
-        </li>
+    <li>
+      Refine the maze-generation system with more controlled difficulty scaling, route variety, and layout rules so each generated maze feels both random and intentionally designed.
+    </li>
 
-        <li>
-          Continue improving code organization by reducing repeated logic, cleaning up shared systems, and making the game easier to expand with new levels or mechanics.
-        </li>
+    <li>
+      Improve code scalability by reducing repeated logic, cleaning up shared systems, and making the project easier to expand with new levels, mechanics, or additional mini-games.
+    </li>
 
-        <li>
-          Strengthen gameplay balancing by tuning timers, reward effects, fox aggression, and mini-game difficulty based on repeated playtesting.
-        </li>
+    <li>
+      Continue playtesting to better balance fox aggression, mini-game timers, reward effects, and win/loss conditions across both single-player and local multiplayer modes.
+    </li>
 
-        <li>
-          Explore deployment options, such as a web-playable version, so the game can eventually be experienced directly from the portfolio.
-        </li>
-      </ul>
-    </aside>
+    <li>
+      Explore deployment options for a web-playable version so the game can eventually be experienced directly from the portfolio.
+    </li>
+  </ul>
+</aside>
 
   </div>
 
