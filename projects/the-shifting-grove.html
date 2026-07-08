@@ -600,69 +600,81 @@
 </section>
 
     <!-- Final Reflection -->
-    <section class="project-section reflection-section" id="reflection">
+<section class="project-section reflection-section" id="reflection">
 
-      <div class="section-heading center">
-        <p class="section-kicker">Final Takeaway</p>
-        <h2>Final Reflection.</h2>
+  <div class="section-heading center">
+    <p class="section-kicker">Final Takeaway</p>
+    <h2>Final Reflection.</h2>
+  </div>
+
+  <div class="reflection-layout">
+
+    <article class="reflection-main">
+      <h3>What this project taught me.</h3>
+
+      <p>
+        The Shifting Grove helped me grow from writing smaller programming exercises to building a larger software project with many connected systems. I had to think beyond individual features and consider how the maze, player movement, fox AI, mini-games, rewards, UI screens, and state transitions all worked together inside one game loop. This strengthened my understanding of object-oriented programming, modular architecture, procedural generation, BFS pathfinding, collision detection, and finite state machines in a practical setting.
+      </p>
+
+      <p>
+        This project also taught me how important debugging, patience, and iteration are in software development. Many issues did not come from one obvious error, but from the way different systems interacted. I learned to slow down, isolate problems, test one feature at a time, and trace how data moved between states. That process made me more confident working through complex bugs instead of feeling stuck when the project became messy.
+      </p>
+
+      <p>
+        Personally, this project reminded me that I learn best when I am building something creative and challenging. Turning algorithms and software concepts into a playable game made the learning process more engaging, while still pushing me to improve my technical discipline. It helped me become more comfortable managing a bigger codebase, making design decisions, and continuing to polish a project even after the main features were working.
+      </p>
+
+      <div class="repository-callout">
+        <h3>Project Repository</h3>
+
+        <p>
+          The project repository includes the source code, organized game files, assets, and
+          documentation for The Shifting Grove.
+        </p>
+
+        <a 
+          href="https://github.com/AnshiaMY/The-Shifting-Grove" 
+          class="hero-btn secondary" 
+          target="_blank" 
+          rel="noopener"
+        >
+          View GitHub Repository
+        </a>
+      </div>
+    </article>
+
+    <aside class="reflection-notebook">
+      <div class="reflection-notebook-header">
+        <p class="reflection-notebook-label">Future Improvements</p>
+        <h3>Next iteration notes</h3>
       </div>
 
-      <div class="reflection-layout">
+      <ul class="reflection-checklist">
+        <li>
+          Improve the fox AI with more advanced decision-making, such as choosing when to chase the player, guard the portal, target mini-game triggers, or block high-value routes.
+        </li>
 
-        <article class="reflection-main">
-          <h3>What this project taught me.</h3>
+        <li>
+          Refine the maze-generation system by adding stronger layout rules, difficulty scaling, and path variety so each generated maze feels intentionally designed.
+        </li>
 
-          <p>
-            This project taught me how important organization becomes as a software project grows.
-            At the beginning, individual features felt manageable on their own, but as I added maze
-            generation, player movement, fox behaviour, mini-games, reward screens, and transitions,
-            I had to think more carefully about how each system connected to the rest of the game.
-          </p>
+        <li>
+          Continue improving code organization by reducing repeated logic, cleaning up shared systems, and making the game easier to expand with new levels or mechanics.
+        </li>
 
-          <p>
-            The biggest lesson I took from The Shifting Grove was that polish is part of the
-            engineering process, not something separate from it. Debugging the game meant more than
-            fixing errors; it meant improving flow, feedback, timing, and consistency so the project
-            felt complete. This made me more confident working through a larger software build and
-            showed me the value of iteration, testing, and finishing details.
-          </p>
+        <li>
+          Strengthen gameplay balancing by tuning timers, reward effects, fox aggression, and mini-game difficulty based on repeated playtesting.
+        </li>
 
-          <div class="repository-callout">
-            <h3>Project Repository</h3>
+        <li>
+          Explore deployment options, such as a web-playable version, so the game can eventually be experienced directly from the portfolio.
+        </li>
+      </ul>
+    </aside>
 
-            <p>
-              The project repository includes the source code, organized game files, assets, and
-              documentation for The Shifting Grove.
-            </p>
+  </div>
 
-            <a 
-              href="https://github.com/AnshiaMY/The-Shifting-Grove" 
-              class="hero-btn secondary" 
-              target="_blank" 
-              rel="noopener"
-            >
-              View GitHub Repository
-            </a>
-          </div>
-        </article>
-
-        <aside class="reflection-notebook">
-          <div class="reflection-notebook-header">
-            <p class="reflection-notebook-label">Future Improvements</p>
-            <h3>Next iteration notes</h3>
-          </div>
-
-          <ul class="reflection-checklist">
-            <li>Improve the fox AI with stronger pathfinding and more strategic maze decisions.</li>
-            <li>Add more structured difficulty scaling across the maze and mini-games.</li>
-            <li>Expand the game with additional levels, rewards, or environmental events.</li>
-            <li>Explore a web-playable version so the game can be played directly from the portfolio.</li>
-          </ul>
-        </aside>
-
-      </div>
-
-    </section>
+</section>
 
     <!-- Contact CTA -->
     <section class="project-contact-cta">
