@@ -51,14 +51,17 @@
     }
 
     .grove-demo-row .horizontal-video {
-      max-width: 720px;
+      max-width: 760px;
       width: 100%;
       justify-self: center;
     }
 
     .grove-demo-row .horizontal-video video {
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      max-height: 430px;
+      object-fit: contain;
+      background: #111;
     }
 
     .disabled-link {
