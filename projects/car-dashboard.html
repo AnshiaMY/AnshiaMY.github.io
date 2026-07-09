@@ -162,141 +162,125 @@
   <main>
 
     <!-- Project Overview / Build Stages -->
-    <section class="case-section build-stages-section" id="build">
+<section class="case-section build-stages-section" id="build">
 
-      <div class="case-section-heading center">
-        <p class="section-kicker">Project Overview</p>
+  <div class="case-section-heading center">
+    <p class="section-kicker">Project Overview</p>
 
-        <h2>Simulating a vehicle dashboard with embedded control.</h2>
+    <h2>Designing a dashboard from circuit layout to code.</h2>
 
+    <p>
+      This project involved building a working embedded car dashboard from PCB fabrication to final 
+      programming. The system combined a Raspberry Pi Pico, custom circuit board, soldered components, 
+      push-button inputs, LED indicators, an OLED fuel display, and sensor-based warning logic into one 
+      physical dashboard prototype.
+    </p>
+  </div>
+
+    <div class="build-stage-interface">
+  
+    <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
+  
+      <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
+        <span class="stage-tab-number">01</span>
+        <span class="stage-tab-title">PCB Fabrication</span>
+      </button>
+  
+      <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
+        <span class="stage-tab-number">02</span>
+        <span class="stage-tab-title">Circuit Assembly</span>
+      </button>
+  
+      <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
+        <span class="stage-tab-number">03</span>
+        <span class="stage-tab-title">Embedded Logic</span>
+      </button>
+  
+      <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
+        <span class="stage-tab-number">04</span>
+        <span class="stage-tab-title">System Testing</span>
+      </button>
+  
+    </div>
+  
+    <div class="build-stage-panel-wrap">
+  
+      <article class="build-stage-panel is-active" data-stage-panel="1">
+        <p class="notebook-label">Build Stage 01</p>
+  
+        <h3>PCB Fabrication</h3>
+  
         <p>
-          This project focused on building a physical dashboard prototype that connects software,
-          electronics, and interface design. The system uses a Raspberry Pi Pico to process input
-          signals and control dashboard outputs, while a fabricated PCB organizes the electrical
-          connections between the microcontroller, buttons, LEDs, OLED display, potentiometer, and
-          temperature-sensitive input.
+          The project began with designing the custom PCB layout for the dashboard control system. 
+          This stage focused on understanding how the components connected electrically and how they 
+          needed to fit together physically on the board.
         </p>
-
+  
         <p>
-          This was a partner project. I focused on the Python control logic and PCB fabrication,
-          while my partner and I worked together on wiring, assembly, testing, and final integration.
-          The goal was to create a working embedded prototype that behaved like a simplified vehicle
-          instrument panel rather than a loose collection of disconnected circuits.
+          After the layout was prepared, the design was transferred onto a copper board, etched to form 
+          the circuit traces, drilled for connection points, and cleaned for assembly. This gave me 
+          hands-on experience with the full PCB fabrication process rather than only working from a pre-made board.
         </p>
-      </div>
-
-      <div class="build-stage-interface">
-
-        <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
-
-          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
-            <span class="stage-tab-number">01</span>
-            <span class="stage-tab-title">Interface Layout</span>
-          </button>
-
-          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
-            <span class="stage-tab-number">02</span>
-            <span class="stage-tab-title">PCB &amp; Pico Integration</span>
-          </button>
-
-          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
-            <span class="stage-tab-number">03</span>
-            <span class="stage-tab-title">Input &amp; Output Logic</span>
-          </button>
-
-          <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
-            <span class="stage-tab-number">04</span>
-            <span class="stage-tab-title">Testing &amp; Assembly</span>
-          </button>
-
-        </div>
-
-        <div class="build-stage-panel-wrap">
-
-          <article class="build-stage-panel is-active" data-stage-panel="1">
-            <p class="notebook-label">Build Stage 01</p>
-
-            <h3>Interface Layout</h3>
-
-            <p>
-              The dashboard faceplate was designed around recognizable vehicle indicators so the
-              hardware outputs had a clear user-facing purpose. Instead of treating the LEDs as
-              generic lights, each one represented a dashboard signal such as seatbelt, battery,
-              oil, engine, vent, temperature, or left/right turn indication.
-            </p>
-
-            <p>
-              This interface-first approach helped define the system requirements before wiring and
-              programming began. Each indicator needed a physical LED position, a corresponding
-              input or sensor condition, and a readable visual layout so the final prototype could
-              communicate status information like a simplified vehicle instrument cluster.
-            </p>
-          </article>
-
-          <article class="build-stage-panel" data-stage-panel="2">
-            <p class="notebook-label">Build Stage 02</p>
-
-            <h3>PCB &amp; Pico Integration</h3>
-
-            <p>
-              The Raspberry Pi Pico served as the embedded controller for the dashboard. I programmed
-              it in Python to read input states and drive output pins, while the fabricated PCB
-              provided a more structured control board for the microcontroller, buttons, connectors,
-              and supporting components.
-            </p>
-
-            <p>
-              Ribbon cables connected the control PCB to the dashboard panel, allowing the electronics
-              to sit behind the interface while still driving the front-facing indicators. This made
-              the project closer to an embedded hardware prototype because the physical layout,
-              connector placement, soldering quality, and wiring paths all affected the final system.
-            </p>
-          </article>
-
-          <article class="build-stage-panel" data-stage-panel="3">
-            <p class="notebook-label">Build Stage 03</p>
-
-            <h3>Input &amp; Output Logic</h3>
-
-            <p>
-              The control logic mapped physical inputs to specific dashboard outputs. Push buttons
-              activated selected warning or signal LEDs, while the potentiometer acted as an analog
-              input for the OLED fuel display. This required the code to read hardware states, convert
-              input values, and update the correct output devices.
-            </p>
-
-            <p>
-              The prototype also included temperature-based warning behaviour. A temperature-sensitive
-              component was used to trigger the thermometer indicator when heat was applied, adding a
-              sensor-driven response beyond simple button-controlled LEDs. This helped demonstrate how
-              real-world input changes can be translated into driver-facing alerts.
-            </p>
-          </article>
-
-          <article class="build-stage-panel" data-stage-panel="4">
-            <p class="notebook-label">Build Stage 04</p>
-
-            <h3>Testing &amp; Assembly</h3>
-
-            <p>
-              After programming and assembly, the system was tested signal by signal. Each button,
-              LED, display value, and sensor-triggered warning had to be checked against the intended
-              pin mapping. This made debugging more systematic because each connection could be
-              verified before testing the full dashboard together.
-            </p>
-
-            <p>
-              Final integration required both software validation and physical troubleshooting.
-              The front panel had to remain readable, while the back of the board needed stable
-              wiring, secure solder joints, and reliable ribbon cable connections. Testing helped
-              identify mapping errors, weak connections, and assembly constraints before the final demo.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
+      </article>
+  
+      <article class="build-stage-panel" data-stage-panel="2">
+        <p class="notebook-label">Build Stage 02</p>
+  
+        <h3>Circuit Assembly</h3>
+  
+        <p>
+          Once the PCB was fabricated, the components were soldered and connected to form the physical control circuit. 
+          This included the Raspberry Pi Pico, push buttons, LEDs, resistors, potentiometer, OLED display connections, and 
+          ribbon cable wiring.
+        </p>
+  
+        <p>
+          This stage focused on turning the fabricated board into a working circuit. Component placement, solder quality, 
+          LED orientation, and wiring organization all mattered because one weak connection could prevent the dashboard indicator 
+          from working correctly.
+        </p>
+      </article>
+  
+      <article class="build-stage-panel" data-stage-panel="3">
+        <p class="notebook-label">Build Stage 03</p>
+  
+        <h3>Embedded Logic</h3>
+  
+        <p>
+          The Raspberry Pi Pico was programmed in Python to control the dashboard behaviour. The code read push-button inputs, 
+          controlled the LED indicators, processed the potentiometer value for the OLED fuel display, and triggered the temperature warning 
+          light when heat was detected.
+        </p>
+  
+        <p>
+          This stage focused on mapping software logic to physical dashboard behaviour. Each input needed to 
+          correspond to the correct output so the prototype acted like a simplified vehicle instrument panel 
+          instead of a set of unrelated lights.
+        </p>
+      </article>
+  
+      <article class="build-stage-panel" data-stage-panel="4">
+        <p class="notebook-label">Build Stage 04</p>
+  
+        <h3>System Testing</h3>
+  
+        <p>
+          The final prototype was tested one function at a time to confirm that each dashboard feature worked as intended. 
+          I checked the button-controlled indicators, OLED fuel display response, temperature warning trigger, and the connection 
+          between the front panel and back-side circuit.
+        </p>
+  
+        <p>
+          When an issue appeared, I traced it through the full signal path: code, Pico pin assignment, PCB trace, solder joint, 
+          ribbon cable, and component connection. This made testing more systematic and helped identify whether a problem came from software, 
+          wiring, or the physical circuit.
+        </p>
+      </article>
+  
+    </div>
+  
+  </div>
+</section>
 
     <!-- Demo Showcase -->
     <section class="case-section demo-showcase" id="demos">
@@ -532,29 +516,23 @@
       <div class="reflection-layout">
 
         <article class="reflection-main">
-          <h3>What this project taught me.</h3>
-
-          <p>
-            This project strengthened my understanding of embedded systems because it required
-            software, electronics, and physical assembly to work together. The Python code controlled
-            the logic, but the final result depended on correct pin mapping, PCB fabrication,
-            soldering, wiring, component placement, and repeated hardware testing.
-          </p>
-
-          <p>
-            The biggest technical lesson was learning how to debug across the full signal path.
-            When an indicator did not behave as expected, the cause could be a coding issue, a GPIO
-            mismatch, a wiring problem, a solder joint, or a component connection. Testing one input
-            and output at a time helped me become more systematic when troubleshooting hardware-based
-            software projects.
-          </p>
-
-          <p>
-            Personally, this project made me more comfortable working with physical prototypes that
-            are not perfectly predictable. It required patience, teamwork, and careful testing because
-            even small assembly details affected whether the dashboard behaved reliably.
-          </p>
-        </article>
+        <h3>What this project taught me.</h3>
+      
+        <p>
+          This project taught me how much planning goes into designing a 
+          PCB before the circuit ever works. I had to think carefully about trace layout, 
+          component placement, pin assignments, and how the board would connect to the dashboard 
+          faceplate. Building the PCB from a copper board also helped me understand the full fabrication process, 
+          from transferring and etching the design to soldering components and checking that the physical traces matched the intended circuit.
+        </p>
+      
+        <p>
+          The biggest technical lesson was learning how to debug connections systematically. 
+          If an indicator did not respond correctly, the issue could come from the Python code, Pico 
+          pin mapping, a solder joint, or the component itself. This pushed me to test one signal path at a time 
+          and made me more confident troubleshooting embedded hardware from both the circuit and software sides.
+        </p>
+      </article>
 
         <aside class="reflection-notebook">
           <div class="reflection-notebook-header">
