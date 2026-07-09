@@ -1060,6 +1060,12 @@ body {
   border-color: rgba(214, 51, 132, 0.35);
 }
 
+.image-fullscreen-link {
+  display: block;
+  cursor: zoom-in;
+  text-decoration: none;
+}
+
 .demo-feature-text {
   max-width: 560px;
 }
