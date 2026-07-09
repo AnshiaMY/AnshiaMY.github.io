@@ -2719,9 +2719,12 @@ body.dark-mode .featured-project-highlights div {
 
 /* With only 3 cards, desktop has nothing to slide to */
 @media (min-width: 993px) {
-  .carousel-btn,
+  .carousel-btn {
+    display: grid;
+  }
+
   .carousel-dots {
-    display: none;
+    display: flex;
   }
 }
 
