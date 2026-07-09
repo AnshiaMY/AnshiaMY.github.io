@@ -2637,56 +2637,66 @@ body.dark-mode .featured-project-highlights div {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 .project-carousel-window {
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
 }
 
 .project-carousel-track {
   display: flex;
   gap: 1.5rem;
   transition: transform 0.45s ease;
-  will-change: transform;
 }
 
 .carousel-card {
   flex: 0 0 calc((100% - 3rem) / 3);
 }
 
+.project-carousel .other-project-card {
+  height: auto;
+  min-height: 0;
+}
+
+.project-carousel .other-project-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.project-carousel .other-project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Cute arrows */
 .carousel-btn {
-  width: 46px;
-  height: 46px;
-  border: 1px solid rgba(214, 51, 132, 0.18);
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(214, 51, 132, 0.2);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--portfolio-accent);
   display: grid;
   place-items: center;
   cursor: pointer;
   box-shadow: 0 14px 35px rgba(214, 51, 132, 0.14);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  flex: 0 0 auto;
-  z-index: 2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .carousel-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 20px 45px rgba(214, 51, 132, 0.22);
-  background: #fff;
-}
-
-.carousel-btn i {
-  font-size: 1.15rem;
 }
 
 .carousel-dots {
   display: flex;
   justify-content: center;
   gap: 0.55rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .carousel-dot {
@@ -2696,12 +2706,19 @@ body.dark-mode .featured-project-highlights div {
   border-radius: 999px;
   background: rgba(214, 51, 132, 0.25);
   cursor: pointer;
-  transition: width 0.25s ease, background 0.25s ease;
 }
 
 .carousel-dot.is-active {
-  width: 28px;
+  width: 26px;
   background: var(--portfolio-accent);
+}
+
+/* With only 3 cards, desktop has nothing to slide to */
+@media (min-width: 993px) {
+  .carousel-btn,
+  .carousel-dots {
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
