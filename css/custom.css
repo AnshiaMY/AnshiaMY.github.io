@@ -2638,7 +2638,7 @@ body.dark-mode .featured-project-highlights div {
   align-items: center;
   gap: 1rem;
 
-  width: min(100% - 3rem, 1180px);
+  width: min(100% - 3rem, 1240px);
   margin: 1.5rem auto 0;
 }
 
@@ -2699,7 +2699,7 @@ body.dark-mode .featured-project-highlights div {
   display: flex;
   justify-content: center;
   gap: 0.55rem;
-  width: min(100% - 3rem, 1180px);
+  width: min(100% - 3rem, 1240px);
   margin: 1.25rem auto 0;
 }
 
@@ -2722,10 +2722,6 @@ body.dark-mode .featured-project-highlights div {
   .carousel-btn,
   .carousel-dots {
     display: none;
-  }
-
-  .project-carousel {
-    width: min(100% - 3rem, 1080px);
   }
 }
 
