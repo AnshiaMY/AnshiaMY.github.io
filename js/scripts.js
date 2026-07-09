@@ -122,12 +122,20 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // Project carousel
+});
+
+
+// Project carousel
+function initProjectCarousel() {
     const carouselTrack = document.querySelector(".project-carousel-track");
     const carouselCards = document.querySelectorAll(".carousel-card");
     const prevCarouselBtn = document.querySelector(".carousel-btn-prev");
     const nextCarouselBtn = document.querySelector(".carousel-btn-next");
     const carouselDots = document.querySelectorAll(".carousel-dot");
+
+    if (!carouselTrack || carouselCards.length === 0) {
+        return;
+    }
 
     let carouselIndex = 0;
 
@@ -138,8 +146,6 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
     function updateCarousel() {
-        if (!carouselTrack || carouselCards.length === 0) return;
-
         const cardsPerView = getCardsPerView();
         const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
 
@@ -190,5 +196,6 @@ window.addEventListener('DOMContentLoaded', event => {
 
     window.addEventListener("resize", updateCarousel);
     updateCarousel();
+}
 
-});
+window.addEventListener("load", initProjectCarousel);
