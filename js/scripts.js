@@ -70,22 +70,18 @@ window.addEventListener('DOMContentLoaded', event => {
         tab.addEventListener("click", () => {
             const selectedStage = tab.getAttribute("data-stage");
 
-            // Deactivate all build stage tabs
             buildStageTabs.forEach((stageTab) => {
                 stageTab.classList.remove("is-active");
                 stageTab.setAttribute("aria-selected", "false");
             });
 
-            // Hide all build stage panels
             buildStagePanels.forEach((panel) => {
                 panel.classList.remove("is-active");
             });
 
-            // Activate selected tab
             tab.classList.add("is-active");
             tab.setAttribute("aria-selected", "true");
 
-            // Show matching panel
             const activePanel = document.querySelector(
                 `#build .build-stage-panel[data-stage-panel="${selectedStage}"]`
             );
@@ -104,22 +100,18 @@ window.addEventListener('DOMContentLoaded', event => {
         tab.addEventListener("click", () => {
             const selectedDebug = tab.getAttribute("data-debug");
 
-            // Deactivate all debug folder tabs
             debugFolderTabs.forEach((folderTab) => {
                 folderTab.classList.remove("is-active");
                 folderTab.setAttribute("aria-selected", "false");
             });
 
-            // Hide all debug files
             debugFiles.forEach((file) => {
                 file.classList.remove("is-active");
             });
 
-            // Activate selected folder tab
             tab.classList.add("is-active");
             tab.setAttribute("aria-selected", "true");
 
-            // Show matching debug file
             const activeFile = document.querySelector(
                 `#improvements .debug-file[data-debug-file="${selectedDebug}"]`
             );
@@ -130,75 +122,73 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-});
+    // Project carousel
+    const carouselTrack = document.querySelector(".project-carousel-track");
+    const carouselCards = document.querySelectorAll(".carousel-card");
+    const prevCarouselBtn = document.querySelector(".carousel-btn-prev");
+    const nextCarouselBtn = document.querySelector(".carousel-btn-next");
+    const carouselDots = document.querySelectorAll(".carousel-dot");
 
-// Project carousel
-document.addEventListener("DOMContentLoaded", () => {
-  const carouselTrack = document.querySelector(".project-carousel-track");
-  const carouselCards = document.querySelectorAll(".carousel-card");
-  const prevCarouselBtn = document.querySelector(".carousel-btn-prev");
-  const nextCarouselBtn = document.querySelector(".carousel-btn-next");
-  const carouselDots = document.querySelectorAll(".carousel-dot");
+    let carouselIndex = 0;
 
-  if (!carouselTrack || carouselCards.length === 0) return;
-
-  let carouselIndex = 0;
-
-  function getCardsPerView() {
-    if (window.innerWidth <= 700) return 1;
-    if (window.innerWidth <= 992) return 2;
-    return 3;
-  }
-
-  function updateCarousel() {
-    const cardsPerView = getCardsPerView();
-    const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
-
-    if (carouselIndex > maxIndex) {
-      carouselIndex = maxIndex;
+    function getCardsPerView() {
+        if (window.innerWidth <= 700) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
     }
 
-    const cardWidth = carouselCards[0].offsetWidth;
-    const gap = parseFloat(getComputedStyle(carouselTrack).gap) || 0;
-    const moveAmount = carouselIndex * (cardWidth + gap);
+    function updateCarousel() {
+        if (!carouselTrack || carouselCards.length === 0) return;
 
-    carouselTrack.style.transform = `translateX(-${moveAmount}px)`;
+        const cardsPerView = getCardsPerView();
+        const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+
+        if (carouselIndex > maxIndex) {
+            carouselIndex = maxIndex;
+        }
+
+        const cardWidth = carouselCards[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(carouselTrack).gap) || 0;
+        const moveAmount = carouselIndex * (cardWidth + gap);
+
+        carouselTrack.style.transform = `translateX(-${moveAmount}px)`;
+
+        carouselDots.forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === carouselIndex);
+        });
+    }
+
+    if (nextCarouselBtn) {
+        nextCarouselBtn.addEventListener("click", () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+
+            carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
+            updateCarousel();
+        });
+    }
+
+    if (prevCarouselBtn) {
+        prevCarouselBtn.addEventListener("click", () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+
+            carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
+            updateCarousel();
+        });
+    }
 
     carouselDots.forEach((dot, index) => {
-      dot.classList.toggle("is-active", index === carouselIndex);
+        dot.addEventListener("click", () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+
+            carouselIndex = Math.min(index, maxIndex);
+            updateCarousel();
+        });
     });
-  }
 
-  if (nextCarouselBtn) {
-    nextCarouselBtn.addEventListener("click", () => {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+    window.addEventListener("resize", updateCarousel);
+    updateCarousel();
 
-      carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
-      updateCarousel();
-    });
-  }
-
-  if (prevCarouselBtn) {
-    prevCarouselBtn.addEventListener("click", () => {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
-
-      carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
-      updateCarousel();
-    });
-  }
-
-  carouselDots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
-
-      carouselIndex = Math.min(index, maxIndex);
-      updateCarousel();
-    });
-  });
-
-  window.addEventListener("resize", updateCarousel);
-  updateCarousel();
 });
