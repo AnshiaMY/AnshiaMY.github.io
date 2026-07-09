@@ -1047,6 +1047,19 @@ body {
   background: #000000;
 }
 
+/* Project image hover glow */
+.dashboard-image-frame,
+.demo-image-frame {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-image-frame:hover,
+.demo-image-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 70px rgba(214, 51, 132, 0.22);
+  border-color: rgba(214, 51, 132, 0.35);
+}
+
 .demo-feature-text {
   max-width: 560px;
 }
