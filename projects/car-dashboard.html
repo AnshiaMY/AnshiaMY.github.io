@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta 
     name="description" 
-    content="Custom Car Dashboard Prototype project by Anshia Muhammad Yaqoob, a Raspberry Pi Pico-based embedded systems project featuring Python control logic, PCB fabrication, LED indicators, push-button inputs, an OLED display, and a temperature-sensitive warning indicator." 
+    content="Embedded Car Dashboard project by Anshia Muhammad Yaqoob, a Raspberry Pi Pico-based embedded systems project featuring Python control logic, PCB fabrication, push-button inputs, LED indicators, OLED display output, potentiometer input, and temperature-based warning logic." 
   />
   <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>Custom Car Dashboard Prototype | Anshia Muhammad Yaqoob</title>
+  <title>Embedded Car Dashboard | Anshia Muhammad Yaqoob</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
@@ -135,12 +135,12 @@
     <section class="project-hero-content">
       <p class="project-kicker">Embedded Systems • PCB Fabrication</p>
 
-      <h1>Custom Car Dashboard Prototype</h1>
+      <h1>Embedded Car Dashboard</h1>
 
       <p class="project-hero-description">
-        A Raspberry Pi Pico-based dashboard prototype that uses Python, PCB fabrication,
-        push-button inputs, LED indicators, a potentiometer-controlled OLED fuel display,
-        and a temperature-sensitive warning indicator to simulate a vehicle instrument panel.
+        A Raspberry Pi Pico-based dashboard system that uses Python control logic, 
+        a fabricated PCB, button inputs, LED indicators, a potentiometer-controlled OLED fuel display, 
+        and temperature-based warning logic to simulate a vehicle instrument panel.
       </p>
 
       <div class="project-tech-stack">
@@ -148,12 +148,11 @@
         <span>Python</span>
         <span>PCB Fabrication</span>
         <span>OLED Display</span>
-        <span>LED Indicators</span>
+        <span>I/O Mapping</span>
       </div>
 
       <div class="project-hero-actions">
         <a href="#demos" class="hero-btn primary">View Demo</a>
-        <a href="#build" class="hero-btn secondary">Build Process</a>
         <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
       </div>
     </section>
@@ -168,21 +167,21 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
 
-        <h2>Building an embedded dashboard prototype.</h2>
+        <h2>Simulating a vehicle dashboard with embedded control.</h2>
 
         <p>
-          This project focused on designing and building a physical car dashboard prototype
-          that could simulate common vehicle indicators through a custom embedded system.
-          Instead of only creating a visual mockup, the dashboard combined a fabricated PCB,
-          Raspberry Pi Pico control, push-button inputs, LED outputs, an OLED fuel display,
-          and a temperature-sensitive warning input.
+          This project focused on building a physical dashboard prototype that connects software,
+          electronics, and interface design. The system uses a Raspberry Pi Pico to process input
+          signals and control dashboard outputs, while a fabricated PCB organizes the electrical
+          connections between the microcontroller, buttons, LEDs, OLED display, potentiometer, and
+          temperature-sensitive input.
         </p>
 
         <p>
-          This was a partner project with shared wiring, assembly, and testing responsibilities.
-          My main contributions were the Python control logic and PCB fabrication, while my
-          partner and I worked together to connect the physical dashboard panel, ribbon cables,
-          LEDs, buttons, and microcontroller into one working prototype.
+          This was a partner project. I focused on the Python control logic and PCB fabrication,
+          while my partner and I worked together on wiring, assembly, testing, and final integration.
+          The goal was to create a working embedded prototype that behaved like a simplified vehicle
+          instrument panel rather than a loose collection of disconnected circuits.
         </p>
       </div>
 
@@ -192,7 +191,7 @@
 
           <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
             <span class="stage-tab-number">01</span>
-            <span class="stage-tab-title">Dashboard Interface Design</span>
+            <span class="stage-tab-title">Interface Layout</span>
           </button>
 
           <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
@@ -202,7 +201,7 @@
 
           <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
             <span class="stage-tab-number">03</span>
-            <span class="stage-tab-title">Inputs, Sensors &amp; Indicators</span>
+            <span class="stage-tab-title">Input &amp; Output Logic</span>
           </button>
 
           <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
@@ -217,20 +216,20 @@
           <article class="build-stage-panel is-active" data-stage-panel="1">
             <p class="notebook-label">Build Stage 01</p>
 
-            <h3>Dashboard Interface Design</h3>
+            <h3>Interface Layout</h3>
 
             <p>
-              The dashboard was designed to resemble a vehicle-style instrument panel with
-              recognizable warning symbols, turn indicators, gauge graphics, and a central status
-              area. The goal was to create a physical interface that made the electronics easier
-              to understand because each light represented a familiar driver-facing signal.
+              The dashboard faceplate was designed around recognizable vehicle indicators so the
+              hardware outputs had a clear user-facing purpose. Instead of treating the LEDs as
+              generic lights, each one represented a dashboard signal such as seatbelt, battery,
+              oil, engine, vent, temperature, or left/right turn indication.
             </p>
 
             <p>
-              The front panel included indicators such as seatbelt, battery, oil, engine, vent,
-              temperature, and left/right turn signals. This gave the project a clear user-facing
-              purpose: button presses and sensor changes would not just turn on random LEDs, but
-              simulate how a real dashboard communicates vehicle status to a driver.
+              This interface-first approach helped define the system requirements before wiring and
+              programming began. Each indicator needed a physical LED position, a corresponding
+              input or sensor condition, and a readable visual layout so the final prototype could
+              communicate status information like a simplified vehicle instrument cluster.
             </p>
           </article>
 
@@ -240,60 +239,57 @@
             <h3>PCB &amp; Pico Integration</h3>
 
             <p>
-              The control side of the project was built around a Raspberry Pi Pico programmed in
-              Python. The Pico acted as the main controller, reading input signals and driving the
-              dashboard outputs. A custom fabricated PCB was used to organize the microcontroller,
-              buttons, connectors, and supporting components into a cleaner embedded system.
+              The Raspberry Pi Pico served as the embedded controller for the dashboard. I programmed
+              it in Python to read input states and drive output pins, while the fabricated PCB
+              provided a more structured control board for the microcontroller, buttons, connectors,
+              and supporting components.
             </p>
 
             <p>
-              Ribbon cables connected the PCB to the dashboard faceplate so the control board could
-              sit behind or beside the display panel while still driving the LEDs and other outputs.
-              This created a more realistic embedded layout than a simple breadboard circuit because
-              the control electronics and physical interface had to be connected through structured
-              wiring.
+              Ribbon cables connected the control PCB to the dashboard panel, allowing the electronics
+              to sit behind the interface while still driving the front-facing indicators. This made
+              the project closer to an embedded hardware prototype because the physical layout,
+              connector placement, soldering quality, and wiring paths all affected the final system.
             </p>
           </article>
 
           <article class="build-stage-panel" data-stage-panel="3">
             <p class="notebook-label">Build Stage 03</p>
 
-            <h3>Inputs, Sensors &amp; Indicators</h3>
+            <h3>Input &amp; Output Logic</h3>
 
             <p>
-              The dashboard used push-button inputs to control different LED indicators, allowing
-              each dashboard warning or signal light to be tested individually. The Python code
-              mapped input states to output behaviour so that button presses could activate the
-              corresponding symbols on the physical display.
+              The control logic mapped physical inputs to specific dashboard outputs. Push buttons
+              activated selected warning or signal LEDs, while the potentiometer acted as an analog
+              input for the OLED fuel display. This required the code to read hardware states, convert
+              input values, and update the correct output devices.
             </p>
 
             <p>
-              The prototype also included a potentiometer-controlled OLED fuel display. Rotating
-              the potentiometer changed the fuel value shown on the display, which simulated an
-              analog dashboard input being converted into a readable digital output. A
-              temperature-sensitive input was also used so heat could trigger the thermometer
-              warning light, adding a sensor-based interaction beyond simple button control.
+              The prototype also included temperature-based warning behaviour. A temperature-sensitive
+              component was used to trigger the thermometer indicator when heat was applied, adding a
+              sensor-driven response beyond simple button-controlled LEDs. This helped demonstrate how
+              real-world input changes can be translated into driver-facing alerts.
             </p>
           </article>
 
           <article class="build-stage-panel" data-stage-panel="4">
             <p class="notebook-label">Build Stage 04</p>
 
-            <h3>Testing &amp; Final Assembly</h3>
+            <h3>Testing &amp; Assembly</h3>
 
             <p>
-              Once the PCB, Pico, wiring, LEDs, OLED display, potentiometer, and dashboard panel
-              were connected, the project required repeated testing to confirm that each input
-              triggered the correct output. This included checking button-to-LED mapping, fuel
-              display response, temperature-warning behaviour, and the reliability of the ribbon
-              cable connections.
+              After programming and assembly, the system was tested signal by signal. Each button,
+              LED, display value, and sensor-triggered warning had to be checked against the intended
+              pin mapping. This made debugging more systematic because each connection could be
+              verified before testing the full dashboard together.
             </p>
 
             <p>
-              Final assembly involved both electrical and physical constraints. The dashboard had
-              to remain readable from the front while the wiring and components stayed secure on
-              the back. Testing helped identify connection issues, alignment problems, and places
-              where the wiring needed to be reinforced for a more reliable demonstration.
+              Final integration required both software validation and physical troubleshooting.
+              The front panel had to remain readable, while the back of the board needed stable
+              wiring, secure solder joints, and reliable ribbon cable connections. Testing helped
+              identify mapping errors, weak connections, and assembly constraints before the final demo.
             </p>
           </article>
 
@@ -308,12 +304,12 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Demo & Testing</p>
 
-        <h2>Testing the dashboard interface.</h2>
+        <h2>Testing the dashboard system.</h2>
 
         <p>
-          The demo shows the dashboard operating as an embedded prototype, with the Raspberry Pi
-          Pico reading inputs and controlling the dashboard indicators. The physical build combines
-          software logic, PCB fabrication, wiring, and a driver-facing display panel.
+          The demo shows the Raspberry Pi Pico reading physical inputs and controlling the dashboard
+          outputs through the assembled circuit. The prototype combines programmed logic, PCB
+          fabrication, soldered connections, ribbon cable wiring, and a physical vehicle-style panel.
         </p>
       </div>
 
@@ -332,16 +328,15 @@
           <h3>Dashboard Functionality Demo</h3>
 
           <p>
-            The main demo video shows the dashboard indicators responding to physical inputs.
-            Push buttons control different warning and signal LEDs, while the potentiometer changes
-            the fuel value shown on the OLED display. The temperature-sensitive input demonstrates
-            how a sensor-style signal can trigger a dashboard warning light.
+            The demo video shows the dashboard responding to physical controls. Buttons activate
+            dashboard indicators, the potentiometer updates the OLED fuel display, and the
+            temperature-sensitive input triggers the thermometer warning light.
           </p>
 
           <ul>
-            <li>Python logic running on a Raspberry Pi Pico</li>
-            <li>Push-button inputs mapped to dashboard LED indicators</li>
-            <li>Potentiometer-controlled OLED fuel display and temperature warning input</li>
+            <li>Python-based input/output control on a Raspberry Pi Pico</li>
+            <li>Button-to-LED mapping for vehicle-style dashboard indicators</li>
+            <li>Potentiometer-driven OLED fuel display and temperature warning response</li>
           </ul>
         </div>
       </article>
@@ -351,25 +346,25 @@
         <div class="dashboard-image-frame">
           <img 
             src="../assets/projects/car-dashboard/car-dashboard-back.jpg" 
-            alt="Back of the custom car dashboard prototype showing PCB, wiring, and LEDs"
+            alt="Back of the embedded car dashboard showing PCB, wiring, ribbon cables, and LEDs"
           />
         </div>
 
         <div class="demo-feature-text">
           <span class="demo-number">02</span>
 
-          <h3>Back-of-Board Wiring</h3>
+          <h3>Back-of-Board Integration</h3>
 
           <p>
-            The back of the dashboard shows the physical integration behind the interface. The PCB,
-            ribbon cables, LED wiring, resistors, and panel-mounted components had to be arranged
-            so the front display stayed readable while the electrical connections remained secure.
+            The back view highlights the hardware integration behind the display. The PCB, ribbon
+            cables, LED wiring, resistors, and panel-mounted components had to be arranged so the
+            front interface stayed readable while the electrical connections remained functional.
           </p>
 
           <ul>
-            <li>Custom fabricated PCB connected to the physical dashboard panel</li>
-            <li>Ribbon cable wiring between the controller board and indicator LEDs</li>
-            <li>Hands-on assembly, soldering, and connection testing</li>
+            <li>Fabricated PCB connected to a physical dashboard faceplate</li>
+            <li>Ribbon cable routing between the controller and indicator panel</li>
+            <li>Hands-on soldering, wiring, continuity checks, and assembly testing</li>
           </ul>
         </div>
       </article>
@@ -382,13 +377,12 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Troubleshooting</p>
 
-        <h2>Debugging the embedded dashboard.</h2>
+        <h2>Debugging the embedded system.</h2>
 
         <p>
-          The main debugging challenges came from connecting software logic to a physical circuit.
-          Even when the Python code was correct, the final behaviour depended on reliable soldering,
-          correct pin mapping, stable wiring, and proper communication between the PCB and dashboard
-          faceplate.
+          The main debugging challenge was verifying that software behaviour matched the physical
+          circuit. A visible output issue could come from the Python logic, Pico pin assignment,
+          PCB trace, solder joint, ribbon cable connection, LED orientation, or input component.
         </p>
       </div>
 
@@ -398,7 +392,7 @@
 
           <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
             <span>Debug File 01</span>
-            Pin Mapping
+            I/O Mapping
           </button>
 
           <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
@@ -408,7 +402,7 @@
 
           <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
             <span>Debug File 03</span>
-            Display &amp; Sensor Inputs
+            Analog &amp; Sensor Inputs
           </button>
 
         </div>
@@ -418,34 +412,34 @@
           <article class="debug-file is-active" data-debug-file="1">
             <p class="debug-file-label">Debug File 01</p>
 
-            <h3>Mapping inputs and outputs correctly</h3>
+            <h3>Verifying input/output mapping</h3>
 
             <div class="debug-report-grid">
               <div class="debug-report-row">
                 <p class="debug-report-label">Symptom</p>
                 <p>
-                  During testing, each button and indicator needed to match the correct dashboard
-                  symbol. If a button controlled the wrong LED or an indicator did not respond,
-                  the dashboard no longer behaved like a clear vehicle-style interface.
+                  Some indicators needed verification because each physical input had to activate
+                  the correct dashboard symbol. A mismatch between the button, Pico pin, or LED
+                  connection could make the panel display the wrong vehicle signal.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Diagnosis</p>
                 <p>
-                  The issue could come from either the Python pin assignments or the physical wiring.
-                  Since the project used a PCB, ribbon cables, and multiple LEDs, debugging required
-                  checking both the software mapping and the electrical path between the Pico and
-                  the dashboard panel.
+                  The system had multiple layers between input and output: Python variables, Pico
+                  GPIO pins, PCB connections, ribbon cable paths, and LED placements on the faceplate.
+                  Debugging required checking the full signal path instead of assuming the issue was
+                  only in code.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Adjustment</p>
                 <p>
-                  I tested each input and output individually, then verified the full mapping between
-                  buttons, Pico pins, ribbon cable connections, and dashboard LEDs. This made it
-                  easier to isolate whether an issue came from code, wiring, or a physical connection.
+                  I tested each button and output individually, then confirmed the complete mapping
+                  from input component to Pico pin to dashboard indicator. This made it easier to
+                  isolate pin assignment errors, wiring swaps, or physical connection issues.
                 </p>
               </div>
             </div>
@@ -460,29 +454,27 @@
               <div class="debug-report-row">
                 <p class="debug-report-label">Symptom</p>
                 <p>
-                  Some connections were sensitive to movement because the project used many physical
-                  wires, resistors, LEDs, ribbon cable connections, and solder joints. A loose or weak
-                  connection could cause an indicator to flicker or fail during testing.
+                  With many LEDs, resistors, ribbon cables, and soldered connections, some parts of
+                  the prototype were sensitive to movement during handling and testing. A weak
+                  connection could cause an indicator to flicker, fail, or behave inconsistently.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Diagnosis</p>
                 <p>
-                  The physical build introduced constraints that would not appear in code alone.
-                  The dashboard panel had to hold several LEDs and wires while the PCB remained
-                  connected through ribbon cables, so mechanical strain and connection quality
-                  affected electrical reliability.
+                  The issue was not only electrical; it was also mechanical. The dashboard panel,
+                  PCB, and wiring had to remain connected while being handled as one physical
+                  prototype, so strain on wires or solder joints affected reliability.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Adjustment</p>
                 <p>
-                  My partner and I reinforced and retested the wiring, checked solder joints, and
-                  verified continuity where needed. This helped make the dashboard more reliable
-                  during the final demonstration and reduced issues caused by loose physical
-                  connections.
+                  My partner and I retested the wiring, checked solder joints, reinforced weak
+                  connections, and verified continuity where needed. This improved the stability of
+                  the prototype during the final functionality demo.
                 </p>
               </div>
             </div>
@@ -491,35 +483,34 @@
           <article class="debug-file" data-debug-file="3">
             <p class="debug-file-label">Debug File 03</p>
 
-            <h3>Testing the OLED display and temperature input</h3>
+            <h3>Calibrating analog and sensor-based inputs</h3>
 
             <div class="debug-report-grid">
               <div class="debug-report-row">
                 <p class="debug-report-label">Symptom</p>
                 <p>
-                  The fuel display and temperature warning needed to respond clearly to changing
-                  inputs. If the potentiometer value did not update smoothly or the temperature
-                  input was not sensitive enough, the dashboard feedback became less convincing.
+                  The OLED fuel display and temperature warning needed to respond clearly to input
+                  changes. If the potentiometer reading or temperature threshold was not interpreted
+                  well, the dashboard feedback felt less realistic.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Diagnosis</p>
                 <p>
-                  These features depended on converting physical input changes into software-driven
-                  dashboard outputs. The potentiometer had to be read and translated into a fuel
-                  display value, while the temperature-sensitive component had to trigger the correct
-                  warning indicator when heat was applied.
+                  These features depended on converting physical input behaviour into software-driven
+                  output. The potentiometer value had to be translated into a readable fuel level,
+                  while the temperature-sensitive input needed a threshold that triggered the warning
+                  light reliably during the demo.
                 </p>
               </div>
 
               <div class="debug-report-row">
                 <p class="debug-report-label">Adjustment</p>
                 <p>
-                  I tested the input response and adjusted the logic so the display and warning
-                  indicator behaved consistently during the demo. This helped connect the dashboard
-                  prototype to more realistic vehicle-style feedback instead of only using simple
-                  on/off LED controls.
+                  I tested the input response and refined the logic so the OLED display and
+                  temperature indicator behaved consistently. This helped the dashboard simulate
+                  more realistic vehicle feedback instead of only demonstrating simple on/off LEDs.
                 </p>
               </div>
             </div>
@@ -544,25 +535,24 @@
           <h3>What this project taught me.</h3>
 
           <p>
-            This project helped me understand how embedded systems connect software, electronics,
-            and physical interface design. Writing the Python logic was only one part of the work;
-            the final dashboard also depended on PCB fabrication, soldering, wiring, component
-            placement, and testing each input-output connection.
+            This project strengthened my understanding of embedded systems because it required
+            software, electronics, and physical assembly to work together. The Python code controlled
+            the logic, but the final result depended on correct pin mapping, PCB fabrication,
+            soldering, wiring, component placement, and repeated hardware testing.
           </p>
 
           <p>
-            I also learned how important pin mapping and systematic debugging are when software is
-            controlling real hardware. If an LED did not respond correctly, the issue could be in
-            the code, the PCB, the ribbon cable, the solder joint, or the physical LED connection.
-            This pushed me to test one signal path at a time instead of assuming the problem was
-            only in the program.
+            The biggest technical lesson was learning how to debug across the full signal path.
+            When an indicator did not behave as expected, the cause could be a coding issue, a GPIO
+            mismatch, a wiring problem, a solder joint, or a component connection. Testing one input
+            and output at a time helped me become more systematic when troubleshooting hardware-based
+            software projects.
           </p>
 
           <p>
-            Personally, this project gave me more confidence working with physical prototypes that
-            are not perfectly clean or predictable. The dashboard required patience, hands-on
-            troubleshooting, and teamwork because the final result depended on both the circuit and
-            the physical assembly behaving reliably together.
+            Personally, this project made me more comfortable working with physical prototypes that
+            are not perfectly predictable. It required patience, teamwork, and careful testing because
+            even small assembly details affected whether the dashboard behaved reliably.
           </p>
         </article>
 
@@ -574,28 +564,28 @@
 
           <ul class="reflection-checklist">
             <li>
-              Design a cleaner enclosure or mounting system so the PCB, ribbon cables, and dashboard
-              faceplate are protected and easier to handle.
+              Design a cleaner enclosure so the PCB, ribbon cables, and dashboard faceplate are
+              protected during handling.
             </li>
 
             <li>
-              Improve wiring organization by using more structured connectors, strain relief, and
-              cleaner cable routing between the PCB and dashboard panel.
+              Improve cable management with stronger connectors, strain relief, and cleaner routing
+              between the PCB and display panel.
             </li>
 
             <li>
               Add more realistic dashboard behaviour, such as blinking turn signals, startup checks,
-              warning priority logic, or different alert states.
+              warning priority logic, or multiple alert states.
             </li>
 
             <li>
-              Refine the OLED fuel display with smoother value scaling, clearer graphics, or more
-              vehicle-style visual feedback.
+              Refine the OLED fuel display with smoother scaling, clearer graphics, and a more
+              vehicle-style gauge layout.
             </li>
 
             <li>
-              Expand the prototype with additional sensors or inputs to simulate more vehicle
-              conditions beyond button-controlled warning indicators.
+              Expand the system with additional sensor inputs to simulate more vehicle conditions
+              beyond button-controlled indicators.
             </li>
           </ul>
         </aside>
