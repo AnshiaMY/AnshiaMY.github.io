@@ -2637,7 +2637,9 @@ body.dark-mode .featured-project-highlights div {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.5rem;
+
+  width: min(100% - 3rem, 1180px);
+  margin: 1.5rem auto 0;
 }
 
 .project-carousel-window {
@@ -2672,7 +2674,7 @@ body.dark-mode .featured-project-highlights div {
   display: block;
 }
 
-/* Cute arrows */
+/* Arrows */
 .carousel-btn {
   width: 44px;
   height: 44px;
@@ -2685,6 +2687,7 @@ body.dark-mode .featured-project-highlights div {
   cursor: pointer;
   box-shadow: 0 14px 35px rgba(214, 51, 132, 0.14);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex: 0 0 auto;
 }
 
 .carousel-btn:hover {
@@ -2696,7 +2699,8 @@ body.dark-mode .featured-project-highlights div {
   display: flex;
   justify-content: center;
   gap: 0.55rem;
-  margin-top: 1.25rem;
+  width: min(100% - 3rem, 1180px);
+  margin: 1.25rem auto 0;
 }
 
 .carousel-dot {
@@ -2719,6 +2723,10 @@ body.dark-mode .featured-project-highlights div {
   .carousel-dots {
     display: none;
   }
+
+  .project-carousel {
+    width: min(100% - 3rem, 1080px);
+  }
 }
 
 @media (max-width: 992px) {
@@ -2729,6 +2737,7 @@ body.dark-mode .featured-project-highlights div {
 
 @media (max-width: 700px) {
   .project-carousel {
+    width: min(100% - 2rem, 520px);
     gap: 0.5rem;
   }
 
