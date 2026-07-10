@@ -3,656 +3,969 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta 
-    name="description" 
-    content="Embedded Car Dashboard project by Anshia Muhammad Yaqoob, a Raspberry Pi Pico-based embedded systems project featuring Python control logic, PCB fabrication, push-button inputs, LED indicators, OLED display output, potentiometer input, and temperature-based warning logic." 
-  />
-  <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>Embedded Car Dashboard | Anshia Muhammad Yaqoob</title>
+  <meta
+    name="description"
+    content="Embedded Car Dashboard by Anshia Muhammad Yaqoob, featuring Raspberry Pi Pico control, Python input/output logic, custom PCB fabrication, push-button inputs, LED indicators, an OLED fuel display, potentiometer input, and temperature-based warning logic."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link
+    rel="canonical"
+    href="https://anshiamy.github.io/projects/car-dashboard.html"
+  />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:url"
+    content="https://anshiamy.github.io/projects/car-dashboard.html"
+  />
+
+  <meta
+    property="og:title"
+    content="Embedded Car Dashboard | Anshia Muhammad Yaqoob"
+  />
+
+  <meta
+    property="og:description"
+    content="A Raspberry Pi Pico embedded dashboard combining Python control logic, custom PCB fabrication, buttons, LEDs, an OLED fuel display, and sensor-based warning behaviour."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/car-dashboard-preview.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Raspberry Pi Pico embedded car dashboard prototype"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>
+    Embedded Car Dashboard | Anshia Muhammad Yaqoob
+  </title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
-    rel="stylesheet" 
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
   />
 
   <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
   />
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" 
-    rel="stylesheet" 
-    type="text/css" 
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet"
+    type="text/css"
   />
 
   <!-- Main Theme CSS -->
-  <link href="../css/styles.css" rel="stylesheet" />
+  <link
+    href="../css/styles.css"
+    rel="stylesheet"
+  />
 
   <!-- Custom Portfolio CSS -->
-  <link href="../css/custom.css" rel="stylesheet" />
-
-  <!-- Page-specific media layout -->
-  <style>
-    .dashboard-demo-row {
-      display: grid;
-      grid-template-columns: minmax(420px, 1.15fr) minmax(300px, 0.85fr);
-      align-items: center;
-      gap: 3rem;
-    }
-
-    .dashboard-demo-row.reverse {
-      grid-template-columns: minmax(300px, 0.85fr) minmax(380px, 1fr);
-    }
-
-    .dashboard-demo-row .horizontal-video {
-      max-width: 760px;
-      width: 100%;
-      justify-self: center;
-    }
-
-    .dashboard-demo-row .horizontal-video video {
-      width: 100%;
-      height: auto;
-      max-height: 430px;
-      object-fit: contain;
-      background: #111;
-    }
-
-    .dashboard-image-frame {
-      width: 100%;
-      max-width: 430px;
-      justify-self: center;
-      border-radius: 1.35rem;
-      overflow: hidden;
-      border: 1px solid var(--portfolio-border);
-      box-shadow: 0 22px 60px rgba(31, 41, 51, 0.14);
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .dashboard-image-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-
-    body.dark-mode .dashboard-image-frame {
-      background: rgba(26, 27, 34, 0.88);
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    @media (max-width: 992px) {
-      .dashboard-demo-row,
-      .dashboard-demo-row.reverse {
-        grid-template-columns: 1fr;
-      }
-
-      .dashboard-demo-row.reverse .dashboard-image-frame {
-        order: 1;
-      }
-
-      .dashboard-demo-row.reverse .demo-feature-text {
-        order: 2;
-      }
-
-      .dashboard-demo-row .demo-feature-text {
-        text-align: center;
-        margin: 0 auto;
-      }
-    }
-  </style>
+  <link
+    href="../css/custom.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body id="page-top">
 
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
   <!-- Scroll Progress Bar -->
-  <div class="scroll-progress"></div>
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Project Header -->
   <header class="project-page-header">
 
     <!-- Navigation -->
-    <nav class="project-navbar">
-      <a href="../index.html" class="project-logo">← Back to Home</a>
+    <nav
+      class="project-navbar"
+      aria-label="Project navigation"
+    >
+      <a
+        href="../index.html"
+        class="project-logo"
+      >
+        ← Back to Home
+      </a>
 
       <div class="project-nav-tabs">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#projects">
+          Projects
+        </a>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-stars"></i>
+        <a href="../index.html#contact">
+          Contact
+        </a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
 
     <!-- Hero Content -->
-    <section class="project-hero-content">
-      <p class="project-kicker">Embedded Systems • PCB Fabrication</p>
-
-      <h1>Embedded Car Dashboard</h1>
-
-      <p class="project-hero-description">
-        A Raspberry Pi Pico-based dashboard system that uses Python control logic, 
-        a fabricated PCB, button inputs, LED indicators, a potentiometer-controlled OLED fuel display, 
-        and temperature-based warning logic to simulate a vehicle instrument panel.
+    <section
+      class="project-hero-content"
+      aria-labelledby="project-title"
+    >
+      <p class="project-kicker">
+        Embedded Systems • PCB Fabrication
       </p>
 
-      <div class="project-tech-stack">
+      <h1 id="project-title">
+        Embedded Car Dashboard
+      </h1>
+
+      <p class="project-hero-description">
+        A Raspberry Pi Pico-based dashboard system that uses Python
+        input/output logic, a fabricated PCB, push-button inputs, LED
+        indicators, a potentiometer-controlled OLED fuel display, and
+        temperature-based warning behaviour to simulate a vehicle
+        instrument panel.
+      </p>
+
+      <div
+        class="project-tech-stack"
+        aria-label="Technologies and technical areas"
+      >
         <span>Raspberry Pi Pico</span>
         <span>Python</span>
         <span>PCB Fabrication</span>
         <span>OLED Display</span>
-        <span>I/O Mapping</span>
+        <span>GPIO</span>
+        <span>Analog Input</span>
       </div>
 
       <div class="project-hero-actions">
-        <a href="#demos" class="hero-btn primary">View Demo</a>
-        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+        <a
+          href="#demos"
+          class="hero-btn primary"
+        >
+          View Demo
+        </a>
+
+        <a
+          href="#reflection"
+          class="hero-btn secondary"
+        >
+          Final Reflection
+        </a>
       </div>
     </section>
 
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- Project Overview / Build Stages -->
-<section class="case-section build-stages-section" id="build">
-
-  <div class="case-section-heading center">
-    <p class="section-kicker">Project Overview</p>
-
-    <h2>From Pins To Panels.</h2>
-
-    <p>
-      This project involved building a working embedded car dashboard from PCB fabrication to final 
-      programming. The system combined a Raspberry Pi Pico, custom circuit board, soldered components, 
-      push-button inputs, LED indicators, an OLED fuel display, and sensor-based warning logic into one 
-      physical dashboard prototype.
-    </p>
-  </div>
-
-    <div class="build-stage-interface">
-
-      <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
-    
-        <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
-          <span class="stage-tab-number">01</span>
-          <span class="stage-tab-title">PCB Fabrication</span>
-        </button>
-    
-        <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
-          <span class="stage-tab-number">02</span>
-          <span class="stage-tab-title">Circuit Assembly</span>
-        </button>
-    
-        <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
-          <span class="stage-tab-number">03</span>
-          <span class="stage-tab-title">Embedded Control</span>
-        </button>
-    
-        <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
-          <span class="stage-tab-number">04</span>
-          <span class="stage-tab-title">System Testing</span>
-        </button>
-    
-      </div>
-    
-      <div class="build-stage-panel-wrap">
-    
-        <article class="build-stage-panel is-active" data-stage-panel="1">
-          <p class="notebook-label">Build Stage 01</p>
-    
-          <h3>PCB Fabrication</h3>
-    
-          <p>
-            The project began with designing a custom PCB layout for the dashboard control system. This stage focused on planning how each component would connect electrically while still fitting cleanly within the physical board layout.
-          </p>
-    
-          <p>
-            After the layout was prepared, the design was transferred onto a copper board, etched to form the circuit traces, drilled for connection points, and cleaned for assembly. This gave me hands-on experience moving from a circuit layout to a physical board that could support the final embedded system.
-          </p>
-        </article>
-    
-        <article class="build-stage-panel" data-stage-panel="2">
-          <p class="notebook-label">Build Stage 02</p>
-    
-          <h3>Circuit Assembly</h3>
-    
-          <p>
-            Once the PCB was fabricated, the components were soldered and connected to form the dashboard control circuit. This included the Raspberry Pi Pico, push buttons, LEDs, resistors, potentiometer, OLED display connections, and ribbon cable wiring.
-          </p>
-    
-          <p>
-            This stage required careful attention to component orientation, solder quality, and connection reliability. Because the dashboard had several indicators and inputs, one weak joint or misplaced connection could affect the entire input/output chain.
-          </p>
-        </article>
-    
-        <article class="build-stage-panel" data-stage-panel="3">
-          <p class="notebook-label">Build Stage 03</p>
-    
-          <h3>Embedded Control</h3>
-    
-          <p>
-            The Raspberry Pi Pico was programmed in Python to handle the dashboard’s input/output logic. Push-button inputs were mapped to specific LED indicators, while the potentiometer provided an analog input for the OLED fuel display.
-          </p>
-    
-          <p>
-            The code also handled sensor-based behaviour by triggering the temperature warning indicator when heat was detected. This connected the physical inputs, GPIO pin assignments, and dashboard outputs into one controlled embedded system.
-          </p>
-        </article>
-    
-        <article class="build-stage-panel" data-stage-panel="4">
-          <p class="notebook-label">Build Stage 04</p>
-    
-          <h3>System Testing</h3>
-    
-          <p>
-            The final prototype was tested one signal path at a time. I checked each button, LED, OLED response, potentiometer reading, and temperature-triggered warning to confirm that the software behaviour matched the physical dashboard output.
-          </p>
-    
-          <p>
-            When a feature did not work as expected, I traced the issue through the code, GPIO mapping, PCB trace, solder joint, ribbon cable, and component connection. This made debugging more systematic and helped separate software issues from hardware connection problems.
-          </p>
-        </article>
-    
-      </div>
-    
-    </div>
-</section>
-
-    <!-- Demo Showcase -->
-    <section class="case-section demo-showcase" id="demos">
-
+    <section
+      class="case-section build-stages-section"
+      id="build"
+      aria-labelledby="build-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Demo & Testing</p>
+        <p class="section-kicker">
+          Project Overview
+        </p>
 
-        <h2>Buttons to Blinkers.</h2>
+        <h2 id="build-heading">
+          From Pins to Panels.
+        </h2>
 
         <p>
-          The demo shows the Raspberry Pi Pico reading physical inputs and controlling the dashboard
-          outputs through the assembled circuit. The prototype combines programmed logic, PCB
-          fabrication, soldered connections, ribbon cable wiring, and a physical vehicle-style panel.
+          This project involved building a working embedded car dashboard
+          from PCB fabrication to final programming. The system combined a
+          Raspberry Pi Pico, custom circuit board, soldered components,
+          push-button inputs, LED indicators, an OLED fuel display, and
+          sensor-based warning logic into one physical dashboard prototype.
+        </p>
+      </div>
+
+      <div class="build-stage-interface">
+
+        <div
+          class="build-stage-tabs"
+          role="tablist"
+          aria-label="Development stages"
+        >
+          <button
+            class="build-stage-tab is-active"
+            type="button"
+            data-stage="1"
+            aria-selected="true"
+          >
+            <span class="stage-tab-number">
+              01
+            </span>
+
+            <span class="stage-tab-title">
+              PCB Fabrication
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="2"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              02
+            </span>
+
+            <span class="stage-tab-title">
+              Circuit Assembly
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="3"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              03
+            </span>
+
+            <span class="stage-tab-title">
+              Embedded Control
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="4"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              04
+            </span>
+
+            <span class="stage-tab-title">
+              System Testing
+            </span>
+          </button>
+        </div>
+
+        <div class="build-stage-panel-wrap">
+
+          <!-- Build Stage 1 -->
+          <article
+            class="build-stage-panel is-active"
+            data-stage-panel="1"
+          >
+            <p class="notebook-label">
+              Build Stage 01
+            </p>
+
+            <h3>
+              PCB Fabrication
+            </h3>
+
+            <p>
+              The project began with designing a custom PCB layout for
+              the dashboard control system. This stage focused on planning
+              how each component would connect electrically while still
+              fitting cleanly within the physical board layout.
+            </p>
+
+            <p>
+              After the layout was prepared, the design was transferred
+              onto a copper board, etched to form the circuit traces,
+              drilled for connection points, and cleaned for assembly.
+              This gave me hands-on experience moving from a circuit
+              layout to a physical board that could support the final
+              embedded system.
+            </p>
+          </article>
+
+          <!-- Build Stage 2 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="2"
+          >
+            <p class="notebook-label">
+              Build Stage 02
+            </p>
+
+            <h3>
+              Circuit Assembly
+            </h3>
+
+            <p>
+              Once the PCB was fabricated, the components were soldered
+              and connected to form the dashboard control circuit. This
+              included the Raspberry Pi Pico, push buttons, LEDs, resistors,
+              potentiometer, OLED display connections, and ribbon-cable
+              wiring.
+            </p>
+
+            <p>
+              This stage required careful attention to component orientation,
+              solder quality, and connection reliability. Because the
+              dashboard had several indicators and inputs, one weak joint
+              or misplaced connection could affect the entire input/output
+              chain.
+            </p>
+          </article>
+
+          <!-- Build Stage 3 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="3"
+          >
+            <p class="notebook-label">
+              Build Stage 03
+            </p>
+
+            <h3>
+              Embedded Control
+            </h3>
+
+            <p>
+              The Raspberry Pi Pico was programmed in Python to handle
+              the dashboard’s input/output logic. Push-button inputs were
+              mapped to specific LED indicators, while the potentiometer
+              provided an analog input for the OLED fuel display.
+            </p>
+
+            <p>
+              The program also handled sensor-based behaviour by triggering
+              the temperature warning indicator when heat was detected.
+              This connected the physical inputs, GPIO pin assignments,
+              and dashboard outputs into one controlled embedded system.
+            </p>
+          </article>
+
+          <!-- Build Stage 4 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="4"
+          >
+            <p class="notebook-label">
+              Build Stage 04
+            </p>
+
+            <h3>
+              System Testing
+            </h3>
+
+            <p>
+              The final prototype was tested one signal path at a time.
+              I checked each button, LED, OLED response, potentiometer
+              reading, and temperature-triggered warning to confirm that
+              the software behaviour matched the physical dashboard output.
+            </p>
+
+            <p>
+              When a feature did not work as expected, I traced the issue
+              through the code, GPIO mapping, PCB trace, solder joint,
+              ribbon cable, and component connection. This made debugging
+              more systematic and helped separate software issues from
+              hardware connection problems.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Showcase -->
+    <section
+      class="case-section demo-showcase"
+      id="demos"
+      aria-labelledby="demos-heading"
+    >
+      <div class="case-section-heading center">
+        <p class="section-kicker">
+          Demo &amp; Testing
+        </p>
+
+        <h2 id="demos-heading">
+          Buttons to Blinkers.
+        </h2>
+
+        <p>
+          The demo shows the Raspberry Pi Pico reading physical inputs
+          and controlling the dashboard outputs through the assembled
+          circuit. The prototype combines programmed logic, PCB fabrication,
+          soldered connections, ribbon-cable wiring, and a physical
+          vehicle-style panel.
         </p>
       </div>
 
       <!-- Demo Video -->
       <article class="demo-feature-row dashboard-demo-row">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/car-dashboard-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Embedded car dashboard functionality demonstration"
+          >
+            <source
+              src="../assets/car-dashboard-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">01</span>
+          <span class="demo-number">
+            01
+          </span>
 
-          <h3>Dashboard Functionality Demo</h3>
+          <h3>
+            Dashboard Functionality Demo
+          </h3>
 
           <p>
-            The demo video shows the dashboard responding to physical controls. Buttons activate
-            dashboard indicators, the potentiometer updates the OLED fuel display, and the
-            temperature-sensitive input triggers the thermometer warning light.
+            The demo video shows the dashboard responding to physical
+            controls. Buttons activate dashboard indicators, the
+            potentiometer updates the OLED fuel display, and the
+            temperature-sensitive input triggers the thermometer warning
+            light.
           </p>
 
           <ul>
-            <li>Python-based input/output control on a Raspberry Pi Pico</li>
-            <li>Button-to-LED mapping for vehicle-style dashboard indicators</li>
-            <li>Potentiometer-driven OLED fuel display and temperature warning response</li>
+            <li>
+              Python-based input/output control on a Raspberry Pi Pico
+            </li>
+
+            <li>
+              Button-to-LED mapping for vehicle-style dashboard indicators
+            </li>
+
+            <li>
+              Potentiometer-driven OLED fuel display and temperature-warning
+              response
+            </li>
           </ul>
         </div>
+
       </article>
 
       <!-- Back of Board Image -->
       <article class="demo-feature-row dashboard-demo-row reverse">
-        <a 
-          class="dashboard-image-frame image-fullscreen-link" 
-          href="../assets/car-dashboard-back.png" 
-          target="_blank" 
-          rel="noopener"
+
+        <a
+          class="dashboard-image-frame image-fullscreen-link"
+          href="../assets/car-dashboard-back.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open a full-size image of the back of the embedded car dashboard"
         >
-          <img 
-            src="../assets/car-dashboard-back.png" 
-            alt="Back of the embedded car dashboard showing PCB, wiring, ribbon cables, and LEDs"
+          <img
+            src="../assets/car-dashboard-back.png"
+            alt="Back of the embedded car dashboard showing the PCB, ribbon cables, wiring, resistors, and LEDs"
+            loading="lazy"
+            decoding="async"
           />
         </a>
-      
+
         <div class="demo-feature-text">
-          <span class="demo-number">02</span>
-      
-          <h3>Back-of-Board Integration</h3>
-      
+          <span class="demo-number">
+            02
+          </span>
+
+          <h3>
+            Back-of-Board Integration
+          </h3>
+
           <p>
-            The back view highlights the hardware integration behind the display. The PCB, ribbon
-            cables, LED wiring, resistors, and panel-mounted components had to be arranged so the
-            front interface stayed readable while the electrical connections remained functional.
+            The back view highlights the hardware integration behind the
+            display. The PCB, ribbon cables, LED wiring, resistors, and
+            panel-mounted components had to be arranged so the front
+            interface stayed readable while the electrical connections
+            remained functional.
           </p>
-      
+
           <ul>
-            <li>Fabricated PCB connected to a physical dashboard faceplate</li>
-            <li>Ribbon cable routing between the controller and indicator panel</li>
-            <li>Hands-on soldering, wiring, continuity checks, and assembly testing</li>
+            <li>
+              Fabricated PCB connected to a physical dashboard faceplate
+            </li>
+
+            <li>
+              Ribbon-cable routing between the controller and indicator panel
+            </li>
+
+            <li>
+              Hands-on soldering, wiring, continuity checks, and assembly
+              testing
+            </li>
           </ul>
         </div>
-      </article>
 
+      </article>
     </section>
 
     <!-- Troubleshooting / Debug Folder -->
-    <section class="case-section debug-folder-section" id="improvements">
-
+    <section
+      class="case-section debug-folder-section"
+      id="improvements"
+      aria-labelledby="debug-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Troubleshooting</p>
+        <p class="section-kicker">
+          Troubleshooting
+        </p>
 
-        <h2>Finding The Faulty Link.</h2>
+        <h2 id="debug-heading">
+          Finding the Faulty Link.
+        </h2>
 
         <p>
-          The main debugging challenge was verifying that software behaviour matched the physical
-          circuit. A visible output issue could come from the Python logic, Pico pin assignment,
-          PCB trace, solder joint, ribbon cable connection, LED orientation, or input component.
+          The main debugging challenge was verifying that software behaviour
+          matched the physical circuit. A visible output issue could come
+          from the Python logic, Pico pin assignment, PCB trace, solder
+          joint, ribbon-cable connection, LED orientation, or input component.
         </p>
       </div>
 
       <div class="debug-folder">
 
-        <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
+        <div
+          class="debug-folder-tabs"
+          role="tablist"
+          aria-label="Debug files"
+        >
+          <button
+            class="debug-folder-tab is-active"
+            type="button"
+            data-debug="1"
+            aria-selected="true"
+          >
+            <span>
+              Debug File 01
+            </span>
 
-          <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
-            <span>Debug File 01</span>
             I/O Mapping
           </button>
 
-          <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
-            <span>Debug File 02</span>
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="2"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 02
+            </span>
+
             Wiring Reliability
           </button>
 
-          <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
-            <span>Debug File 03</span>
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="3"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 03
+            </span>
+
             Analog &amp; Sensor Inputs
           </button>
-
         </div>
 
         <div class="debug-folder-body">
 
-          <article class="debug-file is-active" data-debug-file="1">
-            <p class="debug-file-label">Debug File 01</p>
+          <!-- Debug File 1 -->
+          <article
+            class="debug-file is-active"
+            data-debug-file="1"
+          >
+            <p class="debug-file-label">
+              Debug File 01
+            </p>
 
-            <h3>Verifying input/output mapping</h3>
+            <h3>
+              Verifying Input/Output Mapping
+            </h3>
 
             <div class="debug-report-grid">
+
               <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
                 <p>
-                  Some indicators needed verification because each physical input had to activate
-                  the correct dashboard symbol. A mismatch between the button, Pico pin, or LED
-                  connection could make the panel display the wrong vehicle signal.
+                  Some indicators needed verification because each
+                  physical input had to activate the correct dashboard
+                  symbol. A mismatch between the button, Pico pin, or LED
+                  connection could make the panel display the wrong
+                  vehicle signal.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
                 <p>
-                  The system had multiple layers between input and output: Python variables, Pico
-                  GPIO pins, PCB connections, ribbon cable paths, and LED placements on the faceplate.
-                  Debugging required checking the full signal path instead of assuming the issue was
-                  only in code.
+                  The system had multiple layers between input and output:
+                  Python variables, Pico GPIO pins, PCB connections, ribbon
+                  cable paths, and LED placements on the faceplate.
+                  Debugging required checking the complete signal path
+                  instead of assuming the issue was only in the code.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
                 <p>
-                  I tested each button and output individually, then confirmed the complete mapping
-                  from input component to Pico pin to dashboard indicator. This made it easier to
-                  isolate pin assignment errors, wiring swaps, or physical connection issues.
+                  I tested each button and output individually, then
+                  confirmed the complete mapping from input component to
+                  Pico pin to dashboard indicator. This made it easier to
+                  isolate pin-assignment errors, wiring swaps, or physical
+                  connection issues.
                 </p>
               </div>
+
             </div>
           </article>
 
-          <article class="debug-file" data-debug-file="2">
-            <p class="debug-file-label">Debug File 02</p>
+          <!-- Debug File 2 -->
+          <article
+            class="debug-file"
+            data-debug-file="2"
+          >
+            <p class="debug-file-label">
+              Debug File 02
+            </p>
 
-            <h3>Improving wiring and soldering reliability</h3>
+            <h3>
+              Improving Wiring and Soldering Reliability
+            </h3>
 
             <div class="debug-report-grid">
+
               <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
                 <p>
-                  With many LEDs, resistors, ribbon cables, and soldered connections, some parts of
-                  the prototype were sensitive to movement during handling and testing. A weak
-                  connection could cause an indicator to flicker, fail, or behave inconsistently.
+                  With many LEDs, resistors, ribbon cables, and soldered
+                  connections, some parts of the prototype were sensitive
+                  to movement during handling and testing. A weak connection
+                  could cause an indicator to flicker, fail, or behave
+                  inconsistently.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
                 <p>
-                  The issue was not only electrical; it was also mechanical. The dashboard panel,
-                  PCB, and wiring had to remain connected while being handled as one physical
-                  prototype, so strain on wires or solder joints affected reliability.
+                  The issue was not only electrical; it was also mechanical.
+                  The dashboard panel, PCB, and wiring had to remain connected
+                  while being handled as one physical prototype, so strain
+                  on wires or solder joints affected reliability.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
                 <p>
-                  My partner and I retested the wiring, checked solder joints, reinforced weak
-                  connections, and verified continuity where needed. This improved the stability of
-                  the prototype during the final functionality demo.
+                  My partner and I retested the wiring, checked solder joints,
+                  reinforced weak connections, and verified continuity where
+                  needed. This improved the stability of the prototype during
+                  the final functionality demonstration.
                 </p>
               </div>
+
             </div>
           </article>
 
-          <article class="debug-file" data-debug-file="3">
-            <p class="debug-file-label">Debug File 03</p>
+          <!-- Debug File 3 -->
+          <article
+            class="debug-file"
+            data-debug-file="3"
+          >
+            <p class="debug-file-label">
+              Debug File 03
+            </p>
 
-            <h3>Calibrating analog and sensor-based inputs</h3>
+            <h3>
+              Calibrating Analog and Sensor-Based Inputs
+            </h3>
 
             <div class="debug-report-grid">
+
               <div class="debug-report-row">
-                <p class="debug-report-label">Symptom</p>
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
                 <p>
-                  The OLED fuel display and temperature warning needed to respond clearly to input
-                  changes. If the potentiometer reading or temperature threshold was not interpreted
-                  well, the dashboard feedback felt less realistic.
+                  The OLED fuel display and temperature warning needed to
+                  respond clearly to input changes. If the potentiometer
+                  reading or temperature threshold was not interpreted
+                  correctly, the dashboard feedback felt less realistic.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Diagnosis</p>
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
                 <p>
-                  These features depended on converting physical input behaviour into software-driven
-                  output. The potentiometer value had to be translated into a readable fuel level,
-                  while the temperature-sensitive input needed a threshold that triggered the warning
-                  light reliably during the demo.
+                  These features depended on converting physical input
+                  behaviour into software-driven output. The potentiometer
+                  value had to be translated into a readable fuel level,
+                  while the temperature-sensitive input needed a threshold
+                  that triggered the warning light reliably during the
+                  demonstration.
                 </p>
               </div>
 
               <div class="debug-report-row">
-                <p class="debug-report-label">Adjustment</p>
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
                 <p>
-                  I tested the input response and refined the logic so the OLED display and
-                  temperature indicator behaved consistently. This helped the dashboard simulate
-                  more realistic vehicle feedback instead of only demonstrating simple on/off LEDs.
+                  I tested the input response and refined the logic so the
+                  OLED display and temperature indicator behaved consistently.
+                  This helped the dashboard simulate more realistic vehicle
+                  feedback instead of only demonstrating simple on/off LEDs.
                 </p>
               </div>
+
             </div>
           </article>
 
         </div>
-
       </div>
     </section>
 
     <!-- Final Reflection -->
-    <section class="project-section reflection-section" id="reflection">
-
+    <section
+      class="project-section reflection-section"
+      id="reflection"
+      aria-labelledby="reflection-heading"
+    >
       <div class="section-heading center">
-        <p class="section-kicker">Final Takeaway</p>
-        <h2>Final Reflection.</h2>
+        <p class="section-kicker">
+          Final Takeaway
+        </p>
+
+        <h2 id="reflection-heading">
+          Final Reflection.
+        </h2>
       </div>
 
       <div class="reflection-layout">
 
         <article class="reflection-main">
-        <h3>What this project taught me.</h3>
-      
-        <p>
-          This project taught me how input/output mapping works in a 
-          real embedded system. I became more confident understanding how components 
-          fit together electrically and physically, from Pico GPIO pins and PCB traces to soldered 
-          connections, ribbon cables, LEDs, buttons, the potentiometer, and the OLED display. The biggest 
-          technical lesson was learning that the code, circuit layout, and physical assembly all have to match for each 
-          dashboard signal to reach the correct output.
-        </p>
-        
-        <p>
-          This project also taught me how to work under a tight timeline. Since the prototype had to be 
-          completed in about 20 days, my partner and I had to make practical design decisions, divide the work clearly, 
-          and test each section as we built it instead of waiting until the end. That time constraint pushed me to be more 
-          organized, troubleshoot efficiently, and focus on building a reliable working system rather than overcomplicating the design.
-        </p>
-      </article>
+          <h3>
+            What This Project Taught Me
+          </h3>
+
+          <p>
+            This project taught me how input/output mapping works in a
+            real embedded system. I became more confident understanding
+            how components fit together electrically and physically, from
+            Pico GPIO pins and PCB traces to soldered connections, ribbon
+            cables, LEDs, buttons, the potentiometer, and the OLED display.
+          </p>
+
+          <p>
+            The biggest technical lesson was learning that the code,
+            circuit layout, and physical assembly all have to match for
+            each dashboard signal to reach the correct output. When a
+            feature failed, tracing the complete signal path helped me
+            determine whether the issue came from software, pin mapping,
+            wiring, soldering, or component placement.
+          </p>
+
+          <p>
+            This project also taught me how to work under a tight timeline.
+            Since the prototype had to be completed in approximately
+            20 days, my partner and I had to make practical design decisions,
+            divide the work clearly, and test each section as we built it
+            instead of waiting until the end.
+          </p>
+
+          <p>
+            That time constraint pushed me to be more organized,
+            troubleshoot efficiently, and focus on building a reliable
+            working system rather than overcomplicating the design.
+          </p>
+        </article>
 
         <aside class="reflection-notebook">
           <div class="reflection-notebook-header">
-            <p class="reflection-notebook-label">Future Improvements</p>
-            <h3>Next iteration notes</h3>
+            <p class="reflection-notebook-label">
+              Future Improvements
+            </p>
+
+            <h3>
+              Next Iteration Notes
+            </h3>
           </div>
 
           <ul class="reflection-checklist">
             <li>
-              Design a cleaner enclosure so the PCB, ribbon cables, and dashboard faceplate are
-              protected during handling.
+              Design a cleaner enclosure so the PCB, ribbon cables, and
+              dashboard faceplate are protected during handling.
             </li>
 
             <li>
-              Improve cable management with stronger connectors, strain relief, and cleaner routing
-              between the PCB and display panel.
+              Improve cable management with stronger connectors, strain
+              relief, and cleaner routing between the PCB and display panel.
             </li>
 
             <li>
-              Add more realistic dashboard behaviour, such as blinking turn signals, startup checks,
-              warning priority logic, or multiple alert states.
+              Add more realistic dashboard behaviour, such as blinking
+              turn signals, startup checks, warning-priority logic, or
+              multiple alert states.
             </li>
 
             <li>
-              Refine the OLED fuel display with smoother scaling, clearer graphics, and a more
-              vehicle-style gauge layout.
+              Refine the OLED fuel display with smoother scaling, clearer
+              graphics, and a more vehicle-style gauge layout.
             </li>
 
             <li>
-              Expand the system with additional sensor inputs to simulate more vehicle conditions
-              beyond button-controlled indicators.
+              Expand the system with additional sensor inputs to simulate
+              more vehicle conditions beyond button-controlled indicators.
             </li>
           </ul>
         </aside>
 
       </div>
-
     </section>
 
     <!-- Contact CTA -->
-    <section class="project-contact-cta">
+    <section
+      class="project-contact-cta"
+      aria-labelledby="contact-cta-heading"
+    >
+      <p class="section-kicker">
+        Like This Project?
+      </p>
 
-      <p class="section-kicker">Like this project?</p>
-
-      <h2>Let’s connect.</h2>
+      <h2 id="contact-cta-heading">
+        Let’s Connect.
+      </h2>
 
       <p>
-        Thanks for visiting this project. Whether you have a question, 
-        an opportunity, or just want to start a conversation, 
-        I’d be happy to hear from you.
+        Thanks for visiting this project. Whether you have a question,
+        an opportunity, or want to start a conversation, I’d be happy
+        to hear from you.
       </p>
 
       <div class="project-cta-buttons">
-        <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
-        <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
-      </div>
+        <a
+          href="../index.html#projects"
+          class="hero-btn secondary"
+        >
+          Back to Projects
+        </a>
 
+        <a
+          href="../index.html#contact"
+          class="hero-btn primary"
+        >
+          Contact Me
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Project Page Effects -->
-  <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const scrollProgress = document.querySelector(".scroll-progress");
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-      if (scrollProgress) {
-        scrollProgress.style.width = scrollPercent + "%";
-      }
-    });
-
-    // Reveal elements on scroll
-    const revealElements = document.querySelectorAll(
-      ".case-section-heading, .section-heading, .build-stage-interface, .demo-feature-row, .debug-folder, .reflection-layout, .project-contact-cta"
-    );
-
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
-
-    revealElements.forEach(element => {
-      element.classList.add("reveal-hidden");
-      revealObserver.observe(element);
-    });
-
-    // Dark/light mode toggle
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
-
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-
-      if (themeIcon) {
-        themeIcon.classList.remove("bi-moon-stars");
-        themeIcon.classList.add("bi-sun");
-      }
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-
-        if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDark);
-          themeIcon.classList.toggle("bi-sun", isDark);
-        }
-      });
-    }
-  </script>
-
-  <!-- Main JavaScript -->
+  <!-- Shared Portfolio JavaScript -->
   <script src="../js/scripts.js"></script>
 
 </body>
