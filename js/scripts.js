@@ -772,11 +772,66 @@
     update();
   }
 
-  whenReady(() => {
-    initThemeToggle();
-    initScrollProgress();
-    initRevealAnimations();
-    initTabs();
-    initProjectCarousel();
+  function initBackToTop() {
+  const button = document.createElement("button");
+
+  button.className = "back-to-top";
+  button.type = "button";
+  button.setAttribute("aria-label", "Back to top");
+  button.setAttribute("title", "Back to top");
+
+  button.innerHTML = `
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  `;
+
+  document.body.appendChild(button);
+
+  let frameId = null;
+
+  const updateVisibility = () => {
+    frameId = null;
+
+    button.classList.toggle(
+      "is-visible",
+      window.scrollY > 600
+    );
+  };
+
+  const requestVisibilityUpdate = () => {
+    if (frameId === null) {
+      frameId = window.requestAnimationFrame(
+        updateVisibility
+      );
+    }
+  };
+
+  button.addEventListener("click", () => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: reducedMotion ? "auto" : "smooth"
+    });
   });
-})();
+
+  window.addEventListener(
+    "scroll",
+    requestVisibilityUpdate,
+    {
+      passive: true
+    }
+  );
+
+  updateVisibility();
+}
+
+  whenReady(() => {
+  initThemeToggle();
+  initScrollProgress();
+  initRevealAnimations();
+  initTabs();
+  initProjectCarousel();
+  initBackToTop();
+});
