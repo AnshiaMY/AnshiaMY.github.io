@@ -3,599 +3,1076 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="VEX Claw Sorting Machine project by Anshia Muhammad Yaqoob" />
-  <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>VEX Claw Sorting Machine | Anshia Muhammad Yaqoob</title>
+  <meta
+    name="description"
+    content="VEX Toy-Sorting Claw Machine by Anshia Muhammad Yaqoob, featuring C++ autonomous control, touch input, colour sensing, distance sensing, gyro-based navigation, and a motorized claw-and-lift mechanism."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link
+    rel="canonical"
+    href="https://anshiamy.github.io/projects/claw-sorting-machine.html"
+  />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:url"
+    content="https://anshiamy.github.io/projects/claw-sorting-machine.html"
+  />
+
+  <meta
+    property="og:title"
+    content="VEX Toy-Sorting Claw Machine | Anshia Muhammad Yaqoob"
+  />
+
+  <meta
+    property="og:description"
+    content="An autonomous VEX robot combining C++ control logic, touch input, colour sensing, distance sensing, gyro feedback, and a motorized claw-and-lift mechanism."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/clawmachine.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="VEX toy-sorting claw machine robot"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>
+    VEX Toy-Sorting Claw Machine | Anshia Muhammad Yaqoob
+  </title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
 
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
+  />
 
-  <!-- Core theme CSS -->
-  <link href="../css/styles.css" rel="stylesheet" />
-  <link href="../css/custom.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i"
+    rel="stylesheet"
+  />
+
+  <!-- Main Theme CSS -->
+  <link
+    href="../css/styles.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom Portfolio CSS -->
+  <link
+    href="../css/custom.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body id="page-top">
 
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
   <!-- Scroll Progress Bar -->
-  <div class="scroll-progress"></div>
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Project Header -->
   <header class="project-page-header">
 
     <!-- Navigation -->
-    <nav class="project-navbar">
-      <a href="../index.html" class="project-logo">← Back to Home</a>
+    <nav
+      class="project-navbar"
+      aria-label="Project navigation"
+    >
+      <a
+        href="../index.html"
+        class="project-logo"
+      >
+        ← Back to Home
+      </a>
 
       <div class="project-nav-tabs">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#projects">
+          Projects
+        </a>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-stars"></i>
+        <a href="../index.html#contact">
+          Contact
+        </a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
 
     <!-- Hero Content -->
-    <section class="project-hero-content">
-      <p class="project-kicker">VEX Robotics • Mechanical Design • Autonomous Control</p>
-
-      <h1>VEX Toy-Sorting Claw Machine</h1>
-
-      <p class="project-hero-description">
-        A group VEX robotics project focused on designing, building, and testing an
-        autonomous claw-based sorting machine. The robot used a claw-and-lift mechanism,
-        sensor-based navigation, and C++ control logic to move objects into selected
-        category zones.
+    <section
+      class="project-hero-content"
+      aria-labelledby="project-title"
+    >
+      <p class="project-kicker">
+        VEX Robotics • Mechanical Design • Autonomous Control
       </p>
 
-      <div class="project-tech-stack">
+      <h1 id="project-title">
+        VEX Toy-Sorting Claw Machine
+      </h1>
+
+      <p class="project-hero-description">
+        A group VEX robotics project focused on designing, building,
+        programming, and testing an autonomous claw-based sorting machine.
+        The robot used touch input, sensor-based navigation, a motorized
+        claw-and-lift mechanism, and modular C++ control logic to transport
+        objects into selected category zones.
+      </p>
+
+      <div
+        class="project-tech-stack"
+        aria-label="Technologies and technical areas"
+      >
         <span>VEX Robotics</span>
         <span>C++</span>
-        <span>Mechanical Design</span>
-        <span>Sensor Integration</span>
+        <span>Touch Input</span>
+        <span>Colour Sensing</span>
+        <span>Distance Sensing</span>
+        <span>Gyro Feedback</span>
       </div>
 
       <div class="project-hero-actions">
-        <a href="#demos" class="hero-btn primary">View Demos</a>
-        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+        <a
+          href="#demos"
+          class="hero-btn primary"
+        >
+          View Demo
+        </a>
+
+        <a
+          href="#reflection"
+          class="hero-btn secondary"
+        >
+          Final Reflection
+        </a>
       </div>
     </section>
 
   </header>
-  <main>
 
-  <!-- Project Overview / Build Stages -->
-  <section class="case-section build-stages-section" id="build">
-    <div class="case-section-heading center reveal">
-      <p class="section-kicker">Project Overview</p>
-      <h2>From Playroom Mess To Smart Cleanup.</h2>
-      <p>
-        The project began with the idea of turning a repetitive 
-        household task into a structured robotics challenge. Toys and small 
-        objects often need to be collected and organized after use, so our 
-        group designed a VEX robot that could model part of that cleanup 
-        process by transporting an object to a selected category area.
+  <main id="main-content">
 
-        The goal was not only to build a moving claw mechanism, but to create an 
-        autonomous system with a clear input–action–output sequence. Through simple 
-        user input, the robot introduced a colour-to-category association, where 
-        each selection represented a sorting destination and the robot responded 
-        by completing the matching task. This gave the project both a practical 
-        focus and an educational layer: the robot demonstrated automated sorting while 
-        reinforcing organization, colour recognition, and cause-and-effect behaviour.
-      </p>
-    </div>
+    <!-- Project Overview / Build Stages -->
+    <section
+      class="case-section build-stages-section"
+      id="build"
+      aria-labelledby="build-heading"
+    >
+      <div class="case-section-heading center reveal">
+        <p class="section-kicker">
+          Project Overview
+        </p>
 
-    <div class="build-stage-interface reveal">
-      <div class="build-stage-tabs" role="tablist" aria-label="Build stages">
-        <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
-          <span class="stage-tab-number">01</span>
-          <span class="stage-tab-title">Mechanical Frame &amp; Chassis</span>
-        </button>
-
-        <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
-          <span class="stage-tab-number">02</span>
-          <span class="stage-tab-title">Claw &amp; Lift Mechanism</span>
-        </button>
-
-        <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
-          <span class="stage-tab-number">03</span>
-          <span class="stage-tab-title">Sensor-Based Navigation</span>
-        </button>
-
-        <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
-          <span class="stage-tab-number">04</span>
-          <span class="stage-tab-title">Autonomous Sorting Sequence</span>
-        </button>
-      </div>
-
-      <div class="build-stage-panel-wrap">
-        <article class="build-stage-panel is-active" data-stage-panel="1">
-          <span class="notebook-label">Build Stage 01</span>
-          <h3>Mechanical Frame &amp; Drive Base</h3>
-          <p>
-            The robot’s frame and drive base were designed from the VEX IQ kit components provided
-            for the project, rather than from a prebuilt chassis. After the claw and vertical lift
-            concepts were developed, the base was designed around those mechanisms so the robot
-            could support the VEX Brain, drive motors, lift motor, claw motor, sensors, and
-            object-handling system within one stable structure.
-          </p>
-          
-          <p>
-            Because the robot needed to carry an object above the drive platform, the frame had to
-            be wide enough to improve stability and reduce tipping during movement. At the same time,
-            the wheel placement and motor positioning had to support straight-line driving, controlled
-            turning, and alignment with the sorting area. The final frame also needed enough mounting
-            space for the lift mechanism and sensors while remaining compact enough to navigate the
-            sorting path reliably.
-          </p>
-        </article>
-
-        <article class="build-stage-panel" data-stage-panel="2">
-          <span class="notebook-label">Build Stage 02</span>
-          <h3>Claw &amp; Lift Mechanism</h3>
-          <p>
-            The object-handling system combined a two-pronged overhead claw with a vertical lift
-            mechanism. During the design process, our group considered several options for securing
-            the object, including a front-facing claw, a pronged lift, and an overhead hook. After
-            testing an early front-facing claw concept, the design was changed because the object grip
-            was not consistent enough. The overhead claw was selected instead because it allowed the
-            user to place the object more directly into the mechanism, which improved reliability
-            during the sorting sequence.
-          </p>
-          
-          <p>
-            To raise and lower the claw, our group developed a chain-based vertical lift inspired by
-            forklift-style lifting systems. Since the VEX kit did not use hydraulics, the lift was
-            adapted using a motor-driven sprocket, a second sprocket, and a closed-loop chain. The lift
-            motor turned the top sprocket, which moved the chain and allowed the claw assembly to travel
-            vertically. This gave the robot a controlled way to raise the object for transport and lower
-            or release it near the selected category box.
-          </p>
-          
-          <p>
-            Integrating the claw with the lift also required mechanical trade-offs. Because the chain
-            carried the weight of both the claw and the object, the claw assembly had to be kept as light
-            as possible, and additional supports were added to reduce stress on the plastic VEX components.
-            This made the final mechanism more reliable while still allowing the claw and lift to work
-            together as one object-handling subsystem.
-          </p>
-        </article>
-
-        <article class="build-stage-panel" data-stage-panel="3">
-          <span class="notebook-label">Build Stage 03</span>
-          <h3>Sensor-Based Navigation</h3>
-          <p>
-            The robot used multiple sensors to connect user input with autonomous movement. At the
-            beginning of the sequence, the touch sensor counted one, two, or three taps and converted
-            that input into a selected sorting category. Once the category was chosen, the robot used
-            its colour sensor to scan the floor for the matching coloured stripe, which acted as a
-            path marker for the correct drop-off area.
-
-            Additional sensors helped make the movement more controlled after the correct stripe was
-            detected. The gyro sensor supported the 90-degree turn toward the category box, while the
-            distance sensor helped the robot stop at a consistent distance from the box wall before
-            releasing the object. Motor encoder feedback was also used to track movement so the robot
-            could return more reliably toward its starting position. Together, these sensors allowed
-            the robot to make decisions based on feedback rather than relying only on fixed timing.
-          </p>
-        </article>
-
-        <article class="build-stage-panel" data-stage-panel="4">
-          <span class="notebook-label">Build Stage 04</span>
-          <h3>Autonomous Sorting Sequence</h3>
-
-          <p>
-            The robot’s autonomous behaviour was programmed in C++ using VEXcode and structured around the 
-            full sorting cycle rather than a single timed routine. I divided the code into separate functions 
-            for the main stages of the sequence: reading the touch sensor input, controlling the claw and lift, 
-            navigating toward the selected stripe, aligning with the drop-off box, releasing the object, and returning 
-            to the start. This modular structure made the program easier to test because each subsystem could be debugged 
-            individually before being connected into the full autonomous routine.
-          </p>
-          
-          <p>
-            The code also included recovery logic for two common issues that could happen during testing. 
-            If the robot missed the expected colour stripe, encoder-based movement limits prevented it from continuing 
-            forward indefinitely and gave the program a backup condition for ending the search step. If the robot approached 
-            the box at a slightly different position than expected, the distance sensor helped correct the stopping point before 
-            the drop-off sequence began. These safeguards made the routine more reliable because the program did not depend only on 
-            perfect sensor readings or perfectly repeatable physical movement.
-          </p>
-          
-          <p>
-            The code also had to account for real-world movement errors. Gyro-based turns were not
-            always exactly 90 degrees, and sensor readings could vary depending on alignment, surface
-            reflection, or distance from the target. To improve consistency, the program used
-            calibrated thresholds, encoder-based movement tracking, and repeated testing to tune how
-            the robot moved between each stage. The main coding challenge was coordinating sensor
-            readings, motor commands, and mechanical timing so the physical robot could complete the
-            same sorting sequence reliably across multiple trials.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
- <!-- Demo Showcase -->
-    <section class="case-section demo-showcase" id="demos">
-
-      <div class="case-section-heading center">
-        <p class="section-kicker">Robot in Action</p>
-
-        <h2>A Small Object’s Journey.</h2>
+        <h2 id="build-heading">
+          From Playroom Mess to Smart Cleanup.
+        </h2>
 
         <p>
-          This video shows the claw sorting machine operating and demonstrates how the mechanism
-          moves, grips, and interacts with objects during testing.
+          The project began with the idea of turning a repetitive
+          household task into a structured robotics challenge. Toys and
+          small objects often need to be collected and organized after use,
+          so our group designed a VEX robot that could model part of that
+          cleanup process by transporting an object to a selected category
+          area.
+        </p>
+
+        <p>
+          The goal was not only to build a moving claw mechanism, but to
+          create an autonomous system with a clear input–action–output
+          sequence. Through simple user input, the robot introduced a
+          colour-to-category association where each selection represented
+          a sorting destination and the robot responded by completing the
+          matching task.
+        </p>
+
+        <p>
+          This gave the project both a practical focus and an educational
+          layer: the robot demonstrated automated sorting while reinforcing
+          organization, colour recognition, and cause-and-effect behaviour.
+        </p>
+      </div>
+
+      <div class="build-stage-interface reveal">
+
+        <div
+          class="build-stage-tabs"
+          role="tablist"
+          aria-label="Build stages"
+        >
+          <button
+            class="build-stage-tab is-active"
+            type="button"
+            data-stage="1"
+            aria-selected="true"
+          >
+            <span class="stage-tab-number">
+              01
+            </span>
+
+            <span class="stage-tab-title">
+              Mechanical Frame &amp; Chassis
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="2"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              02
+            </span>
+
+            <span class="stage-tab-title">
+              Claw &amp; Lift Mechanism
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="3"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              03
+            </span>
+
+            <span class="stage-tab-title">
+              Sensor-Based Navigation
+            </span>
+          </button>
+
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="4"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              04
+            </span>
+
+            <span class="stage-tab-title">
+              Autonomous Sorting Sequence
+            </span>
+          </button>
+        </div>
+
+        <div class="build-stage-panel-wrap">
+
+          <!-- Build Stage 1 -->
+          <article
+            class="build-stage-panel is-active"
+            data-stage-panel="1"
+          >
+            <span class="notebook-label">
+              Build Stage 01
+            </span>
+
+            <h3>
+              Mechanical Frame &amp; Drive Base
+            </h3>
+
+            <p>
+              The robot’s frame and drive base were designed from the
+              VEX IQ kit components provided for the project rather than
+              from a prebuilt chassis. After the claw and vertical-lift
+              concepts were developed, the base was designed around those
+              mechanisms so the robot could support the VEX Brain, drive
+              motors, lift motor, claw motor, sensors, and object-handling
+              system within one stable structure.
+            </p>
+
+            <p>
+              Because the robot needed to carry an object above the drive
+              platform, the frame had to be wide enough to improve stability
+              and reduce tipping during movement. At the same time, the wheel
+              placement and motor positioning had to support straight-line
+              driving, controlled turning, and alignment with the sorting area.
+            </p>
+
+            <p>
+              The final frame also needed enough mounting space for the lift
+              mechanism and sensors while remaining compact enough to navigate
+              the sorting path reliably.
+            </p>
+          </article>
+
+          <!-- Build Stage 2 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="2"
+          >
+            <span class="notebook-label">
+              Build Stage 02
+            </span>
+
+            <h3>
+              Claw &amp; Lift Mechanism
+            </h3>
+
+            <p>
+              The object-handling system combined a two-pronged overhead
+              claw with a vertical-lift mechanism. During the design process,
+              our group considered several options for securing the object,
+              including a front-facing claw, a pronged lift, and an overhead
+              hook.
+            </p>
+
+            <p>
+              After testing an early front-facing claw concept, the design
+              was changed because the object grip was not consistent enough.
+              The overhead claw was selected instead because it allowed the
+              user to place the object more directly into the mechanism,
+              improving reliability during the sorting sequence.
+            </p>
+
+            <p>
+              To raise and lower the claw, our group developed a chain-based
+              vertical lift inspired by forklift-style lifting systems. Since
+              the VEX kit did not use hydraulics, the lift was adapted using
+              a motor-driven sprocket, a second sprocket, and a closed-loop
+              chain.
+            </p>
+
+            <p>
+              The lift motor turned the top sprocket, moving the chain and
+              allowing the claw assembly to travel vertically. This gave the
+              robot a controlled way to raise the object for transport and
+              lower or release it near the selected category box.
+            </p>
+
+            <p>
+              Integrating the claw with the lift also required mechanical
+              trade-offs. Because the chain carried the weight of both the
+              claw and the object, the claw assembly had to be kept as light
+              as possible, and additional supports were added to reduce stress
+              on the plastic VEX components.
+            </p>
+          </article>
+
+          <!-- Build Stage 3 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="3"
+          >
+            <span class="notebook-label">
+              Build Stage 03
+            </span>
+
+            <h3>
+              Sensor-Based Navigation
+            </h3>
+
+            <p>
+              The robot used multiple sensors to connect user input with
+              autonomous movement. At the beginning of the sequence, the
+              touch sensor counted one, two, or three taps and converted
+              that input into a selected sorting category.
+            </p>
+
+            <p>
+              Once the category was chosen, the robot used its colour sensor
+              to scan the floor for the matching coloured stripe, which acted
+              as a path marker for the correct drop-off area.
+            </p>
+
+            <p>
+              Additional sensors helped make the movement more controlled
+              after the correct stripe was detected. The gyro sensor supported
+              the 90-degree turn toward the category box, while the distance
+              sensor helped the robot stop at a consistent distance from the
+              box wall before releasing the object.
+            </p>
+
+            <p>
+              Motor-encoder feedback was also used to track movement so the
+              robot could return more reliably toward its starting position.
+              Together, these sensors allowed the robot to make decisions
+              based on feedback rather than relying only on fixed timing.
+            </p>
+          </article>
+
+          <!-- Build Stage 4 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="4"
+          >
+            <span class="notebook-label">
+              Build Stage 04
+            </span>
+
+            <h3>
+              Autonomous Sorting Sequence
+            </h3>
+
+            <p>
+              The robot’s autonomous behaviour was programmed in C++ using
+              VEXcode and structured around the full sorting cycle rather
+              than one long timed routine.
+            </p>
+
+            <p>
+              I divided the code into separate functions for the main stages
+              of the sequence: reading touch-sensor input, controlling the
+              claw and lift, navigating toward the selected stripe, aligning
+              with the drop-off box, releasing the object, and returning to
+              the starting position.
+            </p>
+
+            <p>
+              This modular structure made the program easier to test because
+              each subsystem could be debugged individually before being
+              connected into the full autonomous routine.
+            </p>
+
+            <p>
+              The code also included recovery logic for two common issues
+              that could occur during testing. If the robot missed the
+              expected colour stripe, encoder-based movement limits prevented
+              it from continuing forward indefinitely and provided a backup
+              condition for ending the search step.
+            </p>
+
+            <p>
+              If the robot approached the box at a slightly different position
+              than expected, the distance sensor helped correct the stopping
+              point before the drop-off sequence began. These safeguards made
+              the routine more reliable because the program did not depend
+              only on perfect sensor readings or perfectly repeatable physical
+              movement.
+            </p>
+
+            <p>
+              The code also had to account for real-world movement errors.
+              Gyro-based turns were not always exactly 90 degrees, and sensor
+              readings could vary depending on alignment, surface reflection,
+              or distance from the target.
+            </p>
+
+            <p>
+              To improve consistency, the program used calibrated thresholds,
+              encoder-based movement tracking, and repeated testing to tune
+              how the robot moved between each stage. The main coding challenge
+              was coordinating sensor readings, motor commands, and mechanical
+              timing so the physical robot could complete the same sorting
+              sequence reliably across multiple trials.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Showcase -->
+    <section
+      class="case-section demo-showcase"
+      id="demos"
+      aria-labelledby="demos-heading"
+    >
+      <div class="case-section-heading center">
+        <p class="section-kicker">
+          Robot in Action
+        </p>
+
+        <h2 id="demos-heading">
+          A Small Object’s Journey.
+        </h2>
+
+        <p>
+          This video shows the claw-sorting machine completing its
+          object-handling sequence and demonstrates how its mechanical
+          system, sensors, and C++ control logic worked together during
+          final testing.
         </p>
       </div>
 
       <article class="demo-feature-row claw-demo-row">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/claw_demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="VEX claw-sorting machine demonstration"
+          >
+            <source
+              src="../assets/claw_demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">01</span>
+          <span class="demo-number">
+            01
+          </span>
 
-          <h3>Demo Day Sorting Run</h3>
+          <h3>
+            Demo-Day Sorting Run
+          </h3>
 
           <p>
-            This video was recorded on the day of our final demonstration and shows the claw sorting
-            machine completing its object-handling sequence. The robot uses its claw-and-lift mechanism
-            to interact with the object while the programmed routine coordinates movement, positioning,
-            and release. The demo highlighted how the mechanical design and control logic worked together
-            under real presentation conditions.
+            This video was recorded during our final demonstration and
+            shows the claw-sorting machine completing its object-handling
+            sequence. The robot uses its claw-and-lift mechanism to secure
+            and transport the object while the programmed routine coordinates
+            movement, positioning, and release.
           </p>
-          
+
+          <p>
+            The demonstration showed how the mechanical design, sensor
+            readings, and control logic interacted under real presentation
+            conditions.
+          </p>
+
           <ul>
-            <li>Demonstrated the robot’s final object-handling sequence</li>
-            <li>Showed the claw-and-lift mechanism operating during the demo run</li>
-            <li>Observed how alignment, timing, and mechanism reliability affected performance</li>
+            <li>
+              Demonstrated the final object-handling sequence
+            </li>
+
+            <li>
+              Showed the claw-and-lift mechanism operating during transport
+              and release
+            </li>
+
+            <li>
+              Revealed how alignment, timing, and mechanical reliability
+              affected performance
+            </li>
           </ul>
         </div>
-      </article>
 
+      </article>
     </section>
 
-<!-- Troubleshooting / Debug Folder -->
-<section class="case-section debug-folder-section" id="improvements">
-
-  <div class="case-section-heading center reveal">
-    <p class="section-kicker">Troubleshooting</p>
-
-    <h2>Debugging The Sorting Sequence.</h2>
-
-    <p>
-      Testing showed that the robot’s reliability depended on how well the mechanical design,
-      sensors, and C++ control logic worked together. Several parts of the design had to be
-      revised as the team moved from early concepts to a working demo-day robot.
-    </p>
-  </div>
-
-  <div class="debug-folder reveal">
-
-    <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
-
-      <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
-        <span>Debug File 01</span>
-        Claw Redesign
-      </button>
-      
-      <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
-        <span>Debug File 02</span>
-        Lift &amp; Positioning
-      </button>
-      
-      <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
-        <span>Debug File 03</span>
-        Sensor Calibration
-      </button>
-
-    </div>
-
-    <div class="debug-folder-body">
-
-      <article class="debug-file is-active" data-debug-file="1">
-        <span class="debug-file-label">Debug File 01</span>
-
-        <h3>Claw redesign and grip reliability</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
-            <p>
-              The early object-handling concepts were not reliable enough for a repeatable
-              sorting sequence. A front-facing claw was tested, but its ability to grasp the
-              toys consistently depended too much on object placement and alignment.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
-            <p>
-              The issue was mechanical rather than only software-related. If the object did
-              not sit properly in the claw, the robot could not carry it securely through
-              the drive, turn, and drop-off stages. This made the full autonomous routine
-              less dependable, even if the code sequence was correct.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
-            <p>
-              The group moved away from the front-facing claw and redesigned the mechanism
-              as a two-pronged overhead claw. This made it easier for the user to place the
-              object directly into the mechanism and improved the robot’s ability to hold
-              the object during transport and release it during the final drop-off.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="2">
-        <span class="debug-file-label">Debug File 02</span>
-
-        <h3>Lift positioning and mechanical constraints</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
-            <p>
-              The lift mechanism needed to raise the claw high enough to transport and
-              release the object, but the robot also had to stay stable and avoid putting
-              too much stress on the plastic VEX components.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
-            <p>
-              The chain-based vertical lift introduced several design constraints. The
-              claw and object added weight to the chain, while the redesigned chassis
-              created a central gap for the lift mechanism. This made it difficult to use
-              a bumper sensor to detect the lowest claw position, and the lift height also
-              limited how easily objects could be dropped over taller box walls.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
-            <p>
-              Additional supports were added to reduce stress on the chain system, and the
-              claw assembly was simplified so it only used the necessary parts. Since the
-              bumper sensor was no longer practical, the software relied on motor encoder
-              thresholds to estimate lift position and control the mechanism more reliably.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="3">
-        <span class="debug-file-label">Debug File 03</span>
-
-        <h3>Sensor calibration and navigation accuracy</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <span class="debug-report-label">Symptom</span>
-            <p>
-              The robot did not always move with perfect accuracy during navigation.
-              Distance readings sometimes varied, the colour sensor could be affected by
-              lighting or surface reflections, and gyro-based turns did not always stop at
-              exactly 90 degrees.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Diagnosis</span>
-            <p>
-              The autonomous routine depended on multiple sensors working together. The
-              colour sensor had to detect the correct floor stripe, the gyro had to support
-              the turn toward the box, the distance sensor had to stop the robot near the
-              wall, and motor encoders had to support return movement. When one reading was
-              slightly inconsistent, the robot’s final alignment could shift.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <span class="debug-report-label">Adjustment</span>
-            <p>
-              The group improved reliability through repeated calibration and software
-              tuning. Controlled stripe colours and distances were used for colour detection,
-              tolerance margins were added for distance sensing, and gyro-based turns were
-              adjusted through multiple trials. Demo-day travel distances were also shortened
-              so the robot could complete a more consistent and repeatable sorting run.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-  <!-- Final Reflection -->
-  <section class="case-section reflection-section" id="reflection">
-    <div class="case-section-heading center reveal">
-      <p class="section-kicker">Final Takeaway</p>
-      <h2>Final Reflection</h2>
-    </div>
-
-    <div class="reflection-layout reveal">
-
-      <article class="reflection-main">
-        <h3>What this project taught me.</h3>
-
-        <p>
-          This project taught me that engineering is often about working within 
-          constraints rather than simply building every idea you first imagine. 
-          At the start, there were many features and design ideas we wanted to include, 
-          but limitations such as time, available components, and the project requirements 
-          meant we had to carefully plan and prioritise what was realistic. This showed me 
-          the importance of designing first and thinking ahead, because in real engineering 
-          there are always specifications, restrictions, and trade-offs that shape the final solution.
-          Building a robot capable of completing a full sequence of tasks also showed me that success is not just 
-          about making individual parts work, but making sure they work together reliably as one complete system. 
-          Through testing and refining our design, I improved my ability to adapt when ideas did not work as 
-          expected and to make practical decisions based on evidence rather than assumptions.
+    <!-- Troubleshooting / Debug Folder -->
+    <section
+      class="case-section debug-folder-section"
+      id="improvements"
+      aria-labelledby="debug-heading"
+    >
+      <div class="case-section-heading center reveal">
+        <p class="section-kicker">
+          Troubleshooting
         </p>
 
+        <h2 id="debug-heading">
+          Debugging the Sorting Sequence.
+        </h2>
+
         <p>
-          Working as part of a team was one of the most valuable parts of this project, as it required 
-          clear communication, shared problem-solving, and coordination between members responsible for 
-          different parts of the robot. We had to regularly discuss design decisions, test results, 
-          and changes so that everyone’s work stayed aligned and the robot functioned as one complete system. 
-          My main contributions were focused on software, sensor integration, program logic, documentation, and 
-          presentation work, and collaborating closely with the mechanical side of the project helped me better 
-          understand how software decisions depend on physical design constraints.
+          Testing showed that the robot’s reliability depended on how
+          effectively its mechanical design, sensors, and C++ control
+          logic worked together. Several parts of the design had to be
+          revised as the team moved from early concepts to a working
+          demonstration robot.
         </p>
-      </article>
+      </div>
 
-      <aside class="reflection-notebook">
-        <div class="reflection-notebook-header">
-          <p class="reflection-notebook-label">Future Improvements</p>
-          <h3>Next iteration notes</h3>
+      <div class="debug-folder reveal">
+
+        <div
+          class="debug-folder-tabs"
+          role="tablist"
+          aria-label="Debug files"
+        >
+          <button
+            class="debug-folder-tab is-active"
+            type="button"
+            data-debug="1"
+            aria-selected="true"
+          >
+            <span>
+              Debug File 01
+            </span>
+
+            Claw Redesign
+          </button>
+
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="2"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 02
+            </span>
+
+            Lift &amp; Positioning
+          </button>
+
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="3"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 03
+            </span>
+
+            Sensor Calibration
+          </button>
         </div>
-      
-        <ul class="reflection-checklist">
-          <li>
-            Improve the lift mechanism so the claw can raise objects high enough for more
-            reliable drop-off into enclosed boxes.
-          </li>
-      
-          <li>
-            Strengthen the claw and lift assembly to reduce stress on the VEX components
-            during repeated sorting cycles.
-          </li>
-      
-          <li>
-            Improve sensor calibration for distance sensing, colour stripe detection, and
-            gyro-based turning accuracy.
-          </li>
-      
-          <li>
-            Refine the software logic with more error handling so the robot can recover more
-            reliably if a stripe is missed or a sensor reading is inconsistent.
-          </li>
-      
-          <li>
-            Test the full sequence with more object shapes, weights, and category layouts to
-            evaluate repeatability beyond the demo-day setup.
-          </li>
-      
-          <li>
-            Improve team documentation during testing so design changes, sensor values, and
-            code adjustments are recorded more consistently between trials.
-          </li>
-        </ul>
-      </aside>
 
-    </div>
-  </section>
+        <div class="debug-folder-body">
 
-  <!-- Contact CTA -->
-    <section class="project-contact-cta">
+          <!-- Debug File 1 -->
+          <article
+            class="debug-file is-active"
+            data-debug-file="1"
+          >
+            <span class="debug-file-label">
+              Debug File 01
+            </span>
 
-      <p class="section-kicker">Like this project?</p>
+            <h3>
+              Claw Redesign and Grip Reliability
+            </h3>
 
-      <h2>Let’s connect.</h2>
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Symptom
+                </span>
+
+                <p>
+                  The early object-handling concepts were not reliable
+                  enough for a repeatable sorting sequence. A front-facing
+                  claw was tested, but its ability to grasp the objects
+                  consistently depended too much on object placement and
+                  alignment.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Diagnosis
+                </span>
+
+                <p>
+                  The issue was mechanical rather than only software-related.
+                  If the object did not sit properly in the claw, the robot
+                  could not carry it securely through the drive, turn, and
+                  drop-off stages.
+                </p>
+
+                <p>
+                  This made the complete autonomous routine less dependable,
+                  even when the programmed sequence was correct.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Adjustment
+                </span>
+
+                <p>
+                  The group moved away from the front-facing claw and
+                  redesigned the mechanism as a two-pronged overhead claw.
+                  This made it easier for the user to place the object
+                  directly into the mechanism.
+                </p>
+
+                <p>
+                  The redesign improved the robot’s ability to hold the
+                  object during transport and release it during the final
+                  drop-off.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Debug File 2 -->
+          <article
+            class="debug-file"
+            data-debug-file="2"
+          >
+            <span class="debug-file-label">
+              Debug File 02
+            </span>
+
+            <h3>
+              Lift Positioning and Mechanical Constraints
+            </h3>
+
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Symptom
+                </span>
+
+                <p>
+                  The lift mechanism needed to raise the claw high enough
+                  to transport and release the object, but the robot also
+                  had to remain stable and avoid placing too much stress
+                  on the plastic VEX components.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Diagnosis
+                </span>
+
+                <p>
+                  The chain-based vertical lift introduced several design
+                  constraints. The claw and object added weight to the
+                  chain, while the redesigned chassis created a central gap
+                  for the lift mechanism.
+                </p>
+
+                <p>
+                  This made it difficult to use a bumper sensor to detect
+                  the lowest claw position. The available lift height also
+                  limited how easily objects could be dropped over taller
+                  box walls.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Adjustment
+                </span>
+
+                <p>
+                  Additional supports were added to reduce stress on the
+                  chain system, and the claw assembly was simplified so it
+                  used only the necessary components.
+                </p>
+
+                <p>
+                  Since the bumper sensor was no longer practical, the
+                  software relied on motor-encoder thresholds to estimate
+                  lift position and control the mechanism more reliably.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Debug File 3 -->
+          <article
+            class="debug-file"
+            data-debug-file="3"
+          >
+            <span class="debug-file-label">
+              Debug File 03
+            </span>
+
+            <h3>
+              Sensor Calibration and Navigation Accuracy
+            </h3>
+
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Symptom
+                </span>
+
+                <p>
+                  The robot did not always move with perfect accuracy
+                  during navigation. Distance readings sometimes varied,
+                  the colour sensor could be affected by lighting or
+                  surface reflections, and gyro-based turns did not always
+                  stop at exactly 90 degrees.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Diagnosis
+                </span>
+
+                <p>
+                  The autonomous routine depended on several sensors working
+                  together. The colour sensor had to detect the correct floor
+                  stripe, the gyro had to support the turn toward the box,
+                  the distance sensor had to stop the robot near the wall,
+                  and motor encoders had to support return movement.
+                </p>
+
+                <p>
+                  When one reading was slightly inconsistent, the robot’s
+                  final alignment could shift.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <span class="debug-report-label">
+                  Adjustment
+                </span>
+
+                <p>
+                  The group improved reliability through repeated calibration
+                  and software tuning. Controlled stripe colours and distances
+                  were used for colour detection, tolerance margins were added
+                  for distance sensing, and gyro-based turns were adjusted
+                  through multiple trials.
+                </p>
+
+                <p>
+                  Demo-day travel distances were also shortened so the robot
+                  could complete a more consistent and repeatable sorting run.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Reflection -->
+    <section
+      class="case-section reflection-section"
+      id="reflection"
+      aria-labelledby="reflection-heading"
+    >
+      <div class="case-section-heading center reveal">
+        <p class="section-kicker">
+          Final Takeaway
+        </p>
+
+        <h2 id="reflection-heading">
+          Final Reflection.
+        </h2>
+      </div>
+
+      <div class="reflection-layout reveal">
+
+        <article class="reflection-main">
+          <h3>
+            What This Project Taught Me
+          </h3>
+
+          <p>
+            This project taught me that engineering is often about working
+            within constraints rather than simply building every idea that
+            first comes to mind. At the start, there were many features and
+            design ideas we wanted to include, but limitations such as time,
+            available components, and project requirements meant we had to
+            plan carefully and prioritize what was realistic.
+          </p>
+
+          <p>
+            This showed me the importance of designing first and thinking
+            ahead because real engineering projects always include
+            specifications, restrictions, and trade-offs that shape the
+            final solution.
+          </p>
+
+          <p>
+            Building a robot capable of completing a full sequence of tasks
+            also showed me that success is not only about making individual
+            parts work. The mechanical structure, sensors, motors, and
+            program logic must work together reliably as one complete system.
+          </p>
+
+          <p>
+            Through testing and refining the design, I improved my ability
+            to adapt when ideas did not work as expected and to make practical
+            decisions based on evidence rather than assumptions.
+          </p>
+
+          <p>
+            Working as part of a team was another valuable part of the
+            project. It required clear communication, shared problem-solving,
+            and coordination between members responsible for different areas
+            of the robot.
+          </p>
+
+          <p>
+            We regularly discussed design decisions, test results, and
+            changes so everyone’s work remained aligned. My main contributions
+            focused on software, sensor integration, program logic,
+            documentation, and presentation work.
+          </p>
+
+          <p>
+            Collaborating closely with the mechanical side of the project
+            helped me better understand how software decisions depend on
+            physical design constraints.
+          </p>
+        </article>
+
+        <aside class="reflection-notebook">
+          <div class="reflection-notebook-header">
+            <p class="reflection-notebook-label">
+              Future Improvements
+            </p>
+
+            <h3>
+              Next Iteration Notes
+            </h3>
+          </div>
+
+          <ul class="reflection-checklist">
+            <li>
+              Improve the lift mechanism so the claw can raise objects
+              high enough for more reliable drop-off into enclosed boxes.
+            </li>
+
+            <li>
+              Strengthen the claw-and-lift assembly to reduce stress on
+              the VEX components during repeated sorting cycles.
+            </li>
+
+            <li>
+              Improve sensor calibration for distance sensing, colour-stripe
+              detection, and gyro-based turning accuracy.
+            </li>
+
+            <li>
+              Refine the software logic with additional error handling so
+              the robot can recover more reliably if a stripe is missed or
+              a sensor reading is inconsistent.
+            </li>
+
+            <li>
+              Test the full sequence with more object shapes, weights, and
+              category layouts to evaluate repeatability beyond the
+              demonstration setup.
+            </li>
+
+            <li>
+              Improve team documentation during testing so design changes,
+              sensor values, and code adjustments are recorded more
+              consistently between trials.
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section
+      class="project-contact-cta"
+      aria-labelledby="contact-cta-heading"
+    >
+      <p class="section-kicker">
+        Like This Project?
+      </p>
+
+      <h2 id="contact-cta-heading">
+        Let’s Connect.
+      </h2>
 
       <p>
-        I’m continuing to build and document hands-on robotics, mechanical design,
-        and automation projects as I grow my engineering portfolio.
+        I’m continuing to build and document hands-on robotics,
+        mechanical-design, automation, and software projects as I
+        grow my engineering portfolio.
       </p>
 
       <div class="project-cta-buttons">
-        <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
-        <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
-      </div>
+        <a
+          href="../index.html#projects"
+          class="hero-btn secondary"
+        >
+          Back to Projects
+        </a>
 
+        <a
+          href="../index.html#contact"
+          class="hero-btn primary"
+        >
+          Contact Me
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Project Page Effects -->
-  <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const scrollProgress = document.querySelector(".scroll-progress");
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-      scrollProgress.style.width = scrollPercent + "%";
-    });
-
-    // Reveal elements on scroll
-    const revealElements = document.querySelectorAll(
-      ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
-    );
-
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
-
-    revealElements.forEach(element => {
-      element.classList.add("reveal-hidden");
-      revealObserver.observe(element);
-    });
-
-    // Dark/light mode toggle
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
-
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-
-      if (themeIcon) {
-        themeIcon.classList.remove("bi-moon-stars");
-        themeIcon.classList.add("bi-sun");
-      }
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-
-        if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDark);
-          themeIcon.classList.toggle("bi-sun", isDark);
-        }
-      });
-    }
-  </script>
-
-  <!-- Main JavaScript -->
+  <!-- Shared Portfolio JavaScript -->
   <script src="../js/scripts.js"></script>
 
 </body>
