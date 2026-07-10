@@ -3813,3 +3813,64 @@ body.pcb-mini-build-page.dark-mode
   background: #000000 !important;
   border-radius: 0 !important;
 }
+
+/* =========================================================
+   DARK MODE VISUAL PARITY FIXES
+   Keeps controls and text as clear as their light-mode versions.
+========================================================= */
+
+body.dark-mode {
+  color-scheme: dark;
+}
+
+/* Secondary buttons should use a dark surface in dark mode */
+body.dark-mode .home-btn.secondary,
+body.dark-mode .hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffd5e9;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+body.dark-mode .home-btn.secondary:hover,
+body.dark-mode .hero-btn.secondary:hover {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+  border-color: var(--portfolio-pink);
+}
+
+/* Fixed dark-grey text needs a dark-mode equivalent */
+body.dark-mode .experience-company {
+  color: #e6dce2 !important;
+}
+
+/* Homepage carousel controls */
+body.dark-mode .carousel-btn {
+  background: rgba(26, 27, 34, 0.96);
+  color: #ff8ac4;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .carousel-btn:hover {
+  background: var(--portfolio-pink);
+  color: #ffffff;
+  border-color: var(--portfolio-pink);
+}
+
+body.dark-mode .carousel-dot {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+body.dark-mode .carousel-dot.is-active {
+  background: #ff8ac4;
+}
+
+/* Recruiter-facing project links remain readable */
+body.dark-mode .project-text-link {
+  color: #ff8ac4;
+}
+
+body.dark-mode .project-text-link:hover {
+  color: #ffd5e9;
+}
