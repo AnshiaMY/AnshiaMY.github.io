@@ -2481,7 +2481,7 @@ body.dark-mode #improvements .debug-report-row p:last-child {
 }
 
 #reflection .reflection-checklist li::before {
-  content: "âœ“";
+  content: "\2713";
   position: absolute;
   left: 0;
   top: 0.1rem;
