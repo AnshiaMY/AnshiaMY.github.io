@@ -4,241 +4,511 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Autonomous Line-Following Robot | Anshia Yaqoob</title>
+  <meta
+    name="description"
+    content="Autonomous Line-Following Robot by Anshia Muhammad Yaqoob, featuring Raspberry Pi control, Python PID tuning, infrared sensor feedback, SolidWorks chassis design, PCB fabrication, and iterative testing."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link
+    rel="canonical"
+    href="https://anshiamy.github.io/projects/line-following-robot.html"
+  />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:url"
+    content="https://anshiamy.github.io/projects/line-following-robot.html"
+  />
+
+  <meta
+    property="og:title"
+    content="Autonomous Line-Following Robot | Anshia Muhammad Yaqoob"
+  />
+
+  <meta
+    property="og:description"
+    content="A Raspberry Pi mobile robot using infrared sensor feedback, Python PID control, custom PCB fabrication, and iterative testing."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/autonomouslinefollowingrobot.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Autonomous line-following robot on a test track"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>
+    Autonomous Line-Following Robot | Anshia Muhammad Yaqoob
+  </title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" 
-    rel="stylesheet" 
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
   />
 
   <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
   />
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" 
-    rel="stylesheet" 
-    type="text/css" 
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet"
+    type="text/css"
   />
 
   <!-- Main Theme CSS -->
-  <link href="../css/styles.css" rel="stylesheet" />
+  <link
+    href="../css/styles.css"
+    rel="stylesheet"
+  />
 
   <!-- Custom Portfolio CSS -->
-  <link href="../css/custom.css" rel="stylesheet" />
+  <link
+    href="../css/custom.css"
+    rel="stylesheet"
+  />
 </head>
 
-<body>
+<body id="page-top">
+
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
 
   <!-- Scroll Progress Bar -->
-  <div class="scroll-progress"></div>
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Project Header -->
   <header class="project-page-header">
 
     <!-- Navigation -->
-    <nav class="project-navbar">
-      <a href="../index.html" class="project-logo">← Back to Home</a>
+    <nav
+      class="project-navbar"
+      aria-label="Project navigation"
+    >
+      <a
+        href="../index.html"
+        class="project-logo"
+      >
+        ← Back to Home
+      </a>
 
       <div class="project-nav-tabs">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#projects">
+          Projects
+        </a>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-stars"></i>
+        <a href="../index.html#contact">
+          Contact
+        </a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
 
     <!-- Hero Content -->
-    <section class="project-hero-content">
-      <p class="project-kicker">Robotics • Embedded Systems • Testing</p>
-
-      <h1>Autonomous Line-Following Robot</h1>
-
-      <p class="project-hero-description">
-        A Raspberry Pi–based mobile robot designed to follow a 
-        black line using sensor feedback, PID control, and 
-        iterative testing, with additional boundary-detection 
-        testing using a black-circle condition.
+    <section
+      class="project-hero-content"
+      aria-labelledby="project-title"
+    >
+      <p class="project-kicker">
+        Robotics • Embedded Systems • Testing
       </p>
 
-      <div class="project-tech-stack">
+      <h1 id="project-title">
+        Autonomous Line-Following Robot
+      </h1>
+
+      <p class="project-hero-description">
+        A Raspberry Pi–based mobile robot designed to follow a black
+        line using infrared sensor feedback, PID control, and iterative
+        testing, with additional containment testing using a black
+        circular boundary.
+      </p>
+
+      <div
+        class="project-tech-stack"
+        aria-label="Technologies used"
+      >
         <span>Raspberry Pi</span>
         <span>Python</span>
+        <span>PID Control</span>
+        <span>Infrared Sensors</span>
         <span>SolidWorks</span>
-        <span>Motor Control</span>
+        <span>PCB Fabrication</span>
       </div>
 
       <div class="project-hero-actions">
-        <a href="#demos" class="hero-btn primary">View Demos</a>
-        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+        <a
+          href="#demos"
+          class="hero-btn primary"
+        >
+          View Demos
+        </a>
+
+        <a
+          href="#reflection"
+          class="hero-btn secondary"
+        >
+          Final Reflection
+        </a>
       </div>
     </section>
 
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- Project Overview / Build Stages -->
-    <section class="case-section build-stages-section" id="build">
-
+    <section
+      class="case-section build-stages-section"
+      id="build"
+      aria-labelledby="build-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Project Overview</p>
+        <p class="section-kicker">
+          Project Overview
+        </p>
 
-        <h2>From concept to control.</h2>
+        <h2 id="build-heading">
+          From Concept to Control.
+        </h2>
 
         <p>
           This project began as an exploration of feedback-based movement.
           Instead of programming the robot to follow a fixed route, the goal
           was to use sensor data to guide its decisions: tracking a black line
-          during path-following tests and detecting the edge of a black-circle
+          during path-following tests and detecting the edge of a black circular
           boundary during containment testing.
         </p>
       </div>
 
       <div class="build-stage-interface">
 
-        <div class="build-stage-tabs" role="tablist" aria-label="Build stages">
+        <div
+          class="build-stage-tabs"
+          role="tablist"
+          aria-label="Build stages"
+        >
+          <button
+            class="build-stage-tab is-active"
+            type="button"
+            data-stage="1"
+            aria-selected="true"
+          >
+            <span class="stage-tab-number">
+              01
+            </span>
 
-          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
-            <span class="stage-tab-number">01</span>
-            <span class="stage-tab-title">CAD & Chassis Design</span>
+            <span class="stage-tab-title">
+              CAD &amp; Chassis Design
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
-            <span class="stage-tab-number">02</span>
-            <span class="stage-tab-title">Circuit Board Fabrication</span>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="2"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              02
+            </span>
+
+            <span class="stage-tab-title">
+              Circuit Board Fabrication
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
-            <span class="stage-tab-number">03</span>
-            <span class="stage-tab-title">Wiring & Assembly</span>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="3"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              03
+            </span>
+
+            <span class="stage-tab-title">
+              Wiring &amp; Assembly
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
-            <span class="stage-tab-number">04</span>
-            <span class="stage-tab-title">Control Logic & Testing</span>
-          </button>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="4"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              04
+            </span>
 
+            <span class="stage-tab-title">
+              Control Logic &amp; Testing
+            </span>
+          </button>
         </div>
 
         <div class="build-stage-panel-wrap">
 
-          <article class="build-stage-panel is-active" data-stage-panel="1">
-            <p class="notebook-label">Design Note 01</p>
+          <article
+            class="build-stage-panel is-active"
+            data-stage-panel="1"
+          >
+            <p class="notebook-label">
+              Design Note 01
+            </p>
 
-            <h3>CAD & Chassis Design</h3>
+            <h3>
+              CAD &amp; Chassis Design
+            </h3>
 
             <p>
-              The chassis was designed in SolidWorks and 3D printed as the mechanical
-              foundation of the robot. The design had to account for component placement,
-              sensor height, motor alignment, wiring space, and overall stability, while
-              keeping the structure compact enough for smooth movement. The final layout
-              positioned the infrared sensors close to the surface for reliable contrast
-              detection and provided secure mounting points for the Raspberry Pi, motors,
-              and supporting electronics.
+              The chassis was designed in SolidWorks and 3D printed as
+              the mechanical foundation of the robot. The design had to
+              account for component placement, sensor height, motor
+              alignment, wiring space, and overall stability while keeping
+              the structure compact enough for smooth movement.
+            </p>
+
+            <p>
+              The final layout positioned the infrared sensors close to the
+              surface for reliable contrast detection and provided secure
+              mounting points for the Raspberry Pi, motors, motor driver,
+              custom circuit board, and supporting electronics.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="2">
-            <p class="notebook-label">Fabrication Note 02</p>
+          <article
+            class="build-stage-panel"
+            data-stage-panel="2"
+          >
+            <p class="notebook-label">
+              Fabrication Note 02
+            </p>
 
-            <h3>Circuit Board Fabrication</h3>
+            <h3>
+              Circuit Board Fabrication
+            </h3>
 
             <p>
-              The circuit board was fabricated from a plain copper board using a custom
-              digital schematic and board layout. After the design was heat-transferred
-              onto the copper surface, the board was etched to form the electrical traces
-              used to connect the robot’s sensors, motor driver, power connections, and
-              control electronics.
+              The circuit board was fabricated from a plain copper-clad
+              board using a custom digital schematic and board layout.
+              After the design was heat-transferred onto the copper
+              surface, the board was chemically etched to form the
+              required conductive traces.
+            </p>
+
+            <p>
+              The board supported connections between the robot’s
+              infrared sensors, motor driver, power distribution, and
+              control electronics. Component holes were drilled before
+              the parts were installed and soldered into place.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="3">
-            <p class="notebook-label">Assembly Note 03</p>
+          <article
+            class="build-stage-panel"
+            data-stage-panel="3"
+          >
+            <p class="notebook-label">
+              Assembly Note 03
+            </p>
 
-            <h3>Wiring & Assembly</h3>
+            <h3>
+              Wiring &amp; Assembly
+            </h3>
 
             <p>
-              Once the board was prepared, the components were soldered and wired into
-              the robot. The infrared sensors, motor driver, DC motors, and regulated
-              5V/3.3V power connections had to work together reliably, so wiring checks
-              and multimeter-based debugging were used before moving into full system
-              testing.
+              Once the board was prepared, the components were soldered
+              and integrated into the robot. The two infrared sensors,
+              motor driver, DC motors, Raspberry Pi, and regulated power
+              connections had to operate together reliably.
+            </p>
+
+            <p>
+              Wiring checks, continuity testing, and multimeter-based
+              troubleshooting were completed before full system testing.
+              This reduced the risk of treating a hardware connection
+              problem as a software failure.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="4">
-            <p class="notebook-label">Control Note 04</p>
+          <article
+            class="build-stage-panel"
+            data-stage-panel="4"
+          >
+            <p class="notebook-label">
+              Control Note 04
+            </p>
 
-            <h3>Control Logic & Testing</h3>
+            <h3>
+              Control Logic &amp; Testing
+            </h3>
 
             <p>
-              The Raspberry Pi ran Python code that continuously read the two bottom-mounted
-              infrared sensors and compared their black-and-white contrast readings to
-              determine the robot’s position relative to the line. Based on the left and
-              right sensor states, the program adjusted the DC motor outputs to correct
-              the robot’s path in real time. A PID controller was tuned through repeated
-              trials to smooth the motor response, reduce oscillation, and improve stability
-              during straight-line tracking, racetrack turns, and boundary-detection testing.
+              The Raspberry Pi ran Python code that continuously read the
+              two bottom-mounted infrared sensors and compared their
+              black-and-white contrast states to determine the robot’s
+              position relative to the line.
+            </p>
+
+            <p>
+              Based on the left and right sensor readings, the program
+              adjusted the two DC motor outputs to correct the robot’s
+              path in real time. A PID controller was tuned across six
+              testing iterations to smooth the motor response, reduce
+              oscillation, and improve stability during straight-line
+              tracking and racetrack turns.
             </p>
           </article>
 
         </div>
-
       </div>
     </section>
 
     <!-- Demo Showcase -->
-    <section class="case-section demo-showcase" id="demos">
-
+    <section
+      class="case-section demo-showcase"
+      id="demos"
+      aria-labelledby="demos-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Testing the Robot</p>
+        <p class="section-kicker">
+          Testing the Robot
+        </p>
 
-        <h2>On The Track.</h2>
+        <h2 id="demos-heading">
+          On the Track.
+        </h2>
 
         <p>
-          The robot was tested across three track conditions, 
-          each focused on a different behaviour: straight-line tracking, 
-          curved-path correction, and boundary detection.
-
-          Below is the final robot and its three test variations.
+          The robot was tested across three track conditions, each focused
+          on a different behaviour: straight-line tracking, curved-path
+          correction, and boundary detection. Together, the tests showed
+          how the same sensing and motion systems responded to different
+          control challenges.
         </p>
       </div>
 
       <!-- Demo 1 -->
       <article class="demo-feature-row">
         <div class="demo-video-frame adaptive-video-frame">
-          <video controls preload="metadata">
-            <source src="../assets/line-robot/straight-line-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Straight-line tracking demonstration"
+          >
+            <source
+              src="../assets/straight-line-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">01</span>
+          <span class="demo-number">
+            01
+          </span>
 
-          <h3>Straight Line Test</h3>
+          <h3>
+            Straight Line Test
+          </h3>
 
           <p>
-            This test used a mostly straight black path with a small deviation 
-            to establish a baseline for the robot’s tracking behaviour. 
-            By starting with a simple path before moving to more complex 
-            layouts, I could observe whether the infrared sensors were detecting 
-            contrast consistently and whether the motor corrections were 
-            steady enough to keep the robot aligned.
+            This test used a mostly straight black path with a small
+            deviation to establish a baseline for the robot’s tracking
+            behaviour. Starting with a simpler path made it easier to
+            evaluate sensor consistency and motor corrections before
+            introducing tighter curves.
           </p>
 
           <ul>
-            <li>Verified black-and-white contrast detection</li>
-            <li>Observed real-time motor correction</li>
-            <li>Established a baseline before curved and boundary-based testing</li>
+            <li>
+              Verified black-and-white contrast detection
+            </li>
+
+            <li>
+              Observed real-time motor correction
+            </li>
+
+            <li>
+              Established a baseline before curved and boundary-based testing
+            </li>
           </ul>
         </div>
       </article>
@@ -246,30 +516,50 @@
       <!-- Demo 2 -->
       <article class="demo-feature-row reverse">
         <div class="demo-video-frame adaptive-video-frame">
-          <video controls preload="metadata">
-            <source src="../assets/line-robot/racetrack-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Racetrack line-following demonstration"
+          >
+            <source
+              src="../assets/racetrack-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">02</span>
+          <span class="demo-number">
+            02
+          </span>
 
-          <h3>Racetrack Path Test</h3>
+          <h3>
+            Racetrack Path Test
+          </h3>
 
           <p>
-            The racetrack path introduced a more complex line-following 
-            condition by requiring the robot to respond to continuous 
-            curves and direction changes. This test helped evaluate how 
-            smoothly the control logic adjusted the motor outputs during turns, 
-            while also revealing moments of overcorrection as the sensors reacted 
-            to changes in the path.
+            The racetrack introduced continuous curves and direction
+            changes. This test evaluated how smoothly the PID controller
+            adjusted the motor outputs during turns while also revealing
+            moments where aggressive corrections caused the robot to
+            oscillate or oversteer.
           </p>
 
           <ul>
-            <li>Tested curved-path tracking</li>
-            <li>Evaluated turning response</li>
-            <li>Identified overcorrection during direction changes</li>
+            <li>
+              Tested curved-path tracking
+            </li>
+
+            <li>
+              Evaluated turning response
+            </li>
+
+            <li>
+              Identified overcorrection during direction changes
+            </li>
           </ul>
         </div>
       </article>
@@ -277,322 +567,421 @@
       <!-- Demo 3 -->
       <article class="demo-feature-row">
         <div class="demo-video-frame adaptive-video-frame">
-          <video controls preload="metadata">
-            <source src="../assets/line-robot/black-circle-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Black circular boundary-detection demonstration"
+          >
+            <source
+              src="../assets/black-circle-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">03</span>
+          <span class="demo-number">
+            03
+          </span>
 
-          <h3>Black Circle Test</h3>
+          <h3>
+            Black Circle Boundary Test
+          </h3>
 
           <p>
-            The black circle test was inspired by sumo robot competitions, 
-            where an autonomous robot must stay inside a circular ring 
-            while responding to its surroundings. For this test, the 
-            robot was placed inside a dark circular boundary to explore whether 
-            the same infrared sensor logic used for line tracking could also 
-            support boundary detection. Instead of following a single path, 
-            the robot had to recognize when it approached the edge of the marked area 
-            and adjust its movement to remain within the boundary.
+            This test was inspired by sumo robot competitions, where an
+            autonomous robot must remain inside a marked arena. The robot
+            was placed inside a black circular boundary to explore whether
+            the same infrared sensors used for line tracking could support
+            a different behaviour.
+          </p>
+
+          <p>
+            Instead of following a continuous line, the robot had to
+            recognize when it approached the marked edge and adjust its
+            movement to remain inside the boundary.
           </p>
 
           <ul>
-            <li>Tested boundary detection</li>
-            <li>Connected line-sensing logic to a sumo-style arena challenge</li>
-            <li>Showed how the same sensors could support a different robot behaviour</li>
+            <li>
+              Tested circular boundary detection
+            </li>
+
+            <li>
+              Applied the sensor system to a containment challenge
+            </li>
+
+            <li>
+              Demonstrated multiple uses for the same sensing hardware
+            </li>
           </ul>
         </div>
       </article>
-
     </section>
 
     <!-- Troubleshooting / Debug Folder -->
-<section class="case-section debug-folder-section" id="improvements">
+    <section
+      class="case-section debug-folder-section"
+      id="improvements"
+      aria-labelledby="debug-heading"
+    >
+      <div class="case-section-heading center">
+        <p class="section-kicker">
+          Troubleshooting
+        </p>
 
-  <div class="case-section-heading center">
-    <p class="section-kicker">Troubleshooting</p>
+        <h2 id="debug-heading">
+          Debugging the Build.
+        </h2>
 
-    <h2>Debugging the build.</h2>
-
-    <p>
-      Testing revealed that the robot’s behaviour depended on how well the mechanical design,
-      sensors, wiring, and control logic worked together. Each issue had to be observed,
-      diagnosed, and adjusted before the system became more reliable.
-    </p>
-  </div>
-
-  <div class="debug-folder">
-
-    <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
-
-      <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
-        <span>Debug File 01</span>
-        Sensor Height
-      </button>
-
-      <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
-        <span>Debug File 02</span>
-        Motor Response
-      </button>
-
-      <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
-        <span>Debug File 03</span>
-        Wiring Integration
-      </button>
-
-    </div>
-
-    <div class="debug-folder-body">
-
-      <article class="debug-file is-active" data-debug-file="1">
-        <p class="debug-file-label">Debug File 01</p>
-
-        <h3>Sensor Height vs. Tracking Accuracy</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              The robot’s tracking behaviour changed when the sensor position shifted slightly
-              or when the robot moved over uneven parts of the track.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The issue was not only in the code. The infrared sensors depended on their height
-              and angle relative to the surface, so small mechanical placement changes affected
-              the sensor readings and the control response.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              I treated the problem as both a mechanical and software issue by checking sensor
-              placement, testing the robot across different track conditions, and adjusting the
-              control logic so the motor response matched the sensor behaviour more reliably.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="2">
-        <p class="debug-file-label">Debug File 02</p>
-
-        <h3>Motor Overcorrection During Turns</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              During curved-path testing, the robot sometimes corrected too sharply when entering
-              or leaving a turn.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The motor response was too aggressive when one infrared sensor detected the line
-              before the other, causing the robot to oversteer instead of smoothly correcting
-              back toward the path.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              PID values were tuned through repeated trials to smooth the correction, reduce
-              oscillation, and improve the robot’s stability during curved-path tracking.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="3">
-        <p class="debug-file-label">Debug File 03</p>
-
-        <h3>Wiring & System Integration</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              Small connection issues affected the robot’s overall behaviour, especially when
-              testing the sensors, motors, and control hardware together.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The robot combined a custom-fabricated circuit board, soldered components, power
-              connections, infrared sensors, DC motors, and Raspberry Pi control, so one weak
-              connection could affect multiple parts of the system.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              I tested the system step by step, checked wiring and soldered joints, verified
-              power connections, and confirmed each subsystem before running the full robot.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-    <!-- Final Reflection -->
-<section class="project-section reflection-section" id="reflection">
-
-  <div class="section-heading center">
-    <p class="section-kicker">Final Takeaway</p>
-    <h2>Final Reflection.</h2>
-  </div>
-
-  <div class="reflection-layout">
-
-    <article class="reflection-main">
-      <h3>What this project taught me.</h3>
-
-      <p>
-        This project taught me that debugging a physical robot requires both technical 
-        problem-solving and persistence. The robot did not become reliable after 
-        one round of coding or testing; it improved through repeated observation, 
-        small adjustments, and retesting. When the robot drifted, overcorrected, or 
-        behaved inconsistently, the cause was not always obvious because the issue 
-        could come from sensor placement, motor response, wiring reliability, or the 
-        control logic. I learned to slow down, isolate one variable at a time, and treat 
-        each test result as evidence for the next improvement.
-      </p>
-
-      <p>
-        The biggest lesson I took from this project was that failed tests are an 
-        important part of engineering, not just signs that something went wrong. 
-        Each issue helped me understand the system more clearly and pushed me to become 
-        more patient, resilient, and systematic in how I troubleshoot. This project made me 
-        more confident working through uncertainty and showed me that strong engineering comes 
-        from continuing to test, debug, and refine a design even when the solution is not immediate.
-      </p>
-    </article>
-
-    <aside class="reflection-notebook">
-      <div class="reflection-notebook-header">
-        <p class="reflection-notebook-label">Future Improvements</p>
-        <h3>Next iteration notes</h3>
+        <p>
+          Testing revealed that the robot’s behaviour depended on how
+          well the mechanical design, sensors, wiring, and control logic
+          worked together. Each issue had to be observed, diagnosed, and
+          adjusted before the complete system became more reliable.
+        </p>
       </div>
 
-      <ul class="reflection-checklist">
-        <li>Improve the physical organization of the robot with cleaner wiring and better cable management.</li>
-        <li>Use more secure sensor mounting to increase reliability during testing.</li>
-        <li>Continue tuning the control system to achieve smoother turning and more stable line-following performance.</li>
-        <li>Collect more consistent testing data across different track layouts to better compare performance between trials.</li>
-      </ul>
-    </aside>
+      <div class="debug-folder">
 
-  </div>
+        <div
+          class="debug-folder-tabs"
+          role="tablist"
+          aria-label="Debug files"
+        >
+          <button
+            class="debug-folder-tab is-active"
+            type="button"
+            data-debug="1"
+            aria-selected="true"
+          >
+            <span>
+              Debug File 01
+            </span>
 
-</section>
+            Sensor Height
+          </button>
+
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="2"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 02
+            </span>
+
+            Motor Response
+          </button>
+
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="3"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 03
+            </span>
+
+            Wiring Integration
+          </button>
+        </div>
+
+        <div class="debug-folder-body">
+
+          <article
+            class="debug-file is-active"
+            data-debug-file="1"
+          >
+            <p class="debug-file-label">
+              Debug File 01
+            </p>
+
+            <h3>
+              Sensor Height vs. Tracking Accuracy
+            </h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  The robot’s tracking behaviour changed when the
+                  sensor position shifted slightly or when the robot
+                  moved across uneven parts of the test surface.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  The issue was not only in the code. The infrared
+                  sensors depended on their height and angle relative
+                  to the surface, so small mechanical placement changes
+                  affected both the sensor readings and control response.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  I treated the problem as both a mechanical and software
+                  issue by checking sensor placement, testing across
+                  different track conditions, and adjusting the control
+                  response to better match the observed sensor behaviour.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="debug-file"
+            data-debug-file="2"
+          >
+            <p class="debug-file-label">
+              Debug File 02
+            </p>
+
+            <h3>
+              Motor Overcorrection During Turns
+            </h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  During curved-path testing, the robot sometimes
+                  corrected too sharply when entering or leaving a turn.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  The motor response was too aggressive when one infrared
+                  sensor detected the line before the other, causing the
+                  robot to oversteer instead of smoothly returning toward
+                  the path.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  The PID values were tuned through repeated trials to
+                  smooth the correction, reduce oscillation, and improve
+                  stability during curved-path tracking.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="debug-file"
+            data-debug-file="3"
+          >
+            <p class="debug-file-label">
+              Debug File 03
+            </p>
+
+            <h3>
+              Wiring &amp; System Integration
+            </h3>
+
+            <div class="debug-report-grid">
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  Small connection issues affected the robot’s overall
+                  behaviour, especially when the sensors, motors, power
+                  system, and control hardware were tested together.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  The robot combined a custom-fabricated circuit board,
+                  soldered components, regulated power connections,
+                  infrared sensors, DC motors, a motor driver, and
+                  Raspberry Pi control. One weak connection could
+                  therefore affect several parts of the system.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  I tested the system incrementally, inspected wiring
+                  and solder joints, verified power connections, and
+                  confirmed each subsystem before running the complete
+                  robot.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Reflection -->
+    <section
+      class="project-section reflection-section"
+      id="reflection"
+      aria-labelledby="reflection-heading"
+    >
+      <div class="section-heading center">
+        <p class="section-kicker">
+          Final Takeaway
+        </p>
+
+        <h2 id="reflection-heading">
+          Final Reflection.
+        </h2>
+      </div>
+
+      <div class="reflection-layout">
+
+        <article class="reflection-main">
+          <h3>
+            What This Project Taught Me
+          </h3>
+
+          <p>
+            This project taught me that debugging a physical robot
+            requires both technical problem-solving and persistence.
+            The robot did not become reliable after one round of coding
+            or testing; it improved through repeated observation, small
+            adjustments, and retesting.
+          </p>
+
+          <p>
+            When the robot drifted, overcorrected, or behaved
+            inconsistently, the cause was not always obvious because the
+            issue could come from sensor placement, motor response, wiring
+            reliability, power delivery, or the control logic. I learned
+            to slow down, isolate one variable at a time, and treat each
+            test result as evidence for the next improvement.
+          </p>
+
+          <p>
+            The biggest lesson I took from this project was that failed
+            tests are an important part of engineering, not just signs
+            that something went wrong. Each issue helped me understand
+            the system more clearly and made me more patient, resilient,
+            and systematic when troubleshooting interconnected hardware
+            and software.
+          </p>
+        </article>
+
+        <aside class="reflection-notebook">
+          <div class="reflection-notebook-header">
+            <p class="reflection-notebook-label">
+              Future Improvements
+            </p>
+
+            <h3>
+              Next Iteration Notes
+            </h3>
+          </div>
+
+          <ul class="reflection-checklist">
+            <li>
+              Improve the physical organization of the robot with
+              cleaner wiring and stronger cable management.
+            </li>
+
+            <li>
+              Use more secure sensor mounting to maintain consistent
+              height and angle during testing.
+            </li>
+
+            <li>
+              Continue tuning the PID controller for smoother turns
+              and more stable line-following performance.
+            </li>
+
+            <li>
+              Record consistent performance data across additional
+              track layouts to compare tuning iterations more clearly.
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
 
     <!-- Contact CTA -->
-    <section class="project-contact-cta">
+    <section
+      class="project-contact-cta"
+      aria-labelledby="contact-cta-heading"
+    >
+      <p class="section-kicker">
+        Like This Project?
+      </p>
 
-      <p class="section-kicker">Like this project?</p>
-
-      <h2>Let’s connect.</h2>
+      <h2 id="contact-cta-heading">
+        Let’s Connect.
+      </h2>
 
       <p>
-        Thanks for visiting this project. Whether you have a question, 
-        an opportunity, or just want to start a conversation, 
-        I’d be happy to hear from you.
+        Thanks for visiting this project. Whether you have a question,
+        an opportunity, or want to start a conversation, I’d be happy
+        to hear from you.
       </p>
 
       <div class="project-cta-buttons">
-        <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
-        <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
-      </div>
+        <a
+          href="../index.html#projects"
+          class="hero-btn secondary"
+        >
+          Back to Projects
+        </a>
 
+        <a
+          href="../index.html#contact"
+          class="hero-btn primary"
+        >
+          Contact Me
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Project Page Effects -->
-  <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const scrollProgress = document.querySelector(".scroll-progress");
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-      scrollProgress.style.width = scrollPercent + "%";
-    });
-
-    // Reveal elements on scroll
-    const revealElements = document.querySelectorAll(
-      ".case-section-heading, .info-card, .demo-feature-row, .flow-step, .improvement-item, .reflection-box, .project-contact-cta"
-    );
-
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
-
-    revealElements.forEach(element => {
-      element.classList.add("reveal-hidden");
-      revealObserver.observe(element);
-    });
-
-    // Dark/light mode toggle
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
-
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-
-      if (themeIcon) {
-        themeIcon.classList.remove("bi-moon-stars");
-        themeIcon.classList.add("bi-sun");
-      }
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-
-        if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDark);
-          themeIcon.classList.toggle("bi-sun", isDark);
-        }
-      });
-    }
-  </script>
-
-  <!-- Main JavaScript -->
+  <!-- Shared Portfolio JavaScript -->
   <script src="../js/scripts.js"></script>
 
 </body>
