@@ -3,774 +3,1160 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta 
-    name="description" 
-    content="The Shifting Grove project by Anshia Muhammad Yaqoob, a Python/Pygame fantasy maze game featuring procedural maze generation, fox AI, mini-games, reward systems, and custom UI transitions." 
-  />
-  <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>The Shifting Grove | Anshia Muhammad Yaqoob</title>
+  <meta
+    name="description"
+    content="The Shifting Grove by Anshia Muhammad Yaqoob, a Python and Pygame fantasy maze game featuring procedural generation, BFS fox pathfinding, finite-state game flow, three integrated mini-games, reward systems, and custom UI transitions."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link
+    rel="canonical"
+    href="https://anshiamy.github.io/projects/the-shifting-grove.html"
+  />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:url"
+    content="https://anshiamy.github.io/projects/the-shifting-grove.html"
+  />
+
+  <meta
+    property="og:title"
+    content="The Shifting Grove | Anshia Muhammad Yaqoob"
+  />
+
+  <meta
+    property="og:description"
+    content="A Python and Pygame fantasy maze game featuring procedural generation, BFS fox pathfinding, finite-state game flow, three mini-games, and reward-based progression."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/theshiftinggrove.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="The Shifting Grove fantasy maze game preview"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>
+    The Shifting Grove | Anshia Muhammad Yaqoob
+  </title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
-    rel="stylesheet" 
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
   />
 
   <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
   />
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" 
-    rel="stylesheet" 
-    type="text/css" 
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet"
+    type="text/css"
   />
 
   <!-- Main Theme CSS -->
-  <link href="../css/styles.css" rel="stylesheet" />
+  <link
+    href="../css/styles.css"
+    rel="stylesheet"
+  />
 
   <!-- Custom Portfolio CSS -->
-  <link href="../css/custom.css" rel="stylesheet" />
-
-  <!-- Small page-specific fixes for landscape gameplay videos + disabled GitHub button -->
-  <style>
-    .grove-demo-row {
-      display: grid;
-      grid-template-columns: minmax(420px, 1.15fr) minmax(300px, 0.85fr);
-      align-items: center;
-      gap: 3rem;
-    }
-
-    .grove-demo-row.reverse {
-      grid-template-columns: minmax(300px, 0.85fr) minmax(420px, 1.15fr);
-    }
-
-    .grove-demo-row .horizontal-video {
-      max-width: 760px;
-      width: 100%;
-      justify-self: center;
-    }
-
-    .grove-demo-row .horizontal-video video {
-      width: 100%;
-      height: auto;
-      max-height: 430px;
-      object-fit: contain;
-      background: #111;
-    }
-
-    .disabled-link {
-      pointer-events: none;
-      opacity: 0.65;
-      cursor: default;
-    }
-
-    .repository-callout {
-      margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--portfolio-border);
-      border-radius: 1.35rem;
-      padding: 1.5rem;
-      box-shadow: 0 14px 36px rgba(31, 41, 51, 0.05);
-    }
-
-    .repository-callout h3 {
-      color: var(--portfolio-dark);
-      font-weight: 900;
-      margin-bottom: 0.55rem;
-    }
-
-    .repository-callout p {
-      color: var(--portfolio-muted);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    body.dark-mode .repository-callout {
-      background: rgba(26, 27, 34, 0.88);
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    body.dark-mode .repository-callout h3 {
-      color: #fff7fb;
-    }
-
-    body.dark-mode .repository-callout p {
-      color: #c9bfc6;
-    }
-
-    @media (max-width: 992px) {
-      .grove-demo-row,
-      .grove-demo-row.reverse {
-        grid-template-columns: 1fr;
-      }
-
-      .grove-demo-row.reverse .demo-video-frame {
-        order: 1;
-      }
-
-      .grove-demo-row.reverse .demo-feature-text {
-        order: 2;
-      }
-
-      .grove-demo-row .horizontal-video {
-        max-width: 720px;
-      }
-
-      .grove-demo-row .demo-feature-text {
-        text-align: center;
-        margin: 0 auto;
-      }
-    }
-  </style>
+  <link
+    href="../css/custom.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body id="page-top">
 
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
   <!-- Scroll Progress Bar -->
-  <div class="scroll-progress"></div>
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Project Header -->
   <header class="project-page-header">
 
     <!-- Navigation -->
-    <nav class="project-navbar">
-      <a href="../index.html" class="project-logo">← Back to Home</a>
+    <nav
+      class="project-navbar"
+      aria-label="Project navigation"
+    >
+      <a
+        href="../index.html"
+        class="project-logo"
+      >
+        ← Back to Home
+      </a>
 
       <div class="project-nav-tabs">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#projects">
+          Projects
+        </a>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-stars"></i>
+        <a href="../index.html#contact">
+          Contact
+        </a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
 
     <!-- Hero Content -->
-    <section class="project-hero-content">
-      <p class="project-kicker">Software • Python • Game Development</p>
-
-      <h1>The Shifting Grove</h1>
-
-      <p class="project-hero-description">
-       A Python/Pygame fantasy maze game where players navigate a shifting enchanted grove,
-        complete interactive mini-games, and outsmart an AI-controlled fox guardian through
-        procedurally generated levels and reward-based progression.
+    <section
+      class="project-hero-content"
+      aria-labelledby="project-title"
+    >
+      <p class="project-kicker">
+        Software • Python • Game Development
       </p>
 
-      <div class="project-tech-stack">
-        <span>Python/Pygame</span>
-        <span>OOP</span>
+      <h1 id="project-title">
+        The Shifting Grove
+      </h1>
+
+      <p class="project-hero-description">
+        A Python and Pygame fantasy maze game where players explore a
+        procedurally generated enchanted grove, collect shards, complete
+        three integrated mini-games, and outsmart an AI-controlled fox
+        guardian through pathfinding and reward-based progression.
+      </p>
+
+      <div
+        class="project-tech-stack"
+        aria-label="Technologies and software concepts"
+      >
+        <span>Python</span>
+        <span>Pygame</span>
+        <span>Object-Oriented Programming</span>
         <span>Procedural Generation</span>
         <span>BFS Pathfinding</span>
-        <span>Finite State Machines</span>
+        <span>Finite-State Game Flow</span>
       </div>
 
       <div class="project-hero-actions">
-        <a href="#demos" class="hero-btn primary">View Gameplay</a>
-        <a 
-          href="https://github.com/AnshiaMY/The-Shifting-Grove" 
-          class="hero-btn secondary" 
-          target="_blank" 
-          rel="noopener"
+        <a
+          href="#demos"
+          class="hero-btn primary"
+        >
+          View Gameplay
+        </a>
+
+        <a
+          href="https://github.com/AnshiaMY/The-Shifting-Grove"
+          class="hero-btn secondary"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           View GitHub
         </a>
-        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+
+        <a
+          href="#reflection"
+          class="hero-btn secondary"
+        >
+          Final Reflection
+        </a>
       </div>
     </section>
 
   </header>
 
-  <main>
+  <main id="main-content">
 
-    <!-- Project Overview / Build Stages -->
-    <section class="case-section build-stages-section" id="build">
-
+    <!-- Project Overview / Development Stages -->
+    <section
+      class="case-section build-stages-section"
+      id="build"
+      aria-labelledby="build-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Project Overview</p>
+        <p class="section-kicker">
+          Project Overview
+        </p>
 
-        <h2>Building A World Through Code.</h2>
+        <h2 id="build-heading">
+          Building a World Through Code.
+        </h2>
 
         <p>
-          The Shifting Grove began as a passion project inspired by my interest 
-          in using software to create interactive, imaginative experiences. I 
-          wanted to challenge myself beyond smaller programming exercises by building 
-          a complete game with structured logic, responsive gameplay, and a polished 
-          user experience.
+          The Shifting Grove began as a personal software project inspired
+          by my interest in creating interactive and imaginative experiences.
+          I wanted to move beyond smaller programming exercises by building
+          a complete game with structured logic, responsive gameplay, and a
+          polished user experience.
         </p>
 
         <p>
-          The final concept is a fantasy maze game where players explore an enchanted 
-          grove, collect Grove Shards, complete mini-game challenges, and race to 
-          escape before the grove shifts. Through this project, I was able to turn 
-          algorithms and software concepts into a playable experience while strengthening 
-          my programming skills in a fun, creative, and hands-on way.
+          The final concept is a fantasy maze game where players explore an
+          enchanted grove, collect Grove Shards, complete mini-game
+          challenges, and race to escape before the grove shifts. The project
+          allowed me to turn algorithms and software concepts into a playable
+          experience while strengthening my programming, debugging, and
+          software-architecture skills.
         </p>
       </div>
 
       <div class="build-stage-interface">
 
-        <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
+        <div
+          class="build-stage-tabs"
+          role="tablist"
+          aria-label="Development stages"
+        >
+          <button
+            class="build-stage-tab is-active"
+            type="button"
+            data-stage="1"
+            aria-selected="true"
+          >
+            <span class="stage-tab-number">
+              01
+            </span>
 
-          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
-            <span class="stage-tab-number">01</span>
-            <span class="stage-tab-title">Game Architecture</span>
+            <span class="stage-tab-title">
+              Game Architecture
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
-            <span class="stage-tab-number">02</span>
-            <span class="stage-tab-title">Maze &amp; Player Systems</span>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="2"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              02
+            </span>
+
+            <span class="stage-tab-title">
+              Maze &amp; Player Systems
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
-            <span class="stage-tab-number">03</span>
-            <span class="stage-tab-title">Fox AI &amp; Game Logic</span>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="3"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              03
+            </span>
+
+            <span class="stage-tab-title">
+              Fox AI &amp; Game Logic
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="4" aria-selected="false">
-            <span class="stage-tab-number">04</span>
-            <span class="stage-tab-title">Mini-Games &amp; Polish</span>
-          </button>
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="4"
+            aria-selected="false"
+          >
+            <span class="stage-tab-number">
+              04
+            </span>
 
+            <span class="stage-tab-title">
+              Mini-Games &amp; Polish
+            </span>
+          </button>
         </div>
 
         <div class="build-stage-panel-wrap">
 
-          <article class="build-stage-panel is-active" data-stage-panel="1">
-          <p class="notebook-label">Development Stage 01</p>
-        
-          <h3>Game Architecture</h3>
-        
-          <p>
-            The game was built using a modular, object-oriented architecture so that each major system could be developed, tested, and debugged independently. Instead of placing all logic inside one large script, I separated the project into focused files and classes for the player, fox, maze generation, shards, UI, asset loading, mini-games, settings, and the main game controller. This made the codebase easier to understand as the project grew and allowed each feature to connect through a clearer structure.
-          </p>
-        
-          <p>
-            A major part of the architecture was the use of finite state machines and explicit state management. The game has several different modes, including the start menu, instructions, maze gameplay, mini-game transitions, reward screens, win/loss states, and return-to-maze logic. Each state needed defined entry conditions, update behaviour, input handling, and exit transitions so that one screen or mini-game would not interfere with another.
-          </p>
-        
-          <p>
-            This structure became especially important once the project expanded from a single maze into a full game with three integrated mini-games. The architecture had to support switching between systems, preserving progress, applying rewards, resetting temporary mini-game variables, and returning to the correct maze state. Building this flow helped me practice larger-scale software organization, not just isolated feature development.
-          </p>
-        </article>
+          <!-- Development Stage 1 -->
+          <article
+            class="build-stage-panel is-active"
+            data-stage-panel="1"
+          >
+            <p class="notebook-label">
+              Development Stage 01
+            </p>
 
-          <article class="build-stage-panel" data-stage-panel="2">
-            <p class="notebook-label">Development Stage 02</p>
-          
-            <h3>Maze &amp; Player Systems</h3>
-          
+            <h3>
+              Game Architecture
+            </h3>
+
             <p>
-              The main gameplay is built around procedural maze generation, using a randomized depth-first search approach to create a new navigable layout each round. The maze is generated from a grid structure where paths are carved between cells, producing a playable maze instead of a manually designed map. This allowed the game to feel different across rounds while still maintaining valid routes for the player and fox.
+              The game was built using a modular, object-oriented
+              architecture so each major system could be developed, tested,
+              and debugged independently. Instead of placing all logic inside
+              one large script, I separated the project into focused files
+              and classes for the player, fox, maze generation, shards, UI,
+              asset loading, mini-games, settings, and the main game
+              controller.
             </p>
-          
+
             <p>
-              After generation, the maze data had to connect to the rest of the game systems. Wall tiles, walkable paths, collision boundaries, shard locations, mini-game trigger areas, and the final portal objective all depended on the generated layout. This meant the maze was not only a visual background; it acted as the foundation for movement, pathfinding, collision detection, objective placement, and gameplay progression.
+              A major part of the architecture was explicit state management.
+              The game includes a start menu, instructions, maze gameplay,
+              mini-game transitions, reward screens, win and loss states, and
+              return-to-maze logic. Each state needed defined entry
+              conditions, input handling, update behaviour, drawing logic,
+              and exit transitions so one screen or mini-game would not
+              interfere with another.
             </p>
-          
+
             <p>
-              The player system handles movement, collision detection, collectible logic, and game-state updates. As the player moves through the grove, the game checks wall collisions, tracks collected Grove Shards, determines when the portal can activate, and handles transitions into mini-games. This required the movement system to work closely with the maze grid and the overall state machine so that exploration, collection, and transitions remained consistent.
+              This structure became especially important when the project
+              expanded from one maze into a complete game with three
+              integrated mini-games. The architecture had to preserve player
+              progress, apply rewards, reset temporary mini-game variables,
+              and return to the correct maze state after each challenge.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="3">
-            <p class="notebook-label">Development Stage 03</p>
-          
-            <h3>Fox AI &amp; Game Logic</h3>
-          
-            <p>
-              The fox AI was the main technical focus of the game. Instead of using random movement or a fixed chase pattern, the fox uses BFS pathfinding to navigate the procedurally generated maze. Each round, it evaluates the current grid, avoids wall cells, and selects valid routes toward the player or key objective areas.
+          <!-- Development Stage 2 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="2"
+          >
+            <p class="notebook-label">
+              Development Stage 02
             </p>
-          
+
+            <h3>
+              Maze &amp; Player Systems
+            </h3>
+
             <p>
-              I also added adaptive behaviour so the fox could respond to the match state. When the fox is falling behind or losing momentum, its behaviour becomes more aggressive, increasing pressure on the player and making the AI feel less predictable. This connected the pathfinding system to higher-level game logic rather than treating movement as a separate feature.
+              The main gameplay is built around procedural maze generation.
+              A randomized depth-first search approach creates a connected
+              grid by carving paths between cells, allowing each round to use
+              a new navigable layout instead of a manually fixed map.
             </p>
-          
+
             <p>
-              The fox system also interacts with collision detection, player progress, mini-game triggers, reward effects, win conditions, and local multiplayer. Since the same fox character can be controlled by either AI or a second player, the code had to support both modes while keeping the maze, mini-game, and state-transition logic consistent.
+              The generated maze data connects directly to the rest of the
+              game. Wall tiles, walkable paths, collision boundaries, shard
+              locations, mini-game trigger areas, fox routes, and the final
+              portal objective all depend on the generated grid.
+            </p>
+
+            <p>
+              The player system handles movement, wall collision, collectible
+              logic, portal activation, and transitions into mini-games. This
+              required the movement system, maze grid, collision logic, and
+              overall state flow to remain synchronized throughout each
+              round.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="4">
-          <p class="notebook-label">Development Stage 04</p>
-        
-          <h3>Mini-Games &amp; Polish</h3>
-        
-          <p>
-            The game includes three integrated mini-games: The Sigil’s Echo, Starlight Crossing, and Canopy Cascade. Each mini-game was built as its own system with separate mechanics, controls, timers, win conditions, AI behaviour, reward logic, and transition flow. The challenge was not only making each mini-game work on its own, but making each one connect cleanly back to the main maze.
-          </p>
-        
-          <p>
-            The Sigil’s Echo required sequence logic, input validation, progress tracking, timing, and feedback states. Starlight Crossing required a tile-based puzzle system with path validation, solvable board generation, rotation controls, countdown logic, and AI solving behaviour. Canopy Cascade added arcade-style collision, paddle movement, scoring, and real-time reaction mechanics. Together, the mini-games allowed me to practice different types of gameplay logic within one larger project.
-          </p>
-        
-          <p>
-            A major part of this stage was debugging integration issues between the mini-games and the main state machine. Each mini-game needed to start from the maze, run independently, determine a result, apply the correct reward or consequence, and return to the maze without carrying over unwanted temporary variables. This required careful handling of resets, timers, player/fox states, and screen transitions.
-          </p>
-        
-          <p>
-            The final polish stage focused on improving the user experience through UI spacing, visual feedback, transitions, reward screens, image loading, countdowns, and consistent screen flow. I also used Git and GitHub to organize the finished project and prepare it as a readable software portfolio piece. This stage helped turn the project from a functional prototype into a complete, presentable game.
-          </p>
-        </article>
+          <!-- Development Stage 3 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="3"
+          >
+            <p class="notebook-label">
+              Development Stage 03
+            </p>
+
+            <h3>
+              Fox AI &amp; Game Logic
+            </h3>
+
+            <p>
+              The fox AI was one of the project’s main technical systems.
+              Rather than relying only on random movement or a fixed chase
+              sequence, the fox uses breadth-first search pathfinding to
+              navigate the current procedural maze. It evaluates valid grid
+              cells, avoids walls, and follows calculated routes toward the
+              player or important objective areas.
+            </p>
+
+            <p>
+              I also connected the fox’s movement to higher-level game
+              behaviour. Its pressure and aggression could change based on
+              the match state, allowing it to respond differently when it
+              was falling behind rather than behaving identically throughout
+              every round.
+            </p>
+
+            <p>
+              The same fox character can be controlled by the AI in
+              single-player mode or by a second person in local multiplayer.
+              The code therefore had to support both control modes while
+              keeping collision, mini-game triggers, rewards, progression,
+              and end conditions consistent.
+            </p>
+          </article>
+
+          <!-- Development Stage 4 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="4"
+          >
+            <p class="notebook-label">
+              Development Stage 04
+            </p>
+
+            <h3>
+              Mini-Games &amp; Polish
+            </h3>
+
+            <p>
+              The game includes three integrated mini-games: The Sigil’s
+              Echo, Starlight Crossing, and Canopy Cascade. Each mini-game
+              was built as its own system with separate mechanics, controls,
+              timers, win conditions, AI behaviour, reward logic, and
+              transition flow.
+            </p>
+
+            <p>
+              The Sigil’s Echo required sequence generation, input
+              validation, progress tracking, timing, and feedback states.
+              Starlight Crossing required a tile-based puzzle with path
+              validation, solvable board generation, rotation controls,
+              countdown logic, and AI solving behaviour. Canopy Cascade
+              introduced arcade-style paddle movement, collision response,
+              scoring, and continuous real-time updates.
+            </p>
+
+            <p>
+              A major challenge was connecting each mini-game cleanly to the
+              main state system. A mini-game needed to start from the maze,
+              run independently, determine a result, apply the correct reward
+              or consequence, reset its temporary values, and return to the
+              maze without affecting unrelated systems.
+            </p>
+
+            <p>
+              The final polish stage focused on UI spacing, visual feedback,
+              transitions, reward screens, asset loading, countdowns, and
+              consistent screen flow. I also organized the project with Git
+              and GitHub and prepared its code and documentation as a
+              readable software portfolio project.
+            </p>
+          </article>
 
         </div>
-
       </div>
     </section>
 
-    <!-- Demo Showcase -->
-    <section class="case-section demo-showcase" id="demos">
-
+    <!-- Gameplay Showcase -->
+    <section
+      class="case-section demo-showcase"
+      id="demos"
+      aria-labelledby="demos-heading"
+    >
       <div class="case-section-heading center">
-        <p class="section-kicker">Gameplay Preview</p>
+        <p class="section-kicker">
+          Gameplay Preview
+        </p>
 
-        <h2>Inside the grove.</h2>
+        <h2 id="demos-heading">
+          Inside the Grove.
+        </h2>
 
         <p>
-          The demo videos show the single-player mode, where the fox guardian uses 
-          AI behaviour to navigate and challenge the player. The game also includes 
-          a local multiplayer mode, where a second player can control the fox across the 
-          maze and mini-game sequences.
+          These demonstrations show the single-player mode, where the fox
+          guardian uses AI behaviour to navigate and challenge the player.
+          The game also includes local multiplayer, where a second player
+          can control the fox during the maze and mini-game sequences.
         </p>
       </div>
 
       <!-- Demo 1 -->
       <article class="demo-feature-row grove-demo-row">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/maze-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="The Shifting Grove main maze gameplay demonstration"
+          >
+            <source
+              src="../assets/maze-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-        <span class="demo-number">01</span>
-      
-        <h3>Main Maze Gameplay</h3>
-      
-        <p>
-          This demo shows the core gameplay loop: the player navigates a procedurally generated maze, collects Grove Shards, avoids the AI-controlled fox guardian, and works toward activating the escape portal. The maze is generated dynamically, so the player and fox must interact with a layout that is not manually fixed.
-        </p>
-      
-        <ul>
-          <li>Procedural maze generation using a randomized depth-first search approach</li>
-          <li>Grid-based collision detection for walls, paths, shards, triggers, and portal areas</li>
-          <li>AI fox navigation integrated into the main maze and objective system</li>
-        </ul>
-      </div>
+          <span class="demo-number">
+            01
+          </span>
+
+          <h3>
+            Main Maze Gameplay
+          </h3>
+
+          <p>
+            This demonstration shows the core gameplay loop. The player
+            navigates a procedurally generated maze, collects Grove Shards,
+            avoids the AI-controlled fox guardian, and works toward
+            activating the escape portal.
+          </p>
+
+          <ul>
+            <li>
+              Procedural maze generation using randomized depth-first search
+            </li>
+
+            <li>
+              Grid-based collision for walls, paths, shards, triggers, and
+              the portal
+            </li>
+
+            <li>
+              Fox AI navigation integrated with the maze and objective system
+            </li>
+          </ul>
+        </div>
+
       </article>
 
       <!-- Demo 2 -->
       <article class="demo-feature-row grove-demo-row reverse">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/sigils-echo-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="The Sigil's Echo memory mini-game demonstration"
+          >
+            <source
+              src="../assets/sigils-echo-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-        <span class="demo-number">02</span>
-      
-        <h3>The Sigil’s Echo</h3>
-      
-        <p>
-          The Sigil’s Echo is a sequence-based memory mini-game that tests pattern recognition and timed input. The player must observe a generated symbol sequence, repeat it correctly, and progress through increasing rounds while the game tracks accuracy, timing, and win conditions.
-        </p>
-      
-        <ul>
-          <li>Generated symbol sequences with round-based difficulty progression</li>
-          <li>Input validation, timer logic, feedback states, and result tracking</li>
-          <li>Reward-screen integration that returns cleanly to the main maze state</li>
-        </ul>
-      </div>
+          <span class="demo-number">
+            02
+          </span>
+
+          <h3>
+            The Sigil’s Echo
+          </h3>
+
+          <p>
+            The Sigil’s Echo is a sequence-based memory challenge built
+            around pattern recognition and timed input. The player observes
+            a generated symbol sequence, repeats it, and progresses through
+            increasingly difficult rounds.
+          </p>
+
+          <ul>
+            <li>
+              Generated symbol sequences with round-based progression
+            </li>
+
+            <li>
+              Input validation, timers, feedback states, and result tracking
+            </li>
+
+            <li>
+              Reward integration and return-to-maze state handling
+            </li>
+          </ul>
+        </div>
+
       </article>
 
       <!-- Demo 3 -->
       <article class="demo-feature-row grove-demo-row">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/starlight-crossing-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Starlight Crossing path puzzle demonstration"
+          >
+            <source
+              src="../assets/starlight-crossing-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">03</span>
-        
-          <h3>Starlight Crossing</h3>
-        
+          <span class="demo-number">
+            03
+          </span>
+
+          <h3>
+            Starlight Crossing
+          </h3>
+
           <p>
-            Starlight Crossing is a tile-rotation puzzle built around path validation. The player rotates tiles to form a connected route across the board, while the game checks whether the current layout creates a valid path before the timer runs out.
+            Starlight Crossing is a tile-rotation puzzle built around path
+            validation. Players rotate tiles to form a connected route
+            across the board while the game checks the current layout and
+            tracks the countdown.
           </p>
-        
+
           <ul>
-            <li>Tile-based puzzle grid with rotation controls and path-checking logic</li>
-            <li>Solvable board generation, countdown timing, and win/loss state handling</li>
-            <li>AI solving behaviour used in the single-player version of the mini-game</li>
+            <li>
+              Tile-grid rotation controls and connected-path validation
+            </li>
+
+            <li>
+              Solvable board generation, countdown timing, and result states
+            </li>
+
+            <li>
+              AI solving behaviour for the single-player fox opponent
+            </li>
           </ul>
         </div>
+
       </article>
 
       <!-- Demo 4 -->
       <article class="demo-feature-row grove-demo-row reverse">
+
         <div class="demo-video-frame horizontal-video">
-          <video controls preload="metadata">
-            <source src="../assets/canopy-cascade-demo.mp4" type="video/mp4" />
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Canopy Cascade arcade mini-game demonstration"
+          >
+            <source
+              src="../assets/canopy-cascade-demo.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="demo-feature-text">
-          <span class="demo-number">04</span>
-        
-          <h3>Canopy Cascade</h3>
-        
+          <span class="demo-number">
+            04
+          </span>
+
+          <h3>
+            Canopy Cascade
+          </h3>
+
           <p>
-            Canopy Cascade adds a fast-paced arcade challenge to the project through paddle control, object movement, collision response, and score tracking. Unlike the maze and puzzle systems, this mini-game focuses on real-time reaction logic and continuous movement updates.
+            Canopy Cascade introduces a fast-paced arcade challenge through
+            paddle controls, continuous object movement, collision response,
+            and score tracking. Unlike the maze and puzzle systems, it
+            focuses on reaction timing and real-time updates.
           </p>
-        
+
           <ul>
-            <li>Real-time paddle movement, object physics, and collision detection</li>
-            <li>Score tracking, round logic, timer control, and end-state conditions</li>
-            <li>Integrated transition flow that connects the mini-game back to the larger game loop</li>
+            <li>
+              Real-time paddle movement and collision response
+            </li>
+
+            <li>
+              Score tracking, round logic, timers, and end-state conditions
+            </li>
+
+            <li>
+              Transition handling that returns the result to the main game
+            </li>
           </ul>
         </div>
-      </article>
 
+      </article>
     </section>
 
-    <!-- Troubleshooting / Debug Folder -->
-<section class="case-section debug-folder-section" id="improvements">
-
-  <div class="case-section-heading center">
-    <p class="section-kicker">Troubleshooting</p>
-
-    <h2>Debugging The Game Systems.</h2>
-
-    <p>
-      The most difficult bugs came from the systems that shaped the entire player experience:
-      game-state flow, fox AI behaviour, and procedural maze reliability. Debugging the game
-      required more than fixing isolated errors; I had to test how algorithms, player input,
-      AI decisions, collision logic, and screen transitions interacted across repeated playthroughs.
-    </p>
-  </div>
-
-  <div class="debug-folder">
-
-    <div class="debug-folder-tabs" role="tablist" aria-label="Debug files">
-
-      <button class="debug-folder-tab is-active" type="button" data-debug="1" aria-selected="true">
-        <span>Debug File 01</span>
-        State Flow
-      </button>
-      
-      <button class="debug-folder-tab" type="button" data-debug="2" aria-selected="false">
-        <span>Debug File 02</span>
-        Fox AI
-      </button>
-      
-      <button class="debug-folder-tab" type="button" data-debug="3" aria-selected="false">
-        <span>Debug File 03</span>
-        Maze Generation
-      </button>
-
-    </div>
-
-    <div class="debug-folder-body">
-
-      <article class="debug-file is-active" data-debug-file="1">
-        <p class="debug-file-label">Debug File 01</p>
-
-        <h3>Controlling state flow across the full game loop</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              As the game expanded beyond the main maze, bugs started appearing during transitions
-              between the menu, instructions, gameplay, mini-games, reward screens, and win/loss
-              states. A feature could work on its own but behave incorrectly when connected back
-              into the full game loop.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The issue was caused by overlapping state responsibilities. Each screen and mini-game
-              needed its own input handling, update logic, drawing logic, temporary variables, and
-              reset conditions. If one state did not fully clean up before the next one started,
-              old values could affect the next round.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              I refined the state-management flow so each mode had clearer entry, update, exit,
-              and reset behaviour. I tested transitions individually, then tested full playthroughs
-              to make sure mini-games returned to the maze correctly and that rewards, timers, and
-              end conditions did not carry over unintentionally.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="2">
-        <p class="debug-file-label">Debug File 02</p>
-
-        <h3>Tuning fox AI, BFS pathfinding, and adaptive behaviour</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              The fox needed to feel intelligent without becoming unfair. During testing, I had to
-              debug cases where the fox stalled near important gameplay zones, chose awkward paths,
-              became too passive, or applied too much pressure when the player was trying to reach
-              the portal.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The fox behaviour depended on several connected systems: BFS pathfinding, the current
-              maze grid, wall collisions, player position, objective areas, portal state, and the
-              fox’s aggression level. Because the maze changed each round, the AI had to respond to
-              the live layout rather than relying on fixed routes.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              I tested the fox across different maze layouts and adjusted how it selected targets,
-              followed valid paths, and reacted to the match state. I also tuned its adaptive
-              aggression so it could become more threatening when falling behind while still leaving
-              the player enough room to make strategic choices.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="debug-file" data-debug-file="3">
-        <p class="debug-file-label">Debug File 03</p>
-
-        <h3>Validating procedural maze generation and route variety</h3>
-
-        <div class="debug-report-grid">
-          <div class="debug-report-row">
-            <p class="debug-report-label">Symptom</p>
-            <p>
-              The maze could not just generate random-looking walls. It needed to create layouts
-              that were playable, winnable, and varied enough that the player and fox were not
-              forced into one predictable route every round.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Diagnosis</p>
-            <p>
-              The base maze was generated using randomized depth-first search, which creates a
-              connected maze but can still feel too linear. To improve gameplay, I added extra
-              loop openings, checked far reachable portal locations, and verified that the portal
-              had multiple possible paths from the starting area.
-            </p>
-          </div>
-
-          <div class="debug-report-row">
-            <p class="debug-report-label">Adjustment</p>
-            <p>
-              I tested repeated maze generations and refined the generation logic so the game could
-              carve a connected base maze, add alternate routes, clear space around the portal, and
-              fall back to a far reachable tile if an ideal portal location was not found. This made
-              the maze more reliable, replayable, and fair for both the player and fox AI.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-    <!-- Final Reflection -->
-<section class="project-section reflection-section" id="reflection">
-
-  <div class="section-heading center">
-    <p class="section-kicker">Final Takeaway</p>
-    <h2>Final Reflection.</h2>
-  </div>
-
-  <div class="reflection-layout">
-
-    <article class="reflection-main">
-      <h3>What this project taught me.</h3>
-
-      <p>
-        The Shifting Grove helped me grow from writing smaller programming exercises to building a larger software project with many connected systems. I had to think beyond individual features and consider how the maze, player movement, fox AI, mini-games, rewards, UI screens, and state transitions all worked together inside one game loop. This strengthened my understanding of object-oriented programming, modular architecture, procedural generation, BFS pathfinding, collision detection, and finite state machines in a practical setting.
-      </p>
-
-      <p>
-        This project also taught me how important debugging, patience, and iteration are in software development. Many issues did not come from one obvious error, but from the way different systems interacted. I learned to slow down, isolate problems, test one feature at a time, and trace how data moved between states. That process made me more confident working through complex bugs instead of feeling stuck when the project became messy.
-      </p>
-
-      <p>
-        Personally, this project reminded me that I learn best when I am building something creative and challenging. Turning algorithms and software concepts into a playable game made the learning process more engaging, while still pushing me to improve my technical discipline. It helped me become more comfortable managing a bigger codebase, making design decisions, and continuing to polish a project even after the main features were working.
-      </p>
-
-      <div class="repository-callout">
-        <h3>Project Repository</h3>
-
-        <p>
-          The project repository includes the source code, organized game files, assets, and
-          documentation for The Shifting Grove.
+    <!-- Troubleshooting -->
+    <section
+      class="case-section debug-folder-section"
+      id="improvements"
+      aria-labelledby="debug-heading"
+    >
+      <div class="case-section-heading center">
+        <p class="section-kicker">
+          Troubleshooting
         </p>
 
-        <a 
-          href="https://github.com/AnshiaMY/The-Shifting-Grove" 
-          class="hero-btn secondary" 
-          target="_blank" 
-          rel="noopener"
-        >
-          View GitHub Repository
-        </a>
+        <h2 id="debug-heading">
+          Debugging the Game Systems.
+        </h2>
+
+        <p>
+          The most difficult bugs came from systems that shaped the entire
+          player experience: state flow, fox behaviour, and procedural maze
+          reliability. Debugging required testing how algorithms, input,
+          AI decisions, collisions, rewards, and screen transitions
+          interacted across complete playthroughs.
+        </p>
       </div>
-    </article>
 
-    <aside class="reflection-notebook">
-  <div class="reflection-notebook-header">
-    <p class="reflection-notebook-label">Future Improvements</p>
-    <h3>Next iteration notes</h3>
-  </div>
+      <div class="debug-folder">
 
-  <ul class="reflection-checklist">
-    <li>
-      Expand the fox AI with stronger decision-making so it can switch between chasing the player, guarding the portal, blocking key routes, and responding to mini-game opportunities.
-    </li>
+        <div
+          class="debug-folder-tabs"
+          role="tablist"
+          aria-label="Debug files"
+        >
+          <button
+            class="debug-folder-tab is-active"
+            type="button"
+            data-debug="1"
+            aria-selected="true"
+          >
+            <span>
+              Debug File 01
+            </span>
 
-    <li>
-      Refine the maze-generation system with more controlled difficulty scaling, route variety, and layout rules so each generated maze feels both random and intentionally designed.
-    </li>
+            State Flow
+          </button>
 
-    <li>
-      Improve code scalability by reducing repeated logic, cleaning up shared systems, and making the project easier to expand with new levels, mechanics, or additional mini-games.
-    </li>
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="2"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 02
+            </span>
 
-    <li>
-      Continue playtesting to better balance fox aggression, mini-game timers, reward effects, and win/loss conditions across both single-player and local multiplayer modes.
-    </li>
+            Fox AI
+          </button>
 
-    <li>
-      Explore deployment options for a web-playable version so the game can eventually be experienced directly from the portfolio.
-    </li>
-  </ul>
-</aside>
+          <button
+            class="debug-folder-tab"
+            type="button"
+            data-debug="3"
+            aria-selected="false"
+          >
+            <span>
+              Debug File 03
+            </span>
 
-  </div>
+            Maze Generation
+          </button>
+        </div>
 
-</section>
+        <div class="debug-folder-body">
+
+          <!-- Debug File 1 -->
+          <article
+            class="debug-file is-active"
+            data-debug-file="1"
+          >
+            <p class="debug-file-label">
+              Debug File 01
+            </p>
+
+            <h3>
+              Controlling State Flow Across the Game Loop
+            </h3>
+
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  As the game expanded beyond the main maze, bugs appeared
+                  during transitions between the menu, instructions,
+                  gameplay, mini-games, reward screens, and end states. A
+                  feature could work independently but behave incorrectly
+                  when reconnected to the full loop.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  Each screen and mini-game required its own input handling,
+                  update logic, drawing logic, temporary variables, and reset
+                  conditions. If one state did not clean up fully before the
+                  next began, old timers, results, or flags could affect the
+                  next round.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  I refined the state flow so each mode had clearer entry,
+                  update, exit, and reset behaviour. I tested individual
+                  transitions first and then completed full playthroughs to
+                  confirm that mini-games returned correctly and that rewards,
+                  timers, and end conditions did not carry over.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Debug File 2 -->
+          <article
+            class="debug-file"
+            data-debug-file="2"
+          >
+            <p class="debug-file-label">
+              Debug File 02
+            </p>
+
+            <h3>
+              Tuning Fox Pathfinding and Adaptive Behaviour
+            </h3>
+
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  The fox needed to feel intelligent without becoming
+                  unfair. During testing, it could stall near gameplay zones,
+                  choose awkward routes, become too passive, or apply too
+                  much pressure when the player approached the portal.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  Fox behaviour depended on the live maze grid, BFS route
+                  calculation, wall cells, player position, objective areas,
+                  portal state, and aggression level. Because the maze
+                  changed every round, the AI could not depend on fixed
+                  routes.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  I tested the fox across different generated layouts and
+                  adjusted how it selected targets, followed valid paths, and
+                  reacted to the match state. I also tuned its aggression so
+                  it could become more threatening without removing the
+                  player’s ability to make strategic choices.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Debug File 3 -->
+          <article
+            class="debug-file"
+            data-debug-file="3"
+          >
+            <p class="debug-file-label">
+              Debug File 03
+            </p>
+
+            <h3>
+              Validating Procedural Mazes and Route Variety
+            </h3>
+
+            <div class="debug-report-grid">
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Symptom
+                </p>
+
+                <p>
+                  The maze could not simply generate random-looking walls.
+                  It needed to produce playable and varied layouts where the
+                  player and fox were not always forced through one
+                  predictable route.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Diagnosis
+                </p>
+
+                <p>
+                  Randomized depth-first search produced a connected base
+                  maze but could still create layouts that felt too linear.
+                  Portal placement and alternate paths also needed to remain
+                  reachable after each new maze was generated.
+                </p>
+              </div>
+
+              <div class="debug-report-row">
+                <p class="debug-report-label">
+                  Adjustment
+                </p>
+
+                <p>
+                  I tested repeated generations and refined the logic to add
+                  alternate loop openings, clear space around the portal,
+                  select distant reachable portal cells, and use a fallback
+                  reachable location when an ideal candidate could not be
+                  found.
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Reflection -->
+    <section
+      class="project-section reflection-section"
+      id="reflection"
+      aria-labelledby="reflection-heading"
+    >
+      <div class="section-heading center">
+        <p class="section-kicker">
+          Final Takeaway
+        </p>
+
+        <h2 id="reflection-heading">
+          Final Reflection.
+        </h2>
+      </div>
+
+      <div class="reflection-layout">
+
+        <article class="reflection-main">
+          <h3>
+            What This Project Taught Me
+          </h3>
+
+          <p>
+            The Shifting Grove helped me move from smaller programming
+            exercises to a larger software project with many connected
+            systems. I had to think beyond individual features and consider
+            how maze generation, player movement, fox AI, mini-games,
+            rewards, UI screens, and state transitions worked together
+            inside one game loop.
+          </p>
+
+          <p>
+            This strengthened my understanding of object-oriented
+            programming, modular architecture, procedural generation, BFS
+            pathfinding, collision systems, and state management in a
+            practical setting.
+          </p>
+
+          <p>
+            The project also taught me how important patience and systematic
+            debugging are in software development. Many issues did not come
+            from one obvious error but from the way several systems
+            interacted. I learned to isolate problems, test one feature at
+            a time, trace how data moved between states, and retest the
+            complete game after a local fix.
+          </p>
+
+          <p>
+            Turning software concepts into a playable game made the learning
+            process more engaging while still requiring technical discipline.
+            It helped me become more confident managing a larger codebase,
+            making architectural decisions, using Git for version control,
+            and continuing to polish a project after its main features were
+            functional.
+          </p>
+
+          <div class="repository-callout">
+            <h3>
+              Project Repository
+            </h3>
+
+            <p>
+              The repository includes the organized Python source files,
+              game systems, setup instructions, project documentation, and
+              assets required to run The Shifting Grove.
+            </p>
+
+            <a
+              href="https://github.com/AnshiaMY/The-Shifting-Grove"
+              class="hero-btn secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub Repository
+            </a>
+          </div>
+        </article>
+
+        <aside class="reflection-notebook">
+          <div class="reflection-notebook-header">
+            <p class="reflection-notebook-label">
+              Future Improvements
+            </p>
+
+            <h3>
+              Next Iteration Notes
+            </h3>
+          </div>
+
+          <ul class="reflection-checklist">
+            <li>
+              Expand the fox AI so it can switch more strategically between
+              chasing the player, guarding the portal, blocking routes, and
+              pursuing mini-game opportunities.
+            </li>
+
+            <li>
+              Refine procedural difficulty scaling and route-generation
+              rules so each maze feels random but intentionally balanced.
+            </li>
+
+            <li>
+              Reduce repeated logic and further separate shared systems to
+              make future levels and mechanics easier to add.
+            </li>
+
+            <li>
+              Continue playtesting fox aggression, mini-game timers, rewards,
+              and end conditions across single-player and multiplayer modes.
+            </li>
+
+            <li>
+              Explore a browser-compatible build so the game could eventually
+              be played directly from the portfolio.
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
 
     <!-- Contact CTA -->
-    <section class="project-contact-cta">
+    <section
+      class="project-contact-cta"
+      aria-labelledby="contact-cta-heading"
+    >
+      <p class="section-kicker">
+        Like This Project?
+      </p>
 
-      <p class="section-kicker">Like this project?</p>
-
-      <h2>Let’s connect.</h2>
+      <h2 id="contact-cta-heading">
+        Let’s Connect.
+      </h2>
 
       <p>
-        Thanks for visiting this project. Whether you have a question, 
-        an opportunity, or just want to start a conversation, 
-        I’d be happy to hear from you.
+        Thanks for visiting this project. Whether you have a question,
+        an opportunity, or want to start a conversation, I’d be happy
+        to hear from you.
       </p>
 
       <div class="project-cta-buttons">
-        <a href="../index.html#projects" class="hero-btn secondary">Back to Projects</a>
-        <a href="../index.html#contact" class="hero-btn primary">Contact Me</a>
-      </div>
+        <a
+          href="../index.html#projects"
+          class="hero-btn secondary"
+        >
+          Back to Projects
+        </a>
 
+        <a
+          href="../index.html#contact"
+          class="hero-btn primary"
+        >
+          Contact Me
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Project Page Effects -->
-  <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const scrollProgress = document.querySelector(".scroll-progress");
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-      if (scrollProgress) {
-        scrollProgress.style.width = scrollPercent + "%";
-      }
-    });
-
-    // Reveal elements on scroll
-    const revealElements = document.querySelectorAll(
-      ".case-section-heading, .section-heading, .build-stage-interface, .demo-feature-row, .debug-folder, .reflection-layout, .project-contact-cta"
-    );
-
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
-
-    revealElements.forEach(element => {
-      element.classList.add("reveal-hidden");
-      revealObserver.observe(element);
-    });
-
-    // Dark/light mode toggle
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
-
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-
-      if (themeIcon) {
-        themeIcon.classList.remove("bi-moon-stars");
-        themeIcon.classList.add("bi-sun");
-      }
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-
-        if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDark);
-          themeIcon.classList.toggle("bi-sun", isDark);
-        }
-      });
-    }
-  </script>
-
-  <!-- Main JavaScript -->
+  <!-- Shared Portfolio JavaScript -->
   <script src="../js/scripts.js"></script>
 
 </body>
