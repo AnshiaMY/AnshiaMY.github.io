@@ -3,52 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta 
-    name="description" 
-    content="Engineering portfolio of Anshia Muhammad Yaqoob, a Mechatronics Engineering student interested in robotics, embedded systems, automation, and hands-on technical design." 
-  />
-  <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>Anshia Yaqoob | Mechatronics Engineering Portfolio</title>
+  <meta
+    name="description"
+    content="Engineering portfolio of Anshia Muhammad Yaqoob, a Mechatronics Engineering student building software, robotics, embedded systems, and automation projects."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link rel="canonical" href="https://anshiamy.github.io/" />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anshiamy.github.io/" />
+
+  <meta
+    property="og:title"
+    content="Anshia Muhammad Yaqoob | Mechatronics Engineering Portfolio"
+  />
+
+  <meta
+    property="og:description"
+    content="Explore robotics, embedded systems, automation, and software projects by Mechatronics Engineering student Anshia Muhammad Yaqoob."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/autonomouslinefollowingrobot.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Autonomous line-following robot on a test track"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta
+    name="twitter:title"
+    content="Anshia Muhammad Yaqoob | Mechatronics Engineering Portfolio"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Robotics, embedded systems, automation, and software projects by a Mechatronics Engineering student."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://anshiamy.github.io/assets/autonomouslinefollowingrobot.png"
+  />
+
+  <title>
+    Anshia Muhammad Yaqoob | Mechatronics Engineering Portfolio
+  </title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" 
-    rel="stylesheet" 
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
   />
 
   <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
   />
-  <link 
-    href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700" 
-    rel="stylesheet" 
-    type="text/css" 
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700"
+    rel="stylesheet"
+    type="text/css"
   />
 
   <!-- Main Theme CSS -->
-  <link href="css/styles.css" rel="stylesheet" />
+  <link
+    href="css/styles.css"
+    rel="stylesheet"
+  />
 
   <!-- Custom Portfolio CSS -->
-  <link href="css/custom.css" rel="stylesheet" />
+  <link
+    href="css/custom.css"
+    rel="stylesheet"
+  />
 </head>
 
 <body id="page-top">
 
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The portfolio remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
   <!-- Scroll Progress Bar -->
-  <div class="home-scroll-progress"></div>
+  <div
+    class="home-scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Homepage Header -->
   <header class="home-header">
 
     <!-- Navigation -->
-    <nav class="home-navbar">
-      <a class="home-logo" href="#page-top">AnshiaMY</a>
+    <nav
+      class="home-navbar"
+      aria-label="Primary navigation"
+    >
+      <a
+        class="home-logo"
+        href="#page-top"
+        aria-label="AnshiaMY portfolio home"
+      >
+        AnshiaMY
+      </a>
 
       <div class="home-nav-tabs">
         <a href="#about">About</a>
@@ -56,8 +165,17 @@
         <a href="#experience">Co-ops</a>
         <a href="#contact">Contact</a>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-stars"></i>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
@@ -66,27 +184,55 @@
     <section class="home-hero">
 
       <div class="home-hero-content home-reveal">
-        <p class="home-kicker">Mechatronics Engineering Portfolio</p>
+        <p class="home-kicker">
+          Mechatronics Engineering Portfolio
+        </p>
 
         <h1>Anshia Muhammad Yaqoob</h1>
 
         <p class="home-hero-description">
-          Mechatronics Engineering student building systems where software, electronics, 
-          and mechanical design come together — from sensor-driven robots to hands-on 
-          automation projects.
+          Mechatronics Engineering student designing and building
+          real-world robotic and embedded systems through programming,
+          electronics, and mechanical design. Seeking 2026 co-op
+          opportunities in software, robotics, embedded systems,
+          and automation.
         </p>
 
-        <div class="home-hero-tags">
-          <span>Robotics & Automation</span>
+        <div
+          class="home-hero-tags"
+          aria-label="Primary technical areas"
+        >
+          <span>Robotics</span>
           <span>Embedded Systems</span>
-          <span>Prototyping</span>
-          <span>CAD & Mechanical Design</span>
+          <span>Automation</span>
+          <span>C++/Python Foundations</span>
         </div>
 
         <div class="home-hero-actions">
-          <a class="home-btn primary" href="#projects">View Projects</a>
-          <a class="home-btn secondary" href="assets/Resume___AnshiaMuhammadYaqoob.pdf" target="_blank" rel="noopener">Resume</a>
-          <a class="home-btn secondary" href="https://github.com/AnshiaMY" target="_blank" rel="noopener">GitHub</a>
+          <a
+            class="home-btn primary"
+            href="#projects"
+          >
+            View Projects
+          </a>
+
+          <a
+            class="home-btn secondary"
+            href="assets/Resume___AnshiaMuhammadYaqoob.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+
+          <a
+            class="home-btn secondary"
+            href="https://github.com/AnshiaMY"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
         </div>
       </div>
 
@@ -94,47 +240,57 @@
       <div class="hero-visual home-reveal">
         <div class="hero-illustration-frame">
 
-          <img 
-            src="assets/hero-overlay-engineering.png" 
-            alt="" 
-            class="hero-overlay hero-overlay-engineering" 
+          <img
+            src="assets/hero-overlay-engineering.png"
+            alt=""
+            class="hero-overlay hero-overlay-engineering"
+            decoding="async"
           />
 
-          <img 
-            src="assets/hero-overlay-personal.png" 
-            alt="" 
-            class="hero-overlay hero-overlay-personal" 
+          <img
+            src="assets/hero-overlay-personal.png"
+            alt=""
+            class="hero-overlay hero-overlay-personal"
+            decoding="async"
           />
 
-          <img 
-            src="assets/hero-character.png" 
-            alt="Faceless illustrated hijabi engineering student holding a tablet" 
-            class="hero-character" 
+          <img
+            src="assets/hero-character.png"
+            alt="Faceless illustrated hijabi engineering student holding a tablet"
+            class="hero-character"
+            decoding="async"
+            fetchpriority="high"
           />
 
         </div>
       </div>
 
     </section>
-
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- About Section -->
-    <section class="home-section about-section" id="about">
-
+    <section
+      class="home-section about-section"
+      id="about"
+      aria-labelledby="about-heading"
+    >
       <div class="home-section-heading center home-reveal">
-        <p class="section-kicker">About Me</p>
+        <p class="section-kicker">
+          About Me
+        </p>
 
-        <h2>Every project starts with a question.</h2>
+        <h2 id="about-heading">
+          Every project starts with a question.
+        </h2>
 
         <p>
-          For me, engineering has never been just about building. 
-          It has been about understanding how systems work, why 
-          they behave the way they do, and how separate pieces 
-          can come together to solve a real problem. Whether I’m 
-          designing, programming, troubleshooting, or testing, I 
+          For me, engineering has never been just about building.
+          It has been about understanding how systems work, why
+          they behave the way they do, and how separate pieces
+          can come together to solve a real problem. Whether I’m
+          designing, programming, troubleshooting, or testing, I
           enjoy the process of turning curiosity into something practical.
         </p>
       </div>
@@ -142,51 +298,73 @@
       <div class="about-layout">
 
         <div class="about-photo-card home-reveal">
-          <img src="assets/anshia.jpg" alt="Photo of Anshia Muhammad Yaqoob" />
+          <img
+            src="assets/anshia.jpg"
+            alt="Anshia Muhammad Yaqoob"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div class="about-content home-reveal">
           <p>
-            This portfolio is the story of that journey. 
-            It reflects the questions that sparked my projects, 
-            the challenges that shaped them, and the lessons I 
-            gained from building them. As I continue studying Mechatronics 
-            Engineering, I’m building a foundation across software, 
-            electronics, and mechanical systems while growing towards 
-            robotics, automation, and a future career as an AI and machine 
-            learning engineer. This portfolio serves as a record of that growth 
-            - one project, one lesson, and one question at a time.
+            This portfolio is the story of that journey.
+            It reflects the questions that sparked my projects,
+            the challenges that shaped them, and the lessons I
+            gained from building them. As I continue studying
+            Mechatronics Engineering, I’m building a foundation
+            across software, electronics, and mechanical systems
+            while growing towards robotics, automation, and a future
+            career as an AI and machine learning engineer. This
+            portfolio serves as a record of that growth — one project,
+            one lesson, and one question at a time.
           </p>
 
           <div class="about-highlight-grid">
 
             <article>
-              <i class="bi bi-tools"></i>
+              <i
+                class="bi bi-tools"
+                aria-hidden="true"
+              ></i>
+
               <h3>Curious Learner</h3>
+
               <p>
-                I ask questions, explore unfamiliar tools, 
-                and use each project as a way to build 
+                I ask questions, explore unfamiliar tools,
+                and use each project as a way to build
                 stronger technical understanding.
               </p>
             </article>
 
             <article>
-              <i class="bi bi-lightbulb"></i>
+              <i
+                class="bi bi-lightbulb"
+                aria-hidden="true"
+              ></i>
+
               <h3>Problem Solver</h3>
+
               <p>
-                I enjoy working through uncertainty, 
-                testing different approaches, and 
-                improving solutions when things do not work the first time.
+                I enjoy working through uncertainty,
+                testing different approaches, and
+                improving solutions when things do not
+                work the first time.
               </p>
             </article>
 
             <article>
-              <i class="bi bi-journal-code"></i>
+              <i
+                class="bi bi-journal-code"
+                aria-hidden="true"
+              ></i>
+
               <h3>Collaborative Communicator</h3>
+
               <p>
-                I value clear communication, 
-                thoughtful questions, and learning 
-                from others while working toward a 
+                I value clear communication,
+                thoughtful questions, and learning
+                from others while working toward a
                 shared technical goal.
               </p>
             </article>
@@ -198,241 +376,366 @@
     </section>
 
     <!-- Featured Projects Section -->
-<section class="home-section projects-section featured-work-section" id="projects">
-
-  <div class="home-section-heading center home-reveal">
-    <p class="section-kicker">Featured Work</p>
-
-    <h2>Ideas To Iteration.</h2>
-
-    <p>
-      Each project is presented as a case study, 
-      following the process from initial idea to 
-      final build and highlighting the decisions, 
-      challenges, and improvements along the way.
-    </p>
-  </div>
-
-  <!-- Main Featured Project -->
-  <article class="featured-project-showcase home-reveal">
-
-    <div class="featured-project-media">
-      <img 
-        class="featured-project-image project-preview-img" 
-        src="assets/autonomouslinefollowingrobot.png" 
-        alt="Autonomous line-following robot on a test track"
-      />
-    </div>
-
-    <div class="featured-project-content">
-      <p class="project-type">Robotics • Embedded Systems</p>
-
-      <h3>Autonomous Line-Following Robot</h3>
-
-      <p>
-        A Raspberry Pi–based mobile robot that uses sensor feedback and PID
-        control for line tracking, with additional testing for turning response
-        and boundary detection.
-      </p>
-
-      <div class="project-mini-tags">
-        <span>Raspberry Pi</span>
-        <span>Python</span>
-        <span>PID Control</span>
-        <span>Sensors</span>
-      </div>
-
-      <a class="home-btn primary" href="projects/line-following-robot.html">
-        View Case Study <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-
-  </article>
-
-  <!-- Other Projects -->
-    <div class="other-projects-header home-reveal">
-      <h3>Other Projects</h3>
-      <p>More hands-on builds, software projects, and technical explorations.</p>
-    </div>
-    
-    <div class="project-carousel home-reveal" aria-label="Other projects carousel">
-      <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Previous project">
-        <i class="bi bi-chevron-left"></i>
-      </button>
-    
-      <div class="project-carousel-window">
-        <div class="project-carousel-track">
-    
-          <article class="other-project-card carousel-card">
-            <div class="other-project-image">
-              <img 
-                class="project-preview-img" 
-                src="assets/clawmachine.png" 
-                alt="VEX toy-sorting claw machine robot"
-              />
-            </div>
-    
-            <div class="other-project-content">
-              <p class="project-type">Robotics • Mechanical Design</p>
-    
-              <h3>VEX Toy-Sorting Claw Machine</h3>
-    
-              <p>
-                A VEX-based sorting robot that combines touch input, colour detection,
-                distance sensing, and a motorized claw-lift mechanism.
-              </p>
-    
-              <div class="project-mini-tags">
-                <span>VEX Robotics</span>
-                <span>C++</span>
-                <span>Control Logic</span>
-              </div>
-    
-              <a class="project-text-link" href="projects/claw-sorting-machine.html">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </article>
-    
-          <article class="other-project-card carousel-card">
-            <div class="other-project-image">
-              <img 
-                class="project-preview-img" 
-                src="assets/theshiftinggrove.png" 
-                alt="The Shifting Grove Python game preview"
-              />
-            </div>
-    
-            <div class="other-project-content">
-              <p class="project-type">Software • Game Development</p>
-    
-              <h3>The Shifting Grove</h3>
-    
-              <p>
-                A Python/Pygame fantasy maze game built with procedural generation, 
-                AI-driven fox behaviour, interactive mini-games, reward-based 
-                progression, and custom UI transitions.
-              </p>
-    
-              <div class="project-mini-tags">
-                <span>Python</span>
-                <span>State Machine</span>
-                <span>Pathfinding AI</span>
-              </div>
-    
-              <a class="project-text-link" href="projects/the-shifting-grove.html">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </article>
-    
-          <article class="other-project-card carousel-card">
-            <div class="other-project-image">
-              <img 
-                class="project-preview-img" 
-                src="assets/car-dashboard-preview.png" 
-                alt="Custom Raspberry Pi Pico car dashboard prototype"
-              />
-            </div>
-    
-            <div class="other-project-content">
-              <p class="project-type">Embedded Systems • PCB Fabrication</p>
-    
-              <h3>Embedded Car Dashboard</h3>
-    
-              <p>
-                A Raspberry Pi Pico-based dashboard with Python-controlled LEDs,
-                button inputs, a potentiometer-controlled OLED fuel display, and a 
-                temperature-sensitive warning indicator.
-              </p>
-    
-              <div class="project-mini-tags">
-                <span>Raspberry Pi Pico</span>
-                <span>Python</span>
-                <span>PCB Fabrication</span>
-              </div>
-    
-              <a class="project-text-link" href="projects/car-dashboard.html">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- PCB Fabrication Mini Build -->
-          <article class="other-project-card carousel-card">
-            <div class="other-project-image">
-              <img 
-                class="project-preview-img" 
-                src="assets/pcb-fabrication-preview.png" 
-                alt="Two small fabricated PCB boards"
-              />
-            </div>
-          
-            <div class="other-project-content">
-              <p class="project-type">Hardware • PCB Fabrication</p>
-          
-              <h3>Copper Trace PCB Build</h3>
-          
-              <p>
-                A focused hardware build where I designed and fabricated two small copper-board PCBs 
-                from start to finish, including trace layout, etching, soldering, 
-                continuity checks, and LED circuit testing.
-              </p>
-          
-              <div class="project-mini-tags">
-                <span>PCB Traces</span>
-                <span>Etching</span>
-                <span>Soldering</span>
-              </div>
-          
-              <a class="project-text-link" href="projects/pcb-fabrication-mini-build.html">
-                View Mini Build <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </article>
-    
-        </div>
-      </div>
-    
-      <button class="carousel-btn carousel-btn-next" type="button" aria-label="Next project">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-     </div>
-
-  </section>
-  
-    <!-- Co-op Experience Section -->
-    <section class="home-section experience-section" id="experience">
-
+    <section
+      class="home-section projects-section featured-work-section"
+      id="projects"
+      aria-labelledby="projects-heading"
+    >
       <div class="home-section-heading center home-reveal">
-        <p class="section-kicker">Experience</p>
+        <p class="section-kicker">
+          Featured Work
+        </p>
 
-        <h2>Learning Beyond The Lab.</h2>
+        <h2 id="projects-heading">
+          Ideas To Iteration.
+        </h2>
 
         <p>
-          A look at the technical work environments, 
-          co-op placements, 
-          and professional experiences 
-          that are shaping how I learn, communicate, 
+          Each project is presented as a case study, following
+          the process from initial idea to final build and
+          highlighting the decisions, challenges, and improvements
+          along the way.
+        </p>
+      </div>
+
+      <!-- Main Featured Project -->
+      <article class="featured-project-showcase home-reveal">
+
+        <div class="featured-project-media">
+          <img
+            class="featured-project-image project-preview-img"
+            src="assets/autonomouslinefollowingrobot.png"
+            alt="Autonomous line-following robot on a test track"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="featured-project-content">
+          <p class="project-type">
+            Robotics • Embedded Systems
+          </p>
+
+          <h3>
+            Autonomous Line-Following Robot
+          </h3>
+
+          <p>
+            A Raspberry Pi–based mobile robot that uses sensor
+            feedback and PID control for line tracking, with
+            additional testing for turning response and
+            boundary detection.
+          </p>
+
+          <div class="project-mini-tags">
+            <span>Raspberry Pi</span>
+            <span>Python</span>
+            <span>PID Control</span>
+            <span>Sensors</span>
+          </div>
+
+          <a
+            class="home-btn primary"
+            href="projects/line-following-robot.html"
+          >
+            View Case Study
+            <i
+              class="bi bi-arrow-right"
+              aria-hidden="true"
+            ></i>
+          </a>
+        </div>
+
+      </article>
+
+      <!-- Other Projects Heading -->
+      <div class="other-projects-header home-reveal">
+        <h3>Other Projects</h3>
+
+        <p>
+          More hands-on builds, software projects,
+          and technical explorations.
+        </p>
+      </div>
+
+      <!-- Project Carousel -->
+      <div
+        class="project-carousel home-reveal"
+        role="region"
+        aria-label="Other projects carousel"
+      >
+        <button
+          class="carousel-btn carousel-btn-prev"
+          type="button"
+          aria-label="Previous project"
+        >
+          <i
+            class="bi bi-chevron-left"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+        <div class="project-carousel-window">
+          <div class="project-carousel-track">
+
+            <!-- Claw Sorting Machine -->
+            <article class="other-project-card carousel-card">
+
+              <div class="other-project-image">
+                <img
+                  class="project-preview-img"
+                  src="assets/clawmachine.png"
+                  alt="VEX toy-sorting claw machine robot"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="other-project-content">
+                <p class="project-type">
+                  Robotics • Mechanical Design
+                </p>
+
+                <h3>
+                  VEX Toy-Sorting Claw Machine
+                </h3>
+
+                <p>
+                  A VEX-based sorting robot that combines
+                  touch input, colour detection, distance
+                  sensing, and a motorized claw-lift mechanism.
+                </p>
+
+                <div class="project-mini-tags">
+                  <span>VEX Robotics</span>
+                  <span>C++</span>
+                  <span>Control Logic</span>
+                </div>
+
+                <a
+                  class="project-text-link"
+                  href="projects/claw-sorting-machine.html"
+                >
+                  View Case Study
+                  <i
+                    class="bi bi-arrow-right"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+
+            </article>
+
+            <!-- The Shifting Grove -->
+            <article class="other-project-card carousel-card">
+
+              <div class="other-project-image">
+                <img
+                  class="project-preview-img"
+                  src="assets/theshiftinggrove.png"
+                  alt="The Shifting Grove Python game preview"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="other-project-content">
+                <p class="project-type">
+                  Software • Game Development
+                </p>
+
+                <h3>
+                  The Shifting Grove
+                </h3>
+
+                <p>
+                  A Python/Pygame fantasy maze game built with
+                  procedural generation, AI-driven fox behaviour,
+                  interactive mini-games, reward-based progression,
+                  and custom UI transitions.
+                </p>
+
+                <div class="project-mini-tags">
+                  <span>Python</span>
+                  <span>State Machine</span>
+                  <span>Pathfinding AI</span>
+                </div>
+
+                <a
+                  class="project-text-link"
+                  href="projects/the-shifting-grove.html"
+                >
+                  View Case Study
+                  <i
+                    class="bi bi-arrow-right"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+
+            </article>
+
+            <!-- Embedded Car Dashboard -->
+            <article class="other-project-card carousel-card">
+
+              <div class="other-project-image">
+                <img
+                  class="project-preview-img"
+                  src="assets/car-dashboard-preview.png"
+                  alt="Custom Raspberry Pi Pico car dashboard prototype"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="other-project-content">
+                <p class="project-type">
+                  Embedded Systems • PCB Fabrication
+                </p>
+
+                <h3>
+                  Embedded Car Dashboard
+                </h3>
+
+                <p>
+                  A Raspberry Pi Pico-based dashboard with
+                  Python-controlled LEDs, button inputs, a
+                  potentiometer-controlled OLED fuel display,
+                  and a temperature-sensitive warning indicator.
+                </p>
+
+                <div class="project-mini-tags">
+                  <span>Raspberry Pi Pico</span>
+                  <span>Python</span>
+                  <span>PCB Fabrication</span>
+                </div>
+
+                <a
+                  class="project-text-link"
+                  href="projects/car-dashboard.html"
+                >
+                  View Case Study
+                  <i
+                    class="bi bi-arrow-right"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+
+            </article>
+
+            <!-- PCB Fabrication Mini Build -->
+            <article class="other-project-card carousel-card">
+
+              <div class="other-project-image">
+                <img
+                  class="project-preview-img"
+                  src="assets/pcb-fabrication-preview.png"
+                  alt="Two small fabricated PCB boards"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="other-project-content">
+                <p class="project-type">
+                  Hardware • PCB Fabrication
+                </p>
+
+                <h3>
+                  Copper Trace PCB Build
+                </h3>
+
+                <p>
+                  A focused hardware build where I fabricated
+                  two small copper-board PCBs from start to finish,
+                  including trace transfer, etching, drilling,
+                  soldering, continuity checks, and powered LED testing.
+                </p>
+
+                <div class="project-mini-tags">
+                  <span>PCB Traces</span>
+                  <span>Etching</span>
+                  <span>Soldering</span>
+                </div>
+
+                <a
+                  class="project-text-link"
+                  href="projects/pcb-fabrication-mini-build.html"
+                >
+                  View Mini Build
+                  <i
+                    class="bi bi-arrow-right"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+
+            </article>
+
+          </div>
+        </div>
+
+        <button
+          class="carousel-btn carousel-btn-next"
+          type="button"
+          aria-label="Next project"
+        >
+          <i
+            class="bi bi-chevron-right"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Co-op Experience Section -->
+    <section
+      class="home-section experience-section"
+      id="experience"
+      aria-labelledby="experience-heading"
+    >
+      <div class="home-section-heading center home-reveal">
+        <p class="section-kicker">
+          Experience
+        </p>
+
+        <h2 id="experience-heading">
+          Learning Beyond The Lab.
+        </h2>
+
+        <p>
+          A look at the technical work environments,
+          co-op placements, and professional experiences
+          that are shaping how I learn, communicate,
           and grow as an engineer.
         </p>
       </div>
 
       <div class="experience-timeline home-reveal">
-        <div class="timeline-dot"></div>
+        <div
+          class="timeline-dot"
+          aria-hidden="true"
+        ></div>
 
         <article class="experience-card">
-          <p class="experience-date">May 2026 – August 2026</p>
+          <p class="experience-date">
+            May 2026 – August 2026
+          </p>
 
-          <h3>Technical Specialist Co-op</h3>
+          <h3>
+            Technical Specialist Co-op
+          </h3>
 
           <p class="experience-company">
-            Phoenix Contact • Automation & Power Reliability
+            Phoenix Contact • Automation &amp; Power Reliability
           </p>
 
           <p>
-            Supporting hands-on automation and technical projects involving demo kits,
-            lab equipment, showroom systems, electrical documentation, testing, and debugging.
+            Supporting automation-focused technical work involving
+            programmable logic controllers, human-machine interfaces,
+            remote I/O, industrial networking equipment, demonstration
+            systems, electrical documentation, testing, and troubleshooting.
           </p>
 
           <div class="project-mini-tags">
@@ -444,119 +747,239 @@
           </div>
         </article>
       </div>
-
     </section>
 
     <!-- Contact Section -->
-    <section class="home-contact-section" id="contact">
-
+    <section
+      class="home-contact-section"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
       <div class="home-contact-content home-reveal">
-        <p class="section-kicker">Contact Me</p>
+        <p class="section-kicker">
+          Contact Me
+        </p>
 
-        <h2>Let’s Connect.</h2>
+        <h2 id="contact-heading">
+          Let’s Connect.
+        </h2>
 
         <p>
-          Thanks for visiting my portfolio. Whether you have a question, an opportunity, 
-          or just want to start a conversation, I’d be happy to hear from you.
+          Thanks for visiting my portfolio. Whether you have
+          a question, an opportunity, or just want to start
+          a conversation, I’d be happy to hear from you.
         </p>
 
         <div class="contact-link-grid">
 
           <a href="mailto:anshiayaqoob@gmail.com">
-            <i class="bi bi-envelope"></i>
+            <i
+              class="bi bi-envelope"
+              aria-hidden="true"
+            ></i>
+
             <span>Email</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/anshiamy" target="_blank" rel="noopener">
-            <i class="bi bi-linkedin"></i>
+          <a
+            href="https://www.linkedin.com/in/anshiamy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              class="bi bi-linkedin"
+              aria-hidden="true"
+            ></i>
+
             <span>LinkedIn</span>
           </a>
 
-          <a href="https://github.com/AnshiaMY" target="_blank" rel="noopener">
-            <i class="bi bi-github"></i>
+          <a
+            href="https://github.com/AnshiaMY"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              class="bi bi-github"
+              aria-hidden="true"
+            ></i>
+
             <span>GitHub</span>
           </a>
 
         </div>
       </div>
-
     </section>
 
   </main>
 
   <!-- Footer -->
   <footer class="home-footer">
-    <p>© 2026 Anshia Muhammad Yaqoob. Built with GitHub Pages.</p>
+    <p>
+      © 2026 Anshia Muhammad Yaqoob. Built with GitHub Pages.
+    </p>
   </footer>
 
-  <!-- Bootstrap Core JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Main JS -->
+  <!-- Main JavaScript -->
   <script src="js/scripts.js"></script>
 
-  <!-- Homepage Effects -->
+  <!--
+    Homepage effects remain here temporarily.
+    They will be moved into scripts.js when that shared file is cleaned.
+  -->
   <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", () => {
-      const progressBar = document.querySelector(".home-scroll-progress");
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    (() => {
+      const progressBar = document.querySelector(
+        ".home-scroll-progress"
+      );
 
-      progressBar.style.width = scrollPercent + "%";
-    });
+      const themeToggle = document.querySelector(
+        "#theme-toggle"
+      );
 
-    // Reveal elements on scroll
-    const homeRevealElements = document.querySelectorAll(".home-reveal");
+      const themeIcon = themeToggle?.querySelector("i");
 
-    const homeRevealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("home-reveal-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      function updateScrollProgress() {
+        if (!progressBar) {
+          return;
+        }
+
+        const scrollableHeight =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const scrollPercent =
+          scrollableHeight > 0
+            ? Math.min(
+                (window.scrollY / scrollableHeight) * 100,
+                100
+              )
+            : 0;
+
+        progressBar.style.width = `${scrollPercent}%`;
       }
-    );
 
-    homeRevealElements.forEach(element => {
-      element.classList.add("home-reveal-hidden");
-      homeRevealObserver.observe(element);
-    });
+      function updateThemeControl() {
+        if (!themeToggle) {
+          return;
+        }
 
-    // Dark/light mode toggle
-    const themeToggle = document.querySelector("#theme-toggle");
-    const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
+        const isDark =
+          document.body.classList.contains("dark-mode");
 
-    const savedTheme = localStorage.getItem("portfolio-theme");
+        themeToggle.setAttribute(
+          "aria-pressed",
+          String(isDark)
+        );
 
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-
-      if (themeIcon) {
-        themeIcon.classList.remove("bi-moon-stars");
-        themeIcon.classList.add("bi-sun");
-      }
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark
+            ? "Enable light mode"
+            : "Enable dark mode"
+        );
 
         if (themeIcon) {
-          themeIcon.classList.toggle("bi-moon-stars", !isDark);
-          themeIcon.classList.toggle("bi-sun", isDark);
+          themeIcon.classList.toggle(
+            "bi-moon-stars",
+            !isDark
+          );
+
+          themeIcon.classList.toggle(
+            "bi-sun",
+            isDark
+          );
         }
-      });
-    }
+      }
+
+      updateScrollProgress();
+
+      window.addEventListener(
+        "scroll",
+        updateScrollProgress,
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "resize",
+        updateScrollProgress
+      );
+
+      const revealElements =
+        document.querySelectorAll(".home-reveal");
+
+      if (
+        prefersReducedMotion ||
+        !("IntersectionObserver" in window)
+      ) {
+        revealElements.forEach((element) => {
+          element.classList.add(
+            "home-reveal-visible"
+          );
+        });
+      } else {
+        const revealObserver =
+          new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                  return;
+                }
+
+                entry.target.classList.add(
+                  "home-reveal-visible"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+              });
+            },
+            {
+              threshold: 0.15
+            }
+          );
+
+        revealElements.forEach((element) => {
+          element.classList.add(
+            "home-reveal-hidden"
+          );
+
+          revealObserver.observe(element);
+        });
+      }
+
+      updateThemeControl();
+
+      themeToggle?.addEventListener(
+        "click",
+        () => {
+          document.body.classList.toggle(
+            "dark-mode"
+          );
+
+          const isDark =
+            document.body.classList.contains(
+              "dark-mode"
+            );
+
+          try {
+            localStorage.setItem(
+              "portfolio-theme",
+              isDark ? "dark" : "light"
+            );
+          } catch (error) {
+            // Theme switching still works for this page session.
+          }
+
+          updateThemeControl();
+        }
+      );
+    })();
   </script>
 
 </body>
