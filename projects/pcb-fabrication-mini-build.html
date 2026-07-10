@@ -2,41 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="PCB Fabrication Mini Build by Anshia Muhammad Yaqoob" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="PCB Fabrication Mini Build by Anshia Muhammad Yaqoob, featuring copper-board trace layout, etching, drilling, soldering, continuity testing, and LED circuit verification."
+  />
   <meta name="author" content="Anshia Muhammad Yaqoob" />
 
   <title>PCB Fabrication Mini Build | Anshia Muhammad Yaqoob</title>
 
-  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- Main Theme CSS -->
   <link href="../css/styles.css" rel="stylesheet" />
+
+  <!-- Custom Portfolio CSS -->
   <link href="../css/custom.css" rel="stylesheet" />
+
+  <!-- PCB Page-Specific Styling -->
+  <style>
+    .pcb-demo-row {
+      display: grid;
+      grid-template-columns: minmax(380px, 1.05fr) minmax(300px, 0.95fr);
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .pcb-demo-row.reverse {
+      grid-template-columns: minmax(300px, 0.95fr) minmax(380px, 1.05fr);
+    }
+
+    .pcb-demo-row .pcb-video-frame {
+      width: 100%;
+      max-width: 680px;
+      justify-self: center;
+    }
+
+    .pcb-demo-row .pcb-video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 460px;
+      object-fit: contain;
+      background: #111;
+    }
+
+    @media (max-width: 900px) {
+      .pcb-demo-row,
+      .pcb-demo-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pcb-demo-row.reverse .pcb-video-frame {
+        order: 1;
+      }
+
+      .pcb-demo-row.reverse .demo-feature-text {
+        order: 2;
+      }
+
+      .pcb-demo-row .pcb-video-frame {
+        max-width: 720px;
+      }
+
+      .pcb-demo-row .demo-feature-text {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
-<body class="project-page">
+<body id="page-top">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
 
-  <section class="project-page-header">
+  <!-- Project Header -->
+  <header class="project-page-header">
+    <!-- Navigation -->
     <nav class="project-navbar">
-      <a href="../index.html" class="project-back-link">
-        <i class="bi bi-arrow-left"></i> Back to Home
+      <a href="../index.html" class="project-logo">
+        ← Back to Home
       </a>
 
-      <div class="project-nav-links">
+      <div class="project-nav-tabs">
         <a href="../index.html#projects">Projects</a>
         <a href="../index.html#contact">Contact</a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          <i class="bi bi-moon-stars"></i>
+        </button>
       </div>
     </nav>
 
-    <div class="project-hero-content">
-      <p class="project-eyebrow">Hardware • PCB Fabrication • Mini Build</p>
+    <!-- Hero Content -->
+    <section class="project-hero-content">
+      <p class="project-kicker">
+        Hardware • PCB Fabrication • Mini Build
+      </p>
 
       <h1>PCB Fabrication Mini Build</h1>
 
-      <p>
-        A focused hardware mini build where I designed and fabricated two small copper-board PCBs
-        from start to finish, including trace layout, etching, drilling, soldering,
-        continuity checks, and LED circuit testing.
+      <p class="project-hero-description">
+        A focused hardware mini build where I fabricated two small
+        copper-board PCBs from start to finish through trace layout,
+        etching, drilling, soldering, continuity checks, and LED
+        circuit testing.
       </p>
 
       <div class="project-tech-stack">
@@ -48,138 +145,192 @@
       </div>
 
       <div class="project-hero-actions">
-        <a href="#demos" class="hero-btn primary">View Videos</a>
-        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
+        <a href="#demos" class="hero-btn primary">
+          View Videos
+        </a>
+
+        <a href="#reflection" class="hero-btn secondary">
+          Final Reflection
+        </a>
       </div>
-    </div>
-  </section>
+    </section>
+  </header>
 
   <main>
-
-    <!-- Project Overview -->
-    <section class="case-section" id="overview">
+    <!-- Project Overview and Build Process -->
+    <section
+      class="case-section build-stages-section"
+      id="build"
+    >
       <div class="case-section-heading center">
         <p class="section-kicker">Project Overview</p>
 
-        <h2>From Copper Traces To Working LEDs.</h2>
+        <h2>From Copper Traces to Working LEDs.</h2>
 
         <p>
-          This mini build focused on creating two small functional printed circuit boards from start to finish.
-          I planned the electrical paths, fabricated the copper traces, soldered the components, and tested the
-          circuits until the LEDs powered correctly.
+          This mini build focused on creating two functional printed
+          circuit boards by turning planned electrical connections into
+          physical copper paths. I transferred the layouts onto copper
+          board, fabricated the traces, assembled the components, and
+          tested the circuits until the LEDs powered correctly.
         </p>
 
         <p>
-          Although this was a smaller project, it gave me hands-on experience with the full PCB fabrication
-          workflow and helped me better understand how circuit layout decisions become physical electrical paths.
-        </p>
-      </div>
-    </section>
-
-    <!-- Build Process -->
-    <section class="case-section build-stages-section" id="build">
-      <div class="case-section-heading center">
-        <p class="section-kicker">Build Process</p>
-
-        <h2>A Small Build With A Full Fabrication Workflow.</h2>
-
-        <p>
-          The boards were small, but the process still required layout planning, copper-board fabrication,
-          component assembly, and circuit verification.
+          Although the boards were small, the project gave me hands-on
+          experience with the complete fabrication workflow and showed
+          me how closely layout, manufacturing accuracy, soldering
+          quality, and circuit testing depend on one another.
         </p>
       </div>
 
       <div class="build-stage-interface">
-
-        <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
-          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
+        <div
+          class="build-stage-tabs"
+          role="tablist"
+          aria-label="PCB fabrication stages"
+        >
+          <button
+            class="build-stage-tab is-active"
+            type="button"
+            data-stage="1"
+            aria-selected="true"
+          >
             <span class="stage-tab-number">01</span>
             <span class="stage-tab-title">Trace Layout</span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="2"
+            aria-selected="false"
+          >
             <span class="stage-tab-number">02</span>
-            <span class="stage-tab-title">Fabrication</span>
+            <span class="stage-tab-title">
+              Board Fabrication
+            </span>
           </button>
 
-          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
+          <button
+            class="build-stage-tab"
+            type="button"
+            data-stage="3"
+            aria-selected="false"
+          >
             <span class="stage-tab-number">03</span>
-            <span class="stage-tab-title">Circuit Testing</span>
+            <span class="stage-tab-title">
+              Circuit Testing
+            </span>
           </button>
         </div>
 
         <div class="build-stage-panel-wrap">
-
-          <article class="build-stage-panel is-active" data-stage-panel="1">
-            <p class="notebook-label">Development Stage 01</p>
+          <!-- Stage 1 -->
+          <article
+            class="build-stage-panel is-active"
+            data-stage-panel="1"
+          >
+            <p class="notebook-label">
+              Development Stage 01
+            </p>
 
             <h3>Trace Layout</h3>
 
             <p>
-              I started by planning the electrical paths for the two small PCB circuits. The goal was to route
-              the copper traces so current could flow between the components cleanly without relying on a breadboard.
+              I began by planning the electrical paths for the two LED
+              circuits. The copper traces needed to connect each
+              component clearly and continuously without relying on a
+              breadboard.
             </p>
 
             <p>
-              This stage helped me understand how component placement, trace direction, and connection points affect
-              whether a circuit can be fabricated and tested successfully.
+              This stage helped me understand how component placement,
+              trace direction, spacing, and connection points affect
+              whether a design can be fabricated and assembled
+              successfully.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="2">
-            <p class="notebook-label">Development Stage 02</p>
+          <!-- Stage 2 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="2"
+          >
+            <p class="notebook-label">
+              Development Stage 02
+            </p>
 
             <h3>Board Fabrication</h3>
 
             <p>
-              After the layout was prepared, I transferred the design onto copper board, etched away the unused copper,
-              drilled the connection points, and cleaned the boards for assembly.
+              After preparing the layouts, I transferred the designs
+              onto copper board, etched away the unused copper, drilled
+              the component holes, and cleaned the boards before
+              assembly.
             </p>
 
             <p>
-              This step made the process feel much more real because the circuit was no longer just a drawing.
-              The copper traces became the actual electrical paths that the components would depend on.
+              This transformed the circuit from a planned layout into a
+              physical board whose remaining copper traces formed the
+              actual electrical paths between components.
             </p>
           </article>
 
-          <article class="build-stage-panel" data-stage-panel="3">
-            <p class="notebook-label">Development Stage 03</p>
+          <!-- Stage 3 -->
+          <article
+            class="build-stage-panel"
+            data-stage-panel="3"
+          >
+            <p class="notebook-label">
+              Development Stage 03
+            </p>
 
             <h3>Circuit Testing</h3>
 
             <p>
-              Once the boards were fabricated, I soldered the components, checked the connections, and powered the
-              circuits to confirm that the LEDs lit up correctly.
+              Once the boards were fabricated, I soldered the
+              components, checked the connections, and powered the
+              circuits to confirm that the LEDs lit correctly.
             </p>
 
             <p>
-              Testing showed how small hardware details can affect the final result. A weak solder joint, unclear
-              trace, misaligned drilled hole, or broken connection could stop the circuit from working, so I had
-              to verify the signal path carefully.
+              Testing showed how a weak solder joint, damaged trace,
+              misaligned hole, or incomplete connection could prevent
+              the circuit from working. I therefore checked the
+              electrical path carefully rather than assuming the board
+              would work after assembly.
             </p>
           </article>
-
         </div>
       </div>
     </section>
 
     <!-- Demo Videos -->
-    <section class="case-section demo-showcase" id="demos">
+    <section
+      class="case-section demo-showcase"
+      id="demos"
+    >
       <div class="case-section-heading center">
         <p class="section-kicker">Demo Videos</p>
 
-        <h2>Testing The Fabricated Boards.</h2>
+        <h2>Testing the Fabricated Boards.</h2>
 
         <p>
-          These short videos show the finished PCB mini build and the LED circuit tests used to confirm that the
-          fabricated electrical paths worked correctly.
+          These videos show the completed boards and the LED tests used
+          to verify that the fabricated traces, solder joints, and
+          component connections formed working circuits.
         </p>
       </div>
 
-      <article class="demo-feature-row">
-        <div class="demo-video-frame">
-          <video controls muted playsinline>
-            <source src="../assets/pcb-fabrication-demo-1.mp4" type="video/mp4" />
+      <!-- Demo 1 -->
+      <article class="demo-feature-row pcb-demo-row">
+        <div class="demo-video-frame pcb-video-frame">
+          <video controls preload="metadata" playsinline>
+            <source
+              src="../assets/pcb-fabrication-demo-1.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
@@ -190,22 +341,30 @@
           <h3>Fabricated PCB Close-Up</h3>
 
           <p>
-            This video shows the physical board after fabrication, including the copper traces, drilled holes,
-            soldered components, and layout of the completed circuit.
+            This video shows the physical board after fabrication,
+            including the copper traces, drilled holes, soldered
+            components, and overall layout of the completed circuit.
           </p>
 
           <ul>
             <li>Handmade copper-etched PCB</li>
             <li>Visible trace layout and soldered joints</li>
-            <li>Completed board prepared for circuit testing</li>
+            <li>
+              Completed board prepared for circuit testing
+            </li>
           </ul>
         </div>
       </article>
 
-      <article class="demo-feature-row reverse">
-        <div class="demo-video-frame">
-          <video controls muted playsinline>
-            <source src="../assets/pcb-fabrication-demo-2.mp4" type="video/mp4" />
+      <!-- Demo 2 -->
+      <article class="demo-feature-row pcb-demo-row reverse">
+        <div class="demo-video-frame pcb-video-frame">
+          <video controls preload="metadata" playsinline>
+            <source
+              src="../assets/pcb-fabrication-demo-2.mp4"
+              type="video/mp4"
+            />
+
             Your browser does not support the video tag.
           </video>
         </div>
@@ -216,24 +375,34 @@
           <h3>LED Circuit Test</h3>
 
           <p>
-            This video shows the circuit being tested after soldering. The LEDs lighting up confirmed that the
-            traces, solder joints, and component connections were working as intended.
+            This video shows the circuit being powered after soldering.
+            The LEDs lighting up confirmed that the traces, solder
+            joints, and component connections were functioning as
+            intended.
           </p>
 
           <ul>
-            <li>LED output used to verify circuit behaviour</li>
-            <li>Connection testing after soldering</li>
-            <li>Hands-on debugging of small hardware details</li>
+            <li>
+              LED output used to verify circuit behaviour
+            </li>
+            <li>
+              Connection testing completed after soldering
+            </li>
+            <li>
+              Hands-on debugging of small hardware details
+            </li>
           </ul>
         </div>
       </article>
     </section>
 
-    <!-- Reflection -->
-    <section class="case-section reflection-section" id="reflection">
-      <div class="case-section-heading center">
+    <!-- Final Reflection -->
+    <section
+      class="project-section reflection-section"
+      id="reflection"
+    >
+      <div class="section-heading center">
         <p class="section-kicker">Final Takeaway</p>
-
         <h2>Final Reflection.</h2>
       </div>
 
@@ -242,55 +411,189 @@
           <h3>What this mini build taught me.</h3>
 
           <p>
-            This mini build helped me understand how a circuit design becomes a physical electrical path.
-            Seeing the LEDs light up made the connection between trace layout, etching, soldering,
-            and circuit behaviour much more concrete.
+            This mini build helped me understand how a circuit design
+            becomes a physical electrical path. Seeing the LEDs
+            illuminate made the relationship between trace layout,
+            etching, drilling, soldering, and circuit behaviour much
+            more concrete.
           </p>
 
           <p>
-            The biggest lesson was that small hardware details matter. Even on a small PCB, the circuit only works
-            if the design, fabrication, soldering, and testing all line up. This made me more careful about checking
-            each connection instead of assuming the board would work once it was assembled.
+            The most important lesson was that small hardware details
+            matter. Even a simple PCB only works when the design,
+            fabrication, component placement, soldering, and testing
+            all align. The process made me more methodical about
+            checking each connection instead of assuming the board
+            would work as soon as it was assembled.
           </p>
         </article>
 
         <aside class="reflection-notebook">
           <div class="reflection-notebook-header">
-            <p class="reflection-notebook-label">Mini Build Skills</p>
+            <p class="reflection-notebook-label">
+              Mini Build Skills
+            </p>
+
             <h3>Hardware Practice</h3>
           </div>
 
           <ul class="reflection-checklist">
-            <li>Designed copper trace paths for small LED circuits.</li>
-            <li>Practiced transfer, etching, drilling, and soldering.</li>
-            <li>Checked connections before and after powering the circuit.</li>
-            <li>Used LED output to verify the fabricated boards worked.</li>
+            <li>
+              Planned copper trace paths for small LED circuits.
+            </li>
+
+            <li>
+              Practiced transfer, etching, drilling, and soldering.
+            </li>
+
+            <li>
+              Checked connections before and after powering each board.
+            </li>
+
+            <li>
+              Used LED output to verify that the fabricated circuits
+              worked.
+            </li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="case-section project-cta-section">
-      <div class="project-cta-card">
-        <p class="section-kicker">Like this project?</p>
+    <!-- Contact CTA -->
+    <section class="project-contact-cta">
+      <p class="section-kicker">Like this project?</p>
 
-        <h2>Let’s connect.</h2>
+      <h2>Let’s connect.</h2>
 
-        <p>
-          Thanks for visiting this mini build. Whether you have a question, an opportunity,
-          or just want to start a conversation, I’d be happy to hear from you.
-        </p>
+      <p>
+        Thanks for visiting this mini build. Whether you have a
+        question, an opportunity, or just want to start a conversation,
+        I’d be happy to hear from you.
+      </p>
 
-        <div class="project-hero-actions">
-          <a href="../index.html#projects" class="hero-btn primary">Back to Projects</a>
-          <a href="../index.html#contact" class="hero-btn secondary">Contact Me</a>
-        </div>
+      <div class="project-cta-buttons">
+        <a
+          href="../index.html#projects"
+          class="hero-btn secondary"
+        >
+          Back to Projects
+        </a>
+
+        <a
+          href="../index.html#contact"
+          class="hero-btn primary"
+        >
+          Contact Me
+        </a>
       </div>
     </section>
-
   </main>
 
+  <!-- Project Page Effects -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener("scroll", () => {
+      const scrollProgress =
+        document.querySelector(".scroll-progress");
+
+      const scrollTop = window.scrollY;
+
+      const documentHeight =
+        document.body.scrollHeight - window.innerHeight;
+
+      const scrollPercent =
+        documentHeight > 0
+          ? (scrollTop / documentHeight) * 100
+          : 0;
+
+      if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + "%";
+      }
+    });
+
+    // Reveal elements on scroll
+    const revealElements = document.querySelectorAll(
+      ".case-section-heading, " +
+      ".section-heading, " +
+      ".build-stage-interface, " +
+      ".demo-feature-row, " +
+      ".reflection-layout, " +
+      ".project-contact-cta"
+    );
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+      revealElements.forEach(element => {
+        element.classList.add("reveal-hidden");
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("reveal-visible");
+      });
+    }
+
+    // Dark/light mode toggle
+    const themeToggle =
+      document.querySelector("#theme-toggle");
+
+    const themeIcon = themeToggle
+      ? themeToggle.querySelector("i")
+      : null;
+
+    const savedTheme =
+      localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+
+      if (themeIcon) {
+        themeIcon.classList.remove("bi-moon-stars");
+        themeIcon.classList.add("bi-sun");
+      }
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark =
+          document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+          "portfolio-theme",
+          isDark ? "dark" : "light"
+        );
+
+        if (themeIcon) {
+          themeIcon.classList.toggle(
+            "bi-moon-stars",
+            !isDark
+          );
+
+          themeIcon.classList.toggle(
+            "bi-sun",
+            isDark
+          );
+        }
+      });
+    }
+  </script>
+
+  <!-- Main JavaScript -->
   <script src="../js/scripts.js"></script>
 </body>
 </html>
