@@ -828,10 +828,11 @@
 }
 
   whenReady(() => {
-  initThemeToggle();
-  initScrollProgress();
-  initRevealAnimations();
-  initTabs();
-  initProjectCarousel();
-  initBackToTop();
-});
+    initThemeToggle();
+    initScrollProgress();
+    initRevealAnimations();
+    initTabs();
+    initProjectCarousel();
+    initBackToTop();
+  });
+})();
