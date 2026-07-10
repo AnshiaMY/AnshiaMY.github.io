@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="The requested page could not be found on Anshia Muhammad Yaqoob's engineering portfolio."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <title>
+    Page Not Found | Anshia Muhammad Yaqoob
+  </title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,900"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- Main Theme CSS -->
+  <link
+    href="/css/styles.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom Portfolio CSS -->
+  <link
+    href="/css/custom.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body id="page-top">
+
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
+  <!-- Scroll Progress Bar -->
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
+
+  <div class="project-page-header">
+
+    <!-- Navigation -->
+    <nav
+      class="project-navbar"
+      aria-label="Error page navigation"
+    >
+      <a
+        href="/"
+        class="project-logo"
+        aria-label="Return to the portfolio homepage"
+      >
+        AnshiaMY
+      </a>
+
+      <div class="project-nav-tabs">
+        <a href="/#projects">
+          Projects
+        </a>
+
+        <a href="/#contact">
+          Contact
+        </a>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
+        >
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
+    </nav>
+
+    <main id="main-content">
+
+      <!-- Error Message -->
+      <section
+        class="project-hero-content"
+        aria-labelledby="error-heading"
+      >
+        <p class="project-kicker">
+          404 • Page Not Found
+        </p>
+
+        <h1 id="error-heading">
+          This Page Wandered Off the Path.
+        </h1>
+
+        <p class="project-hero-description">
+          The page you were looking for may have been moved, renamed,
+          or removed. You can return to the homepage or continue
+          exploring my engineering and software projects.
+        </p>
+
+        <div
+          class="project-tech-stack"
+          aria-label="Portfolio technical areas"
+        >
+          <span>Robotics</span>
+          <span>Embedded Systems</span>
+          <span>Automation</span>
+          <span>Software</span>
+        </div>
+
+        <div class="project-hero-actions">
+          <a
+            href="/"
+            class="hero-btn primary"
+          >
+            Return Home
+          </a>
+
+          <a
+            href="/#projects"
+            class="hero-btn secondary"
+          >
+            View Projects
+          </a>
+
+          <a
+            href="/#contact"
+            class="hero-btn secondary"
+          >
+            Contact Me
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="home-footer">
+    <p>
+      © 2026 Anshia Muhammad Yaqoob. Built with GitHub Pages.
+    </p>
+  </footer>
+
+  <!-- Shared Portfolio JavaScript -->
+  <script src="/js/scripts.js"></script>
+
+</body>
+</html>
