@@ -13,6 +13,7 @@
   --portfolio-muted: #6c757d;
   --portfolio-border: #efd6e4;
   --portfolio-card: #ffffff;
+  --portfolio-focus-ring: #a61e63;
 }
 
 html {
@@ -22,6 +23,43 @@ html {
 body {
   background: var(--portfolio-light);
   color: var(--portfolio-dark);
+}
+
+/* =========================================================
+   SHARED ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--portfolio-focus-ring);
+  outline-offset: 4px;
+}
+
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:focus-visible {
+  position: fixed !important;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10000;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.8rem 1rem !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  color: #ffffff;
+  background: var(--portfolio-dark);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 800;
+  box-shadow: 0 14px 35px rgba(31, 41, 51, 0.22);
+}
+
+.build-stage-panel[hidden],
+.debug-file[hidden] {
+  display: none !important;
 }
 
 /* =========================================================
@@ -1278,6 +1316,7 @@ body.dark-mode {
   --portfolio-border: rgba(255, 255, 255, 0.13);
   --portfolio-card: #181820;
   --portfolio-blush: #1b1118;
+  --portfolio-focus-ring: #ffb3d8;
 
   background: var(--portfolio-light);
   color: var(--portfolio-dark);
@@ -1610,6 +1649,10 @@ body.dark-mode .hero-character {
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .home-reveal-hidden,
   .home-reveal-visible,
   .reveal-hidden,
@@ -1637,6 +1680,10 @@ body.dark-mode .hero-character {
 
   .hero-overlay-personal {
     opacity: 0;
+  }
+
+  .project-carousel-track {
+    transition: none;
   }
 }
 /* =========================================================
@@ -2241,7 +2288,7 @@ body.dark-mode #improvements .debug-report-row p:last-child {
 }
 
 #reflection .reflection-checklist li::before {
-  content: "✓";
+  content: "âœ“";
   position: absolute;
   left: 0;
   top: 0.1rem;
@@ -2499,10 +2546,6 @@ body.dark-mode #reflection .reflection-notebook {
   box-shadow: 0 30px 70px rgba(214, 51, 132, 0.14);
 }
 
-.other-project-image {
-  height: 185px;
-}
-
 .other-project-image i {
   width: 3.8rem;
   height: 3.8rem;
@@ -2702,6 +2745,18 @@ body.dark-mode .featured-project-highlights div {
 .carousel-btn:hover {
   transform: translateY(-50%) translateY(-3px);
   box-shadow: 0 20px 45px rgba(214, 51, 132, 0.22);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: translateY(-50%);
+  box-shadow: none;
+}
+
+.carousel-btn:disabled:hover {
+  transform: translateY(-50%);
+  box-shadow: none;
 }
 
 /* Dots */
@@ -3528,6 +3583,7 @@ body.pcb-mini-build-page.dark-mode
     padding: 1.6rem;
     border-radius: 1.5rem;
   }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .pcb-mini-build-page .reveal-hidden,
