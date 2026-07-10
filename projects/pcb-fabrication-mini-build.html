@@ -10,24 +10,69 @@
 
   <meta
     name="description"
-    content="PCB Fabrication Mini Build by Anshia Muhammad Yaqoob, featuring copper-board fabrication, etching, drilling, soldering, and LED circuit testing."
+    content="PCB Fabrication Mini Build by Anshia Muhammad Yaqoob, featuring copper-board trace transfer, chemical etching, drilling, through-hole soldering, continuity testing, and powered LED verification."
+  />
+
+  <meta name="author" content="Anshia Muhammad Yaqoob" />
+  <meta name="theme-color" content="#fff0f7" />
+
+  <link
+    rel="canonical"
+    href="https://anshiamy.github.io/projects/pcb-fabrication-mini-build.html"
+  />
+
+  <!-- Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:url"
+    content="https://anshiamy.github.io/projects/pcb-fabrication-mini-build.html"
   />
 
   <meta
-    name="author"
-    content="Anshia Muhammad Yaqoob"
+    property="og:title"
+    content="PCB Fabrication Mini Build | Anshia Muhammad Yaqoob"
   />
 
-  <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/favicon.png"
-    />
-  
+  <meta
+    property="og:description"
+    content="A hands-on PCB fabrication mini build involving copper-board trace transfer, etching, drilling, soldering, continuity testing, and powered LED verification."
+  />
+
+  <meta
+    property="og:image"
+    content="https://anshiamy.github.io/assets/pcb-fabrication-preview.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Two completed copper-board printed circuit boards"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
   <title>
     PCB Fabrication Mini Build | Anshia Muhammad Yaqoob
   </title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/favicon.png"
+  />
+
+  <!-- External Resource Connections -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <!-- Bootstrap Icons -->
   <link
@@ -64,13 +109,48 @@
   id="page-top"
   class="pcb-mini-build-page"
 >
+
+  <!-- Apply Saved Theme Before Visible Content Loads -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable if browser storage is unavailable.
+      }
+    })();
+  </script>
+
+  <!-- Keyboard Skip Link -->
+  <a
+    class="visually-hidden-focusable"
+    href="#main-content"
+  >
+    Skip to main content
+  </a>
+
   <!-- Scroll Progress Bar -->
-  <div class="scroll-progress"></div>
+  <div
+    class="scroll-progress"
+    aria-hidden="true"
+  ></div>
 
   <!-- Mini-Build Hero -->
   <header class="project-page-header mini-build-header">
+
     <!-- Navigation -->
-    <nav class="project-navbar">
+    <nav
+      class="project-navbar"
+      aria-label="Project navigation"
+    >
       <a
         href="../index.html"
         class="project-logo"
@@ -91,33 +171,46 @@
           class="theme-toggle"
           id="theme-toggle"
           type="button"
-          aria-label="Toggle dark mode"
+          aria-label="Enable dark mode"
+          aria-pressed="false"
         >
-          <i class="bi bi-moon-stars"></i>
+          <i
+            class="bi bi-moon-stars"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>
 
     <!-- Hero Content -->
-    <section class="project-hero-content mini-build-hero">
+    <section
+      class="project-hero-content mini-build-hero"
+      aria-labelledby="project-title"
+    >
       <p class="project-kicker">
         Hardware • PCB Fabrication • Mini Build
       </p>
 
-      <h1>PCB Fabrication</h1>
+      <h1 id="project-title">
+        PCB Fabrication
+      </h1>
 
       <p class="project-hero-description">
-        A hands-on hardware mini build in which I fabricated and validated 
-        two copper-clad printed circuit boards using trace transfer, chemical 
-        etching, drilling, through-hole soldering, continuity testing, and 
-        powered LED verification.
+        A hands-on hardware mini build in which I fabricated and
+        validated two copper-clad printed circuit boards using trace
+        transfer, chemical etching, drilling, through-hole soldering,
+        continuity testing, and powered LED verification.
       </p>
 
-      <div class="project-tech-stack">
-        <span>Copper Board</span>
-        <span>Etching</span>
+      <div
+        class="project-tech-stack"
+        aria-label="Fabrication methods and technical skills"
+      >
+        <span>Copper-Clad Board</span>
+        <span>Trace Transfer</span>
+        <span>Chemical Etching</span>
         <span>Drilling</span>
-        <span>Soldering</span>
+        <span>Through-Hole Soldering</span>
         <span>Circuit Testing</span>
       </div>
 
@@ -137,36 +230,45 @@
         </a>
       </div>
     </section>
+
   </header>
 
-  <main>
+  <main id="main-content">
+
     <!-- What I Built -->
     <section
       class="case-section mini-build-section"
       id="build"
+      aria-labelledby="build-heading"
     >
       <div class="case-section-heading center">
         <p class="section-kicker">
           What I Built
         </p>
 
-        <h2>
+        <h2 id="build-heading">
           A Complete Fabrication Process, Kept Small.
         </h2>
 
         <p>
-          I fabricated two copper-clad printed circuit boards by translating circuit 
-          layouts into permanent conductive traces. The process included trace preparation, 
-          chemical etching, drilling, component installation, through-hole soldering, continuity 
-          checks, and powered functional testing to verify correct LED operation.
+          I fabricated two copper-clad printed circuit boards by
+          transferring circuit layouts into permanent conductive traces.
+          The process included trace preparation, chemical etching,
+          drilling, component installation, through-hole soldering,
+          continuity checks, and powered functional testing to verify
+          correct LED operation.
         </p>
       </div>
 
       <div class="info-card-grid mini-build-steps">
+
         <!-- Step 1 -->
         <article class="info-card mini-build-step">
           <div class="mini-step-top">
-            <span class="mini-step-icon">
+            <span
+              class="mini-step-icon"
+              aria-hidden="true"
+            >
               <i class="bi bi-diagram-3"></i>
             </span>
 
@@ -175,19 +277,24 @@
             </span>
           </div>
 
-          <h3>Plan</h3>
+          <h3>
+            Prepare
+          </h3>
 
           <p>
-            Prepared the circuit layouts, mapped the required electrical connections, 
-            and arranged the copper traces to support accurate component placement and 
-            reliable current flow.
+            Prepared the supplied circuit layouts for transfer and
+            reviewed the required electrical connections and component
+            positions before beginning fabrication.
           </p>
         </article>
 
         <!-- Step 2 -->
         <article class="info-card mini-build-step">
           <div class="mini-step-top">
-            <span class="mini-step-icon">
+            <span
+              class="mini-step-icon"
+              aria-hidden="true"
+            >
               <i class="bi bi-tools"></i>
             </span>
 
@@ -196,19 +303,25 @@
             </span>
           </div>
 
-          <h3>Fabricate</h3>
+          <h3>
+            Fabricate
+          </h3>
 
           <p>
-            Transferred the layouts onto copper-clad board, chemically removed the excess copper, 
-            drilled the component holes, installed the components, and completed the assemblies using 
-            through-hole soldering.
+            Transferred the layouts onto copper-clad board, chemically
+            removed the excess copper, drilled the component holes,
+            installed the components, and completed the assemblies
+            using through-hole soldering.
           </p>
         </article>
 
         <!-- Step 3 -->
         <article class="info-card mini-build-step">
           <div class="mini-step-top">
-            <span class="mini-step-icon">
+            <span
+              class="mini-step-icon"
+              aria-hidden="true"
+            >
               <i class="bi bi-lightning-charge"></i>
             </span>
 
@@ -217,14 +330,17 @@
             </span>
           </div>
 
-          <h3>Test</h3>
+          <h3>
+            Test
+          </h3>
 
           <p>
-            Inspected the traces and solder joints, performed continuity checks to 
-            identify incomplete or unintended connections, and powered each board to 
-            confirm correct LED functionality.
+            Inspected the traces and solder joints, performed continuity
+            checks to identify incomplete or unintended connections, and
+            powered each board to confirm correct LED functionality.
           </p>
         </article>
+
       </div>
     </section>
 
@@ -232,17 +348,20 @@
     <section
       class="demo-showcase mini-build-demos"
       id="demos"
+      aria-labelledby="demos-heading"
     >
       <div class="case-section-heading center">
         <p class="section-kicker">
           Build Videos
         </p>
 
-        <h2>From Copper Board to Working Circuit.</h2>
+        <h2 id="demos-heading">
+          From Copper Board to Working Circuit.
+        </h2>
 
         <p>
-          These videos document the completed copper-clad PCBs and the 
-          powered validation tests used to confirm trace continuity, 
+          These videos document the completed copper-clad PCBs and
+          the powered validation tests used to confirm trace continuity,
           solder-joint integrity, and correct LED operation.
         </p>
       </div>
@@ -255,9 +374,10 @@
             muted
             playsinline
             preload="metadata"
+            aria-label="Close-up demonstration of the completed copper-board PCB"
           >
             <source
-              src="../assets/pcb-fabrication-demo-1.MP4"
+              src="../assets/pcb-fabrication-demo-1.mp4"
               type="video/mp4"
             />
 
@@ -274,15 +394,21 @@
             Fabrication Result
           </p>
 
-          <h3>Completed Copper-Board PCB</h3>
+          <h3>
+            Completed Copper-Board PCB
+          </h3>
 
           <p>
-            A close-up of the finished board showing the etched copper traces, 
-            drilled through-holes, installed components, and completed solder 
-            joints that form the circuit’s electrical connections.
+            A close-up of the finished board showing the etched copper
+            traces, drilled through-holes, installed components, and
+            completed solder joints that form the circuit’s electrical
+            connections.
           </p>
 
-          <div class="mini-demo-tags">
+          <div
+            class="mini-demo-tags"
+            aria-label="Fabrication result details"
+          >
             <span>Copper Traces</span>
             <span>Drilled Board</span>
             <span>Soldered Components</span>
@@ -301,15 +427,20 @@
             Functional Test
           </p>
 
-          <h3>Powered LED Verification</h3>
+          <h3>
+            Powered LED Verification
+          </h3>
 
           <p>
-            Applying power to each board verified that the etched traces, 
-            solder joints, and component connections formed complete electrical 
-            paths and produced the intended LED response.
+            Applying power to each board verified that the etched traces,
+            solder joints, and component connections formed complete
+            electrical paths and produced the intended LED response.
           </p>
 
-          <div class="mini-demo-tags">
+          <div
+            class="mini-demo-tags"
+            aria-label="Functional testing details"
+          >
             <span>Continuity Check</span>
             <span>LED Output</span>
             <span>Circuit Verification</span>
@@ -322,9 +453,10 @@
             muted
             playsinline
             preload="metadata"
+            aria-label="Powered LED verification of the completed PCB"
           >
             <source
-              src="../assets/pcb-fabrication-demo-2.MP4"
+              src="../assets/pcb-fabrication-demo-2.mp4"
               type="video/mp4"
             />
 
@@ -338,6 +470,7 @@
     <section
       class="case-section mini-build-section mini-takeaway-section"
       id="takeaway"
+      aria-labelledby="takeaway-heading"
     >
       <div class="mini-takeaway-card">
         <div class="mini-takeaway-content">
@@ -345,40 +478,72 @@
             Key Takeaway
           </p>
 
-          <h2>Small Details Determine Whether Hardware Works.</h2>
+          <h2 id="takeaway-heading">
+            Small Details Determine Whether Hardware Works.
+          </h2>
 
           <p>
-            This mini build strengthened my understanding of how PCB layout, fabrication quality, 
-            and assembly accuracy influence circuit performance. Issues such as damaged traces, 
-            misaligned holes, weak solder joints, or incomplete electrical connections can prevent a 
-            board from functioning correctly, so I learned to inspect each stage carefully and validate the 
-            finished circuit through continuity checks and powered testing.
+            This mini build strengthened my understanding of how
+            fabrication quality and assembly accuracy influence circuit
+            performance. Damaged traces, misaligned holes, weak solder
+            joints, or incomplete electrical connections can prevent a
+            board from functioning correctly.
+          </p>
+
+          <p>
+            I learned to inspect each stage carefully rather than waiting
+            until the final power test to identify problems. Continuity
+            testing and visual inspection provided evidence that the
+            circuit paths and solder joints were complete before power
+            was applied.
           </p>
         </div>
 
-        <aside class="mini-skill-panel">
-          <p class="mini-skill-label">
-            Skills Practiced
+        <aside
+          class="mini-skill-panel"
+          aria-labelledby="skills-heading"
+        >
+          <p
+            class="mini-skill-label"
+            id="skills-heading"
+          >
+            Skills Practised
           </p>
 
           <ul>
             <li>
-              <i class="bi bi-check2"></i>
+              <i
+                class="bi bi-check2"
+                aria-hidden="true"
+              ></i>
+
               Copper-trace fabrication
             </li>
 
             <li>
-              <i class="bi bi-check2"></i>
+              <i
+                class="bi bi-check2"
+                aria-hidden="true"
+              ></i>
+
               Component placement and board assembly
             </li>
 
             <li>
-              <i class="bi bi-check2"></i>
+              <i
+                class="bi bi-check2"
+                aria-hidden="true"
+              ></i>
+
               Through-hole soldering
             </li>
 
             <li>
-              <i class="bi bi-check2"></i>
+              <i
+                class="bi bi-check2"
+                aria-hidden="true"
+              ></i>
+
               Continuity testing and circuit verification
             </li>
           </ul>
@@ -387,19 +552,24 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="project-contact-cta">
+    <section
+      class="project-contact-cta"
+      aria-labelledby="contact-cta-heading"
+    >
       <p class="section-kicker">
-        Like this project?
+        Like This Project?
       </p>
-    
-      <h2>Let’s connect.</h2>
-    
+
+      <h2 id="contact-cta-heading">
+        Let’s Connect.
+      </h2>
+
       <p>
-        Thanks for visiting this mini build. Whether you have a question,
-        an opportunity, or just want to start a conversation, I’d be happy
-        to hear from you.
+        Thanks for visiting this mini build. Whether you have a
+        question, an opportunity, or want to start a conversation,
+        I’d be happy to hear from you.
       </p>
-    
+
       <div class="project-cta-buttons">
         <a
           href="../index.html#projects"
@@ -407,7 +577,7 @@
         >
           Back to Projects
         </a>
-    
+
         <a
           href="../index.html#contact"
           class="hero-btn primary"
@@ -416,147 +586,11 @@
         </a>
       </div>
     </section>
+
   </main>
 
-  <!-- Mini-Build Page Effects -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      /*
-       * Scroll progress bar
-       */
-      const scrollProgress =
-        document.querySelector(".scroll-progress");
-
-      const updateScrollProgress = () => {
-        if (!scrollProgress) {
-          return;
-        }
-
-        const scrollTop = window.scrollY;
-
-        const documentHeight =
-          document.documentElement.scrollHeight -
-          window.innerHeight;
-
-        const scrollPercent =
-          documentHeight > 0
-            ? (scrollTop / documentHeight) * 100
-            : 0;
-
-        scrollProgress.style.width =
-          `${scrollPercent}%`;
-      };
-
-      window.addEventListener(
-        "scroll",
-        updateScrollProgress,
-        { passive: true }
-      );
-
-      updateScrollProgress();
-
-      /*
-       * Reveal animations
-       */
-      const revealElements =
-        document.querySelectorAll(
-          ".case-section-heading, " +
-          ".mini-build-step, " +
-          ".demo-feature-row, " +
-          ".mini-takeaway-card, " +
-          ".mini-build-cta"
-        );
-
-      if ("IntersectionObserver" in window) {
-        const revealObserver =
-          new IntersectionObserver(
-            entries => {
-              entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                  return;
-                }
-
-                entry.target.classList.add(
-                  "reveal-visible"
-                );
-
-                revealObserver.unobserve(
-                  entry.target
-                );
-              });
-            },
-            {
-              threshold: 0.12
-            }
-          );
-
-        revealElements.forEach(element => {
-          element.classList.add("reveal-hidden");
-          revealObserver.observe(element);
-        });
-      } else {
-        revealElements.forEach(element => {
-          element.classList.add("reveal-visible");
-        });
-      }
-
-      /*
-       * Dark and light mode
-       */
-      const themeToggle =
-        document.querySelector("#theme-toggle");
-
-      const themeIcon =
-        themeToggle?.querySelector("i");
-
-      const savedTheme =
-        localStorage.getItem("portfolio-theme");
-
-      const updateThemeIcon = isDark => {
-        if (!themeIcon) {
-          return;
-        }
-
-        themeIcon.classList.toggle(
-          "bi-moon-stars",
-          !isDark
-        );
-
-        themeIcon.classList.toggle(
-          "bi-sun",
-          isDark
-        );
-      };
-
-      if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        updateThemeIcon(true);
-      }
-
-      themeToggle?.addEventListener(
-        "click",
-        () => {
-          document.body.classList.toggle(
-            "dark-mode"
-          );
-
-          const isDark =
-            document.body.classList.contains(
-              "dark-mode"
-            );
-
-          localStorage.setItem(
-            "portfolio-theme",
-            isDark ? "dark" : "light"
-          );
-
-          updateThemeIcon(isDark);
-        }
-      );
-    });
-  </script>
-
-  <!-- Shared Main JavaScript -->
+  <!-- Shared Portfolio JavaScript -->
   <script src="../js/scripts.js"></script>
+
 </body>
 </html>
