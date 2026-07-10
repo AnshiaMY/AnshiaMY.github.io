@@ -18,9 +18,13 @@
 
   <section class="project-page-header">
     <nav class="project-navbar">
-      <a href="../index.html#projects" class="project-back-link">
-        <i class="bi bi-arrow-left"></i> Back to Projects
-      </a>
+      <a href="../index.html" class="project-brand">AnshiaMY</a>
+
+      <div class="project-nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
     </nav>
 
     <div class="project-hero-content">
@@ -43,8 +47,8 @@
       </div>
 
       <div class="project-hero-actions">
-        <a href="#process" class="hero-btn primary">View Process</a>
-        <a href="#reflection" class="hero-btn secondary">What I Learned</a>
+        <a href="#demos" class="hero-btn primary">View Videos</a>
+        <a href="#reflection" class="hero-btn secondary">Final Reflection</a>
       </div>
     </div>
   </section>
@@ -59,9 +63,9 @@
         <h2>From copper traces to working LEDs.</h2>
 
         <p>
-          This mini build focused on the complete hands-on PCB fabrication workflow. I designed the
-          electrical paths, transferred the layout onto copper board, etched the traces, drilled the
-          connection points, soldered the components, and tested the circuit until the LEDs powered correctly.
+          This mini build focused on creating two small functional printed circuit boards from start to finish.
+          I planned the electrical paths, fabricated the copper traces, soldered the components, and tested the
+          circuits until the LEDs powered correctly.
         </p>
       </div>
     </section>
@@ -74,8 +78,8 @@
         <h2>A small build with a full fabrication workflow.</h2>
 
         <p>
-          Even though the boards were small, the process still required planning, fabrication,
-          assembly, and testing. Each step helped connect circuit design decisions to physical hardware behaviour.
+          Although the boards were small, the process still followed the core steps of PCB fabrication:
+          layout planning, copper-board production, component assembly, and circuit verification.
         </p>
       </div>
 
@@ -84,7 +88,7 @@
           <span>01</span>
           <h3>Trace Layout</h3>
           <p>
-            Planned the electrical paths so each component connection had a clear route on the copper board.
+            Planned the copper paths so current could flow between the components without relying on a breadboard.
           </p>
         </article>
 
@@ -92,7 +96,7 @@
           <span>02</span>
           <h3>Board Fabrication</h3>
           <p>
-            Transferred, etched, drilled, and cleaned the board to turn the layout into physical copper traces.
+            Transferred the design, etched the copper, drilled the connection points, and prepared the boards for soldering.
           </p>
         </article>
 
@@ -100,38 +104,76 @@
           <span>03</span>
           <h3>Circuit Testing</h3>
           <p>
-            Soldered the components, checked continuity, and verified that the LED circuit lit up correctly.
+            Soldered the components, checked the connections, and verified the circuits by powering the LEDs.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- Build Gallery -->
-    <section class="case-section" id="gallery">
+    <!-- Demo Videos -->
+    <section class="case-section demo-showcase" id="demos">
       <div class="case-section-heading center">
-        <p class="section-kicker">Build Gallery</p>
+        <p class="section-kicker">Demo Videos</p>
 
-        <h2>The finished mini build.</h2>
+        <h2>Testing the fabricated boards.</h2>
 
         <p>
-          The final board shows the copper traces, soldered components, drilled connection points,
-          and LED output that confirmed the circuit was working.
+          These short videos show the finished PCB mini build and the LED circuit tests used to confirm that the
+          fabricated electrical paths worked correctly.
         </p>
       </div>
 
-      <div class="mini-gallery-grid">
-        <a
-          class="mini-gallery-frame image-fullscreen-link"
-          href="../assets/pcb-fabrication-preview.png"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="../assets/pcb-fabrication-preview.png"
-            alt="Copper-etched PCB fabrication mini build with soldered components and glowing LEDs"
-          />
-        </a>
-      </div>
+      <article class="demo-feature-row">
+        <div class="demo-video-frame">
+          <video controls muted playsinline>
+            <source src="../assets/pcb-fabrication-demo-1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">01</span>
+
+          <h3>Fabricated PCB close-up</h3>
+
+          <p>
+            This video shows the physical board after fabrication, including the copper traces, drilled holes,
+            soldered components, and layout of the completed circuit.
+          </p>
+
+          <ul>
+            <li>Handmade copper-etched PCB</li>
+            <li>Visible trace layout and soldered joints</li>
+            <li>Completed board prepared for circuit testing</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="demo-feature-row reverse">
+        <div class="demo-video-frame">
+          <video controls muted playsinline>
+            <source src="../assets/pcb-fabrication-demo-2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="demo-feature-text">
+          <span class="demo-number">02</span>
+
+          <h3>LED circuit test</h3>
+
+          <p>
+            This video shows the circuit being tested after soldering. The LEDs lighting up confirmed that the
+            traces, solder joints, and component connections were working as intended.
+          </p>
+
+          <ul>
+            <li>LED output used to verify circuit behaviour</li>
+            <li>Connection testing after soldering</li>
+            <li>Hands-on debugging of small hardware details</li>
+          </ul>
+        </div>
+      </article>
     </section>
 
     <!-- Reflection -->
@@ -143,9 +185,9 @@
           <h3>What this mini build taught me.</h3>
 
           <p>
-            This build helped me understand how a circuit design becomes a physical electrical path.
-            Seeing the LEDs light up after fabrication made the connection between trace layout,
-            soldering, continuity, and circuit behaviour much more concrete.
+            This mini build helped me understand how a circuit design becomes a physical electrical path.
+            Seeing the LEDs light up made the connection between trace layout, etching, soldering,
+            and circuit behaviour much more concrete.
           </p>
 
           <p>
@@ -162,10 +204,10 @@
           </div>
 
           <ul class="reflection-checklist">
-            <li>Designed simple electrical paths for small PCB circuits.</li>
-            <li>Practiced copper-board transfer, etching, drilling, and cleaning.</li>
-            <li>Soldered components and checked connection reliability.</li>
-            <li>Used continuity checks and LED testing to verify circuit behaviour.</li>
+            <li>Designed copper trace paths for small LED circuits.</li>
+            <li>Practiced transfer, etching, drilling, and soldering.</li>
+            <li>Checked connections before and after powering the circuit.</li>
+            <li>Used LED output to verify the fabricated boards worked.</li>
           </ul>
         </aside>
       </div>
