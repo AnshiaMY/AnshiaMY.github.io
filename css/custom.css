@@ -1645,6 +1645,100 @@ body.dark-mode .hero-character {
 }
 
 /* =========================================================
+   EMBEDDED CAR DASHBOARD MEDIA LAYOUT
+========================================================= */
+
+.dashboard-demo-row {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.15fr) minmax(300px, 0.85fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.dashboard-demo-row.reverse {
+  grid-template-columns: minmax(300px, 0.85fr) minmax(380px, 1fr);
+}
+
+.dashboard-demo-row .horizontal-video {
+  width: 100%;
+  max-width: 760px;
+  justify-self: center;
+}
+
+.dashboard-demo-row .horizontal-video video {
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #111111;
+}
+
+.dashboard-image-frame {
+  width: 100%;
+  max-width: 430px;
+  justify-self: center;
+  overflow: hidden;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 22px 60px rgba(31, 41, 51, 0.14);
+}
+
+.dashboard-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+body.dark-mode .dashboard-image-frame {
+  background: rgba(26, 27, 34, 0.88);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 992px) {
+  .dashboard-demo-row,
+  .dashboard-demo-row.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-demo-row.reverse .dashboard-image-frame {
+    order: 1;
+  }
+
+  .dashboard-demo-row.reverse .demo-feature-text {
+    order: 2;
+  }
+
+  .dashboard-demo-row .horizontal-video {
+    max-width: 720px;
+  }
+
+  .dashboard-demo-row .demo-feature-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-demo-row .horizontal-video,
+  .dashboard-image-frame {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-image-frame {
+    transition: none;
+  }
+
+  .dashboard-image-frame:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
    REDUCED MOTION ACCESSIBILITY
 ========================================================= */
 
