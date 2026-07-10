@@ -3786,3 +3786,30 @@ body.pcb-mini-build-page.dark-mode
     transition: none;
   }
 }
+/* =========================================================
+   LINE-FOLLOWING ROBOT FULLSCREEN VIDEO FIX
+   Preserve the complete recording instead of cropping it.
+========================================================= */
+
+.adaptive-video-frame video:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+}
+
+/* Safari fullscreen support */
+.adaptive-video-frame video:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+}
