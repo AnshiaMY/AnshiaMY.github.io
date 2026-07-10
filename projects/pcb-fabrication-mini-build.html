@@ -6,7 +6,7 @@
   <meta name="description" content="PCB Fabrication Mini Build by Anshia Muhammad Yaqoob" />
   <meta name="author" content="Anshia Muhammad Yaqoob" />
 
-  <title>PCB Fabrication Mini Build | Anshia Yaqoob</title>
+  <title>PCB Fabrication Mini Build | Anshia Muhammad Yaqoob</title>
 
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
@@ -18,17 +18,18 @@
 
   <section class="project-page-header">
     <nav class="project-navbar">
-      <a href="../index.html" class="project-brand">AnshiaMY</a>
+      <a href="../index.html" class="project-back-link">
+        <i class="bi bi-arrow-left"></i> Back to Home
+      </a>
 
       <div class="project-nav-links">
         <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#experience">Experience</a>
         <a href="../index.html#contact">Contact</a>
       </div>
     </nav>
 
     <div class="project-hero-content">
-      <p class="project-eyebrow">Hardware Mini Build</p>
+      <p class="project-eyebrow">Hardware • PCB Fabrication • Mini Build</p>
 
       <h1>PCB Fabrication Mini Build</h1>
 
@@ -55,58 +56,110 @@
 
   <main>
 
-    <!-- Mini Build Overview -->
+    <!-- Project Overview -->
     <section class="case-section" id="overview">
       <div class="case-section-heading center">
-        <p class="section-kicker">Mini Build Overview</p>
+        <p class="section-kicker">Project Overview</p>
 
-        <h2>From copper traces to working LEDs.</h2>
+        <h2>From Copper Traces To Working LEDs.</h2>
 
         <p>
           This mini build focused on creating two small functional printed circuit boards from start to finish.
           I planned the electrical paths, fabricated the copper traces, soldered the components, and tested the
           circuits until the LEDs powered correctly.
         </p>
+
+        <p>
+          Although this was a smaller project, it gave me hands-on experience with the full PCB fabrication
+          workflow and helped me better understand how circuit layout decisions become physical electrical paths.
+        </p>
       </div>
     </section>
 
     <!-- Build Process -->
-    <section class="case-section mini-build-process-section" id="process">
+    <section class="case-section build-stages-section" id="build">
       <div class="case-section-heading center">
         <p class="section-kicker">Build Process</p>
 
-        <h2>A small build with a full fabrication workflow.</h2>
+        <h2>A Small Build With A Full Fabrication Workflow.</h2>
 
         <p>
-          Although the boards were small, the process still followed the core steps of PCB fabrication:
-          layout planning, copper-board production, component assembly, and circuit verification.
+          The boards were small, but the process still required layout planning, copper-board fabrication,
+          component assembly, and circuit verification.
         </p>
       </div>
 
-      <div class="mini-build-grid">
-        <article class="mini-build-card">
-          <span>01</span>
-          <h3>Trace Layout</h3>
-          <p>
-            Planned the copper paths so current could flow between the components without relying on a breadboard.
-          </p>
-        </article>
+      <div class="build-stage-interface">
 
-        <article class="mini-build-card">
-          <span>02</span>
-          <h3>Board Fabrication</h3>
-          <p>
-            Transferred the design, etched the copper, drilled the connection points, and prepared the boards for soldering.
-          </p>
-        </article>
+        <div class="build-stage-tabs" role="tablist" aria-label="Development stages">
+          <button class="build-stage-tab is-active" type="button" data-stage="1" aria-selected="true">
+            <span class="stage-tab-number">01</span>
+            <span class="stage-tab-title">Trace Layout</span>
+          </button>
 
-        <article class="mini-build-card">
-          <span>03</span>
-          <h3>Circuit Testing</h3>
-          <p>
-            Soldered the components, checked the connections, and verified the circuits by powering the LEDs.
-          </p>
-        </article>
+          <button class="build-stage-tab" type="button" data-stage="2" aria-selected="false">
+            <span class="stage-tab-number">02</span>
+            <span class="stage-tab-title">Fabrication</span>
+          </button>
+
+          <button class="build-stage-tab" type="button" data-stage="3" aria-selected="false">
+            <span class="stage-tab-number">03</span>
+            <span class="stage-tab-title">Circuit Testing</span>
+          </button>
+        </div>
+
+        <div class="build-stage-panel-wrap">
+
+          <article class="build-stage-panel is-active" data-stage-panel="1">
+            <p class="notebook-label">Development Stage 01</p>
+
+            <h3>Trace Layout</h3>
+
+            <p>
+              I started by planning the electrical paths for the two small PCB circuits. The goal was to route
+              the copper traces so current could flow between the components cleanly without relying on a breadboard.
+            </p>
+
+            <p>
+              This stage helped me understand how component placement, trace direction, and connection points affect
+              whether a circuit can be fabricated and tested successfully.
+            </p>
+          </article>
+
+          <article class="build-stage-panel" data-stage-panel="2">
+            <p class="notebook-label">Development Stage 02</p>
+
+            <h3>Board Fabrication</h3>
+
+            <p>
+              After the layout was prepared, I transferred the design onto copper board, etched away the unused copper,
+              drilled the connection points, and cleaned the boards for assembly.
+            </p>
+
+            <p>
+              This step made the process feel much more real because the circuit was no longer just a drawing.
+              The copper traces became the actual electrical paths that the components would depend on.
+            </p>
+          </article>
+
+          <article class="build-stage-panel" data-stage-panel="3">
+            <p class="notebook-label">Development Stage 03</p>
+
+            <h3>Circuit Testing</h3>
+
+            <p>
+              Once the boards were fabricated, I soldered the components, checked the connections, and powered the
+              circuits to confirm that the LEDs lit up correctly.
+            </p>
+
+            <p>
+              Testing showed how small hardware details can affect the final result. A weak solder joint, unclear
+              trace, misaligned drilled hole, or broken connection could stop the circuit from working, so I had
+              to verify the signal path carefully.
+            </p>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -115,7 +168,7 @@
       <div class="case-section-heading center">
         <p class="section-kicker">Demo Videos</p>
 
-        <h2>Testing the fabricated boards.</h2>
+        <h2>Testing The Fabricated Boards.</h2>
 
         <p>
           These short videos show the finished PCB mini build and the LED circuit tests used to confirm that the
@@ -134,7 +187,7 @@
         <div class="demo-feature-text">
           <span class="demo-number">01</span>
 
-          <h3>Fabricated PCB close-up</h3>
+          <h3>Fabricated PCB Close-Up</h3>
 
           <p>
             This video shows the physical board after fabrication, including the copper traces, drilled holes,
@@ -160,7 +213,7 @@
         <div class="demo-feature-text">
           <span class="demo-number">02</span>
 
-          <h3>LED circuit test</h3>
+          <h3>LED Circuit Test</h3>
 
           <p>
             This video shows the circuit being tested after soldering. The LEDs lighting up confirmed that the
@@ -178,10 +231,14 @@
 
     <!-- Reflection -->
     <section class="case-section reflection-section" id="reflection">
+      <div class="case-section-heading center">
+        <p class="section-kicker">Final Takeaway</p>
+
+        <h2>Final Reflection.</h2>
+      </div>
+
       <div class="reflection-layout">
         <article class="reflection-main">
-          <p class="section-kicker">Final Reflection</p>
-
           <h3>What this mini build taught me.</h3>
 
           <p>
@@ -191,16 +248,16 @@
           </p>
 
           <p>
-            The biggest lesson was that small hardware details matter. A weak solder joint, unclear trace,
-            misaligned drilled hole, or broken connection can stop the circuit from working, so testing each
-            path carefully became just as important as the original layout.
+            The biggest lesson was that small hardware details matter. Even on a small PCB, the circuit only works
+            if the design, fabrication, soldering, and testing all line up. This made me more careful about checking
+            each connection instead of assuming the board would work once it was assembled.
           </p>
         </article>
 
         <aside class="reflection-notebook">
           <div class="reflection-notebook-header">
             <p class="reflection-notebook-label">Mini Build Skills</p>
-            <h3>Hardware practice</h3>
+            <h3>Hardware Practice</h3>
           </div>
 
           <ul class="reflection-checklist">
@@ -210,6 +267,25 @@
             <li>Used LED output to verify the fabricated boards worked.</li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-section project-cta-section">
+      <div class="project-cta-card">
+        <p class="section-kicker">Like this project?</p>
+
+        <h2>Let’s connect.</h2>
+
+        <p>
+          Thanks for visiting this mini build. Whether you have a question, an opportunity,
+          or just want to start a conversation, I’d be happy to hear from you.
+        </p>
+
+        <div class="project-hero-actions">
+          <a href="../index.html#projects" class="hero-btn primary">Back to Projects</a>
+          <a href="../index.html#contact" class="hero-btn secondary">Contact Me</a>
+        </div>
       </div>
     </section>
 
