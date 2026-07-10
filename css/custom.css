@@ -2682,7 +2682,7 @@ body.dark-mode .featured-project-highlights div {
   border: 1px solid rgba(214, 51, 132, 0.2);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.95);
-  color: var(--portfolio-accent);
+  color: var(--portfolio-pink);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -2729,7 +2729,7 @@ body.dark-mode .featured-project-highlights div {
 .carousel-dot.is-active {
   width: 9px;
   height: 9px;
-  background: var(--portfolio-accent);
+  background: var(--portfolio-pink);
 }
 
 /* Tablet */
@@ -2796,7 +2796,7 @@ body.dark-mode .featured-project-highlights div {
   justify-content: center;
   margin-bottom: 1rem;
   background: rgba(214, 51, 132, 0.1);
-  color: var(--portfolio-accent);
+  color: var(--portfolio-pink);
   font-weight: 800;
 }
 
