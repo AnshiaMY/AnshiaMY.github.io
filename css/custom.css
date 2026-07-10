@@ -2996,43 +2996,122 @@ body.dark-mode .featured-project-highlights div {
   margin-bottom: 1.5rem;
 }
 
+/* ------------------------------
+   PCB Portrait Video Showcase
+------------------------------ */
+
 .pcb-mini-build-page .pcb-demo-row {
   grid-template-columns:
-    minmax(340px, 1.05fr)
-    minmax(280px, 0.95fr);
-  gap: 3.5rem;
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
+    minmax(280px, 0.72fr)
+    minmax(360px, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
 }
 
 .pcb-mini-build-page .pcb-demo-row.reverse {
   grid-template-columns:
-    minmax(280px, 0.95fr)
-    minmax(340px, 1.05fr);
+    minmax(360px, 1fr)
+    minmax(280px, 0.72fr);
 }
 
-.pcb-mini-build-page .demo-video-frame {
-  width: 100%;
+/*
+  The HTML keeps the video first.
+  This moves it to the right in reversed rows.
+*/
+.pcb-mini-build-page .pcb-demo-row.reverse .portrait-video-frame {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.pcb-mini-build-page .pcb-video-frame {
-  max-width: 680px;
+.pcb-mini-build-page .pcb-demo-row.reverse .demo-feature-text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Narrow portrait frame */
+.pcb-mini-build-page .portrait-video-frame {
+  width: min(100%, 350px);
   justify-self: center;
   padding: 0.65rem;
   border: 1px solid var(--portfolio-border);
-  border-radius: 1.55rem;
+  border-radius: 1.6rem;
   background: #ffffff;
-  box-shadow: 0 22px 55px rgba(31, 41, 51, 0.1);
+  box-shadow: 0 22px 55px rgba(31, 41, 51, 0.12);
 }
 
-.pcb-mini-build-page .pcb-video-frame video {
+/* Preserve the original vertical recording */
+.pcb-mini-build-page .portrait-video-frame video {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 450px;
-  object-fit: contain;
-  border-radius: 1rem;
+  max-height: 640px;
+  border-radius: 1.05rem;
   background: #111111;
+  object-fit: contain;
+}
+
+/* Keep the description from becoming too wide */
+.pcb-mini-build-page .pcb-demo-row .demo-feature-text {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Dark mode */
+body.pcb-mini-build-page.dark-mode
+  .portrait-video-frame {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #1a1b22;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+  .pcb-mini-build-page .pcb-demo-row,
+  .pcb-mini-build-page .pcb-demo-row.reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pcb-mini-build-page
+    .pcb-demo-row.reverse
+    .portrait-video-frame,
+  .pcb-mini-build-page
+    .pcb-demo-row.reverse
+    .demo-feature-text {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .pcb-mini-build-page .portrait-video-frame {
+    width: min(100%, 340px);
+    order: 1;
+  }
+
+  .pcb-mini-build-page .pcb-demo-row .demo-feature-text {
+    max-width: 650px;
+    margin: 0 auto;
+    order: 2;
+    text-align: center;
+  }
+
+  .pcb-mini-build-page .mini-demo-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pcb-mini-build-page .portrait-video-frame {
+    width: min(100%, 300px);
+    padding: 0.5rem;
+    border-radius: 1.35rem;
+  }
+
+  .pcb-mini-build-page .portrait-video-frame video {
+    max-height: 560px;
+    border-radius: 0.9rem;
+  }
 }
 
 .pcb-mini-build-page .demo-feature-text {
