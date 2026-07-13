@@ -363,18 +363,11 @@
             </h3>
 
             <p>
-              The circuit board was fabricated from a plain copper-clad
-              board using a custom digital schematic and board layout.
-              After the design was heat-transferred onto the copper
-              surface, the board was chemically etched to form the
-              required conductive traces.
-            </p>
-
-            <p>
-              The board supported connections between the robot’s
-              infrared sensors, motor driver, power distribution, and
-              control electronics. Component holes were drilled before
-              the parts were installed and soldered into place.
+              The circuit board was fabricated from a plain copper board using a custom
+              digital schematic and board layout. After the design was heat-transferred
+              onto the copper surface, the board was etched to form the electrical traces
+              used to connect the robot’s sensors, motor driver, power connections, and
+              control electronics.
             </p>
           </article>
 
@@ -391,17 +384,11 @@
             </h3>
 
             <p>
-              Once the board was prepared, the components were soldered
-              and integrated into the robot. The two infrared sensors,
-              motor driver, DC motors, Raspberry Pi, and regulated power
-              connections had to operate together reliably.
-            </p>
-
-            <p>
-              Wiring checks, continuity testing, and multimeter-based
-              troubleshooting were completed before full system testing.
-              This reduced the risk of treating a hardware connection
-              problem as a software failure.
+              Once the board was prepared, the components were soldered and wired into
+              the robot. The infrared sensors, motor driver, DC motors, and regulated
+              5V/3.3V power connections had to work together reliably, so wiring checks
+              and multimeter-based debugging were used before moving into full system
+              testing.
             </p>
           </article>
 
@@ -490,11 +477,12 @@
           </h3>
 
           <p>
-            This test used a mostly straight black path with a small
-            deviation to establish a baseline for the robot’s tracking
-            behaviour. Starting with a simpler path made it easier to
-            evaluate sensor consistency and motor corrections before
-            introducing tighter curves.
+            The racetrack path introduced a more complex line-following
+            condition by requiring the robot to respond to continuous
+            curves and direction changes. This test helped evaluate how
+            smoothly the control logic adjusted the motor outputs during turns,
+            while also revealing moments of overcorrection as the sensors reacted
+            to changes in the path.
           </p>
 
           <ul>
@@ -888,21 +876,23 @@
           </p>
 
           <p>
-            When the robot drifted, overcorrected, or behaved
-            inconsistently, the cause was not always obvious because the
-            issue could come from sensor placement, motor response, wiring
-            reliability, power delivery, or the control logic. I learned
-            to slow down, isolate one variable at a time, and treat each
-            test result as evidence for the next improvement.
+            This project taught me that debugging a physical robot requires both technical
+            problem-solving and persistence. The robot did not become reliable after
+            one round of coding or testing; it improved through repeated observation,
+            small adjustments, and retesting. When the robot drifted, overcorrected, or
+            behaved inconsistently, the cause was not always obvious because the issue
+            could come from sensor placement, motor response, wiring reliability, or the
+            control logic. I learned to slow down, isolate one variable at a time, and treat
+            each test result as evidence for the next improvement.
           </p>
 
           <p>
-            The biggest lesson I took from this project was that failed
-            tests are an important part of engineering, not just signs
-            that something went wrong. Each issue helped me understand
-            the system more clearly and made me more patient, resilient,
-            and systematic when troubleshooting interconnected hardware
-            and software.
+            The biggest lesson I took from this project was that failed tests are an
+            important part of engineering, not just signs that something went wrong.
+            Each issue helped me understand the system more clearly and pushed me to become
+            more patient, resilient, and systematic in how I troubleshoot. This project made me
+            more confident working through uncertainty and showed me that strong engineering comes
+            from continuing to test, debug, and refine a design even when the solution is not immediate.
           </p>
         </article>
 
