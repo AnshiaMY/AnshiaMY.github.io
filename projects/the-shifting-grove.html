@@ -261,9 +261,7 @@
         </p>
 
         <p>
-          The final concept is a fantasy maze game where players explore an
-          enchanted grove, collect Grove Shards, complete mini-game
-          challenges, and race to escape before the grove shifts. The project
+          The project
           allowed me to turn algorithms and software concepts into a playable
           experience while strengthening my programming, debugging, and
           software-architecture skills.
@@ -349,163 +347,81 @@
               Development Stage 01
             </p>
 
-            <h3>
-              Game Architecture
-            </h3>
+            <h3>Game Architecture</h3>
+        
+          <p>
+            The game was built using a modular, object-oriented architecture so that each major system could be developed, tested, and debugged independently. Instead of placing all logic inside one large script, I separated the project into focused files and classes for the player, fox, maze generation, shards, UI, asset loading, mini-games, settings, and the main game controller. This made the codebase easier to understand as the project grew and allowed each feature to connect through a clearer structure.
+          </p>
+        
+          <p>
+            A major part of the architecture was the use of finite state machines and explicit state management. The game has several different modes, including the start menu, instructions, maze gameplay, mini-game transitions, reward screens, win/loss states, and return-to-maze logic. Each state needed defined entry conditions, update behaviour, input handling, and exit transitions so that one screen or mini-game would not interfere with another.
+          </p>
+        
+          <p>
+            This structure became especially important once the project expanded from a single maze into a full game with three integrated mini-games. The architecture had to support switching between systems, preserving progress, applying rewards, resetting temporary mini-game variables, and returning to the correct maze state. Building this flow helped me practice larger-scale software organization, not just isolated feature development.
+          </p>
+        </article>
 
+          <article class="build-stage-panel" data-stage-panel="2">
+            <p class="notebook-label">Development Stage 02</p>
+          
+            <h3>Maze &amp; Player Systems</h3>
+          
             <p>
-              The game was built using a modular, object-oriented
-              architecture so each major system could be developed, tested,
-              and debugged independently. Instead of placing all logic inside
-              one large script, I separated the project into focused files
-              and classes for the player, fox, maze generation, shards, UI,
-              asset loading, mini-games, settings, and the main game
-              controller.
+              The main gameplay is built around procedural maze generation, using a randomized depth-first search approach to create a new navigable layout each round. The maze is generated from a grid structure where paths are carved between cells, producing a playable maze instead of a manually designed map. This allowed the game to feel different across rounds while still maintaining valid routes for the player and fox.
             </p>
-
+          
             <p>
-              A major part of the architecture was explicit state management.
-              The game includes a start menu, instructions, maze gameplay,
-              mini-game transitions, reward screens, win and loss states, and
-              return-to-maze logic. Each state needed defined entry
-              conditions, input handling, update behaviour, drawing logic,
-              and exit transitions so one screen or mini-game would not
-              interfere with another.
+              After generation, the maze data had to connect to the rest of the game systems. Wall tiles, walkable paths, collision boundaries, shard locations, mini-game trigger areas, and the final portal objective all depended on the generated layout. This meant the maze was not only a visual background; it acted as the foundation for movement, pathfinding, collision detection, objective placement, and gameplay progression.
             </p>
-
+          
             <p>
-              This structure became especially important when the project
-              expanded from one maze into a complete game with three
-              integrated mini-games. The architecture had to preserve player
-              progress, apply rewards, reset temporary mini-game variables,
-              and return to the correct maze state after each challenge.
+              The player system handles movement, collision detection, collectible logic, and game-state updates. As the player moves through the grove, the game checks wall collisions, tracks collected Grove Shards, determines when the portal can activate, and handles transitions into mini-games. This required the movement system to work closely with the maze grid and the overall state machine so that exploration, collection, and transitions remained consistent.
             </p>
           </article>
 
-          <!-- Development Stage 2 -->
-          <article
-            class="build-stage-panel"
-            data-stage-panel="2"
-          >
-            <p class="notebook-label">
-              Development Stage 02
-            </p>
-
-            <h3>
-              Maze &amp; Player Systems
-            </h3>
-
+          <article class="build-stage-panel" data-stage-panel="3">
+            <p class="notebook-label">Development Stage 03</p>
+          
+            <h3>Fox AI &amp; Game Logic</h3>
+          
             <p>
-              The main gameplay is built around procedural maze generation.
-              A randomized depth-first search approach creates a connected
-              grid by carving paths between cells, allowing each round to use
-              a new navigable layout instead of a manually fixed map.
+              The fox AI was the main technical focus of the game. Instead of using random movement or a fixed chase pattern, the fox uses BFS pathfinding to navigate the procedurally generated maze. Each round, it evaluates the current grid, avoids wall cells, and selects valid routes toward the player or key objective areas.
             </p>
-
+          
             <p>
-              The generated maze data connects directly to the rest of the
-              game. Wall tiles, walkable paths, collision boundaries, shard
-              locations, mini-game trigger areas, fox routes, and the final
-              portal objective all depend on the generated grid.
+              I also added adaptive behaviour so the fox could respond to the match state. When the fox is falling behind or losing momentum, its behaviour becomes more aggressive, increasing pressure on the player and making the AI feel less predictable. This connected the pathfinding system to higher-level game logic rather than treating movement as a separate feature.
             </p>
-
+          
             <p>
-              The player system handles movement, wall collision, collectible
-              logic, portal activation, and transitions into mini-games. This
-              required the movement system, maze grid, collision logic, and
-              overall state flow to remain synchronized throughout each
-              round.
+              The fox system also interacts with collision detection, player progress, mini-game triggers, reward effects, win conditions, and local multiplayer. Since the same fox character can be controlled by either AI or a second player, the code had to support both modes while keeping the maze, mini-game, and state-transition logic consistent.
             </p>
           </article>
 
-          <!-- Development Stage 3 -->
-          <article
-            class="build-stage-panel"
-            data-stage-panel="3"
-          >
-            <p class="notebook-label">
-              Development Stage 03
-            </p>
-
-            <h3>
-              Fox AI &amp; Game Logic
-            </h3>
-
-            <p>
-              The fox AI was one of the project’s main technical systems.
-              Rather than relying only on random movement or a fixed chase
-              sequence, the fox uses breadth-first search pathfinding to
-              navigate the current procedural maze. It evaluates valid grid
-              cells, avoids walls, and follows calculated routes toward the
-              player or important objective areas.
-            </p>
-
-            <p>
-              I also connected the fox’s movement to higher-level game
-              behaviour. Its pressure and aggression could change based on
-              the match state, allowing it to respond differently when it
-              was falling behind rather than behaving identically throughout
-              every round.
-            </p>
-
-            <p>
-              The same fox character can be controlled by the AI in
-              single-player mode or by a second person in local multiplayer.
-              The code therefore had to support both control modes while
-              keeping collision, mini-game triggers, rewards, progression,
-              and end conditions consistent.
-            </p>
-          </article>
-
-          <!-- Development Stage 4 -->
-          <article
-            class="build-stage-panel"
-            data-stage-panel="4"
-          >
-            <p class="notebook-label">
-              Development Stage 04
-            </p>
-
-            <h3>
-              Mini-Games &amp; Polish
-            </h3>
-
-            <p>
-              The game includes three integrated mini-games: The Sigil’s
-              Echo, Starlight Crossing, and Canopy Cascade. Each mini-game
-              was built as its own system with separate mechanics, controls,
-              timers, win conditions, AI behaviour, reward logic, and
-              transition flow.
-            </p>
-
-            <p>
-              The Sigil’s Echo required sequence generation, input
-              validation, progress tracking, timing, and feedback states.
-              Starlight Crossing required a tile-based puzzle with path
-              validation, solvable board generation, rotation controls,
-              countdown logic, and AI solving behaviour. Canopy Cascade
-              introduced arcade-style paddle movement, collision response,
-              scoring, and continuous real-time updates.
-            </p>
-
-            <p>
-              A major challenge was connecting each mini-game cleanly to the
-              main state system. A mini-game needed to start from the maze,
-              run independently, determine a result, apply the correct reward
-              or consequence, reset its temporary values, and return to the
-              maze without affecting unrelated systems.
-            </p>
-
-            <p>
-              The final polish stage focused on UI spacing, visual feedback,
-              transitions, reward screens, asset loading, countdowns, and
-              consistent screen flow. I also organized the project with Git
-              and GitHub and prepared its code and documentation as a
-              readable software portfolio project.
-            </p>
-          </article>
+          <article class="build-stage-panel" data-stage-panel="4">
+          <p class="notebook-label">Development Stage 04</p>
+        
+          <h3>Mini-Games &amp; Polish</h3>
+        
+          <p>
+            The game includes three integrated mini-games: The Sigil’s Echo, Starlight Crossing, and Canopy Cascade. Each mini-game was built as its own system with separate mechanics, controls, timers, win conditions, AI behaviour, reward logic, and transition flow. The challenge was not only making each mini-game work on its own, but making each one connect cleanly back to the main maze.
+          </p>
+        
+          <p>
+            The Sigil’s Echo required sequence logic, input validation, progress tracking, timing, and feedback states. Starlight Crossing required a tile-based puzzle system with path validation, solvable board generation, rotation controls, countdown logic, and AI solving behaviour. Canopy Cascade added arcade-style collision, paddle movement, scoring, and real-time reaction mechanics. Together, the mini-games allowed me to practice different types of gameplay logic within one larger project.
+          </p>
+        
+          <p>
+            A major part of this stage was debugging integration issues between the mini-games and the main state machine. Each mini-game needed to start from the maze, run independently, determine a result, apply the correct reward or consequence, and return to the maze without carrying over unwanted temporary variables. This required careful handling of resets, timers, player/fox states, and screen transitions.
+          </p>
+        
+          <p>
+            The final polish stage focused on improving the user experience through UI spacing, visual feedback, transitions, reward screens, image loading, countdowns, and consistent screen flow. I also used Git and GitHub to organize the finished project and prepare it as a readable software portfolio piece. This stage helped turn the project from a functional prototype into a complete, presentable game.
+          </p>
+        </article>
 
         </div>
+
       </div>
     </section>
 
@@ -1020,37 +936,15 @@
           </h3>
 
           <p>
-            The Shifting Grove helped me move from smaller programming
-            exercises to a larger software project with many connected
-            systems. I had to think beyond individual features and consider
-            how maze generation, player movement, fox AI, mini-games,
-            rewards, UI screens, and state transitions worked together
-            inside one game loop.
+        The Shifting Grove helped me grow from writing smaller programming exercises to building a larger software project with many connected systems. I had to think beyond individual features and consider how the maze, player movement, fox AI, mini-games, rewards, UI screens, and state transitions all worked together inside one game loop. This strengthened my understanding of object-oriented programming, modular architecture, procedural generation, BFS pathfinding, collision detection, and finite state machines in a practical setting.
           </p>
-
+    
           <p>
-            This strengthened my understanding of object-oriented
-            programming, modular architecture, procedural generation, BFS
-            pathfinding, collision systems, and state management in a
-            practical setting.
+            This project also taught me how important debugging, patience, and iteration are in software development. Many issues did not come from one obvious error, but from the way different systems interacted. I learned to slow down, isolate problems, test one feature at a time, and trace how data moved between states. That process made me more confident working through complex bugs instead of feeling stuck when the project became messy.
           </p>
-
+    
           <p>
-            The project also taught me how important patience and systematic
-            debugging are in software development. Many issues did not come
-            from one obvious error but from the way several systems
-            interacted. I learned to isolate problems, test one feature at
-            a time, trace how data moved between states, and retest the
-            complete game after a local fix.
-          </p>
-
-          <p>
-            Turning software concepts into a playable game made the learning
-            process more engaging while still requiring technical discipline.
-            It helped me become more confident managing a larger codebase,
-            making architectural decisions, using Git for version control,
-            and continuing to polish a project after its main features were
-            functional.
+            Personally, this project reminded me that I learn best when I am building something creative and challenging. Turning algorithms and software concepts into a playable game made the learning process more engaging, while still pushing me to improve my technical discipline. It helped me become more comfortable managing a bigger codebase, making design decisions, and continuing to polish a project even after the main features were working.
           </p>
 
           <div class="repository-callout">
