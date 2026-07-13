@@ -780,42 +780,33 @@
               </div>
 
               <div class="debug-report-row">
-                <span class="debug-report-label">
-                  Diagnosis
-                </span>
-
-                <p>
-                  The chain-based vertical lift introduced several design
-                  constraints. The claw and object added weight to the
-                  chain, while the redesigned chassis created a central gap
-                  for the lift mechanism.
-                </p>
-
-                <p>
-                  This made it difficult to use a bumper sensor to detect
-                  the lowest claw position. The available lift height also
-                  limited how easily objects could be dropped over taller
-                  box walls.
-                </p>
-              </div>
+              <span class="debug-report-label">
+                Diagnosis
+              </span>
+            
+              <p>
+                The chain-based vertical lift introduced several design constraints.
+                The claw and object added weight to the chain, while the redesigned
+                chassis created a central gap for the lift mechanism. This made it
+                difficult to use a bumper sensor to detect the lowest claw position.
+                The available lift height also limited how easily objects could be
+                dropped over taller box walls.
+              </p>
+            </div>
 
               <div class="debug-report-row">
-                <span class="debug-report-label">
-                  Adjustment
-                </span>
-
-                <p>
-                  Additional supports were added to reduce stress on the
-                  chain system, and the claw assembly was simplified so it
-                  used only the necessary components.
-                </p>
-
-                <p>
-                  Since the bumper sensor was no longer practical, the
-                  software relied on motor-encoder thresholds to estimate
-                  lift position and control the mechanism more reliably.
-                </p>
-              </div>
+              <span class="debug-report-label">
+                Adjustment
+              </span>
+            
+              <p>
+                Additional supports were added to reduce stress on the chain system,
+                and the claw assembly was simplified so it used only the necessary
+                components. Since the bumper sensor was no longer practical, the
+                software relied on motor-encoder thresholds to estimate lift position
+                and control the mechanism more reliably.
+              </p>
+            </div>
 
             </div>
           </article>
@@ -828,65 +819,57 @@
             <span class="debug-file-label">
               Debug File 03
             </span>
-
+          
             <h3>
-              Sensor Calibration and Navigation Accuracy
+              Sensor calibration and navigation accuracy
             </h3>
-
+          
             <div class="debug-report-grid">
-
+          
               <div class="debug-report-row">
                 <span class="debug-report-label">
                   Symptom
                 </span>
-
+          
                 <p>
-                  The robot did not always move with perfect accuracy
-                  during navigation. Distance readings sometimes varied,
-                  the colour sensor could be affected by lighting or
-                  surface reflections, and gyro-based turns did not always
-                  stop at exactly 90 degrees.
+                  The robot did not always move with perfect accuracy during
+                  navigation. Distance readings sometimes varied, the colour
+                  sensor could be affected by lighting or surface reflections,
+                  and gyro-based turns did not always stop at exactly 90 degrees.
                 </p>
               </div>
-
+          
               <div class="debug-report-row">
                 <span class="debug-report-label">
                   Diagnosis
                 </span>
-
+          
                 <p>
-                  The autonomous routine depended on several sensors working
+                  The autonomous routine depended on multiple sensors working
                   together. The colour sensor had to detect the correct floor
-                  stripe, the gyro had to support the turn toward the box,
-                  the distance sensor had to stop the robot near the wall,
-                  and motor encoders had to support return movement.
-                </p>
-
-                <p>
-                  When one reading was slightly inconsistent, the robot’s
-                  final alignment could shift.
+                  stripe, the gyro had to support the turn toward the box, the
+                  distance sensor had to stop the robot near the wall, and motor
+                  encoders had to support return movement. When one reading was
+                  slightly inconsistent, the robot’s final alignment could shift.
                 </p>
               </div>
-
+          
               <div class="debug-report-row">
                 <span class="debug-report-label">
                   Adjustment
                 </span>
-
+          
                 <p>
-                  The group improved reliability through repeated calibration
-                  and software tuning. Controlled stripe colours and distances
-                  were used for colour detection, tolerance margins were added
-                  for distance sensing, and gyro-based turns were adjusted
-                  through multiple trials.
-                </p>
-
-                <p>
-                  Demo-day travel distances were also shortened so the robot
-                  could complete a more consistent and repeatable sorting run.
+                  The group improved reliability through repeated calibration and
+                  software tuning. Controlled stripe colours and distances were
+                  used for colour detection, tolerance margins were added for
+                  distance sensing, and gyro-based turns were adjusted through
+                  multiple trials. Demo-day travel distances were also shortened
+                  so the robot could complete a more consistent and repeatable
+                  sorting run.
                 </p>
               </div>
-
+          
             </div>
           </article>
 
